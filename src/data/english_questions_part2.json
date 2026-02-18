@@ -1,0 +1,1302 @@
+{
+  "metadata": {
+    "title": "AMIRNET English Questions Database - Part 2",
+    "description": "Extracted English questions from Israeli Psychometric Exams",
+    "exams": ["Winter 2024", "Summer 2025"],
+    "questionRange": "133-220",
+    "totalQuestions": 88,
+    "questionTypes": ["Sentence Completion", "Restatement", "Reading Comprehension"],
+    "createdFor": "Antigravity AMIRNET Prep App",
+    "relatedFile": "english_questions_database.json"
+  },
+  "questions": [
+    {
+      "id": 133,
+      "exam": "Winter 2024",
+      "section": 1,
+      "questionNumber": 1,
+      "type": "Sentence Completion",
+      "question": "The peregrine falcon can reach a speed of 200 miles per hour, faster than ____ member of the animal kingdom.",
+      "options": ["most of the", "all the", "any other", "each one"],
+      "correctAnswer": "any other",
+      "correctIndex": 3
+    },
+    {
+      "id": 134,
+      "exam": "Winter 2024",
+      "section": 1,
+      "questionNumber": 2,
+      "type": "Sentence Completion",
+      "question": "The butterfly fish can leap out of the water and soar through the air, ____ its fins like wings.",
+      "options": ["flapping", "stripping", "pressing", "padding"],
+      "correctAnswer": "flapping",
+      "correctIndex": 1
+    },
+    {
+      "id": 135,
+      "exam": "Winter 2024",
+      "section": 1,
+      "questionNumber": 3,
+      "type": "Sentence Completion",
+      "question": "The collection of rare books and manuscripts from Tibet housed in the National Library of Mongolia is ____, comprising more than a million items.",
+      "options": ["immense", "oral", "urgent", "accurate"],
+      "correctAnswer": "immense",
+      "correctIndex": 1
+    },
+    {
+      "id": 136,
+      "exam": "Winter 2024",
+      "section": 1,
+      "questionNumber": 4,
+      "type": "Sentence Completion",
+      "question": "Oil-based paints are more difficult to distribute ____ over the surface of a wall than latex paints.",
+      "options": ["evenly", "fairly", "mildly", "openly"],
+      "correctAnswer": "evenly",
+      "correctIndex": 1
+    },
+    {
+      "id": 137,
+      "exam": "Winter 2024",
+      "section": 1,
+      "questionNumber": 5,
+      "type": "Sentence Completion",
+      "question": "President Franklin D. Roosevelt's middle ____ stands for \"Delano\".",
+      "options": ["appeal", "initial", "principle", "vowel"],
+      "correctAnswer": "initial",
+      "correctIndex": 2
+    },
+    {
+      "id": 138,
+      "exam": "Winter 2024",
+      "section": 1,
+      "questionNumber": 6,
+      "type": "Sentence Completion",
+      "question": "The compositions of twentieth-century musician John Zorn ____ elements from jazz, klezmer, and punk rock.",
+      "options": ["incorporate", "allocate", "verify", "dispatch"],
+      "correctAnswer": "incorporate",
+      "correctIndex": 1
+    },
+    {
+      "id": 139,
+      "exam": "Winter 2024",
+      "section": 1,
+      "questionNumber": 7,
+      "type": "Sentence Completion",
+      "question": "In Jerusalem's Machane Yehuda market, over 250 ____ sell everything from fruit and vegetables to clothing and household goods.",
+      "options": ["janitors", "aviators", "captors", "vendors"],
+      "correctAnswer": "vendors",
+      "correctIndex": 4
+    },
+    {
+      "id": 140,
+      "exam": "Winter 2024",
+      "section": 1,
+      "questionNumber": 8,
+      "type": "Sentence Completion",
+      "question": "In 1923, Italian leader Benito Mussolini was knighted by Britain's King George V, but the honour was ____ when Mussolini declared war on Britain in 1940.",
+      "options": ["abstained", "revoked", "reconciled", "accorded"],
+      "correctAnswer": "revoked",
+      "correctIndex": 2
+    },
+    {
+      "id": 141,
+      "exam": "Winter 2024",
+      "section": 1,
+      "questionNumber": 9,
+      "type": "Restatement",
+      "question": "Gold is virtually indestructible.",
+      "options": [
+        "Gold is extremely difficult to find.",
+        "Gold almost never loses its value.",
+        "Gold is the most desirable metal.",
+        "Gold is nearly impossible to destroy."
+      ],
+      "correctAnswer": "Gold is nearly impossible to destroy.",
+      "correctIndex": 4
+    },
+    {
+      "id": 142,
+      "exam": "Winter 2024",
+      "section": 1,
+      "questionNumber": 10,
+      "type": "Restatement",
+      "question": "World War II provided tremendous impetus for U.S. industries.",
+      "options": [
+        "World War II changed the infrastructure of U.S. industries.",
+        "World War II presented unique challenges to U.S. industries.",
+        "U.S. industries were adapted to meet the military's needs in World War II.",
+        "U.S. industries were significantly boosted by World War II."
+      ],
+      "correctAnswer": "U.S. industries were significantly boosted by World War II.",
+      "correctIndex": 4
+    },
+    {
+      "id": 143,
+      "exam": "Winter 2024",
+      "section": 1,
+      "questionNumber": 11,
+      "type": "Restatement",
+      "question": "British historian John Anthony Crook is of the opinion that the high repute of Roman emperor Marcus Aurelius is misplaced.",
+      "options": [
+        "Crook has expressed contradictory views of Marcus Aurelius' role in history.",
+        "Crook argues that Marcus Aurelius is one of the most misunderstood individuals in history.",
+        "According to Crook, Marcus Aurelius is not deserving of his renown.",
+        "Crook argues that Marcus Aurelius has not been given the attention fitting for a figure of his stature."
+      ],
+      "correctAnswer": "According to Crook, Marcus Aurelius is not deserving of his renown.",
+      "correctIndex": 3
+    },
+    {
+      "id": 144,
+      "exam": "Winter 2024",
+      "section": 1,
+      "questionNumber": 12,
+      "type": "Restatement",
+      "question": "The Opium Wars were precipitated by China's efforts to suppress the opium trade.",
+      "options": [
+        "The Opium Wars broke out as a result of China's efforts to regulate the opium trade.",
+        "China emerged victorious from the Opium Wars, thereby securing its domination of the opium trade.",
+        "China's strict control of the opium trade was undermined by the Opium Wars.",
+        "China's attempts to halt the opium trade were the catalyst for the Opium Wars."
+      ],
+      "correctAnswer": "China's attempts to halt the opium trade were the catalyst for the Opium Wars.",
+      "correctIndex": 4
+    },
+    {
+      "id": 145,
+      "exam": "Winter 2024",
+      "section": 1,
+      "questionNumber": 13,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Medieval bathhouses in Europe",
+      "question": "The main purpose of the text is to describe -",
+      "options": [
+        "the importance of cleanliness in 16th-century Europe",
+        "the differences between medieval and 16th-century villages",
+        "the practice of public bathing in medieval Europe",
+        "the development of sanitary equipment in the medieval home"
+      ],
+      "correctAnswer": "the practice of public bathing in medieval Europe",
+      "correctIndex": 3
+    },
+    {
+      "id": 146,
+      "exam": "Winter 2024",
+      "section": 1,
+      "questionNumber": 14,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Medieval bathhouses in Europe",
+      "question": "It can be inferred from the first paragraph that the existence of public bathhouses explains why -",
+      "options": [
+        "sanitary conditions in medieval villages were very crude",
+        "Europeans were healthier in early medieval times than in the 16th century",
+        "medieval villagers were poorer than those of the 16th century",
+        "there were few municipal bathhouses in 16th-century Europe"
+      ],
+      "correctAnswer": "Europeans were healthier in early medieval times than in the 16th century",
+      "correctIndex": 2
+    },
+    {
+      "id": 147,
+      "exam": "Winter 2024",
+      "section": 1,
+      "questionNumber": 15,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Medieval bathhouses in Europe",
+      "question": "Which of the following is not mentioned in the second paragraph as something people did at the bathhouse?",
+      "options": [
+        "socializing",
+        "eating",
+        "exercising",
+        "gossiping"
+      ],
+      "correctAnswer": "exercising",
+      "correctIndex": 3
+    },
+    {
+      "id": 148,
+      "exam": "Winter 2024",
+      "section": 1,
+      "questionNumber": 16,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Medieval bathhouses in Europe",
+      "question": "According to the third paragraph, bathhouses were no longer used in the 16th century because -",
+      "options": [
+        "people were embarrassed by bodily exposure",
+        "it had become too expensive to heat water",
+        "fewer people lived in cities",
+        "cleanliness had become less important"
+      ],
+      "correctAnswer": "it had become too expensive to heat water",
+      "correctIndex": 2
+    },
+    {
+      "id": 149,
+      "exam": "Winter 2024",
+      "section": 1,
+      "questionNumber": 17,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Medieval bathhouses in Europe",
+      "question": "According to the last paragraph, 19th-century city officials would have been surprised to know that -",
+      "options": [
+        "medieval towns and villages had been dirty and disorderly",
+        "public bathhouses had existed in early medieval times",
+        "wealthy people no longer visited bathhouses",
+        "no one was using the bathing facilities in poor neighborhoods"
+      ],
+      "correctAnswer": "public bathhouses had existed in early medieval times",
+      "correctIndex": 2
+    },
+    {
+      "id": 150,
+      "exam": "Winter 2024",
+      "section": 1,
+      "questionNumber": 18,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Pigeon culture in China",
+      "question": "The word \"breeding\" in line 10 could best be replaced by -",
+      "options": [
+        "performing",
+        "raising",
+        "flying",
+        "racing"
+      ],
+      "correctAnswer": "raising",
+      "correctIndex": 2
+    },
+    {
+      "id": 151,
+      "exam": "Winter 2024",
+      "section": 1,
+      "questionNumber": 19,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Pigeon culture in China",
+      "question": "According to the second paragraph, during the 1970s -",
+      "options": [
+        "the Chinese government did not allow pigeon racing",
+        "pigeon culture was important in China",
+        "thousands of pigeons were released throughout China",
+        "the Beijing Pigeon Association was created"
+      ],
+      "correctAnswer": "the Chinese government did not allow pigeon racing",
+      "correctIndex": 1
+    },
+    {
+      "id": 152,
+      "exam": "Winter 2024",
+      "section": 1,
+      "questionNumber": 20,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Pigeon culture in China",
+      "question": "According to the third paragraph, Sun Mi -",
+      "options": [
+        "is one of China's 7 million registered pigeon breeders",
+        "has pigeons living in every room of his house",
+        "likes his pigeons so much that he sleeps near them",
+        "is 8 years old"
+      ],
+      "correctAnswer": "likes his pigeons so much that he sleeps near them",
+      "correctIndex": 3
+    },
+    {
+      "id": 153,
+      "exam": "Winter 2024",
+      "section": 1,
+      "questionNumber": 21,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Pigeon culture in China",
+      "question": "A continuation of the last paragraph would probably discuss -",
+      "options": [
+        "recent increases in the average monthly salary in China",
+        "modern Chinese poems about pigeons",
+        "problems of raising pigeons in other countries",
+        "hygiene problems caused by pigeon breeding"
+      ],
+      "correctAnswer": "hygiene problems caused by pigeon breeding",
+      "correctIndex": 4
+    },
+    {
+      "id": 154,
+      "exam": "Winter 2024",
+      "section": 1,
+      "questionNumber": 22,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Pigeon culture in China",
+      "question": "An appropriate title for the text would be -",
+      "options": [
+        "China's Pigeon Culture in the Past and Present",
+        "The Pigeon Classics and Other Literature About Birds",
+        "Sun Mi and the Beijing Pigeon Association",
+        "A History of Pigeon Racing in China"
+      ],
+      "correctAnswer": "China's Pigeon Culture in the Past and Present",
+      "correctIndex": 1
+    },
+    {
+      "id": 155,
+      "exam": "Winter 2024",
+      "section": 2,
+      "questionNumber": 1,
+      "type": "Sentence Completion",
+      "question": "In 1948, the United Nations ____ the Universal Declaration of Human Rights, which maintains that all people are born free and equal.",
+      "options": ["adopted", "cautioned", "exaggerated", "persuaded"],
+      "correctAnswer": "adopted",
+      "correctIndex": 1
+    },
+    {
+      "id": 156,
+      "exam": "Winter 2024",
+      "section": 2,
+      "questionNumber": 2,
+      "type": "Sentence Completion",
+      "question": "Marie Curie was the first person ____ two Nobel Prizes.",
+      "options": ["to win", "who was winning", "that wins", "having won"],
+      "correctAnswer": "to win",
+      "correctIndex": 1
+    },
+    {
+      "id": 157,
+      "exam": "Winter 2024",
+      "section": 2,
+      "questionNumber": 3,
+      "type": "Sentence Completion",
+      "question": "For a short period during his career, painter Pablo Picasso favored a certain ____ of blue called Prussian blue.",
+      "options": ["faith", "craft", "deal", "shade"],
+      "correctAnswer": "shade",
+      "correctIndex": 4
+    },
+    {
+      "id": 158,
+      "exam": "Winter 2024",
+      "section": 2,
+      "questionNumber": 4,
+      "type": "Sentence Completion",
+      "question": "For the first six months of its life, an elephant calf relies almost entirely on its mother's milk for ____.",
+      "options": ["negligence", "sustenance", "decadence", "lenience"],
+      "correctAnswer": "sustenance",
+      "correctIndex": 2
+    },
+    {
+      "id": 159,
+      "exam": "Winter 2024",
+      "section": 2,
+      "questionNumber": 5,
+      "type": "Sentence Completion",
+      "question": "After repeated use, knives become ____ and must be sharpened.",
+      "options": ["dull", "firm", "ripe", "pale"],
+      "correctAnswer": "dull",
+      "correctIndex": 1
+    },
+    {
+      "id": 160,
+      "exam": "Winter 2024",
+      "section": 2,
+      "questionNumber": 6,
+      "type": "Sentence Completion",
+      "question": "As their natural habitat ____, India's wild water buffalo increasingly come into contact with domesticated water buffalo.",
+      "options": ["dims", "grinds", "shrinks", "twists"],
+      "correctAnswer": "shrinks",
+      "correctIndex": 3
+    },
+    {
+      "id": 161,
+      "exam": "Winter 2024",
+      "section": 2,
+      "questionNumber": 7,
+      "type": "Sentence Completion",
+      "question": "The ancient Egyptians developed ____ systems that enabled them to grow crops despite a lack of rainfall.",
+      "options": ["narrative", "irrigation", "fragrance", "assault"],
+      "correctAnswer": "irrigation",
+      "correctIndex": 2
+    },
+    {
+      "id": 162,
+      "exam": "Winter 2024",
+      "section": 2,
+      "questionNumber": 8,
+      "type": "Sentence Completion",
+      "question": "Although Elihu Embree was a slave owner himself, he advocated the ____ of slavery.",
+      "options": ["prestige", "abolition", "deluge", "infidelity"],
+      "correctAnswer": "abolition",
+      "correctIndex": 2
+    },
+    {
+      "id": 163,
+      "exam": "Winter 2024",
+      "section": 2,
+      "questionNumber": 9,
+      "type": "Restatement",
+      "question": "By 2000 B.C.E., Akkadian had largely supplanted Sumerian as the spoken language of southern Mesopotamia.",
+      "options": [
+        "From 2000 B.C.E. onward, Akkadian was no longer spoken in southern Mesopotamia, having been replaced by Sumerian.",
+        "By 2000 B.C.E., the majority of people in southern Mesopotamia were speaking Akkadian rather than Sumerian.",
+        "By 2000 B.C.E., people in southern Mesopotamia were speaking Akkadian as well as Sumerian.",
+        "Until 2000 B.C.E., both Akkadian and Sumerian were the spoken languages of southern Mesopotamia."
+      ],
+      "correctAnswer": "By 2000 B.C.E., the majority of people in southern Mesopotamia were speaking Akkadian rather than Sumerian.",
+      "correctIndex": 2
+    },
+    {
+      "id": 164,
+      "exam": "Winter 2024",
+      "section": 2,
+      "questionNumber": 10,
+      "type": "Restatement",
+      "question": "Even the minority who regretted the demise of the Austro-Hungarian Empire realized it had been inevitable.",
+      "options": [
+        "It is shocking that the collapse of the Austro-Hungarian Empire was brought about by such a small group of people.",
+        "A complex set of circumstances that no one could have predicted led to the demise of the Austro-Hungarian Empire.",
+        "The disintegration of the Austro-Hungarian Empire was so gradual that it had very little impact on most people's lives.",
+        "The fall of the Austro-Hungarian Empire surprised no one, but only a few were displeased when it actually happened."
+      ],
+      "correctAnswer": "The fall of the Austro-Hungarian Empire surprised no one, but only a few were displeased when it actually happened.",
+      "correctIndex": 4
+    },
+    {
+      "id": 165,
+      "exam": "Winter 2024",
+      "section": 2,
+      "questionNumber": 11,
+      "type": "Restatement",
+      "question": "The 2020 Mastercard Index of Women Entrepreneurs ranked Ghana as a global leader in the advancement of women-owned businesses.",
+      "options": [
+        "Ghana was listed in the 2020 Mastercard Index of Women Entrepreneurs as one of the countries most supportive of women-owned businesses.",
+        "According to the 2020 Mastercard Index of Women Entrepreneurs, companies owned by women are particularly successful in Ghana.",
+        "In Ghana, women have made impressive gains in every aspect of the business sector, according to the 2020 Mastercard Index of Women Entrepreneurs.",
+        "The 2020 Mastercard Index of Women Entrepreneurs recognized Ghana's efforts to eliminate discrimination against businesses owned by women."
+      ],
+      "correctAnswer": "Ghana was listed in the 2020 Mastercard Index of Women Entrepreneurs as one of the countries most supportive of women-owned businesses.",
+      "correctIndex": 1
+    },
+    {
+      "id": 166,
+      "exam": "Winter 2024",
+      "section": 2,
+      "questionNumber": 12,
+      "type": "Restatement",
+      "question": "Beware of all enterprises that require new clothes. (Henry David Thoreau)",
+      "options": [
+        "New clothes do not necessarily make a new man.",
+        "Promising enterprises usually involve risks.",
+        "Transforming one's appearance requires courage.",
+        "Undertakings that require one to change should be avoided."
+      ],
+      "correctAnswer": "Undertakings that require one to change should be avoided.",
+      "correctIndex": 4
+    },
+    {
+      "id": 167,
+      "exam": "Winter 2024",
+      "section": 2,
+      "questionNumber": 13,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Jacques Cousteau and ocean exploration",
+      "question": "In line 5, \"these media\" include -",
+      "options": [
+        "homes around the globe",
+        "The Undersea World of Jacques Cousteau",
+        "excitement and curiosity",
+        "\"We must go and see for ourselves.\""
+      ],
+      "correctAnswer": "The Undersea World of Jacques Cousteau",
+      "correctIndex": 2
+    },
+    {
+      "id": 168,
+      "exam": "Winter 2024",
+      "section": 2,
+      "questionNumber": 14,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Jacques Cousteau and ocean exploration",
+      "question": "The motto in line 6 reflects Cousteau's -",
+      "options": [
+        "passion for discovery",
+        "role in educating the public",
+        "excitement about making films",
+        "extensive knowledge of the ocean"
+      ],
+      "correctAnswer": "passion for discovery",
+      "correctIndex": 1
+    },
+    {
+      "id": 169,
+      "exam": "Winter 2024",
+      "section": 2,
+      "questionNumber": 15,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Jacques Cousteau and ocean exploration",
+      "question": "According to the second paragraph, undersea stations -",
+      "options": [
+        "can be moved from place to place",
+        "made use of Cousteau's aqualung",
+        "help scientists learn about ocean life",
+        "were Cousteau's greatest discovery"
+      ],
+      "correctAnswer": "help scientists learn about ocean life",
+      "correctIndex": 3
+    },
+    {
+      "id": 170,
+      "exam": "Winter 2024",
+      "section": 2,
+      "questionNumber": 16,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Jacques Cousteau and ocean exploration",
+      "question": "The last paragraph mainly discusses -",
+      "options": [
+        "the Society for the Protection of Ocean Life",
+        "the threat to sea life posed by pollution",
+        "Cousteau's work to protect oceans",
+        "Cousteau's cooperation with Prince Rainier"
+      ],
+      "correctAnswer": "Cousteau's work to protect oceans",
+      "correctIndex": 3
+    },
+    {
+      "id": 171,
+      "exam": "Winter 2024",
+      "section": 2,
+      "questionNumber": 17,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Jacques Cousteau and ocean exploration",
+      "question": "According to the last paragraph, Prince Rainier -",
+      "options": [
+        "was one of the founders of the Cousteau Society",
+        "gave money to Cousteau's research projects",
+        "was responsible for conservation education in Monaco",
+        "helped prevent nuclear dumping"
+      ],
+      "correctAnswer": "helped prevent nuclear dumping",
+      "correctIndex": 4
+    },
+    {
+      "id": 172,
+      "exam": "Winter 2024",
+      "section": 2,
+      "questionNumber": 18,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Science and the culinary arts",
+      "question": "According to the first paragraph, one of the ways in which science has benefited the visual and performing arts is by -",
+      "options": [
+        "analyzing traditional artistic techniques",
+        "providing information about artistic creation",
+        "redefining the concept of creativity",
+        "making works of art available to more people"
+      ],
+      "correctAnswer": "making works of art available to more people",
+      "correctIndex": 4
+    },
+    {
+      "id": 173,
+      "exam": "Winter 2024",
+      "section": 2,
+      "questionNumber": 19,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Science and the culinary arts",
+      "question": "\"Nevertheless\" in line 8 can best be replaced by -",
+      "options": [
+        "Although there are scientific explanations for many cooking techniques",
+        "Despite the differences between science and cooking",
+        "Because scientific techniques are now used regularly by cooks",
+        "Even though there is evidence that science was applied to cooking in the past"
+      ],
+      "correctAnswer": "Even though there is evidence that science was applied to cooking in the past",
+      "correctIndex": 4
+    },
+    {
+      "id": 174,
+      "exam": "Winter 2024",
+      "section": 2,
+      "questionNumber": 20,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Science and the culinary arts",
+      "question": "It can be inferred from the third paragraph that a scientist might use chromatographic methods to -",
+      "options": [
+        "check the structure of the proteins in eggs",
+        "explain how certain large molecules are created",
+        "find the substances that make fish taste fishy",
+        "compare chemical reactions in different types of cooking"
+      ],
+      "correctAnswer": "find the substances that make fish taste fishy",
+      "correctIndex": 3
+    },
+    {
+      "id": 175,
+      "exam": "Winter 2024",
+      "section": 2,
+      "questionNumber": 21,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Science and the culinary arts",
+      "question": "The text mentions complex carbohydrates and proteins (line 18) because -",
+      "options": [
+        "scientists can explain how they affect the taste and smell of food",
+        "they are components of food that can be scientifically analyzed",
+        "they are good examples of physical and chemical food properties",
+        "science brought them to the awareness of culinary artists"
+      ],
+      "correctAnswer": "they are components of food that can be scientifically analyzed",
+      "correctIndex": 2
+    },
+    {
+      "id": 176,
+      "exam": "Winter 2024",
+      "section": 2,
+      "questionNumber": 22,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Science and the culinary arts",
+      "question": "Based on the information in the last paragraph, which of the following is not one of the goals that chefs try to achieve?",
+      "options": [
+        "making food that tastes delicious",
+        "preparing food that looks attractive",
+        "inventing new dishes",
+        "replacing old culinary tricks with new ones"
+      ],
+      "correctAnswer": "replacing old culinary tricks with new ones",
+      "correctIndex": 4
+    },
+    {
+      "id": 177,
+      "exam": "Summer 2025",
+      "section": 1,
+      "questionNumber": 1,
+      "type": "Sentence Completion",
+      "question": "Peanut butter was once considered a ____ and served only in the finest restaurants.",
+      "options": ["vision", "hybrid", "ritual", "delicacy"],
+      "correctAnswer": "delicacy",
+      "correctIndex": 4
+    },
+    {
+      "id": 178,
+      "exam": "Summer 2025",
+      "section": 1,
+      "questionNumber": 2,
+      "type": "Sentence Completion",
+      "question": "Coral is sometimes used to replace human bone in facial ____ surgery.",
+      "options": ["reconstructive", "prevalent", "receptive", "subordinate"],
+      "correctAnswer": "reconstructive",
+      "correctIndex": 1
+    },
+    {
+      "id": 179,
+      "exam": "Summer 2025",
+      "section": 1,
+      "questionNumber": 3,
+      "type": "Sentence Completion",
+      "question": "Mycenaean, an early form of Greek, was written in a ____ known as Linear B.",
+      "options": ["script", "gesture", "treaty", "creed"],
+      "correctAnswer": "script",
+      "correctIndex": 1
+    },
+    {
+      "id": 180,
+      "exam": "Summer 2025",
+      "section": 1,
+      "questionNumber": 4,
+      "type": "Sentence Completion",
+      "question": "The waters of Italy's Aniene River have been ____ into irrigation canals and aqueducts, reducing its once impressive waterfall to a small trickle.",
+      "options": ["afflicted", "depicted", "diverted", "conceded"],
+      "correctAnswer": "diverted",
+      "correctIndex": 3
+    },
+    {
+      "id": 181,
+      "exam": "Summer 2025",
+      "section": 1,
+      "questionNumber": 5,
+      "type": "Sentence Completion",
+      "question": "In 2020, sub-Saharan Africa was ____ affected by malaria, with 95% of the world's cases occurring there.",
+      "options": ["confidentially", "retroactively", "disproportionately", "residually"],
+      "correctAnswer": "disproportionately",
+      "correctIndex": 3
+    },
+    {
+      "id": 182,
+      "exam": "Summer 2025",
+      "section": 1,
+      "questionNumber": 6,
+      "type": "Sentence Completion",
+      "question": "Once plentiful in North America, freshwater fish have become ____ in recent years.",
+      "options": ["damp", "humble", "scarce", "crude"],
+      "correctAnswer": "scarce",
+      "correctIndex": 3
+    },
+    {
+      "id": 183,
+      "exam": "Summer 2025",
+      "section": 1,
+      "questionNumber": 7,
+      "type": "Sentence Completion",
+      "question": "According to the Montessori educational method, children who are ____ in a task should not be interrupted.",
+      "options": ["relieved", "pardoned", "convinced", "absorbed"],
+      "correctAnswer": "absorbed",
+      "correctIndex": 4
+    },
+    {
+      "id": 184,
+      "exam": "Summer 2025",
+      "section": 1,
+      "questionNumber": 8,
+      "type": "Sentence Completion",
+      "question": "Certain theories in quantum physics can be neither proven nor ____.",
+      "options": ["refuted", "recited", "prolonged", "provoked"],
+      "correctAnswer": "refuted",
+      "correctIndex": 1
+    },
+    {
+      "id": 185,
+      "exam": "Summer 2025",
+      "section": 1,
+      "questionNumber": 9,
+      "type": "Restatement",
+      "question": "The artistic genius of Vivian Maier was revealed only following her death, when her thousands of remarkable photographs came to light.",
+      "options": [
+        "Vivian Maier's large collection of photographs was exhibited only after her death.",
+        "The photographs of Vivian Maier, who died at the height of her career, reveal her unique artistic eye.",
+        "It wasn't until Vivian Maier died that her many extraordinary photographs were discovered and her great talent was acknowledged.",
+        "Vivian Maier's thousands of photographs, most of which were taken towards the end of her life, are admired by many art critics."
+      ],
+      "correctAnswer": "It wasn't until Vivian Maier died that her many extraordinary photographs were discovered and her great talent was acknowledged.",
+      "correctIndex": 3
+    },
+    {
+      "id": 186,
+      "exam": "Summer 2025",
+      "section": 1,
+      "questionNumber": 10,
+      "type": "Restatement",
+      "question": "An economic slump is often the harbinger of a recession.",
+      "options": [
+        "The longer a recession persists, the more severe its repercussions.",
+        "Economic crises and recessions are usually inevitable.",
+        "A recession is a particularly acute economic slump.",
+        "In many cases, a recession is heralded by a period of economic decline."
+      ],
+      "correctAnswer": "In many cases, a recession is heralded by a period of economic decline.",
+      "correctIndex": 4
+    },
+    {
+      "id": 187,
+      "exam": "Summer 2025",
+      "section": 1,
+      "questionNumber": 11,
+      "type": "Restatement",
+      "question": "Achieving literacy in Japanese, which uses multiple alphabets, is a formidable undertaking for non-native speakers.",
+      "options": [
+        "Japanese is not easy to write because each of the characters that make up the alphabet is so complex.",
+        "The Japanese alphabet consists of so many characters that non-native speakers find it almost impossible to master reading and writing.",
+        "Because Japanese has more than one alphabet, speakers of other languages find learning to read and write the language very challenging.",
+        "People who study Japanese have trouble distinguishing among the language's many alphabets."
+      ],
+      "correctAnswer": "Because Japanese has more than one alphabet, speakers of other languages find learning to read and write the language very challenging.",
+      "correctIndex": 3
+    },
+    {
+      "id": 188,
+      "exam": "Summer 2025",
+      "section": 1,
+      "questionNumber": 12,
+      "type": "Restatement",
+      "question": "A key tenet of socialist feminism is that patriarchy and capitalism are intertwined systems that perpetuate the exploitation and subjugation of women.",
+      "options": [
+        "According to socialist feminism, patriarchy and capitalism keep women from fully utilizing their skills.",
+        "Socialist feminists argue that capitalism is a modern manifestation of long-standing patriarchal structures.",
+        "Socialist feminism asserts that the discrimination and neglect suffered by women stems from capitalism just as much as from patriarchal control.",
+        "Central to socialist feminism is the idea that society has taken advantage of and oppressed women through a combination of patriarchy and capitalism."
+      ],
+      "correctAnswer": "Central to socialist feminism is the idea that society has taken advantage of and oppressed women through a combination of patriarchy and capitalism.",
+      "correctIndex": 4
+    },
+    {
+      "id": 189,
+      "exam": "Summer 2025",
+      "section": 1,
+      "questionNumber": 13,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Orchids",
+      "question": "Which of the following statements about the vanilla plant cannot be understood from the first paragraph?",
+      "options": [
+        "It has beautiful flowers.",
+        "It is used in preparing food.",
+        "It has an unpleasant smell.",
+        "It is a well-known kind of orchid."
+      ],
+      "correctAnswer": "It has an unpleasant smell.",
+      "correctIndex": 3
+    },
+    {
+      "id": 190,
+      "exam": "Summer 2025",
+      "section": 1,
+      "questionNumber": 14,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Orchids",
+      "question": "The main purpose of the second paragraph is to -",
+      "options": [
+        "discuss the different places where orchids grow",
+        "explain what epiphytes and lithophytes are",
+        "discuss why orchids are considered exotic",
+        "explain how to grow orchids"
+      ],
+      "correctAnswer": "discuss the different places where orchids grow",
+      "correctIndex": 1
+    },
+    {
+      "id": 191,
+      "exam": "Summer 2025",
+      "section": 1,
+      "questionNumber": 15,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Orchids",
+      "question": "In line 6, \"exotic\" is closest in meaning to -",
+      "options": [
+        "unusual",
+        "difficult to grow",
+        "large",
+        "very colorful"
+      ],
+      "correctAnswer": "unusual",
+      "correctIndex": 1
+    },
+    {
+      "id": 192,
+      "exam": "Summer 2025",
+      "section": 1,
+      "questionNumber": 16,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Orchids",
+      "question": "The last paragraph is mainly about -",
+      "options": [
+        "orchids in Chinese culture",
+        "the orchid as a symbol",
+        "Taiwan's orchid exports",
+        "the medicinal uses of orchids"
+      ],
+      "correctAnswer": "orchids in Chinese culture",
+      "correctIndex": 1
+    },
+    {
+      "id": 193,
+      "exam": "Summer 2025",
+      "section": 1,
+      "questionNumber": 17,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Orchids",
+      "question": "According to the text, orchids are used in making all of the following except -",
+      "options": [
+        "perfume",
+        "food",
+        "bark",
+        "medicine"
+      ],
+      "correctAnswer": "bark",
+      "correctIndex": 3
+    },
+    {
+      "id": 194,
+      "exam": "Summer 2025",
+      "section": 1,
+      "questionNumber": 18,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Rubik's Cube",
+      "question": "The main purpose of the first paragraph is to -",
+      "options": [
+        "introduce the life and work of Erno Rubik",
+        "describe the structure of the Rubik's Cube",
+        "discuss the origins of a popular puzzle",
+        "discuss the connection between geometry and puzzles"
+      ],
+      "correctAnswer": "discuss the origins of a popular puzzle",
+      "correctIndex": 3
+    },
+    {
+      "id": 195,
+      "exam": "Summer 2025",
+      "section": 1,
+      "questionNumber": 19,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Rubik's Cube",
+      "question": "The second paragraph mainly discusses the ____ of a Rubik's Cube.",
+      "options": [
+        "colors and materials",
+        "appearance and manipulations",
+        "size and shape",
+        "configurations and solution"
+      ],
+      "correctAnswer": "appearance and manipulations",
+      "correctIndex": 2
+    },
+    {
+      "id": 196,
+      "exam": "Summer 2025",
+      "section": 1,
+      "questionNumber": 20,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Rubik's Cube",
+      "question": "Based on the information in the second paragraph, a correctly solved Rubik's Cube must have -",
+      "options": [
+        "a red square on six faces",
+        "one white corner on each face",
+        "nine squares of different colors on one face",
+        "one face with nine blue squares"
+      ],
+      "correctAnswer": "one face with nine blue squares",
+      "correctIndex": 4
+    },
+    {
+      "id": 197,
+      "exam": "Summer 2025",
+      "section": 1,
+      "questionNumber": 21,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Rubik's Cube",
+      "question": "It can be inferred from the last paragraph that the Rubik's Cube -",
+      "options": [
+        "did not sell well in the late 1980s",
+        "was less successful in Hungary than in other countries",
+        "is very different from the Magic Cube",
+        "was manufactured with new colors in the 1990s"
+      ],
+      "correctAnswer": "did not sell well in the late 1980s",
+      "correctIndex": 1
+    },
+    {
+      "id": 198,
+      "exam": "Summer 2025",
+      "section": 1,
+      "questionNumber": 22,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Rubik's Cube",
+      "question": "According to the last paragraph, timed competitions -",
+      "options": [
+        "inspired Rubik to design new puzzles",
+        "were responsible for Rubik becoming famous",
+        "were Rubik's idea",
+        "led to renewed interest in the Rubik's Cube"
+      ],
+      "correctAnswer": "led to renewed interest in the Rubik's Cube",
+      "correctIndex": 4
+    },
+    {
+      "id": 199,
+      "exam": "Summer 2025",
+      "section": 2,
+      "questionNumber": 1,
+      "type": "Sentence Completion",
+      "question": "Some scientists believe that modern varieties of wheat are more likely than traditional ones to ____ allergic reactions.",
+      "options": ["trigger", "affirm", "exceed", "smuggle"],
+      "correctAnswer": "trigger",
+      "correctIndex": 1
+    },
+    {
+      "id": 200,
+      "exam": "Summer 2025",
+      "section": 2,
+      "questionNumber": 2,
+      "type": "Sentence Completion",
+      "question": "Camel's milk – which has three times as much vitamin C and ten times as much iron as cow's milk – is highly ____.",
+      "options": ["scenic", "nutritious", "ambitious", "majestic"],
+      "correctAnswer": "nutritious",
+      "correctIndex": 2
+    },
+    {
+      "id": 201,
+      "exam": "Summer 2025",
+      "section": 2,
+      "questionNumber": 3,
+      "type": "Sentence Completion",
+      "question": "Although hot springs are usually ____ volcanic activity, there are quite a few on the Australian mainland that are not found in close proximity to a volcano.",
+      "options": ["inherited by", "obedient to", "associated with", "entertained by"],
+      "correctAnswer": "associated with",
+      "correctIndex": 3
+    },
+    {
+      "id": 202,
+      "exam": "Summer 2025",
+      "section": 2,
+      "questionNumber": 4,
+      "type": "Sentence Completion",
+      "question": "The baobab tree stores enough water in its trunk to sustain it during a ____.",
+      "options": ["fluid", "marsh", "trance", "drought"],
+      "correctAnswer": "drought",
+      "correctIndex": 4
+    },
+    {
+      "id": 203,
+      "exam": "Summer 2025",
+      "section": 2,
+      "questionNumber": 5,
+      "type": "Sentence Completion",
+      "question": "The ancient Egyptians had numerous uses for natron, a mixture of various salts found in ____ along the Nile river.",
+      "options": ["abundance", "endurance", "competence", "defiance"],
+      "correctAnswer": "abundance",
+      "correctIndex": 1
+    },
+    {
+      "id": 204,
+      "exam": "Summer 2025",
+      "section": 2,
+      "questionNumber": 6,
+      "type": "Sentence Completion",
+      "question": "Just three weeks after the assassination of Martin Luther King Jr., the city of Mainz, Germany, named a street in memory of the ____ civil rights leader.",
+      "options": ["slain", "flung", "drawn", "wrung"],
+      "correctAnswer": "slain",
+      "correctIndex": 1
+    },
+    {
+      "id": 205,
+      "exam": "Summer 2025",
+      "section": 2,
+      "questionNumber": 7,
+      "type": "Sentence Completion",
+      "question": "The purpose of Britain's Road Traffic Reduction Act was to lessen traffic ____.",
+      "options": ["inversion", "abstention", "congestion", "discretion"],
+      "correctAnswer": "congestion",
+      "correctIndex": 3
+    },
+    {
+      "id": 206,
+      "exam": "Summer 2025",
+      "section": 2,
+      "questionNumber": 8,
+      "type": "Sentence Completion",
+      "question": "Bats are voracious insect eaters, ____ up to 3,500 bugs in a single night.",
+      "options": ["devouring", "renouncing", "mitigating", "encompassing"],
+      "correctAnswer": "devouring",
+      "correctIndex": 1
+    },
+    {
+      "id": 207,
+      "exam": "Summer 2025",
+      "section": 2,
+      "questionNumber": 9,
+      "type": "Restatement",
+      "question": "Federalism is a political system characterized by the separation of powers between the central government and regional governments.",
+      "options": [
+        "Federalism is most successful when there is close cooperation between the central government and regional governments.",
+        "In a federalist system, policies are set by the central government and carried out by regional governments.",
+        "Federalism is defined as a central government working together with smaller regional governments.",
+        "A federalist system is one in which authority is divided between the central government and regional governments."
+      ],
+      "correctAnswer": "A federalist system is one in which authority is divided between the central government and regional governments.",
+      "correctIndex": 4
+    },
+    {
+      "id": 208,
+      "exam": "Summer 2025",
+      "section": 2,
+      "questionNumber": 10,
+      "type": "Restatement",
+      "question": "Nineteenth-century novelist Mary Ann Evans assumed the male pseudonym George Eliot to ensure that her works be given due consideration.",
+      "options": [
+        "The novels of Mary Ann Evans, also known as George Eliot, were written at a time when female authors were not given the attention they deserved.",
+        "Mary Ann Evans, fearing that her works would otherwise not be taken seriously, adopted the pen name George Eliot.",
+        "Mary Ann Evans was one of many female writers who had to adopt male names in order to have their works published.",
+        "Mary Ann Evans changed her name to George Eliot because she wanted her novels to appeal to a male audience."
+      ],
+      "correctAnswer": "Mary Ann Evans, fearing that her works would otherwise not be taken seriously, adopted the pen name George Eliot.",
+      "correctIndex": 2
+    },
+    {
+      "id": 209,
+      "exam": "Summer 2025",
+      "section": 2,
+      "questionNumber": 11,
+      "type": "Restatement",
+      "question": "When calcium oxide is heated to a temperature approaching its melting point, it emits a brilliant white light.",
+      "options": [
+        "Calcium oxide gives off an intense white light when heated almost to its melting point.",
+        "As calcium oxide melts, its brilliant white light dulls.",
+        "The hotter calcium oxide becomes, the brighter the light it produces.",
+        "Calcium oxide is sometimes melted in order to generate bright white light."
+      ],
+      "correctAnswer": "Calcium oxide gives off an intense white light when heated almost to its melting point.",
+      "correctIndex": 1
+    },
+    {
+      "id": 210,
+      "exam": "Summer 2025",
+      "section": 2,
+      "questionNumber": 12,
+      "type": "Restatement",
+      "question": "The events of St. Francis's life are well chronicled.",
+      "options": [
+        "Most of what we know about St. Francis's life comes from his writings.",
+        "The biography of St. Francis is fascinating.",
+        "Much has been written about the life of St. Francis.",
+        "The works of St. Francis are extremely accurate."
+      ],
+      "correctAnswer": "Much has been written about the life of St. Francis.",
+      "correctIndex": 3
+    },
+    {
+      "id": 211,
+      "exam": "Summer 2025",
+      "section": 2,
+      "questionNumber": 13,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Physical activity and the fitness industry",
+      "question": "The main purpose of the first paragraph is to discuss ____ the Industrial Revolution.",
+      "options": [
+        "health problems that increased after",
+        "the decrease in physical activity caused by",
+        "technologies developed during",
+        "changes in the workplace following"
+      ],
+      "correctAnswer": "the decrease in physical activity caused by",
+      "correctIndex": 2
+    },
+    {
+      "id": 212,
+      "exam": "Summer 2025",
+      "section": 2,
+      "questionNumber": 14,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Physical activity and the fitness industry",
+      "question": "The main purpose of the second paragraph is to -",
+      "options": [
+        "discuss the origins of the physical culture movement",
+        "describe efforts to make fitness a part of everyday life",
+        "compare physical activity in the 19th and 20th centuries",
+        "explain why the fitness industry is so profitable"
+      ],
+      "correctAnswer": "describe efforts to make fitness a part of everyday life",
+      "correctIndex": 2
+    },
+    {
+      "id": 213,
+      "exam": "Summer 2025",
+      "section": 2,
+      "questionNumber": 15,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Physical activity and the fitness industry",
+      "question": "According to the second paragraph, the physical culture movement -",
+      "options": [
+        "encouraged all people to exercise regularly",
+        "was launched by President Kennedy",
+        "was based on scientific research",
+        "succeeded in improving the fitness of all Americans"
+      ],
+      "correctAnswer": "encouraged all people to exercise regularly",
+      "correctIndex": 1
+    },
+    {
+      "id": 214,
+      "exam": "Summer 2025",
+      "section": 2,
+      "questionNumber": 16,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Physical activity and the fitness industry",
+      "question": "Which of the following statements can be inferred from the second paragraph?",
+      "options": [
+        "People are willing to spend money to stay fit.",
+        "Exercise studios have become less popular than they were in the 1960s.",
+        "People like playing organized sports more than going to a gym.",
+        "Many people want to exercise but cannot find something they enjoy."
+      ],
+      "correctAnswer": "People are willing to spend money to stay fit.",
+      "correctIndex": 1
+    },
+    {
+      "id": 215,
+      "exam": "Summer 2025",
+      "section": 2,
+      "questionNumber": 17,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Physical activity and the fitness industry",
+      "question": "Which of the following is not an answer to the question \"Why is this so?\" (line 22)?",
+      "options": [
+        "Because people are too busy to exercise.",
+        "Because some people do not enjoy exercising.",
+        "Because people prefer to do other things in their free time.",
+        "Because exercise does not make people healthier."
+      ],
+      "correctAnswer": "Because exercise does not make people healthier.",
+      "correctIndex": 4
+    },
+    {
+      "id": 216,
+      "exam": "Summer 2025",
+      "section": 2,
+      "questionNumber": 18,
+      "type": "Reading Comprehension",
+      "passage": "Text II - A Velocity of Being: Letters to a Young Reader",
+      "question": "The main purpose of the first paragraph is to -",
+      "options": [
+        "discuss the benefits of reading to children",
+        "present some world-famous book lovers",
+        "discuss the rewards of reading",
+        "introduce a book meant to encourage children to read"
+      ],
+      "correctAnswer": "introduce a book meant to encourage children to read",
+      "correctIndex": 4
+    },
+    {
+      "id": 217,
+      "exam": "Summer 2025",
+      "section": 2,
+      "questionNumber": 19,
+      "type": "Reading Comprehension",
+      "passage": "Text II - A Velocity of Being: Letters to a Young Reader",
+      "question": "In the second paragraph, Solnit -",
+      "options": [
+        "suggests that books should be selected carefully",
+        "discusses the relationship between a book's architecture and its contents",
+        "describes her favorite books",
+        "describes the benefits that reading can provide"
+      ],
+      "correctAnswer": "describes the benefits that reading can provide",
+      "correctIndex": 4
+    },
+    {
+      "id": 218,
+      "exam": "Summer 2025",
+      "section": 2,
+      "questionNumber": 20,
+      "type": "Reading Comprehension",
+      "passage": "Text II - A Velocity of Being: Letters to a Young Reader",
+      "question": "In the second paragraph, Solnit compares books to all of the following except -",
+      "options": [
+        "toolkits",
+        "parties",
+        "friends",
+        "journeys"
+      ],
+      "correctAnswer": "friends",
+      "correctIndex": 3
+    },
+    {
+      "id": 219,
+      "exam": "Summer 2025",
+      "section": 2,
+      "questionNumber": 21,
+      "type": "Reading Comprehension",
+      "passage": "Text II - A Velocity of Being: Letters to a Young Reader",
+      "question": "The main purpose of the last paragraph is to -",
+      "options": [
+        "discuss the role that books played in Solnit's childhood",
+        "explore a less positive aspect of reading",
+        "discuss Solnit's difficult experiences as a child",
+        "show how books teach children to love"
+      ],
+      "correctAnswer": "discuss the role that books played in Solnit's childhood",
+      "correctIndex": 1
+    },
+    {
+      "id": 220,
+      "exam": "Summer 2025",
+      "section": 2,
+      "questionNumber": 22,
+      "type": "Reading Comprehension",
+      "passage": "Text II - A Velocity of Being: Letters to a Young Reader",
+      "question": "\"There\" (line 23) refers to Solnit's -",
+      "options": [
+        "humanity",
+        "childhood",
+        "childhood home",
+        "tower"
+      ],
+      "correctAnswer": "tower",
+      "correctIndex": 4
+    }
+  ]
+}

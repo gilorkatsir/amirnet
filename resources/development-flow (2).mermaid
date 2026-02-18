@@ -1,0 +1,60 @@
+flowchart TB
+    subgraph PHASE1["Phase 1: Requirements"]
+        A1["User: Non-programmer"]
+        A2["Need: Learn English vocabulary"]
+        A3["Constraint: Short sessions"]
+        A4["Material: Word list"]
+        A1 --> A2 --> A3 --> A4
+    end
+
+    subgraph PHASE2["Phase 2: App Planning"]
+        B1["Flashcard Mode"]
+        B2["Multiple Choice Mode"]
+        B3["AI Dynamic Questions"]
+        B4["Progress Tracking"]
+        B5["Spaced Repetition"]
+        B1 & B2 & B3 --> B4 --> B5
+    end
+
+    subgraph PHASE3["Phase 3: Development"]
+        C1["Single React Component"]
+        C2["RTL + Hebrew Design"]
+        C3["localStorage Save"]
+        C4["Detailed Statistics"]
+        C1 --> C2 --> C3 --> C4
+    end
+
+    subgraph PHASE4["Phase 4: Content"]
+        D1["Received word list from user"]
+        D2["Created vocabulary.md"]
+        D3["450 words with translations"]
+        D1 --> D2 --> D3
+    end
+
+    subgraph PHASE5["Phase 5: Claude Code"]
+        E1["CLAUDE.md - Project docs"]
+        E2["vocabulary.md - Full dictionary"]
+        E3["flashcards.jsx - App code"]
+        E4["Update app with all words"]
+        E1 & E2 & E3 --> E4
+    end
+
+    subgraph FUTURE["Phase 6: Future"]
+        F1["Real AI questions with Claude API"]
+        F2["Audio pronunciation"]
+        F3["Import/Export words"]
+        F4["Quick review mode"]
+    end
+
+    PHASE1 --> PHASE2
+    PHASE2 --> PHASE3
+    PHASE3 --> PHASE4
+    PHASE4 --> PHASE5
+    PHASE5 --> FUTURE
+
+    style PHASE1 fill:#1e3a5f,stroke:#4a90d9,color:#fff
+    style PHASE2 fill:#2d4a3e,stroke:#5cb85c,color:#fff
+    style PHASE3 fill:#4a3a5f,stroke:#9b59b6,color:#fff
+    style PHASE4 fill:#5a3a3a,stroke:#e74c3c,color:#fff
+    style PHASE5 fill:#3a4a5a,stroke:#3498db,color:#fff
+    style FUTURE fill:#4a4a3a,stroke:#f39c12,color:#fff

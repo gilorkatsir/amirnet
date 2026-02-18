@@ -1,0 +1,110 @@
+/**
+ * Sound Effects Utility
+ * Uses Web Audio API to generate synthesized sounds without external files
+ */
+
+let audioContext = null;
+
+const getAudioContext = () => {
+    if (!audioContext) {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    return audioContext;
+};
+
+/**
+ * Play a synthesized tone
+ * @param {number} frequency - Hz
+ * @param {number} duration - seconds
+ * @param {string} type - 'sine', 'square', 'triangle', 'sawtooth'
+ * @param {number} volume - 0 to 1
+ */
+const playTone = (frequency, duration, type = 'sine', volume = 0.3) => {
+    try {
+        const ctx = getAudioContext();
+        const oscillator = ctx.createOscillator();
+        const gainNode = ctx.createGain();
+
+        oscillator.connect(gainNode);
+        gainNode.connect(ctx.destination);
+
+        oscillator.type = type;
+        oscillator.frequency.setValueAtTime(frequency, ctx.currentTime);
+
+        // Fade out to avoid clicks
+        gainNode.gain.setValueAtTime(volume, ctx.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + duration);
+
+        oscillator.start(ctx.currentTime);
+        oscillator.stop(ctx.currentTime + duration);
+    } catch (e) {
+        console.warn('Audio playback failed:', e);
+    }
+};
+
+/**
+ * Sound: Correct Answer
+ * Pleasant ascending chime
+ */
+export const playCorrect = () => {
+    playTone(523.25, 0.1, 'sine', 0.25); // C5
+    setTimeout(() => playTone(659.25, 0.1, 'sine', 0.25), 100); // E5
+    setTimeout(() => playTone(783.99, 0.15, 'sine', 0.3), 200); // G5
+};
+
+/**
+ * Sound: Incorrect Answer
+ * Low buzz
+ */
+export const playIncorrect = () => {
+    playTone(200, 0.15, 'square', 0.15);
+    setTimeout(() => playTone(180, 0.2, 'square', 0.1), 150);
+};
+
+/**
+ * Sound: Timer Complete
+ * Bell-like chime sequence
+ */
+export const playTimerComplete = () => {
+    const bellFreq = 880; // A5
+    playTone(bellFreq, 0.3, 'sine', 0.4);
+    setTimeout(() => playTone(bellFreq, 0.3, 'sine', 0.3), 400);
+    setTimeout(() => playTone(bellFreq, 0.5, 'sine', 0.35), 800);
+};
+
+/**
+ * Sound: Click/Tap
+ * Subtle click
+ */
+export const playClick = () => {
+    playTone(800, 0.05, 'triangle', 0.1);
+};
+
+/**
+ * Sound: Session Start
+ * Quick ascending tone
+ */
+export const playStart = () => {
+    playTone(440, 0.08, 'sine', 0.2); // A4
+    setTimeout(() => playTone(554.37, 0.08, 'sine', 0.2), 80); // C#5
+    setTimeout(() => playTone(659.25, 0.1, 'sine', 0.25), 160); // E5
+};
+
+/**
+ * Sound: Break Time
+ * Relaxing descending tone
+ */
+export const playBreak = () => {
+    playTone(659.25, 0.15, 'sine', 0.2); // E5
+    setTimeout(() => playTone(523.25, 0.15, 'sine', 0.2), 150); // C5
+    setTimeout(() => playTone(392, 0.2, 'sine', 0.25), 300); // G4
+};
+
+export default {
+    playCorrect,
+    playIncorrect,
+    playTimerComplete,
+    playClick,
+    playStart,
+    playBreak
+};

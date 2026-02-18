@@ -1,0 +1,1944 @@
+{
+  "metadata": {
+    "title": "AMIRNET English Questions Database",
+    "description": "Extracted English questions from Israeli Psychometric Exams",
+    "exams": ["Spring 2024", "Summer 2024", "Fall 2024"],
+    "totalQuestions": 132,
+    "questionTypes": ["Sentence Completion", "Restatement", "Reading Comprehension"],
+    "createdFor": "Antigravity AMIRNET Prep App"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "exam": "Spring 2024",
+      "section": 1,
+      "questionNumber": 1,
+      "type": "Sentence Completion",
+      "question": "The brown pelican, a seabird found in North and South America, catches fish below the ____ of the water.",
+      "options": ["vision", "surface", "index", "ordeal"],
+      "correctAnswer": "surface",
+      "correctIndex": 2
+    },
+    {
+      "id": 2,
+      "exam": "Spring 2024",
+      "section": 1,
+      "questionNumber": 2,
+      "type": "Sentence Completion",
+      "question": "Alexander Fleming discovered penicillin after ____ that a mold growing in his laboratory could kill bacteria.",
+      "options": ["opposing", "offending", "observing", "organizing"],
+      "correctAnswer": "observing",
+      "correctIndex": 3
+    },
+    {
+      "id": 3,
+      "exam": "Spring 2024",
+      "section": 1,
+      "questionNumber": 3,
+      "type": "Sentence Completion",
+      "question": "The 1842 Webster-Ashburton Treaty ____ the dispute regarding the position of the Maine-New Brunswick border.",
+      "options": ["resolved", "devised", "articulated", "inflicted"],
+      "correctAnswer": "resolved",
+      "correctIndex": 1
+    },
+    {
+      "id": 4,
+      "exam": "Spring 2024",
+      "section": 1,
+      "questionNumber": 4,
+      "type": "Sentence Completion",
+      "question": "In some states in India, the consumption of alcoholic beverages ____.",
+      "options": ["were prohibiting", "are prohibitive", "is prohibited", "has prohibited"],
+      "correctAnswer": "is prohibited",
+      "correctIndex": 3
+    },
+    {
+      "id": 5,
+      "exam": "Spring 2024",
+      "section": 1,
+      "questionNumber": 5,
+      "type": "Sentence Completion",
+      "question": "Bushido, the samurai code of ____, demands self-discipline, respectful and ethical behavior, and absolute loyalty.",
+      "options": ["impulse", "design", "conduct", "regret"],
+      "correctAnswer": "conduct",
+      "correctIndex": 3
+    },
+    {
+      "id": 6,
+      "exam": "Spring 2024",
+      "section": 1,
+      "questionNumber": 6,
+      "type": "Sentence Completion",
+      "question": "St. Patrick's Day, which ____ the patron saint of Ireland, is celebrated in many countries.",
+      "options": ["enumerates", "punctuates", "investigates", "commemorates"],
+      "correctAnswer": "commemorates",
+      "correctIndex": 4
+    },
+    {
+      "id": 7,
+      "exam": "Spring 2024",
+      "section": 1,
+      "questionNumber": 7,
+      "type": "Sentence Completion",
+      "question": "A period film is one that attempts to ____ depict a specific time in history.",
+      "options": ["luckily", "faithfully", "swiftly", "morally"],
+      "correctAnswer": "faithfully",
+      "correctIndex": 2
+    },
+    {
+      "id": 8,
+      "exam": "Spring 2024",
+      "section": 1,
+      "questionNumber": 8,
+      "type": "Sentence Completion",
+      "question": "At the end of the 19th century in the United States, huge crowds attended competitive walking races, the most popular ____ sport in the country.",
+      "options": ["spectator", "passenger", "companion", "graduate"],
+      "correctAnswer": "spectator",
+      "correctIndex": 1
+    },
+    {
+      "id": 9,
+      "exam": "Spring 2024",
+      "section": 1,
+      "questionNumber": 9,
+      "type": "Restatement",
+      "question": "For centuries, bars of salt – called amole – served as currency throughout Ethiopia.",
+      "options": [
+        "Centuries ago, salt was a valuable commodity in Ethiopia.",
+        "Amole has been the currency of Ethiopia since ancient times.",
+        "Ethiopian salt was once prized all over the world.",
+        "Amole was an accepted means of payment in Ethiopia for centuries."
+      ],
+      "correctAnswer": "Amole was an accepted means of payment in Ethiopia for centuries.",
+      "correctIndex": 4
+    },
+    {
+      "id": 10,
+      "exam": "Spring 2024",
+      "section": 1,
+      "questionNumber": 10,
+      "type": "Restatement",
+      "question": "Despite never having collaborated, Isaac Newton and Gottfried Leibniz share the credit for pioneering the branch of mathematics known as calculus.",
+      "options": [
+        "Newton and Leibniz were the first mathematicians to recognize calculus as a separate branch of mathematics.",
+        "The invention of calculus is attributed to both Newton and Leibniz, each of whom developed it independently.",
+        "Had they not shared their ideas about mathematics, neither Newton nor Leibniz would have discovered calculus.",
+        "To their credit, both Newton and Leibniz acknowledged each other's contribution to the field of calculus."
+      ],
+      "correctAnswer": "The invention of calculus is attributed to both Newton and Leibniz, each of whom developed it independently.",
+      "correctIndex": 2
+    },
+    {
+      "id": 11,
+      "exam": "Spring 2024",
+      "section": 1,
+      "questionNumber": 11,
+      "type": "Restatement",
+      "question": "Horticulturists at England's East Malling Institute are utilizing conventional breeding techniques rather than genetic engineering to produce giant strawberries.",
+      "options": [
+        "By using genetic engineering instead of conventional breeding techniques, horticulturists at England's East Malling Institute could grow larger strawberries.",
+        "At the East Malling Institute in England, horticulturists are growing very large strawberries using conventional breeding methods, not genetic engineering.",
+        "According to horticulturists at England's East Malling Institute, giant strawberries can be produced using either conventional breeding techniques or genetic engineering.",
+        "Horticulturists at England's East Malling Institute have found that they can produce giant strawberries by using both genetic engineering and conventional breeding techniques."
+      ],
+      "correctAnswer": "At the East Malling Institute in England, horticulturists are growing very large strawberries using conventional breeding methods, not genetic engineering.",
+      "correctIndex": 2
+    },
+    {
+      "id": 12,
+      "exam": "Spring 2024",
+      "section": 1,
+      "questionNumber": 12,
+      "type": "Restatement",
+      "question": "The roots of opera can be traced to the Camerata, a group of Italian composers enamored of antiquity, who in the 16th century wrote music that emulated the tragic chorus in ancient Greek drama.",
+      "options": [
+        "The Camerata, whose members were fascinated by the ancient world and whose works were modeled on the tragic Greek chorus, are considered the founders of opera.",
+        "The tragic Greek chorus, which was the inspiration for opera, was incorporated into the works of the Camerata, a group of Italian composers.",
+        "The operas composed by the Camerata in the 16th century were the first to abandon the rigid structure of the Greek chorus.",
+        "The enduring appeal of the operas written by the Camerata is a testimony to the impact of the ancient Greek chorus."
+      ],
+      "correctAnswer": "The Camerata, whose members were fascinated by the ancient world and whose works were modeled on the tragic Greek chorus, are considered the founders of opera.",
+      "correctIndex": 1
+    },
+    {
+      "id": 13,
+      "exam": "Spring 2024",
+      "section": 1,
+      "questionNumber": 13,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Shakespeare's influence on English language",
+      "question": "An appropriate title for the text would be -",
+      "options": [
+        "From Shakespeare to Facebook: The History of the English Language",
+        "The Plays of William Shakespeare: Language Perfected",
+        "Evidence of Greatness: Shakespeare's Language Reinterpreted",
+        "Lessons from Shakespeare: Helping the English Language to Evolve"
+      ],
+      "correctAnswer": "Lessons from Shakespeare: Helping the English Language to Evolve",
+      "correctIndex": 4
+    },
+    {
+      "id": 14,
+      "exam": "Spring 2024",
+      "section": 1,
+      "questionNumber": 14,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Shakespeare's influence on English language",
+      "question": "Which of the following strategies for creating new words is not mentioned in the second paragraph?",
+      "options": [
+        "creating English versions of words from other languages",
+        "replacing prefixes with suffixes",
+        "connecting two words that already exist",
+        "using words in new ways"
+      ],
+      "correctAnswer": "replacing prefixes with suffixes",
+      "correctIndex": 2
+    },
+    {
+      "id": 15,
+      "exam": "Spring 2024",
+      "section": 1,
+      "questionNumber": 15,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Shakespeare's influence on English language",
+      "question": "It can be inferred from the second paragraph that Shakespeare used suffixes -",
+      "options": [
+        "to alter the meaning of existing words",
+        "more extensively than other methods of inventing new words",
+        "instead of prefixes whenever possible",
+        "to anglicize words"
+      ],
+      "correctAnswer": "to alter the meaning of existing words",
+      "correctIndex": 1
+    },
+    {
+      "id": 16,
+      "exam": "Spring 2024",
+      "section": 1,
+      "questionNumber": 16,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Shakespeare's influence on English language",
+      "question": "The main purpose of the last paragraph is to -",
+      "options": [
+        "introduce a new English word",
+        "describe a Shakespearean scholar's work",
+        "present David Crystal's criticism of the Oxford English Dictionary",
+        "show that today's English speakers continue to follow Shakespeare's example"
+      ],
+      "correctAnswer": "show that today's English speakers continue to follow Shakespeare's example",
+      "correctIndex": 4
+    },
+    {
+      "id": 17,
+      "exam": "Spring 2024",
+      "section": 1,
+      "questionNumber": 17,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Shakespeare's influence on English language",
+      "question": "It can be inferred from the last paragraph that David Crystal -",
+      "options": [
+        "is one of the editors of the Oxford English Dictionary",
+        "believes that breaking the rules of language is irresponsible",
+        "thinks Shakespeare invented too many words",
+        "approves of the word \"selfie\""
+      ],
+      "correctAnswer": "approves of the word \"selfie\"",
+      "correctIndex": 4
+    },
+    {
+      "id": 18,
+      "exam": "Spring 2024",
+      "section": 1,
+      "questionNumber": 18,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Pain and pain relievers",
+      "question": "An appropriate title for this text would be -",
+      "options": [
+        "Pain Relievers: Advantages and Disadvantages",
+        "Feeling Pain and Dealing With It",
+        "The Nature of Chronic Pain",
+        "Pain: A Complex Chemical Reaction"
+      ],
+      "correctAnswer": "Feeling Pain and Dealing With It",
+      "correctIndex": 2
+    },
+    {
+      "id": 19,
+      "exam": "Spring 2024",
+      "section": 1,
+      "questionNumber": 19,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Pain and pain relievers",
+      "question": "The main purpose of the first paragraph is to -",
+      "options": [
+        "describe different kinds of pain",
+        "explain what causes the sensation of pain",
+        "describe the role of prostaglandins in the body",
+        "explain how the brain responds to pain"
+      ],
+      "correctAnswer": "explain what causes the sensation of pain",
+      "correctIndex": 2
+    },
+    {
+      "id": 20,
+      "exam": "Spring 2024",
+      "section": 1,
+      "questionNumber": 20,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Pain and pain relievers",
+      "question": "According to the second paragraph, pain relievers -",
+      "options": [
+        "should not be taken too often",
+        "are more effective against disease than injury",
+        "send healing signals to the brain",
+        "do not remove the source of the pain"
+      ],
+      "correctAnswer": "do not remove the source of the pain",
+      "correctIndex": 4
+    },
+    {
+      "id": 21,
+      "exam": "Spring 2024",
+      "section": 1,
+      "questionNumber": 21,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Pain and pain relievers",
+      "question": "\"They\" (line 15) refers, among other things, to -",
+      "options": [
+        "codeine",
+        "anti-inflammatory drugs",
+        "aspirin",
+        "damaged cells"
+      ],
+      "correctAnswer": "codeine",
+      "correctIndex": 1
+    },
+    {
+      "id": 22,
+      "exam": "Spring 2024",
+      "section": 1,
+      "questionNumber": 22,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Pain and pain relievers",
+      "question": "It can be inferred from the text that ibuprofen -",
+      "options": [
+        "reduces the production of prostaglandins",
+        "remains in the body long after it is taken",
+        "is the best pain reliever",
+        "should not be used together with morphine"
+      ],
+      "correctAnswer": "reduces the production of prostaglandins",
+      "correctIndex": 1
+    },
+    {
+      "id": 23,
+      "exam": "Spring 2024",
+      "section": 2,
+      "questionNumber": 1,
+      "type": "Sentence Completion",
+      "question": "There has been a decline in the population of honey bees ____.",
+      "options": ["at the moment", "long ago", "someday soon", "in recent years"],
+      "correctAnswer": "in recent years",
+      "correctIndex": 4
+    },
+    {
+      "id": 24,
+      "exam": "Spring 2024",
+      "section": 2,
+      "questionNumber": 2,
+      "type": "Sentence Completion",
+      "question": "Byron Nicholai is a popular Alaskan singer whose songs feature a ____ of words from English and his native Yup'ik.",
+      "options": ["scene", "crack", "blend", "rate"],
+      "correctAnswer": "blend",
+      "correctIndex": 3
+    },
+    {
+      "id": 25,
+      "exam": "Spring 2024",
+      "section": 2,
+      "questionNumber": 3,
+      "type": "Sentence Completion",
+      "question": "The Gifu region in central Japan was ____ by the Great Earthquake of 1891.",
+      "options": ["enlightened", "intercepted", "certified", "devastated"],
+      "correctAnswer": "devastated",
+      "correctIndex": 4
+    },
+    {
+      "id": 26,
+      "exam": "Spring 2024",
+      "section": 2,
+      "questionNumber": 4,
+      "type": "Sentence Completion",
+      "question": "Once common across Europe and Asia, the Eurasian beaver was nearly ____ by hunting in the nineteenth century.",
+      "options": ["wiped out", "held back", "shown off", "counted on"],
+      "correctAnswer": "wiped out",
+      "correctIndex": 1
+    },
+    {
+      "id": 27,
+      "exam": "Spring 2024",
+      "section": 2,
+      "questionNumber": 5,
+      "type": "Sentence Completion",
+      "question": "The leaves of the dragon's blood tree collect ____ from the air, enabling the tree to survive in places where there is little water.",
+      "options": ["pollution", "emphasis", "applause", "moisture"],
+      "correctAnswer": "moisture",
+      "correctIndex": 4
+    },
+    {
+      "id": 28,
+      "exam": "Spring 2024",
+      "section": 2,
+      "questionNumber": 6,
+      "type": "Sentence Completion",
+      "question": "In November 2014, construction workers digging up a road in Iceland's Thingvellir National Park ____ paving stones from a road built in 1907.",
+      "options": ["unearthed", "disgraced", "convicted", "outweighed"],
+      "correctAnswer": "unearthed",
+      "correctIndex": 1
+    },
+    {
+      "id": 29,
+      "exam": "Spring 2024",
+      "section": 2,
+      "questionNumber": 7,
+      "type": "Sentence Completion",
+      "question": "Reviews of the 1995 film adaptation of Nathaniel Hawthorne's classic novel The Scarlet Letter were unfavorable, describing it as ____ at best.",
+      "options": ["omniscient", "jubilant", "arbitrary", "mediocre"],
+      "correctAnswer": "mediocre",
+      "correctIndex": 4
+    },
+    {
+      "id": 30,
+      "exam": "Spring 2024",
+      "section": 2,
+      "questionNumber": 8,
+      "type": "Sentence Completion",
+      "question": "In September 2012, the German government ____ media reports that it planned to stop using the Euro as the national currency, claiming they were absurd.",
+      "options": ["dismissed", "imposed", "obtained", "accommodated"],
+      "correctAnswer": "dismissed",
+      "correctIndex": 1
+    },
+    {
+      "id": 31,
+      "exam": "Spring 2024",
+      "section": 2,
+      "questionNumber": 9,
+      "type": "Restatement",
+      "question": "Every year, a hundred million monarch butterflies from across eastern North America converge on Mexico's Monarch Butterfly Biosphere Reserve, where they spend the winter.",
+      "options": [
+        "A hundred million monarch butterflies come from all over eastern North America to Mexico's Monarch Butterfly Biosphere Reserve each year for the winter.",
+        "Mexico's Monarch Butterfly Biosphere Reserve was created as a winter habitat for the hundred million monarch butterflies of eastern North America.",
+        "During the winter, Mexico's Monarch Butterfly Biosphere Reserve is home to a hundred million monarch butterflies, most of them from eastern North America.",
+        "Each year, a hundred million monarch butterflies arrive at Mexico's Monarch Butterfly Biosphere Reserve after spending the winter in eastern North America."
+      ],
+      "correctAnswer": "A hundred million monarch butterflies come from all over eastern North America to Mexico's Monarch Butterfly Biosphere Reserve each year for the winter.",
+      "correctIndex": 1
+    },
+    {
+      "id": 32,
+      "exam": "Spring 2024",
+      "section": 2,
+      "questionNumber": 10,
+      "type": "Restatement",
+      "question": "Brain cells that have died from old age, injury or disease cannot be regenerated – or so it was long assumed, until research began to indicate otherwise.",
+      "options": [
+        "For many years, people thought that once brain cells died, they did not grow back; however, studies have begun to show that this is not the case.",
+        "Studies now suggest that old age, injury and disease cause brain cells to deteriorate much more quickly than was previously believed.",
+        "Recent research supports what has long been believed – brain cells that have died cannot be regenerated.",
+        "Until research began to indicate otherwise, it was commonly assumed that brain cells damaged by old age, injury or disease could be repaired."
+      ],
+      "correctAnswer": "For many years, people thought that once brain cells died, they did not grow back; however, studies have begun to show that this is not the case.",
+      "correctIndex": 1
+    },
+    {
+      "id": 33,
+      "exam": "Spring 2024",
+      "section": 2,
+      "questionNumber": 11,
+      "type": "Restatement",
+      "question": "Given that the information regarding the final days of American author Edgar Allan Poe is fragmentary and contradictory, it is hard to imagine that there will ever be a completely satisfactory answer as to what caused his death.",
+      "options": [
+        "The way in which Poe died will probably never be fully explained because the facts available are incomplete and inconsistent.",
+        "Recently discovered details about Poe's last days are being pieced together into a credible and persuasive theory about his death.",
+        "There is little consensus about the circumstances surrounding Poe's death.",
+        "The cause of Poe's death will remain a mystery until more is known about his final days."
+      ],
+      "correctAnswer": "The way in which Poe died will probably never be fully explained because the facts available are incomplete and inconsistent.",
+      "correctIndex": 1
+    },
+    {
+      "id": 34,
+      "exam": "Spring 2024",
+      "section": 2,
+      "questionNumber": 12,
+      "type": "Restatement",
+      "question": "Delivered in the waning months of the US Civil War, President Abraham Lincoln's second inaugural speech was notable for its brevity and its dispirited tone.",
+      "options": [
+        "In the midst of the US Civil War, Lincoln gave his second inaugural speech, which was inspiring but restrained.",
+        "Towards the end of the US Civil War, Lincoln delivered his second inaugural speech, which was strikingly short and somber.",
+        "In his second inaugural speech, Lincoln displayed the same courage and vision that had proven vital during the US Civil War.",
+        "Lincoln's second inaugural speech, delivered shortly after the US Civil War, is remembered for its simplicity and its hopeful message."
+      ],
+      "correctAnswer": "Towards the end of the US Civil War, Lincoln delivered his second inaugural speech, which was strikingly short and somber.",
+      "correctIndex": 2
+    },
+    {
+      "id": 35,
+      "exam": "Spring 2024",
+      "section": 2,
+      "questionNumber": 13,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Habits and the habit loop",
+      "question": "The main purpose of the text is to -",
+      "options": [
+        "compare the characteristics of beneficial and harmful habits",
+        "explain the brain's role in establishing cues, routines and rewards",
+        "present an example of a habit loop that is difficult to change",
+        "discuss how habits are formed and how to change them"
+      ],
+      "correctAnswer": "discuss how habits are formed and how to change them",
+      "correctIndex": 4
+    },
+    {
+      "id": 36,
+      "exam": "Spring 2024",
+      "section": 2,
+      "questionNumber": 14,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Habits and the habit loop",
+      "question": "The main purpose of the second paragraph is to -",
+      "options": [
+        "explain why teeth brushing is a beneficial habit",
+        "give an example of a habit loop",
+        "discuss the differences between cues, routines and rewards",
+        "present Charles Duhigg's book The Power of Habit"
+      ],
+      "correctAnswer": "give an example of a habit loop",
+      "correctIndex": 2
+    },
+    {
+      "id": 37,
+      "exam": "Spring 2024",
+      "section": 2,
+      "questionNumber": 15,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Habits and the habit loop",
+      "question": "In line 17, \"an old one\" could best be replaced by -",
+      "options": [
+        "an essential routine",
+        "a repeated reward",
+        "a bad habit",
+        "a failed attempt"
+      ],
+      "correctAnswer": "a bad habit",
+      "correctIndex": 3
+    },
+    {
+      "id": 38,
+      "exam": "Spring 2024",
+      "section": 2,
+      "questionNumber": 16,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Habits and the habit loop",
+      "question": "Which of the following is an example of a habit loop?",
+      "options": [
+        "paying your rent → buying a new sofa → saving money",
+        "waking up in the morning → eating a healthy breakfast → going to bed early",
+        "coming home from work → watching your favorite TV show → taking the dog for a walk",
+        "seeing your phone battery is low → charging the phone battery → being able to use your phone"
+      ],
+      "correctAnswer": "coming home from work → watching your favorite TV show → taking the dog for a walk",
+      "correctIndex": 4
+    },
+    {
+      "id": 39,
+      "exam": "Spring 2024",
+      "section": 2,
+      "questionNumber": 17,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Habits and the habit loop",
+      "question": "According to the text, a habit is -",
+      "options": [
+        "a routine that cannot be changed",
+        "an automatic behavior",
+        "a craving with a one-time reward",
+        "a reward in itself"
+      ],
+      "correctAnswer": "an automatic behavior",
+      "correctIndex": 2
+    },
+    {
+      "id": 40,
+      "exam": "Spring 2024",
+      "section": 2,
+      "questionNumber": 18,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Fibonacci and the Hindu-Arabic number system",
+      "question": "According to the text, the Hindu-Arabic number system -",
+      "options": [
+        "is related to the Roman number system",
+        "uses ten different digits",
+        "was actually developed by Europeans",
+        "is no longer in use"
+      ],
+      "correctAnswer": "uses ten different digits",
+      "correctIndex": 2
+    },
+    {
+      "id": 41,
+      "exam": "Spring 2024",
+      "section": 2,
+      "questionNumber": 19,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Fibonacci and the Hindu-Arabic number system",
+      "question": "According to the second paragraph, Fibonacci -",
+      "options": [
+        "dreamed of becoming a mathematician as a young boy",
+        "learned of the Hindu-Arabic numeral system in North Africa",
+        "was the first European scholar to write about practical and theoretical mathematics",
+        "became familiar with the Roman numeral system during his travels"
+      ],
+      "correctAnswer": "learned of the Hindu-Arabic numeral system in North Africa",
+      "correctIndex": 2
+    },
+    {
+      "id": 42,
+      "exam": "Spring 2024",
+      "section": 2,
+      "questionNumber": 20,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Fibonacci and the Hindu-Arabic number system",
+      "question": "It can be inferred from the second paragraph that the Liber abaci -",
+      "options": [
+        "is based on what Fibonacci learned in his travels",
+        "demonstrates how to combine the Hindu-Arabic number system with the Roman number system",
+        "is devoted entirely to practical arithmetic",
+        "presents the advantages and disadvantages of the Hindu-Arabic number system"
+      ],
+      "correctAnswer": "is based on what Fibonacci learned in his travels",
+      "correctIndex": 1
+    },
+    {
+      "id": 43,
+      "exam": "Spring 2024",
+      "section": 2,
+      "questionNumber": 21,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Fibonacci and the Hindu-Arabic number system",
+      "question": "According to the last paragraph, the Liber quadratorum -",
+      "options": [
+        "was Fibonacci's most famous work",
+        "covers fewer subjects than the Liber abaci",
+        "took a long time to write",
+        "was not only about mathematics"
+      ],
+      "correctAnswer": "covers fewer subjects than the Liber abaci",
+      "correctIndex": 2
+    },
+    {
+      "id": 44,
+      "exam": "Spring 2024",
+      "section": 2,
+      "questionNumber": 22,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Fibonacci and the Hindu-Arabic number system",
+      "question": "The last paragraph does not mention -",
+      "options": [
+        "Fibonacci's most innovative work",
+        "Frederick II's intellectual interests",
+        "Fibonacci's relationship with other scholars",
+        "Frederick II's response to the Liber quadratorum"
+      ],
+      "correctAnswer": "Frederick II's response to the Liber quadratorum",
+      "correctIndex": 4
+    },
+    {
+      "id": 45,
+      "exam": "Summer 2024",
+      "section": 1,
+      "questionNumber": 1,
+      "type": "Sentence Completion",
+      "question": "The walrus uses its whiskers to ____ shellfish hidden on the ocean floor.",
+      "options": ["detect", "forbid", "praise", "recall"],
+      "correctAnswer": "detect",
+      "correctIndex": 1
+    },
+    {
+      "id": 46,
+      "exam": "Summer 2024",
+      "section": 1,
+      "questionNumber": 2,
+      "type": "Sentence Completion",
+      "question": "With the capacity to generate 2.4 million kilowatts, the Niagara Power Project is the largest ____ of electricity to New York State.",
+      "options": ["forecaster", "supplier", "inspector", "editor"],
+      "correctAnswer": "supplier",
+      "correctIndex": 2
+    },
+    {
+      "id": 47,
+      "exam": "Summer 2024",
+      "section": 1,
+      "questionNumber": 3,
+      "type": "Sentence Completion",
+      "question": "According to world aviation officials, 2017 was ____ to date for commercial air travel.",
+      "options": ["the safest year", "safely considered", "particularly safe", "a safer year"],
+      "correctAnswer": "the safest year",
+      "correctIndex": 1
+    },
+    {
+      "id": 48,
+      "exam": "Summer 2024",
+      "section": 1,
+      "questionNumber": 4,
+      "type": "Sentence Completion",
+      "question": "DNA evidence has been used to clear people ____ convicted of crimes.",
+      "options": ["easily", "wrongly", "mostly", "finally"],
+      "correctAnswer": "wrongly",
+      "correctIndex": 2
+    },
+    {
+      "id": 49,
+      "exam": "Summer 2024",
+      "section": 1,
+      "questionNumber": 5,
+      "type": "Sentence Completion",
+      "question": "In October 2000, the Bill and Melinda Gates Foundation set up a scholarship fund at Cambridge University to ____ the tuition of international graduate students.",
+      "options": ["visualize", "intimidate", "subsidize", "emulate"],
+      "correctAnswer": "subsidize",
+      "correctIndex": 3
+    },
+    {
+      "id": 50,
+      "exam": "Summer 2024",
+      "section": 1,
+      "questionNumber": 6,
+      "type": "Sentence Completion",
+      "question": "Although alpaca farmers trim their animals' wool regularly, they only ____ them completely once every two years.",
+      "options": ["merge", "bait", "shear", "crease"],
+      "correctAnswer": "shear",
+      "correctIndex": 3
+    },
+    {
+      "id": 51,
+      "exam": "Summer 2024",
+      "section": 1,
+      "questionNumber": 7,
+      "type": "Sentence Completion",
+      "question": "Muslims are required to make a ____ to the holy city of Mecca at least once in their lifetime, if they have the means to do so.",
+      "options": ["precedent", "principle", "portfolio", "pilgrimage"],
+      "correctAnswer": "pilgrimage",
+      "correctIndex": 4
+    },
+    {
+      "id": 52,
+      "exam": "Summer 2024",
+      "section": 1,
+      "questionNumber": 8,
+      "type": "Sentence Completion",
+      "question": "In response to the Soviet Union's increasingly ____ stance towards dissidents, physicist Andrei Sakharov became active in the human rights movement.",
+      "options": ["reverent", "repressive", "sanitary", "subsequent"],
+      "correctAnswer": "repressive",
+      "correctIndex": 2
+    },
+    {
+      "id": 53,
+      "exam": "Summer 2024",
+      "section": 1,
+      "questionNumber": 9,
+      "type": "Restatement",
+      "question": "Ladybugs prey on pests and hence are beneficial to gardens.",
+      "options": [
+        "Like other pests, ladybugs damage the plants in a garden.",
+        "Ladybugs, which eat harmful insects, are helpful in gardens.",
+        "Ladybugs feed on garden plants and on other insects.",
+        "The presence of ladybugs in a garden keeps pests away."
+      ],
+      "correctAnswer": "Ladybugs, which eat harmful insects, are helpful in gardens.",
+      "correctIndex": 2
+    },
+    {
+      "id": 54,
+      "exam": "Summer 2024",
+      "section": 1,
+      "questionNumber": 10,
+      "type": "Restatement",
+      "question": "Composer and conductor Leonard Bernstein was tireless in his efforts to bring classical music to a wider audience.",
+      "options": [
+        "Bernstein's many admirers never tired of his classical compositions.",
+        "Bernstein's classical music appealed to many different types of audiences.",
+        "Bernstein adapted classical compositions with the aim of making them more popular.",
+        "Bernstein dedicated himself to making classical music accessible to more people."
+      ],
+      "correctAnswer": "Bernstein dedicated himself to making classical music accessible to more people.",
+      "correctIndex": 4
+    },
+    {
+      "id": 55,
+      "exam": "Summer 2024",
+      "section": 1,
+      "questionNumber": 11,
+      "type": "Restatement",
+      "question": "The 16th-century political philosopher Machiavelli was adamant that political morality is not bound by ethical norms.",
+      "options": [
+        "Machiavelli argued that, by their very nature, politicians are bound to behave unethically.",
+        "According to Machiavelli, politicians have a moral obligation to serve as examples of ethical behavior.",
+        "Machiavelli insisted that the ethical norms governing life do not apply to politics.",
+        "Although politics has few ethical norms, there are certain moral boundaries that politicians must not cross, according to Machiavelli."
+      ],
+      "correctAnswer": "Machiavelli insisted that the ethical norms governing life do not apply to politics.",
+      "correctIndex": 3
+    },
+    {
+      "id": 56,
+      "exam": "Summer 2024",
+      "section": 1,
+      "questionNumber": 12,
+      "type": "Restatement",
+      "question": "Italian tenor Enrico Caruso made his American debut in a production of Verdi's Rigoletto at the Metropolitan Opera.",
+      "options": [
+        "Enrico Caruso's first performance in the United States was at the Metropolitan Opera in Verdi's Rigoletto.",
+        "Enrico Caruso's first starring role was in the Metropolitan Opera's production of Verdi's Rigoletto.",
+        "Verdi's Rigoletto debuted in the United States at the Metropolitan Opera and featured Enrico Caruso.",
+        "Enrico Caruso appeared in Verdi's Rigoletto at the opening of the Metropolitan Opera."
+      ],
+      "correctAnswer": "Enrico Caruso's first performance in the United States was at the Metropolitan Opera in Verdi's Rigoletto.",
+      "correctIndex": 1
+    },
+    {
+      "id": 57,
+      "exam": "Summer 2024",
+      "section": 1,
+      "questionNumber": 13,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Jules Verne's Paris in the 20th Century",
+      "question": "The main purpose of the first paragraph is to -",
+      "options": [
+        "compare Paris in the 20th Century to other novels by Jules Verne",
+        "explain why Paris in the 20th Century was not published until 1989",
+        "argue that Paris in the 20th Century is Jules Verne's greatest work",
+        "discuss the publication and content of Paris in the 20th Century"
+      ],
+      "correctAnswer": "discuss the publication and content of Paris in the 20th Century",
+      "correctIndex": 4
+    },
+    {
+      "id": 58,
+      "exam": "Summer 2024",
+      "section": 1,
+      "questionNumber": 14,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Jules Verne's Paris in the 20th Century",
+      "question": "According to the first paragraph, in Paris in the 20th Century Jules Verne -",
+      "options": [
+        "described life in Paris as he experienced it toward the end of his lifetime",
+        "tried to show readers the importance of 20th-century technological advances",
+        "introduced subjects that had not been discussed in his other novels",
+        "accurately predicted what life would be like in the 20th century"
+      ],
+      "correctAnswer": "accurately predicted what life would be like in the 20th century",
+      "correctIndex": 4
+    },
+    {
+      "id": 59,
+      "exam": "Summer 2024",
+      "section": 1,
+      "questionNumber": 15,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Jules Verne's Paris in the 20th Century",
+      "question": "The main idea of the second paragraph is that Paris in the 20th Century -",
+      "options": [
+        "tells the story of a young man's struggle to find happiness",
+        "should have been published many years ago",
+        "was not understood at the time it was published",
+        "presents a grim view of technological progress"
+      ],
+      "correctAnswer": "presents a grim view of technological progress",
+      "correctIndex": 4
+    },
+    {
+      "id": 60,
+      "exam": "Summer 2024",
+      "section": 1,
+      "questionNumber": 16,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Jules Verne's Paris in the 20th Century",
+      "question": "The main purpose of the last paragraph is to -",
+      "options": [
+        "explain why Verne thought that science could be dangerous",
+        "correct a common misconception about Verne",
+        "compare Verne's work as a writer to his work as a scientist",
+        "emphasize the wealth of detail in Verne's fiction"
+      ],
+      "correctAnswer": "correct a common misconception about Verne",
+      "correctIndex": 2
+    },
+    {
+      "id": 61,
+      "exam": "Summer 2024",
+      "section": 1,
+      "questionNumber": 17,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Jules Verne's Paris in the 20th Century",
+      "question": "In line 21, \"he had no . . . virtuous\" means that Verne -",
+      "options": [
+        "did not believe that science was necessarily good",
+        "tried to depict technology as negatively as possible",
+        "did not fully understand all the technical details he included in his books",
+        "did not believe that his vision of the future would prove to be accurate"
+      ],
+      "correctAnswer": "did not believe that science was necessarily good",
+      "correctIndex": 1
+    },
+    {
+      "id": 62,
+      "exam": "Summer 2024",
+      "section": 1,
+      "questionNumber": 18,
+      "type": "Reading Comprehension",
+      "passage": "Text II - The Great Wildebeest Migration",
+      "question": "The main purpose of the text is to discuss the -",
+      "options": [
+        "phenomenon of animal migration",
+        "life cycle of the wildebeest",
+        "endless journey of the wildebeest",
+        "struggle for survival in east Africa"
+      ],
+      "correctAnswer": "endless journey of the wildebeest",
+      "correctIndex": 3
+    },
+    {
+      "id": 63,
+      "exam": "Summer 2024",
+      "section": 1,
+      "questionNumber": 19,
+      "type": "Reading Comprehension",
+      "passage": "Text II - The Great Wildebeest Migration",
+      "question": "Which of the following statements about the Great Wildebeest Migration is not made in the first paragraph?",
+      "options": [
+        "It passes through more than one country.",
+        "Its route changes very little.",
+        "It covers a great distance.",
+        "It has been taking place since ancient times."
+      ],
+      "correctAnswer": "It has been taking place since ancient times.",
+      "correctIndex": 4
+    },
+    {
+      "id": 64,
+      "exam": "Summer 2024",
+      "section": 1,
+      "questionNumber": 20,
+      "type": "Reading Comprehension",
+      "passage": "Text II - The Great Wildebeest Migration",
+      "question": "In line 8, \"lends itself to\" is closest in meaning to -",
+      "options": [
+        "has an effect on",
+        "must be stopped in order to",
+        "is good for",
+        "can be substituted for"
+      ],
+      "correctAnswer": "is good for",
+      "correctIndex": 3
+    },
+    {
+      "id": 65,
+      "exam": "Summer 2024",
+      "section": 1,
+      "questionNumber": 21,
+      "type": "Reading Comprehension",
+      "passage": "Text II - The Great Wildebeest Migration",
+      "question": "According to the last paragraph, the wildebeest migration -",
+      "options": [
+        "has attracted a great deal of attention in recent years",
+        "contributes to the balance of nature in east Africa",
+        "is gradually decreasing in size",
+        "has never been observed from beginning to end"
+      ],
+      "correctAnswer": "contributes to the balance of nature in east Africa",
+      "correctIndex": 2
+    },
+    {
+      "id": 66,
+      "exam": "Summer 2024",
+      "section": 1,
+      "questionNumber": 22,
+      "type": "Reading Comprehension",
+      "passage": "Text II - The Great Wildebeest Migration",
+      "question": "Which of the following statements about wildebeest is not made in the text?",
+      "options": [
+        "They need to keep up with the herd from a very young age.",
+        "They always travel together.",
+        "They migrate in search of water and food.",
+        "They change their route to avoid predators."
+      ],
+      "correctAnswer": "They change their route to avoid predators.",
+      "correctIndex": 4
+    },
+    {
+      "id": 67,
+      "exam": "Summer 2024",
+      "section": 2,
+      "questionNumber": 1,
+      "type": "Sentence Completion",
+      "question": "The Amish people are ____: they believe that war is immoral.",
+      "options": ["martyrs", "scribes", "fugitives", "pacifists"],
+      "correctAnswer": "pacifists",
+      "correctIndex": 4
+    },
+    {
+      "id": 68,
+      "exam": "Summer 2024",
+      "section": 2,
+      "questionNumber": 2,
+      "type": "Sentence Completion",
+      "question": "Many manufacturing companies offer small promotional gifts in order to ____ sales of their products.",
+      "options": ["hint", "boost", "sift", "weave"],
+      "correctAnswer": "boost",
+      "correctIndex": 2
+    },
+    {
+      "id": 69,
+      "exam": "Summer 2024",
+      "section": 2,
+      "questionNumber": 3,
+      "type": "Sentence Completion",
+      "question": "In 1929, English explorer Vivian Ernest Fuchs participated in a geological ____ to eastern Greenland.",
+      "options": ["hypothesis", "expedition", "conversion", "acquaintance"],
+      "correctAnswer": "expedition",
+      "correctIndex": 2
+    },
+    {
+      "id": 70,
+      "exam": "Summer 2024",
+      "section": 2,
+      "questionNumber": 4,
+      "type": "Sentence Completion",
+      "question": "Cigarette smoke ____ a toxic residue on furniture and clothing that is referred to as third-hand smoke.",
+      "options": ["finds", "pulls", "leaves", "rides"],
+      "correctAnswer": "leaves",
+      "correctIndex": 3
+    },
+    {
+      "id": 71,
+      "exam": "Summer 2024",
+      "section": 2,
+      "questionNumber": 5,
+      "type": "Sentence Completion",
+      "question": "The famed Sydney Opera House has a distinct shape that makes it ____.",
+      "options": ["immediate recognition", "recognize right away", "possibly recognizing", "instantly recognizable"],
+      "correctAnswer": "instantly recognizable",
+      "correctIndex": 4
+    },
+    {
+      "id": 72,
+      "exam": "Summer 2024",
+      "section": 2,
+      "questionNumber": 6,
+      "type": "Sentence Completion",
+      "question": "In order for ____ results to be obtained, scientific experiments must be conducted under strictly controlled conditions.",
+      "options": ["heightened", "tasteful", "meaningful", "straightened"],
+      "correctAnswer": "meaningful",
+      "correctIndex": 3
+    },
+    {
+      "id": 73,
+      "exam": "Summer 2024",
+      "section": 2,
+      "questionNumber": 7,
+      "type": "Sentence Completion",
+      "question": "The 200-mile-long River Thames is ____ with hundreds of small islands.",
+      "options": ["dotted", "prized", "stripped", "faced"],
+      "correctAnswer": "dotted",
+      "correctIndex": 1
+    },
+    {
+      "id": 74,
+      "exam": "Summer 2024",
+      "section": 2,
+      "questionNumber": 8,
+      "type": "Sentence Completion",
+      "question": "The most ____ feature of the Erechtheum temple in Athens is its southern portion, which showcases six sculpted female figures.",
+      "options": ["reciprocal", "negligent", "adverse", "striking"],
+      "correctAnswer": "striking",
+      "correctIndex": 4
+    },
+    {
+      "id": 75,
+      "exam": "Summer 2024",
+      "section": 2,
+      "questionNumber": 9,
+      "type": "Restatement",
+      "question": "Borneo's orangutan population is in sharp decline.",
+      "options": [
+        "Borneo's orangutans have all but disappeared.",
+        "Most of the world's remaining orangutans are found in Borneo.",
+        "In Borneo, the orangutans' habitat is becoming smaller.",
+        "The number of orangutans in Borneo is dropping dramatically."
+      ],
+      "correctAnswer": "The number of orangutans in Borneo is dropping dramatically.",
+      "correctIndex": 4
+    },
+    {
+      "id": 76,
+      "exam": "Summer 2024",
+      "section": 2,
+      "questionNumber": 10,
+      "type": "Restatement",
+      "question": "Biologists have studied the mating rituals of only a small percentage of the roughly 12,000 known species of butterflies.",
+      "options": [
+        "The mating rituals of nearly 12,000 different species of butterflies have been studied by biologists.",
+        "More than 12,000 studies on butterflies have been conducted by biologists; only a small percentage explore mating rituals.",
+        "Approximately 12,000 species of butterflies have been identified, but biologists have studied the mating rituals of relatively few of them.",
+        "According to biologists, there are only small variations in the mating rituals of the 12,000 known species of butterflies."
+      ],
+      "correctAnswer": "Approximately 12,000 species of butterflies have been identified, but biologists have studied the mating rituals of relatively few of them.",
+      "correctIndex": 3
+    },
+    {
+      "id": 77,
+      "exam": "Summer 2024",
+      "section": 2,
+      "questionNumber": 11,
+      "type": "Restatement",
+      "question": "Reading John Lukacs is always rewarding.",
+      "options": [
+        "All of John Lukacs's books are exciting to read.",
+        "The writings of John Lukacs are never difficult to understand.",
+        "Anything written by John Lukacs is worth reading.",
+        "Everything about John Lukacs's works is brilliant."
+      ],
+      "correctAnswer": "Anything written by John Lukacs is worth reading.",
+      "correctIndex": 3
+    },
+    {
+      "id": 78,
+      "exam": "Summer 2024",
+      "section": 2,
+      "questionNumber": 12,
+      "type": "Restatement",
+      "question": "Following years of stagnation, the city of Duluth, Minnesota, is poised for a period of prosperity.",
+      "options": [
+        "The prosperity currently enjoyed by Duluth is expected to continue.",
+        "As Duluth expands, it is becoming an increasingly attractive urban center.",
+        "Duluth's recent change of leadership promises to stimulate development.",
+        "Duluth's financial future is looking bright after a long economic standstill."
+      ],
+      "correctAnswer": "Duluth's financial future is looking bright after a long economic standstill.",
+      "correctIndex": 4
+    },
+    {
+      "id": 79,
+      "exam": "Summer 2024",
+      "section": 2,
+      "questionNumber": 13,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Capsule endoscopy",
+      "question": "It can be inferred from the first paragraph that endoscopy is ____ than the use of X-ray or ultrasound in diagnosing gastrointestinal disorders.",
+      "options": [
+        "less painful",
+        "less complicated",
+        "more traditional",
+        "more effective"
+      ],
+      "correctAnswer": "more effective",
+      "correctIndex": 4
+    },
+    {
+      "id": 80,
+      "exam": "Summer 2024",
+      "section": 2,
+      "questionNumber": 14,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Capsule endoscopy",
+      "question": "In line 6, \"its\" refers to the -",
+      "options": [
+        "intestine",
+        "camera",
+        "tube",
+        "procedure"
+      ],
+      "correctAnswer": "tube",
+      "correctIndex": 3
+    },
+    {
+      "id": 81,
+      "exam": "Summer 2024",
+      "section": 2,
+      "questionNumber": 15,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Capsule endoscopy",
+      "question": "The second paragraph mentions nanotechnology because it -",
+      "options": [
+        "is the fastest means of diagnosing gastrointestinal disorders",
+        "has become a standard medical procedure",
+        "combines a number of scientific approaches",
+        "made possible the development of capsule endoscopy"
+      ],
+      "correctAnswer": "made possible the development of capsule endoscopy",
+      "correctIndex": 4
+    },
+    {
+      "id": 82,
+      "exam": "Summer 2024",
+      "section": 2,
+      "questionNumber": 16,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Capsule endoscopy",
+      "question": "In line 23, \"affected\" is closest in meaning to -",
+      "options": [
+        "additional",
+        "diseased",
+        "therapeutic",
+        "medical"
+      ],
+      "correctAnswer": "diseased",
+      "correctIndex": 2
+    },
+    {
+      "id": 83,
+      "exam": "Summer 2024",
+      "section": 2,
+      "questionNumber": 17,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Capsule endoscopy",
+      "question": "An appropriate title for this text would be -",
+      "options": [
+        "A Medical Miracle: Curing Gastrointestinal Diseases",
+        "Engineering Meets Medicine: Capsule Endoscopy",
+        "New Applications for Nanotechnology",
+        "Endoscopy and Other Diagnostic Procedures"
+      ],
+      "correctAnswer": "Engineering Meets Medicine: Capsule Endoscopy",
+      "correctIndex": 2
+    },
+    {
+      "id": 84,
+      "exam": "Summer 2024",
+      "section": 2,
+      "questionNumber": 18,
+      "type": "Reading Comprehension",
+      "passage": "Text II - The Benin Bronzes",
+      "question": "The main purpose of the first paragraph is to -",
+      "options": [
+        "present the background to Britain's conquest of the Kingdom of Benin",
+        "introduce museum artifacts that were plundered from Benin",
+        "provide an overview of Benin's artistic tradition",
+        "explain how the Benin Bronzes got their name"
+      ],
+      "correctAnswer": "introduce museum artifacts that were plundered from Benin",
+      "correctIndex": 2
+    },
+    {
+      "id": 85,
+      "exam": "Summer 2024",
+      "section": 2,
+      "questionNumber": 19,
+      "type": "Reading Comprehension",
+      "passage": "Text II - The Benin Bronzes",
+      "question": "The main purpose of the second paragraph is to -",
+      "options": [
+        "present voices calling for the return of the Benin Bronzes",
+        "describe the work of the Legacy Restoration Trust",
+        "introduce a leading Nigerian-American artist",
+        "explain why the Benin Bronzes are a painful reminder of colonialism"
+      ],
+      "correctAnswer": "present voices calling for the return of the Benin Bronzes",
+      "correctIndex": 1
+    },
+    {
+      "id": 86,
+      "exam": "Summer 2024",
+      "section": 2,
+      "questionNumber": 20,
+      "type": "Reading Comprehension",
+      "passage": "Text II - The Benin Bronzes",
+      "question": "\"Nevertheless\" (line 21) could best be restated as -",
+      "options": [
+        "Despite securing the restoration of the Benin Bronzes",
+        "Even though German museums hold a large number of Benin Bronzes",
+        "Although many institutions will not discuss the Benin Bronzes in their collections",
+        "Although some museums have said they are willing to give up the Benin Bronzes"
+      ],
+      "correctAnswer": "Although some museums have said they are willing to give up the Benin Bronzes",
+      "correctIndex": 4
+    },
+    {
+      "id": 87,
+      "exam": "Summer 2024",
+      "section": 2,
+      "questionNumber": 21,
+      "type": "Reading Comprehension",
+      "passage": "Text II - The Benin Bronzes",
+      "question": "The main purpose of the last paragraph is to -",
+      "options": [
+        "discuss the British Museum's position on returning the Benin Bronzes that it holds",
+        "present the British Museum's acknowledgement that the Benin Bronzes were wrongfully taken",
+        "explain how so many Benin Bronzes ended up in the British Museum",
+        "describe the British Museum's collection of Benin Bronzes"
+      ],
+      "correctAnswer": "discuss the British Museum's position on returning the Benin Bronzes that it holds",
+      "correctIndex": 1
+    },
+    {
+      "id": 88,
+      "exam": "Summer 2024",
+      "section": 2,
+      "questionNumber": 22,
+      "type": "Reading Comprehension",
+      "passage": "Text II - The Benin Bronzes",
+      "question": "It can be inferred from the text that one reason many museums refuse to discuss returning the Bronzes is because the objects -",
+      "options": [
+        "are so valuable",
+        "were legally purchased from Benin",
+        "might get damaged",
+        "represent colonialism"
+      ],
+      "correctAnswer": "are so valuable",
+      "correctIndex": 1
+    },
+    {
+      "id": 89,
+      "exam": "Fall 2024",
+      "section": 1,
+      "questionNumber": 1,
+      "type": "Sentence Completion",
+      "question": "____ evidence to the contrary, many people believe that men are better drivers than women.",
+      "options": ["Despite", "Unless", "Following", "Perhaps"],
+      "correctAnswer": "Despite",
+      "correctIndex": 1
+    },
+    {
+      "id": 90,
+      "exam": "Fall 2024",
+      "section": 1,
+      "questionNumber": 2,
+      "type": "Sentence Completion",
+      "question": "Anthony Blunt was stripped of his knighthood by Queen Elizabeth when ____ he had spied for the Soviet Union.",
+      "options": ["he was convicted of", "he confessed to", "it became known that", "that was discovered"],
+      "correctAnswer": "it became known that",
+      "correctIndex": 3
+    },
+    {
+      "id": 91,
+      "exam": "Fall 2024",
+      "section": 1,
+      "questionNumber": 3,
+      "type": "Sentence Completion",
+      "question": "Huge profits from the sale of avocadoes in New Zealand have ____ a wave of thefts from avocado orchards.",
+      "options": ["caught up with", "looked forward to", "given rise to", "kept away from"],
+      "correctAnswer": "given rise to",
+      "correctIndex": 3
+    },
+    {
+      "id": 92,
+      "exam": "Fall 2024",
+      "section": 1,
+      "questionNumber": 4,
+      "type": "Sentence Completion",
+      "question": "Crows are known to hold a ____, remembering and showing aggression toward crows that have hurt them in the past.",
+      "options": ["blunder", "detour", "grudge", "hurdle"],
+      "correctAnswer": "grudge",
+      "correctIndex": 3
+    },
+    {
+      "id": 93,
+      "exam": "Fall 2024",
+      "section": 1,
+      "questionNumber": 5,
+      "type": "Sentence Completion",
+      "question": "In 2000, the 170-meter tall Washington Monument underwent extensive ____ to repair broken marble blocks, remove stains, and replace windows.",
+      "options": ["revelations", "renovations", "resolutions", "recollections"],
+      "correctAnswer": "renovations",
+      "correctIndex": 2
+    },
+    {
+      "id": 94,
+      "exam": "Fall 2024",
+      "section": 1,
+      "questionNumber": 6,
+      "type": "Sentence Completion",
+      "question": "Martin Luther King Jr.'s \"I Have a Dream\" speech is considered one of the most important ____ in U.S. history.",
+      "options": ["objections", "evictions", "orations", "escalations"],
+      "correctAnswer": "orations",
+      "correctIndex": 3
+    },
+    {
+      "id": 95,
+      "exam": "Fall 2024",
+      "section": 1,
+      "questionNumber": 7,
+      "type": "Sentence Completion",
+      "question": "____ regulations prohibit the construction of office buildings in residential neighborhoods.",
+      "options": ["Zoning", "Tracing", "Granting", "Hiring"],
+      "correctAnswer": "Zoning",
+      "correctIndex": 1
+    },
+    {
+      "id": 96,
+      "exam": "Fall 2024",
+      "section": 1,
+      "questionNumber": 8,
+      "type": "Sentence Completion",
+      "question": "As a result of drought, land clearing, and wildfires, Australia's koala population has ____ by 30 percent since 2018.",
+      "options": ["invoked", "embellished", "conceded", "plunged"],
+      "correctAnswer": "plunged",
+      "correctIndex": 4
+    },
+    {
+      "id": 97,
+      "exam": "Fall 2024",
+      "section": 1,
+      "questionNumber": 9,
+      "type": "Restatement",
+      "question": "The story of Don Quixote implies that fiction and historical truth are frequently indistinguishable.",
+      "options": [
+        "Don Quixote suggests that it is often impossible to tell the difference between fact and fiction.",
+        "Like many great works of fiction, Don Quixote is based primarily on actual historical events.",
+        "Some parts of Don Quixote are totally fictional, while others are rooted in historical fact.",
+        "There is more fiction than fact in Don Quixote."
+      ],
+      "correctAnswer": "Don Quixote suggests that it is often impossible to tell the difference between fact and fiction.",
+      "correctIndex": 1
+    },
+    {
+      "id": 98,
+      "exam": "Fall 2024",
+      "section": 1,
+      "questionNumber": 10,
+      "type": "Restatement",
+      "question": "The permanent shutdown of Greyhound bus service in Canada has exacerbated the accessibility problem faced by the country's rural communities.",
+      "options": [
+        "Rural communities in Canada are protesting the closure of the Greyhound bus company.",
+        "Greyhound buses no longer service some of Canada's most remote locations due to poor infrastructure.",
+        "Due to reduced demand among rural customers, the Greyhound bus company has cancelled many of its Canadian routes.",
+        "Travel has become even more difficult for people living in the Canadian countryside since Greyhound bus service was discontinued there."
+      ],
+      "correctAnswer": "Travel has become even more difficult for people living in the Canadian countryside since Greyhound bus service was discontinued there.",
+      "correctIndex": 4
+    },
+    {
+      "id": 99,
+      "exam": "Fall 2024",
+      "section": 1,
+      "questionNumber": 11,
+      "type": "Restatement",
+      "question": "Throughout his career, astrophysicist Charles Greeley Abbot sought to demonstrate that fluctuations in the Sun's energy emissions have a quantifiable effect on Earth's weather.",
+      "options": [
+        "After many years of research, Abbot concluded that the forces that cause variations in the Sun's energy levels are also responsible for changes in the weather on Earth.",
+        "Abbot never managed to conclusively determine how energy released by the Sun influences Earth's weather.",
+        "Abbot spent his career arguing that the Sun's energy emissions have a negligible effect on the weather on Earth.",
+        "Abbot never stopped trying to prove that Earth's weather is measurably affected by changes in the Sun's energy output."
+      ],
+      "correctAnswer": "Abbot never stopped trying to prove that Earth's weather is measurably affected by changes in the Sun's energy output.",
+      "correctIndex": 4
+    },
+    {
+      "id": 100,
+      "exam": "Fall 2024",
+      "section": 1,
+      "questionNumber": 12,
+      "type": "Restatement",
+      "question": "The works showcased at the International Exhibition of Modern Decorative and Industrial Arts, held in Paris in 1925, epitomized the Art Deco movement.",
+      "options": [
+        "The 1925 International Exhibition of Modern Decorative and Industrial Arts in Paris was organized in order to promote Art Deco artists.",
+        "The International Exhibition of Modern Decorative and Industrial Arts, held in Paris in 1925, featured exceptional Art Deco works.",
+        "The pieces which attracted the most attention at the International Exhibition of Modern Decorative and Industrial Arts, held in Paris in 1925, were those created in the Art Deco style.",
+        "The exhibits at the 1925 International Exhibition of Modern Decorative and Industrial Arts in Paris captured the essence of the Art Deco style."
+      ],
+      "correctAnswer": "The exhibits at the 1925 International Exhibition of Modern Decorative and Industrial Arts in Paris captured the essence of the Art Deco style.",
+      "correctIndex": 4
+    },
+    {
+      "id": 101,
+      "exam": "Fall 2024",
+      "section": 1,
+      "questionNumber": 13,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Queen Anne's lace (wildflower)",
+      "question": "An appropriate title for this text would be -",
+      "options": [
+        "The Prettiest Lace Ever Made",
+        "Queen Anne's Lace: A Wildflower",
+        "Making Lace: A Short History",
+        "The Life of Queen Anne"
+      ],
+      "correctAnswer": "Queen Anne's Lace: A Wildflower",
+      "correctIndex": 2
+    },
+    {
+      "id": 102,
+      "exam": "Fall 2024",
+      "section": 1,
+      "questionNumber": 14,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Queen Anne's lace (wildflower)",
+      "question": "According to the first paragraph Queen Anne's lace -",
+      "options": [
+        "has a very unpleasant smell",
+        "cannot be eaten",
+        "is found in very few places",
+        "is from the same family as the carrot"
+      ],
+      "correctAnswer": "is from the same family as the carrot",
+      "correctIndex": 4
+    },
+    {
+      "id": 103,
+      "exam": "Fall 2024",
+      "section": 1,
+      "questionNumber": 15,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Queen Anne's lace (wildflower)",
+      "question": "The second paragraph is mainly about -",
+      "options": [
+        "how to make Queen Anne's lace",
+        "flowers and beetles",
+        "different wild plants",
+        "what Queen Anne's lace looks like"
+      ],
+      "correctAnswer": "what Queen Anne's lace looks like",
+      "correctIndex": 4
+    },
+    {
+      "id": 104,
+      "exam": "Fall 2024",
+      "section": 1,
+      "questionNumber": 16,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Queen Anne's lace (wildflower)",
+      "question": "In line 12, \"it\" refers to -",
+      "options": [
+        "England",
+        "lace",
+        "wild carrot",
+        "one story"
+      ],
+      "correctAnswer": "wild carrot",
+      "correctIndex": 3
+    },
+    {
+      "id": 105,
+      "exam": "Fall 2024",
+      "section": 1,
+      "questionNumber": 17,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Queen Anne's lace (wildflower)",
+      "question": "It can be inferred from the text that Queen Anne's lace is -",
+      "options": [
+        "not really lace",
+        "different from wild carrot",
+        "difficult to make",
+        "usually purple"
+      ],
+      "correctAnswer": "not really lace",
+      "correctIndex": 1
+    },
+    {
+      "id": 106,
+      "exam": "Fall 2024",
+      "section": 1,
+      "questionNumber": 18,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Nostradamus and prophecy",
+      "question": "An appropriate title for this text would be -",
+      "options": [
+        "The Fascinating Phenomenon of Prophecy",
+        "Cryptic Quatrains: The Nostradamus Debate",
+        "The Prophecies: A Window into the Future",
+        "The Life and Works of Nostradamus"
+      ],
+      "correctAnswer": "Cryptic Quatrains: The Nostradamus Debate",
+      "correctIndex": 2
+    },
+    {
+      "id": 107,
+      "exam": "Fall 2024",
+      "section": 1,
+      "questionNumber": 19,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Nostradamus and prophecy",
+      "question": "In line 4, \"veritable\" is closest in meaning to -",
+      "options": [
+        "experienced",
+        "genuine",
+        "strict",
+        "imprecise"
+      ],
+      "correctAnswer": "genuine",
+      "correctIndex": 2
+    },
+    {
+      "id": 108,
+      "exam": "Fall 2024",
+      "section": 1,
+      "questionNumber": 20,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Nostradamus and prophecy",
+      "question": "Which of the following is not mentioned in the second paragraph as a characteristic of Nostradamus's quatrains?",
+      "options": [
+        "Their meaning is unclear.",
+        "They consist of four lines.",
+        "They contain detailed predictions.",
+        "They are not arranged in chronological order."
+      ],
+      "correctAnswer": "They contain detailed predictions.",
+      "correctIndex": 3
+    },
+    {
+      "id": 109,
+      "exam": "Fall 2024",
+      "section": 1,
+      "questionNumber": 21,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Nostradamus and prophecy",
+      "question": "According to the last paragraph, Nostradamus -",
+      "options": [
+        "predicted things that were sure to occur",
+        "has more supporters than critics",
+        "made predictions that were incorrect",
+        "was not a particularly good writer"
+      ],
+      "correctAnswer": "predicted things that were sure to occur",
+      "correctIndex": 1
+    },
+    {
+      "id": 110,
+      "exam": "Fall 2024",
+      "section": 1,
+      "questionNumber": 22,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Nostradamus and prophecy",
+      "question": "It can be inferred that the sources mentioned in line 16 -",
+      "options": [
+        "believe Nostradamus was a fraud",
+        "cannot explain why Nostradamus was able to predict certain events",
+        "have devoted themselves to interpreting Nostradamus's work",
+        "do not think Nostradamus wrote The Prophecies"
+      ],
+      "correctAnswer": "believe Nostradamus was a fraud",
+      "correctIndex": 1
+    },
+    {
+      "id": 111,
+      "exam": "Fall 2024",
+      "section": 2,
+      "questionNumber": 1,
+      "type": "Sentence Completion",
+      "question": "Because dogs have upturned tails and wolves do not, biologist Carl Linnaeus ____ as different species in 1758.",
+      "options": ["classifies both", "decided to classify them", "gave each classification", "had classified"],
+      "correctAnswer": "decided to classify them",
+      "correctIndex": 2
+    },
+    {
+      "id": 112,
+      "exam": "Fall 2024",
+      "section": 2,
+      "questionNumber": 2,
+      "type": "Sentence Completion",
+      "question": "The ____ surrounding the death of Che Guevara, the Cuban revolutionary leader, are unknown.",
+      "options": ["opportunities", "restrictions", "principles", "circumstances"],
+      "correctAnswer": "circumstances",
+      "correctIndex": 4
+    },
+    {
+      "id": 113,
+      "exam": "Fall 2024",
+      "section": 2,
+      "questionNumber": 3,
+      "type": "Sentence Completion",
+      "question": "Egyptian pharaoh Tutankhamun is often referred to as the Boy King because his ____ began when he was only nine years old.",
+      "options": ["heir", "strand", "arch", "reign"],
+      "correctAnswer": "reign",
+      "correctIndex": 4
+    },
+    {
+      "id": 114,
+      "exam": "Fall 2024",
+      "section": 2,
+      "questionNumber": 4,
+      "type": "Sentence Completion",
+      "question": "There is a wide range of ____ for which a hockey player may be sent off the ice.",
+      "options": ["offenses", "proposals", "shelters", "privileges"],
+      "correctAnswer": "offenses",
+      "correctIndex": 1
+    },
+    {
+      "id": 115,
+      "exam": "Fall 2024",
+      "section": 2,
+      "questionNumber": 5,
+      "type": "Sentence Completion",
+      "question": "In the summer of 2003, Europe suffered a severe heat wave, with temperatures in southern Portugal reaching a ____ 48 degrees Celsius.",
+      "options": ["sprawling", "nocturnal", "negligent", "scorching"],
+      "correctAnswer": "scorching",
+      "correctIndex": 4
+    },
+    {
+      "id": 116,
+      "exam": "Fall 2024",
+      "section": 2,
+      "questionNumber": 6,
+      "type": "Sentence Completion",
+      "question": "Tensions in Central Asia are ____ as several countries compete for access to a dwindling supply of fresh water.",
+      "options": ["mounting", "rehearsing", "nourishing", "discounting"],
+      "correctAnswer": "mounting",
+      "correctIndex": 1
+    },
+    {
+      "id": 117,
+      "exam": "Fall 2024",
+      "section": 2,
+      "questionNumber": 7,
+      "type": "Sentence Completion",
+      "question": "In northeastern India, fires ignited in a coal mine almost a century ago are still ____ deep below the earth's surface.",
+      "options": ["grimacing", "protruding", "reclining", "smoldering"],
+      "correctAnswer": "smoldering",
+      "correctIndex": 4
+    },
+    {
+      "id": 118,
+      "exam": "Fall 2024",
+      "section": 2,
+      "questionNumber": 8,
+      "type": "Sentence Completion",
+      "question": "Evergreens are ____ trees, able to thrive in the most inhospitable conditions.",
+      "options": ["frivolous", "devious", "tenacious", "hilarious"],
+      "correctAnswer": "tenacious",
+      "correctIndex": 3
+    },
+    {
+      "id": 119,
+      "exam": "Fall 2024",
+      "section": 2,
+      "questionNumber": 9,
+      "type": "Restatement",
+      "question": "A man cannot be comfortable without his own approval. (Mark Twain)",
+      "options": [
+        "Self-respect comes from having respect for others.",
+        "Well-being is possible only for those who accept themselves.",
+        "It is difficult to respect people who do not respect themselves.",
+        "Knowing oneself is the first step towards liking oneself."
+      ],
+      "correctAnswer": "Well-being is possible only for those who accept themselves.",
+      "correctIndex": 2
+    },
+    {
+      "id": 120,
+      "exam": "Fall 2024",
+      "section": 2,
+      "questionNumber": 10,
+      "type": "Restatement",
+      "question": "Physicist Murray Gell-Mann conducted groundbreaking research in the 1960s on a class of elementary particles that came to be known as quarks.",
+      "options": [
+        "A group of elementary particles, later called quarks, was the subject of pioneering work done by Murray Gell-Mann.",
+        "In 1960, Murray Gell-Mann named the elementary particles he discovered quarks.",
+        "Murray Gell-Mann began his innovative study on quarks and other elementary particles in the 1960s.",
+        "A noteworthy study by Murray Gell-Mann on elementary particles known as quarks established him as the leading physicist of his day."
+      ],
+      "correctAnswer": "A group of elementary particles, later called quarks, was the subject of pioneering work done by Murray Gell-Mann.",
+      "correctIndex": 1
+    },
+    {
+      "id": 121,
+      "exam": "Fall 2024",
+      "section": 2,
+      "questionNumber": 11,
+      "type": "Restatement",
+      "question": "Livy was unique among Roman historians in that he played no part in politics.",
+      "options": [
+        "Livy's political views were not reflected in his historical writings.",
+        "Livy was one of the few Roman historians with no political background.",
+        "Livy was the only Roman historian who was not involved in politics.",
+        "Livy's historical writings do not relate to Roman politics."
+      ],
+      "correctAnswer": "Livy was the only Roman historian who was not involved in politics.",
+      "correctIndex": 3
+    },
+    {
+      "id": 122,
+      "exam": "Fall 2024",
+      "section": 2,
+      "questionNumber": 12,
+      "type": "Restatement",
+      "question": "In June 1977, the Royal Geographical Society embarked on a 15-month inventory of the flora and fauna in Borneo's Gunung Mulu National Park.",
+      "options": [
+        "In June 1977, the Royal Geographical Society recommended that the flora and fauna found in Gunung Mulu National Park be given protected status for 15 months.",
+        "The Royal Geographical Society's study of the flora and fauna in Borneo's Gunung Mulu National Park took 15 months longer than expected.",
+        "Borneo's Gunung Mulu National Park was reopened in June 1977 after the Royal Geographical Society spent 15 months restoring the park's flora and fauna.",
+        "A list of the flora and fauna in Gunung Mulu National Park was prepared by the Royal Geographical Society over a period of 15 months, beginning in June 1977."
+      ],
+      "correctAnswer": "A list of the flora and fauna in Gunung Mulu National Park was prepared by the Royal Geographical Society over a period of 15 months, beginning in June 1977.",
+      "correctIndex": 4
+    },
+    {
+      "id": 123,
+      "exam": "Fall 2024",
+      "section": 2,
+      "questionNumber": 13,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Composting",
+      "question": "An appropriate title for this text would be -",
+      "options": [
+        "The Advantages and Disadvantages of Composting",
+        "Composting: An Easy Way to Help the Environment",
+        "A Short History of Composting",
+        "Buried Waste: The Dangers of Landfills"
+      ],
+      "correctAnswer": "Composting: An Easy Way to Help the Environment",
+      "correctIndex": 2
+    },
+    {
+      "id": 124,
+      "exam": "Fall 2024",
+      "section": 2,
+      "questionNumber": 14,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Composting",
+      "question": "Which of the following is not mentioned in the first paragraph as a problem related to dumps and landfills?",
+      "options": [
+        "They pollute the air, water, and soil.",
+        "They smell bad.",
+        "They are expensive to maintain.",
+        "They take up valuable space."
+      ],
+      "correctAnswer": "They are expensive to maintain.",
+      "correctIndex": 3
+    },
+    {
+      "id": 125,
+      "exam": "Fall 2024",
+      "section": 2,
+      "questionNumber": 15,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Composting",
+      "question": "According to the second paragraph, which of the following is not needed to make compost?",
+      "options": [
+        "air",
+        "bacteria",
+        "fertilizer",
+        "biodegradable waste"
+      ],
+      "correctAnswer": "fertilizer",
+      "correctIndex": 3
+    },
+    {
+      "id": 126,
+      "exam": "Fall 2024",
+      "section": 2,
+      "questionNumber": 16,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Composting",
+      "question": "The main purpose of the last paragraph is to discuss ____ of composting.",
+      "options": [
+        "the increasing popularity",
+        "alternative methods",
+        "additional benefits",
+        "the cost"
+      ],
+      "correctAnswer": "additional benefits",
+      "correctIndex": 3
+    },
+    {
+      "id": 127,
+      "exam": "Fall 2024",
+      "section": 2,
+      "questionNumber": 17,
+      "type": "Reading Comprehension",
+      "passage": "Text I - Composting",
+      "question": "According to the text, what is the difference between decomposing and rotting?",
+      "options": [
+        "Decomposing breaks waste down into nutrients, while rotting produces dangerous pollutants.",
+        "Only biodegradable waste decomposes, but any type of household garbage will rot.",
+        "Waste decomposes when it is buried but rots when exposed to air.",
+        "Decomposing is a much longer process than rotting."
+      ],
+      "correctAnswer": "Decomposing breaks waste down into nutrients, while rotting produces dangerous pollutants.",
+      "correctIndex": 1
+    },
+    {
+      "id": 128,
+      "exam": "Fall 2024",
+      "section": 2,
+      "questionNumber": 18,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Walking and creativity",
+      "question": "The main purpose of the first paragraph is to -",
+      "options": [
+        "explain how walking can help solve problems",
+        "present the idea that walking improves one's thinking",
+        "present ways in which walking contributes to one's health",
+        "introduce Aristotle's philosophical views"
+      ],
+      "correctAnswer": "present the idea that walking improves one's thinking",
+      "correctIndex": 2
+    },
+    {
+      "id": 129,
+      "exam": "Fall 2024",
+      "section": 2,
+      "questionNumber": 19,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Walking and creativity",
+      "question": "According to the second paragraph, Beethoven, Wordsworth, and Thoreau -",
+      "options": [
+        "went walking when they needed to solve a problem",
+        "enjoyed good health as a result of walking",
+        "felt that walking was helpful to them",
+        "began most of their works while walking"
+      ],
+      "correctAnswer": "felt that walking was helpful to them",
+      "correctIndex": 3
+    },
+    {
+      "id": 130,
+      "exam": "Fall 2024",
+      "section": 2,
+      "questionNumber": 20,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Walking and creativity",
+      "question": "It can be inferred from the second paragraph that Beethoven's Pastoral Symphony -",
+      "options": [
+        "is most often performed outdoors",
+        "became Beethoven's best-known symphony",
+        "was the only one of Beethoven's works written about nature",
+        "was begun after a walk in nature"
+      ],
+      "correctAnswer": "was begun after a walk in nature",
+      "correctIndex": 4
+    },
+    {
+      "id": 131,
+      "exam": "Fall 2024",
+      "section": 2,
+      "questionNumber": 21,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Walking and creativity",
+      "question": "The main purpose of the last paragraph is to -",
+      "options": [
+        "present research that shows that walking has an impact on one's creative process",
+        "compare the claims of Sowden, Oppezzo, and Schwartz with regard to creativity",
+        "discuss ways to improve attention, memory, and recovery from mental fatigue",
+        "discuss the results of the Stanford University experiment"
+      ],
+      "correctAnswer": "present research that shows that walking has an impact on one's creative process",
+      "correctIndex": 1
+    },
+    {
+      "id": 132,
+      "exam": "Fall 2024",
+      "section": 2,
+      "questionNumber": 22,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Walking and creativity",
+      "question": "Which of the following statements would Dr. Sowden be most likely to agree with?",
+      "options": [
+        "Mental fatigue is the greatest challenge faced by creative people.",
+        "Creativity depends more on awareness than memory.",
+        "The creative process is most improved by sitting outside.",
+        "Claims that walking contributes to creativity are not speculative."
+      ],
+      "correctAnswer": "Claims that walking contributes to creativity are not speculative.",
+      "correctIndex": 4
+    }
+  ]
+}

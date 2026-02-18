@@ -1,0 +1,1605 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "generatedAt": "2026-01-30T14:17:32.510Z",
+    "description": "Reading Comprehension database extracted from Psychometric exams"
+  },
+  "passages": [
+    {
+      "id": "1_text_1",
+      "exam": "1",
+      "textNumber": 1,
+      "passage": "When someone describes a kind person as \"having a heart of gold\", they are quoting from William Shakespeare's play Henry V. Encouraging someone to \"break the ice\" in an awkward social situation is borrowing from The Taming of the Shrew. The English language as we know it owes a great debt to the preeminent playwright, who introduced hundreds of previously unknown words and phrases into its lexicon. Shakespeare greatly enhanced the English language by altering existing words to create new ones. One type of manipulation involved combining two words to create a new term, for example, the word \"watchdog\" in reference to a person who tries to prevent wrong or illegal activity. Another strategy Shakespeare employed was using nouns as verbs. He was the first person to use \"friend\" as a verb, predating Facebook by almost 400 years. Shakespeare also anglicized words from foreign languages: for example the word \"critic\", which he derived from the Greek kritikos, meaning to judge or decide. He was also fond of adding prefixes and suffixes to existing words. According to James Shapiro of Columbia University, Shakespeare invented the words unaware, uncomfortable, uneducated, fashionable, and worthless, all of which are now deeply engrained in modern vernacular. Esteemed Shakespearean scholar David Crystal asserts that \"Shakespeare teaches us to dare to be creative, to push the rules a little bit. If the word isn't there, make one up.\" And indeed, the English language continues to evolve. In 2013, \"selfie\" was named the word of the year by the editors of the Oxford English Dictionary, a choice Shakespeare would undoubtedly have approved of.",
+      "questionRange": {
+        "start": 13,
+        "end": 17
+      },
+      "questions": [
+        {
+          "questionNumber": 13,
+          "question": "An appropriate title for the text would be -",
+          "choices": [
+            "From Shakespeare to Facebook: The History of the English Language",
+            "The Plays of William Shakespeare: Language Perfected",
+            "Evidence of Greatness: Shakespeare's Language Reinterpreted",
+            "Lessons from Shakespeare: Helping the English Language to Evolve"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "Lessons from Shakespeare: Helping the English Language to Evolve"
+        },
+        {
+          "questionNumber": 14,
+          "question": "Which of the following strategies for creating new words is not mentioned in the second paragraph?",
+          "choices": [
+            "creating English versions of words from other languages",
+            "replacing prefixes with suffixes",
+            "connecting two words that already exist",
+            "using words in new ways"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "creating English versions of words from other languages"
+        },
+        {
+          "questionNumber": 15,
+          "question": "It can be inferred from the second paragraph that Shakespeare used suffixes -",
+          "choices": [
+            "to alter the meaning of existing words",
+            "more extensively than other methods of inventing new words",
+            "instead of prefixes whenever possible",
+            "to anglicize words"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "to alter the meaning of existing words"
+        },
+        {
+          "questionNumber": 16,
+          "question": "The main purpose of the last paragraph is to -",
+          "choices": [
+            "introduce a new English word",
+            "describe a Shakespearean scholar's work",
+            "present David Crystal's criticism of the Oxford English Dictionary",
+            "show that today's English speakers continue to follow Shakespeare's example"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "introduce a new English word"
+        },
+        {
+          "questionNumber": 17,
+          "question": "It can be inferred from the last paragraph that David Crystal -",
+          "choices": [
+            "is one of the editors of the Oxford English Dictionary",
+            "believes that breaking the rules of language is irresponsible",
+            "thinks Shakespeare invented too many words",
+            "approves of the word \"selfie\""
+          ],
+          "correctAnswer": 2,
+          "correctAnswerText": "believes that breaking the rules of language is irresponsible"
+        }
+      ]
+    },
+    {
+      "id": "1_text_1",
+      "exam": "1",
+      "textNumber": 1,
+      "passage": "According to researchers, habits account for about 40 percent of our behaviors on any given day. Understanding the nature of habits and learning how to form beneficial ones or change harmful ones is essential in life. For many people, however, creating new behavior patterns is an almost impossible task. The key to success lies in something called the habit loop. Put briefly, a habit loop consists of a cue, a routine and a reward. In his best-selling book The Power of Habit, Charles Duhigg gives teeth brushing as an example. He explains that waking up in the morning with film on one's teeth is the cue that leads people to go through the routine of brushing their teeth, thereby yielding the reward of a clean and fresh feeling in their mouth. Research shows that it was the fresh taste of a new mint-flavored toothpaste called Pepsodent, in addition to the desire to remove the layer of plaque that gathers on teeth, that gave rise to the widespread practice of teeth brushing in the United States at the beginning of the 20th century. Customers claimed that they began looking forward to the cool and tingling sensation created by the toothpaste. The habit loop took hold and there was soon a soaring demand for Pepsodent and other mint-flavored toothpastes. In order to create a new habit or get rid of an old one it is necessary not just to identify a cue, a routine and a reward, but also to cultivate a craving that drives the loop. Duhigg explains that the reason people fail in their attempt to turn a new behavior into a set habit is that a one-time reward is not enough. Only when a behavior is repeated – and rewarded – a number of times does the brain begin anticipating the reward. Once the new routine has become automatic, a habit has been established.",
+      "questionRange": {
+        "start": 13,
+        "end": 17
+      },
+      "questions": [
+        {
+          "questionNumber": 18,
+          "question": "An appropriate title for this text would be -",
+          "choices": [
+            "Pain Relievers: Advantages and Disadvantages",
+            "Feeling Pain and Dealing With It",
+            "The Nature of Chronic Pain",
+            "Pain: A Complex Chemical Reaction"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "Pain: A Complex Chemical Reaction"
+        },
+        {
+          "questionNumber": 19,
+          "question": "The main purpose of the first paragraph is to -",
+          "choices": [
+            "describe different kinds of pain",
+            "explain what causes the sensation of pain",
+            "describe the role of prostaglandins in the body",
+            "explain how the brain responds to pain"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "explain how the brain responds to pain"
+        },
+        {
+          "questionNumber": 20,
+          "question": "According to the second paragraph, pain relievers -",
+          "choices": [
+            "should not be taken too often",
+            "are more effective against disease than injury",
+            "send healing signals to the brain",
+            "do not remove the source of the pain"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "should not be taken too often"
+        },
+        {
+          "questionNumber": 21,
+          "question": "\"They\" (line 15) refers, among other things, to -",
+          "choices": [
+            "codeine",
+            "anti-inflammatory drugs",
+            "aspirin",
+            "damaged cells"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "codeine"
+        },
+        {
+          "questionNumber": 22,
+          "question": "It can be inferred from the text that ibuprofen -",
+          "choices": [
+            "reduces the production of prostaglandins",
+            "remains in the body long after it is taken",
+            "is the best pain reliever",
+            "should not be used together with morphine"
+          ],
+          "correctAnswer": 3,
+          "correctAnswerText": "is the best pain reliever"
+        },
+        {
+          "questionNumber": 13,
+          "question": "The main purpose of the text is to -",
+          "choices": [
+            "compare the characteristics of beneficial and harmful habits",
+            "explain the brain's role in establishing cues, routines and rewards",
+            "present an example of a habit loop that is difficult to change",
+            "discuss how habits are formed and how to change them"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "discuss how habits are formed and how to change them"
+        },
+        {
+          "questionNumber": 14,
+          "question": "The main purpose of the second paragraph is to -",
+          "choices": [
+            "explain why teeth brushing is a beneficial habit",
+            "give an example of a habit loop",
+            "discuss the differences between cues, routines and rewards",
+            "present Charles Duhigg's book The Power of Habit"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "explain why teeth brushing is a beneficial habit"
+        },
+        {
+          "questionNumber": 15,
+          "question": "In line 17, \"an old one\" could best be replaced by -",
+          "choices": [
+            "an essential routine",
+            "a repeated reward",
+            "a bad habit",
+            "a failed attempt"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "an essential routine"
+        },
+        {
+          "questionNumber": 17,
+          "question": "According to the text, a habit is -",
+          "choices": [
+            "a routine that cannot be changed",
+            "an automatic behavior",
+            "a craving with a one-time reward",
+            "a reward in itself"
+          ],
+          "correctAnswer": 2,
+          "correctAnswerText": "an automatic behavior"
+        }
+      ]
+    },
+    {
+      "id": "1_text_2",
+      "exam": "1",
+      "textNumber": 2,
+      "passage": "Medieval Italian scholar Leonardo Fibonacci (c. 1170-1240) ranks among the foremost mathematicians of all time. One of his most significant contributions to the field of mathematics was the dissemination of the Hindu-Arabic number system, based on the digits zero to nine (0-9), which is used all over the world today. Fibonacci first encountered Hindu-Arabic numerals when, as a child, he spent several years in North Africa with his family. Years later, he traveled widely in the Mediterranean world, delving further into the Hindu-Arabic number system and discovering its advantages over the Roman number system then in use in Europe. In 1202, after returning to his native Pisa, he published the Liber abaci (Book of Calculation), the first work to introduce Hindu-Arabic numerals to Europe. Fibonacci's text demonstrated the usefulness of these numbers for practical, everyday arithmetic purposes such as money changing and the conversion of weights and measures. The book, which also discusses subjects such as geometry, algebra, and theoretical mathematics, drew the attention of leading scholars throughout Europe. Holy Roman Emperor Frederick II, who was deeply interested in the arts and sciences, found the Liber abaci intriguing and asked to meet its author. For several years afterward, Fibonacci corresponded with the emperor and court scholars, exploring mathematical problems and their solutions. When Fibonacci published his most innovative work, the Liber quadratorum (Book of Square Numbers) in 1225, he dedicated it to the emperor. Although the Liber quadratorum was Fibonacci's most sophisticated achievement and constituted a major contribution to the field of mathematics, the Liber abaci is broader in scope and was ultimately a more influential work.",
+      "questionRange": {
+        "start": 18,
+        "end": 22
+      },
+      "questions": [
+        {
+          "questionNumber": 18,
+          "question": "According to the text, the Hindu-Arabic number system -",
+          "choices": [
+            "is related to the Roman number system",
+            "uses ten different digits",
+            "was actually developed by Europeans",
+            "is no longer in use"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "is no longer in use"
+        },
+        {
+          "questionNumber": 19,
+          "question": "According to the second paragraph, Fibonacci -",
+          "choices": [
+            "dreamed of becoming a mathematician as a young boy",
+            "learned of the Hindu-Arabic numeral system in North Africa",
+            "was the first European scholar to write about practical and theoretical mathematics",
+            "became familiar with the Roman numeral system during his travels"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "became familiar with the Roman numeral system during his travels"
+        },
+        {
+          "questionNumber": 21,
+          "question": "According to the last paragraph, the Liber quadratorum -",
+          "choices": [
+            "was Fibonacci's most famous work",
+            "covers fewer subjects than the Liber abaci",
+            "took a long time to write",
+            "was not only about mathematics"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "was Fibonacci's most famous work"
+        },
+        {
+          "questionNumber": 22,
+          "question": "The last paragraph does not mention -",
+          "choices": [
+            "Fibonacci's most innovative work",
+            "Frederick II's intellectual interests",
+            "Fibonacci's relationship with other scholars",
+            "Frederick II's response to the Liber quadratorum"
+          ],
+          "correctAnswer": 3,
+          "correctAnswerText": "Fibonacci's relationship with other scholars"
+        }
+      ]
+    },
+    {
+      "id": "2_text_1",
+      "exam": "2",
+      "textNumber": 1,
+      "passage": "Almost a century after his death, a new book by French author Jules Verne, Paris in the 20th Century, was published. The manuscript of this hitherto unknown novel was completed in 1863 but then locked away in a safe. It was discovered in 1989 by Verne's great-grandson and appeared in English translation only in 1996. This 19th-century vision of the future describes life among skyscrapers of glass and steel, high-speed trains, gasoline-powered automobiles, calculators, fax machines, and a global communications network. Verne's remarkable ability to foresee technological advances and to describe them – even before their invention – is demonstrated in this novel, as in many of the works that made him famous, including Twenty Thousand Leagues Under the Sea and From the Earth to the Moon. However, this work counters the popular perception of Verne as an enthusiastic advocate of scientific progress. In fact, Paris in the 20th Century is a tragedy. It portrays the life of an idealistic young man who struggles unsuccessfully to find happiness in the fiercely materialistic world of the late 20th century. Verne's novel is a grim and troubling commentary on the high social costs of technological progress. Another common misconception about Verne is that he wrote about the wonders of technology because he was himself a scientist or an engineer. In truth, Verne was neither. The wealth of technical and scientific detail in Verne's fiction reflects his desire to depict – as persuasively as possible – the extraordinary power, as well as the far-reaching danger, of science and technology. Though he found science fascinating, he had no illusions that it was inherently virtuous.",
+      "questionRange": {
+        "start": 13,
+        "end": 17
+      },
+      "questions": [
+        {
+          "questionNumber": 13,
+          "question": "The main purpose of the first paragraph is to -",
+          "choices": [
+            "compare Paris in the 20th Century to other novels by Jules Verne",
+            "explain why Paris in the 20th Century was not published until 1989",
+            "argue that Paris in the 20th Century is Jules Verne's greatest work",
+            "discuss the publication and content of Paris in the 20th Century"
+          ],
+          "correctAnswer": 2,
+          "correctAnswerText": "explain why Paris in the 20th Century was not published until 1989"
+        },
+        {
+          "questionNumber": 14,
+          "question": "According to the first paragraph, in Paris in the 20th Century Jules Verne -",
+          "choices": [
+            "described life in Paris as he experienced it toward the end of his lifetime",
+            "tried to show readers the importance of 20th-century technological advances",
+            "introduced subjects that had not been discussed in his other novels",
+            "accurately predicted what life would be like in the 20th century"
+          ],
+          "correctAnswer": 3,
+          "correctAnswerText": "introduced subjects that had not been discussed in his other novels"
+        },
+        {
+          "questionNumber": 15,
+          "question": "The main idea of the second paragraph is that Paris in the 20th Century -",
+          "choices": [
+            "tells the story of a young man's struggle to find happiness",
+            "should have been published many years ago",
+            "was not understood at the time it was published",
+            "presents a grim view of technological progress"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "presents a grim view of technological progress"
+        },
+        {
+          "questionNumber": 16,
+          "question": "The main purpose of the last paragraph is to -",
+          "choices": [
+            "explain why Verne thought that science could be dangerous",
+            "correct a common misconception about Verne",
+            "compare Verne's work as a writer to his work as a scientist",
+            "emphasize the wealth of detail in Verne's fiction"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "explain why Verne thought that science could be dangerous"
+        },
+        {
+          "questionNumber": 17,
+          "question": "In line 21, \"he had no . . . virtuous\" means that Verne -",
+          "choices": [
+            "did not believe that science was necessarily good",
+            "tried to depict technology as negatively as possible",
+            "did not fully understand all the technical details he included in his books",
+            "did not believe that his vision of the future would prove to be accurate"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "did not believe that his vision of the future would prove to be accurate"
+        }
+      ]
+    },
+    {
+      "id": "2_text_1",
+      "exam": "2",
+      "textNumber": 1,
+      "passage": "Millions of people suffer from Crohn's disease, colitis, and other gastrointestinal disorders. The gastrointestinal tract, which includes the stomach as well as the large and small intestines, is long, narrow, and winding. The limited accessibility of the tract, and particularly of the small intestine, sometimes makes it difficult, or even impossible, to use traditional diagnostic methods such as X-ray or ultrasound. Even endoscopy – a procedure in which a long, thin, flexible tube with a camera on its end is inserted into the gastrointestinal tract by way of the patient's mouth – cannot reach all parts of the small intestine. Capsule endoscopy, invented by Israeli engineer Gavriel Iddan, changed all that. Iddan revolutionized endoscopy by applying the principles of nanotechnology – the miniaturization of components – to the standard medical technique. His invention comprises a miniature camera, a battery, a light, and a wireless transmitter, all contained in a capsule the size of a large vitamin pill. The patient swallows the device, which then moves painlessly along the entire gastrointestinal tract, capturing images along the way. The tiny camera takes two color pictures every second for eight hours. These images are transmitted to a small, portable recording device and are later examined on a computer screen. Capsule endoscopy has made diagnosis possible in many hitherto unresolvable cases. Furthermore, it is less invasive than standard endoscopy and there is no discomfort involved. In fact, patients can even work or drive while undergoing the procedure. Gastroenterologists have discovered many additional applications for this technology. For example, different versions of the capsule can be used to administer drugs directly to an affected area or for other therapeutic purposes. Many physicians regard the device as a medical miracle.",
+      "questionRange": {
+        "start": 13,
+        "end": 17
+      },
+      "questions": [
+        {
+          "questionNumber": 18,
+          "question": "The main purpose of the text is to discuss the -",
+          "choices": [
+            "phenomenon of animal migration",
+            "life cycle of the wildebeest",
+            "endless journey of the wildebeest",
+            "struggle for survival in east Africa"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "phenomenon of animal migration"
+        },
+        {
+          "questionNumber": 19,
+          "question": "Which of the following statements about the Great Wildebeest Migration is not made in the first paragraph?",
+          "choices": [
+            "It passes through more than one country.",
+            "Its route changes very little.",
+            "It covers a great distance.",
+            "It has been taking place since ancient times."
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "It passes through more than one country."
+        },
+        {
+          "questionNumber": 20,
+          "question": "In line 8, \"lends itself to\" is closest in meaning to -",
+          "choices": [
+            "has an effect on",
+            "must be stopped in order to",
+            "is good for",
+            "can be substituted for"
+          ],
+          "correctAnswer": 2,
+          "correctAnswerText": "must be stopped in order to"
+        },
+        {
+          "questionNumber": 21,
+          "question": "According to the last paragraph, the wildebeest migration -",
+          "choices": [
+            "has attracted a great deal of attention in recent years",
+            "contributes to the balance of nature in east Africa",
+            "is gradually decreasing in size",
+            "has never been observed from beginning to end"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "has never been observed from beginning to end"
+        },
+        {
+          "questionNumber": 22,
+          "question": "Which of the following statements about wildebeest is not made in the text?",
+          "choices": [
+            "They need to keep up with the herd from a very young age.",
+            "They always travel together.",
+            "They migrate in search of water and food.",
+            "They change their route to avoid predators."
+          ],
+          "correctAnswer": 2,
+          "correctAnswerText": "They always travel together."
+        },
+        {
+          "questionNumber": 13,
+          "question": "It can be inferred from the first paragraph that endoscopy is than the use of X-ray or ultrasound in diagnosing gastrointestinal disorders.",
+          "choices": [
+            "less painful",
+            "less complicated",
+            "more traditional",
+            "more effective"
+          ],
+          "correctAnswer": 2,
+          "correctAnswerText": "less complicated"
+        },
+        {
+          "questionNumber": 14,
+          "question": "In line 6, \"its\" refers to the -",
+          "choices": [
+            "intestine",
+            "camera",
+            "tube",
+            "procedure"
+          ],
+          "correctAnswer": 3,
+          "correctAnswerText": "tube"
+        },
+        {
+          "questionNumber": 15,
+          "question": "The second paragraph mentions nanotechnology because it -",
+          "choices": [
+            "is the fastest means of diagnosing gastrointestinal disorders",
+            "has become a standard medical procedure",
+            "combines a number of scientific approaches",
+            "made possible the development of capsule endoscopy"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "made possible the development of capsule endoscopy"
+        },
+        {
+          "questionNumber": 16,
+          "question": "In line 23, \"affected\" is closest in meaning to -",
+          "choices": [
+            "additional",
+            "diseased",
+            "therapeutic",
+            "medical"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "additional"
+        },
+        {
+          "questionNumber": 17,
+          "question": "An appropriate title for this text would be -",
+          "choices": [
+            "A Medical Miracle: Curing Gastrointestinal Diseases",
+            "Engineering Meets Medicine: Capsule Endoscopy",
+            "New Applications for Nanotechnology",
+            "Endoscopy and Other Diagnostic Procedures"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "Endoscopy and Other Diagnostic Procedures"
+        }
+      ]
+    },
+    {
+      "id": "2_text_2",
+      "exam": "2",
+      "textNumber": 2,
+      "passage": "In 1897, British colonial forces invaded the Kingdom of Benin, located in what is now southern Nigeria. Within days, the British destroyed Benin City, bringing to an end a kingdom that had thrived for centuries as one of West Africa's major powers. In the course of their conquest, British troops looted at least 3,000 valuable objects, including statues, ceramics, masks, and over 1,000 intricately decorated plaques that adorned ancestral altars and court buildings in the city's royal palace. More than a century later, these artworks – now collectively known as the Benin Bronzes – are in the possession of over 150 museums, institutions, and private collections around the world. For many Nigerians today, the Benin Bronzes are a painful reminder of colonialism and its continued effects on African societies. For decades, Nigerian leaders and the country's Legacy Restoration Trust (LRT) have advocated for the artifacts' return. Nigerian-American artist Victor Ehikhamenor wrote an impassioned New York Times op-ed on the subject in 2020. His essay concluded: \"Generations of Africans have already lost incalculable history and cultural reference points because of the absence of some of the best artworks created on the continent. We shouldn't have to ask, over and over, to get back what is ours.\" As a result of his and other intense efforts to secure the restoration of the Benin Bronzes, several museums have declared their intention to relinquish the contested treasures. In July 2022, an agreement was signed between Germany and Nigeria, transferring ownership of over 1,100 Bronzes currently in German museums to Nigeria. Nevertheless, the path toward full repatriation of all the treasures remains protracted and complex, with many museums around the world refusing even to discuss the issue. A case in point is London's British Museum, which houses 900 looted Benin objects – the largest collection of any institution in the world. The museum has, however, historically resisted public requests for the works' restitution. There is perhaps a glimmer of hope (and admission of responsibility) in the 2021 statement issued by a British Museum spokeswoman acknowledging that the Bronzes were taken in circumstances of \"devastation and plunder\".",
+      "questionRange": {
+        "start": 18,
+        "end": 22
+      },
+      "questions": [
+        {
+          "questionNumber": 18,
+          "question": "The main purpose of the first paragraph is to -",
+          "choices": [
+            "present the background to Britain's conquest of the Kingdom of Benin",
+            "introduce museum artifacts that were plundered from Benin",
+            "provide an overview of Benin's artistic tradition",
+            "explain how the Benin Bronzes got their name"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "present the background to Britain's conquest of the Kingdom of Benin"
+        },
+        {
+          "questionNumber": 19,
+          "question": "The main purpose of the second paragraph is to -",
+          "choices": [
+            "present voices calling for the return of the Benin Bronzes",
+            "describe the work of the Legacy Restoration Trust",
+            "introduce a leading Nigerian-American artist",
+            "explain why the Benin Bronzes are a painful reminder of colonialism"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "present voices calling for the return of the Benin Bronzes"
+        },
+        {
+          "questionNumber": 20,
+          "question": "\"Nevertheless\" (line 21) could best be restated as -",
+          "choices": [
+            "Despite securing the restoration of the Benin Bronzes",
+            "Even though German museums hold a large number of Benin Bronzes",
+            "Although many institutions will not discuss the Benin Bronzes in their collections",
+            "Although some museums have said they are willing to give up the Benin Bronzes"
+          ],
+          "correctAnswer": 2,
+          "correctAnswerText": "Even though German museums hold a large number of Benin Bronzes"
+        },
+        {
+          "questionNumber": 22,
+          "question": "It can be inferred from the text that one reason many museums refuse to discuss returning the Bronzes is because the objects -",
+          "choices": [
+            "are so valuable",
+            "were legally purchased from Benin",
+            "might get damaged",
+            "represent colonialism"
+          ],
+          "correctAnswer": 2,
+          "correctAnswerText": "were legally purchased from Benin"
+        }
+      ]
+    },
+    {
+      "id": "3_text_1",
+      "exam": "3",
+      "textNumber": 1,
+      "passage": "Queen Anne's lace is a wildflower found in many parts of the world. It grows in fields, empty lots, and by the roadside. It is often called wild carrot because it is related to the vegetable that we eat. In fact, if you rub and then sniff the plant's leaves, you will find that they smell like carrots. Queen Anne's lace has a circle of small, white flowers at the top of its long stem. Because of the way these tiny, delicate flowers are grouped together, they look like lace. There is a purple flower at the center of the cluster, making it seem as if a beetle is sitting there. No one is sure which Queen Anne the wildflower is named for. According to one story, it was named after the wife of King James I of England, who was originally from Denmark. When she came to England to marry the king, Anne saw wild carrot for the first time. She thought it so pretty that she decided to make lace that looked like the flower and sew it onto her dresses. Eventually, people began calling the plant by her name.",
+      "questionRange": {
+        "start": 13,
+        "end": 17
+      },
+      "questions": [
+        {
+          "questionNumber": 13,
+          "question": "An appropriate title for this text would be -",
+          "choices": [
+            "The Prettiest Lace Ever Made",
+            "Queen Anne's Lace: A Wildflower",
+            "Making Lace: A Short History",
+            "The Life of Queen Anne"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "The Life of Queen Anne"
+        },
+        {
+          "questionNumber": 14,
+          "question": "According to the first paragraph Queen Anne's lace -",
+          "choices": [
+            "has a very unpleasant smell",
+            "cannot be eaten",
+            "is found in very few places",
+            "is from the same family as the carrot"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "is from the same family as the carrot"
+        },
+        {
+          "questionNumber": 15,
+          "question": "The second paragraph is mainly about -",
+          "choices": [
+            "how to make Queen Anne's lace",
+            "flowers and beetles",
+            "different wild plants",
+            "what Queen Anne's lace looks like"
+          ],
+          "correctAnswer": 2,
+          "correctAnswerText": "flowers and beetles"
+        },
+        {
+          "questionNumber": 16,
+          "question": "In line 12, \"it\" refers to -",
+          "choices": [
+            "England",
+            "lace",
+            "wild carrot",
+            "one story"
+          ],
+          "correctAnswer": 2,
+          "correctAnswerText": "lace"
+        },
+        {
+          "questionNumber": 17,
+          "question": "It can be inferred from the text that Queen Anne's lace is -",
+          "choices": [
+            "not really lace",
+            "different from wild carrot",
+            "difficult to make",
+            "usually purple"
+          ],
+          "correctAnswer": 3,
+          "correctAnswerText": "difficult to make"
+        }
+      ]
+    },
+    {
+      "id": "3_text_1",
+      "exam": "3",
+      "textNumber": 1,
+      "passage": "One of the best ways to help the environment is also one of the simplest. Each year, the average family produces more than 350 kilograms of biodegradable waste – waste which can be broken down naturally into nutrients and used by other organisms. Usually, this \"green\" waste is hauled away along with other household garbage and buried in huge dumps and landfills. At best, these sites occupy valuable land and generate unpleasant odors; at worst, they create serious environmental hazards. Because buried biodegradable waste is not exposed to air, it rots, producing methane gas and acids which pollute the air, soil, and underground water sources. There is, however, a better way to deal with green waste. With very little effort, our eggshells, coffee grounds, and wilted lettuce leaves can be turned into wonderful fertilizer for our gardens and houseplants. Composting, turning green waste into fertilizer, dates back to ancient times. It requires no agronomic skill: anyone can learn how to compost in a matter of minutes. Biodegradable waste is placed in an open container, where it is kept damp and mixed regularly. The waste decomposes with the help of bacteria, earthworms, insects, and fungi. And because it is exposed to air – unlike waste buried in landfills – it does not rot. Composting has grown in popularity as people have become more environmentally aware. It not only creates a useful product, but also decreases the need for landfills, lessens reliance on chemical fertilizers, and reduces the number of garbage trucks polluting the air. Moreover, composting entails very little expense and can be done by individuals or groups of concerned citizens.",
+      "questionRange": {
+        "start": 13,
+        "end": 17
+      },
+      "questions": [
+        {
+          "questionNumber": 18,
+          "question": "An appropriate title for this text would be -",
+          "choices": [
+            "The Fascinating Phenomenon of Prophecy",
+            "Cryptic Quatrains: The Nostradamus Debate",
+            "The Prophecies: A Window into the Future",
+            "The Life and Works of Nostradamus"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "The Fascinating Phenomenon of Prophecy"
+        },
+        {
+          "questionNumber": 19,
+          "question": "In line 4, \"veritable\" is closest in meaning to -",
+          "choices": [
+            "experienced",
+            "genuine",
+            "strict",
+            "imprecise"
+          ],
+          "correctAnswer": 2,
+          "correctAnswerText": "genuine"
+        },
+        {
+          "questionNumber": 20,
+          "question": "Which of the following is not mentioned in the second paragraph as a characteristic of Nostradamus's quatrains?",
+          "choices": [
+            "Their meaning is unclear.",
+            "They consist of four lines.",
+            "They contain detailed predictions.",
+            "They are not arranged in chronological order."
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "They are not arranged in chronological order."
+        },
+        {
+          "questionNumber": 21,
+          "question": "According to the last paragraph, Nostradamus -",
+          "choices": [
+            "predicted things that were sure to occur",
+            "has more supporters than critics",
+            "made predictions that were incorrect",
+            "was not a particularly good writer"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "was not a particularly good writer"
+        },
+        {
+          "questionNumber": 22,
+          "question": "It can be inferred that the sources mentioned in line 16 -",
+          "choices": [
+            "believe Nostradamus was a fraud",
+            "cannot explain why Nostradamus was able to predict certain events",
+            "have devoted themselves to interpreting Nostradamus's work",
+            "do not think Nostradamus wrote The Prophecies"
+          ],
+          "correctAnswer": 3,
+          "correctAnswerText": "have devoted themselves to interpreting Nostradamus's work"
+        },
+        {
+          "questionNumber": 13,
+          "question": "An appropriate title for this text would be -",
+          "choices": [
+            "The Advantages and Disadvantages of Composting",
+            "Composting: An Easy Way to Help the Environment",
+            "A Short History of Composting",
+            "Buried Waste: The Dangers of Landfills"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "Buried Waste: The Dangers of Landfills"
+        },
+        {
+          "questionNumber": 14,
+          "question": "Which of the following is not mentioned in the first paragraph as a problem related to dumps and landfills?",
+          "choices": [
+            "They pollute the air, water, and soil.",
+            "They smell bad.",
+            "They are expensive to maintain.",
+            "They take up valuable space."
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "They take up valuable space."
+        },
+        {
+          "questionNumber": 15,
+          "question": "According to the second paragraph, which of the following is not needed to make compost?",
+          "choices": [
+            "air",
+            "bacteria",
+            "fertilizer",
+            "biodegradable waste"
+          ],
+          "correctAnswer": 2,
+          "correctAnswerText": "bacteria"
+        },
+        {
+          "questionNumber": 16,
+          "question": "The main purpose of the last paragraph is to discuss of composting.",
+          "choices": [
+            "the increasing popularity",
+            "alternative methods",
+            "additional benefits",
+            "the cost"
+          ],
+          "correctAnswer": 2,
+          "correctAnswerText": "alternative methods"
+        }
+      ]
+    },
+    {
+      "id": "3_text_2",
+      "exam": "3",
+      "textNumber": 2,
+      "passage": "The Latin phrase solvitur ambulando (\"it is solved by walking\") is often used when discussing the centuries-old belief that walking has a myriad of benefits. Aristotle, the ancient Greek philosopher, was well known for his practice of thinking while strolling and would often teach while walking the grounds of his academy in Athens. Aristotle was aware of walking's contribution to health and importance for cognitive function. He was not the only prominent historical figure to adhere to the ethos of walking. Many writers and artists have been avid walkers, insisting that their walking routine was part of their creative process. The long nature walks favored by German composer Ludwig van Beethoven inspired many of his works, most notably his Pastoral Symphony. For English poet William Wordsworth, the act of walking was inseparable from the act of writing. He both wrote and revised lines of poetry while hiking, the rhythm of his steps influencing the rhythm of his works. And the American philosopher Henry David Thoreau was convinced that walking was indispensable for the well-being of both body and mind. He declared, \"I cannot preserve my health and spirits unless I spend four hours a day at least … sauntering through the woods and over the hills and fields.\" Are the claims that walking enhances creativity purely speculative? Dr. Paul Sowden, a professor of psychology, has noted: \"Walking has been shown to improve our ability to shift between modes of thought and to improve our attention, memory, and recovery from mental fatigue, all of which are important for thinking creatively.\" Researchers Marily Oppezzo and Daniel Schwartz of Stanford University explored the purported link between walking and creativity. In one of their experiments, subjects were asked to brainstorm ideas under four different conditions: sitting indoors, walking on a treadmill indoors, being wheeled around outside in a wheelchair, and walking outdoors. The results, reported in the Journal of Experimental Psychology: Learning, Memory, and Cognition in 2014, provided measurable evidence to support the notion of solvitur ambulando for anyone facing the challenge of generating new ideas.",
+      "questionRange": {
+        "start": 18,
+        "end": 22
+      },
+      "questions": [
+        {
+          "questionNumber": 18,
+          "question": "The main purpose of the first paragraph is to -",
+          "choices": [
+            "explain how walking can help solve problems",
+            "present the idea that walking improves one's thinking",
+            "present ways in which walking contributes to one's health",
+            "introduce Aristotle's philosophical views"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "explain how walking can help solve problems"
+        },
+        {
+          "questionNumber": 19,
+          "question": "According to the second paragraph, Beethoven, Wordsworth, and Thoreau -",
+          "choices": [
+            "went walking when they needed to solve a problem",
+            "enjoyed good health as a result of walking",
+            "felt that walking was helpful to them",
+            "began most of their works while walking"
+          ],
+          "correctAnswer": 2,
+          "correctAnswerText": "enjoyed good health as a result of walking"
+        },
+        {
+          "questionNumber": 20,
+          "question": "It can be inferred from the second paragraph that Beethoven's Pastoral Symphony -",
+          "choices": [
+            "is most often performed outdoors",
+            "became Beethoven's best-known symphony",
+            "was the only one of Beethoven's works written about nature",
+            "was begun after a walk in nature"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "was begun after a walk in nature"
+        },
+        {
+          "questionNumber": 21,
+          "question": "The main purpose of the last paragraph is to -",
+          "choices": [
+            "present research that shows that walking has an impact on one's creative process",
+            "compare the claims of Sowden, Oppezzo, and Schwartz with regard to creativity",
+            "discuss ways to improve attention, memory, and recovery from mental fatigue",
+            "discuss the results of the Stanford University experiment"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "discuss the results of the Stanford University experiment"
+        },
+        {
+          "questionNumber": 22,
+          "question": "Which of the following statements would Dr. Sowden be most likely to agree with?",
+          "choices": [
+            "Mental fatigue is the greatest challenge faced by creative people.",
+            "Creativity depends more on awareness than memory.",
+            "The creative process is most improved by sitting outside.",
+            "Claims that walking contributes to creativity are not speculative."
+          ],
+          "correctAnswer": 3,
+          "correctAnswerText": "The creative process is most improved by sitting outside."
+        }
+      ]
+    },
+    {
+      "id": "4_text_1",
+      "exam": "4",
+      "textNumber": 1,
+      "passage": "In all probability, residents of early medieval Europe enjoyed healthier conditions, despite the crudeness of sanitary equipment, than their more prosperous 16th-century descendants. This was due to the establishment, in the Middle Ages, of public bathhouses. Sometimes run by private individuals, but more often by the local municipality, these bathhouses were common institutions in medieval European towns. Their existence was an indication of the importance attached to cleanliness at the time. A visit to the public bathhouse involved both bathing and steaming. It was customary to engage in such extensive cleaning at least once in two weeks and sometimes even weekly. Like the Roman bathhouse, the medieval bathhouse was a meeting place which promoted social contact. Paintings of the period depict people gossiping and eating together at the bathhouse, unembarrassed by bodily exposure. In addition, at the bathhouse one could be treated for pains and inflammatory conditions. So popular was bathing in the Middle Ages that the practice even spread to rural districts. By the 16th century, however, bathing had become less popular throughout Europe. The city of Frankfurt, which had 29 bathhouse keepers in 1387, had none in 1530. The scarcity of wood in the vicinity of large cities had made heating large quantities of water prohibitively expensive. Bathing became a luxury that only the upper classes could afford. In the 19th century, in an attempt to overcome the uncleanliness and disorder that had prevailed in urban life for some time, many cities created public bathhouses in poor neighborhoods. No doubt those cities' officials would have been astounded to learn that they were returning to a common medieval practice.",
+      "questionRange": {
+        "start": 13,
+        "end": 17
+      },
+      "questions": [
+        {
+          "questionNumber": 13,
+          "question": "The main purpose of the text is to describe -",
+          "choices": [
+            "the importance of cleanliness in 16th-century Europe",
+            "the differences between medieval and 16th-century villages",
+            "the practice of public bathing in medieval Europe",
+            "the development of sanitary equipment in the medieval home"
+          ],
+          "correctAnswer": 2,
+          "correctAnswerText": "the differences between medieval and 16th-century villages"
+        },
+        {
+          "questionNumber": 14,
+          "question": "It can be inferred from the first paragraph that the existence of public bathhouses explains why -",
+          "choices": [
+            "sanitary conditions in medieval villages were very crude",
+            "Europeans were healthier in early medieval times than in the 16th century",
+            "medieval villagers were poorer than those of the 16th century",
+            "there were few municipal bathhouses in 16th-century Europe"
+          ],
+          "correctAnswer": 3,
+          "correctAnswerText": "medieval villagers were poorer than those of the 16th century"
+        },
+        {
+          "questionNumber": 15,
+          "question": "Which of the following is not mentioned in the second paragraph as something people did at the bathhouse?",
+          "choices": [
+            "socializing",
+            "eating",
+            "exercising",
+            "gossiping"
+          ],
+          "correctAnswer": 3,
+          "correctAnswerText": "exercising"
+        },
+        {
+          "questionNumber": 16,
+          "question": "According to the third paragraph, bathhouses were no longer used in the 16th century because -",
+          "choices": [
+            "people were embarrassed by bodily exposure",
+            "it had become too expensive to heat water",
+            "fewer people lived in cities",
+            "cleanliness had become less important"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "people were embarrassed by bodily exposure"
+        },
+        {
+          "questionNumber": 17,
+          "question": "According to the last paragraph, 19th-century city officials would have been surprised to know that -",
+          "choices": [
+            "medieval towns and villages had been dirty and disorderly",
+            "public bathhouses had existed in early medieval times",
+            "wealthy people no longer visited bathhouses",
+            "no one was using the bathing facilities in poor neighborhoods"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "medieval towns and villages had been dirty and disorderly"
+        }
+      ]
+    },
+    {
+      "id": "4_text_1",
+      "exam": "4",
+      "textNumber": 1,
+      "passage": "Jacques Cousteau was among the first underwater explorers to bring the wonders of the sea into homes around the globe. His books and films, and his television series, The Undersea World of Jacques Cousteau, introduced millions of people to the world of sharks, whales, dolphins, and other sea creatures. Though he was dedicated to sharing his excitement and curiosity through these media, Cousteau himself lived by the motto, \"We must go and see for ourselves.\" Born in France in 1910, Cousteau loved the ocean even as a child. As a young man, he joined the French navy, embarking on a life of adventure at sea. When he was in his thirties, he helped invent the aqualung, a machine that made it possible for people to breathe underwater for several hours at a time. In 1950, Cousteau bought the Calypso, the famed ship that took him on his explorations around the world. In the 1960s, he had the first of many undersea stations built, where teams of researchers could spend lengthy periods of time studying marine life and carrying out experiments. Cousteau's endeavors paved the way for future discoveries by marine biologists and underwater archaeologists. One of Cousteau's most important contributions was raising public awareness of the threat pollution poses to marine life. In 1960, together with Prince Rainier III of Monaco, he succeeded in preventing France from dumping nuclear waste in the Mediterranean Sea. He later founded the Cousteau Society for the Protection of Ocean Life. Cousteau died in 1997, but the society continues to educate the public about the need to conserve the oceans of the world.",
+      "questionRange": {
+        "start": 13,
+        "end": 17
+      },
+      "questions": [
+        {
+          "questionNumber": 18,
+          "question": "The word \"breeding\" in line 10 could best be replaced by -",
+          "choices": [
+            "performing",
+            "raising",
+            "flying",
+            "racing"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "performing"
+        },
+        {
+          "questionNumber": 19,
+          "question": "According to the second paragraph, during the 1970s -",
+          "choices": [
+            "the Chinese government did not allow pigeon racing",
+            "pigeon culture was important in China",
+            "thousands of pigeons were released throughout China",
+            "the Beijing Pigeon Association was created"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "the Chinese government did not allow pigeon racing"
+        },
+        {
+          "questionNumber": 20,
+          "question": "According to the third paragraph, Sun Mi -",
+          "choices": [
+            "is one of China's 7 million registered pigeon breeders",
+            "has pigeons living in every room of his house",
+            "likes his pigeons so much that he sleeps near them",
+            "is 8 years old"
+          ],
+          "correctAnswer": 3,
+          "correctAnswerText": "likes his pigeons so much that he sleeps near them"
+        },
+        {
+          "questionNumber": 21,
+          "question": "A continuation of the last paragraph would probably discuss -",
+          "choices": [
+            "recent increases in the average monthly salary in China",
+            "modern Chinese poems about pigeons",
+            "problems of raising pigeons in other countries",
+            "hygiene problems caused by pigeon breeding"
+          ],
+          "correctAnswer": 3,
+          "correctAnswerText": "problems of raising pigeons in other countries"
+        },
+        {
+          "questionNumber": 22,
+          "question": "An appropriate title for the text would be -",
+          "choices": [
+            "China's Pigeon Culture in the Past and Present",
+            "The Pigeon Classics and Other Literature About Birds",
+            "Sun Mi and the Beijing Pigeon Association",
+            "A History of Pigeon Racing in China"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "China's Pigeon Culture in the Past and Present"
+        },
+        {
+          "questionNumber": 13,
+          "question": "In line 5, \"these media\" include -",
+          "choices": [
+            "homes around the globe",
+            "The Undersea World of Jacques Cousteau",
+            "excitement and curiosity",
+            "\"We must go and see for ourselves.\""
+          ],
+          "correctAnswer": 2,
+          "correctAnswerText": "The Undersea World of Jacques Cousteau"
+        },
+        {
+          "questionNumber": 14,
+          "question": "The motto in line 6 reflects Cousteau's -",
+          "choices": [
+            "passion for discovery",
+            "role in educating the public",
+            "excitement about making films",
+            "extensive knowledge of the ocean"
+          ],
+          "correctAnswer": 3,
+          "correctAnswerText": "excitement about making films"
+        },
+        {
+          "questionNumber": 15,
+          "question": "According to the second paragraph, undersea stations -",
+          "choices": [
+            "can be moved from place to place",
+            "made use of Cousteau's aqualung",
+            "help scientists learn about ocean life",
+            "were Cousteau's greatest discovery"
+          ],
+          "correctAnswer": 3,
+          "correctAnswerText": "help scientists learn about ocean life"
+        },
+        {
+          "questionNumber": 16,
+          "question": "The last paragraph mainly discusses -",
+          "choices": [
+            "the Society for the Protection of Ocean Life",
+            "the threat to sea life posed by pollution",
+            "Cousteau's work to protect oceans",
+            "Cousteau's cooperation with Prince Rainier"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "the Society for the Protection of Ocean Life"
+        },
+        {
+          "questionNumber": 17,
+          "question": "According to the last paragraph, Prince Rainier -",
+          "choices": [
+            "was one of the founders of the Cousteau Society",
+            "gave money to Cousteau's research projects",
+            "was responsible for conservation education in Monaco",
+            "helped prevent nuclear dumping"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "was one of the founders of the Cousteau Society"
+        }
+      ]
+    },
+    {
+      "id": "4_text_2",
+      "exam": "4",
+      "textNumber": 2,
+      "passage": "Science has interacted with the visual and performing arts for centuries, not only improving the preservation, reproduction, and dissemination of works of art, but also providing new, technology-based media for artistic expression. Despite concerns, there is no indication that science in any way compromises artistic creativity. On the contrary, it appears to nurture it by opening up new possibilities. The relationship between science and the culinary arts also has a long history; French physicist Denis Papin invented the pressure cooker in 1679 and described it in a book that can be considered the first modern text on science and cooking. Nevertheless, until the end of the twentieth century, scientists for the most part considered cooking to be a frivolous subject, while cooks regarded the introduction of scientific techniques into their kitchens with suspicion, if not outright hostility. Since the 1990s, however, interest in the application of science to the development of new cooking techniques has been mounting. Today, culinary science is a thriving field. Scientists study the chemical composition of foods, their physical and biological properties, and the interactions of their constituents with one another and with their environment. Physicists investigate the effects of heating and cooling processes on food, while structural chemists examine the behavior of large molecules, such as complex carbohydrates and proteins. Chromatographic technology makes it possible to isolate the components of foods that give rise to tastes and aromas. The gains of applying science to cooking are evident. Science can explain many old and seemingly inexplicable culinary tricks. It also allows chefs to experiment with new combinations of ingredients in their pursuit of sophisticated flavor profiles, beautiful presentation, and originality.",
+      "questionRange": {
+        "start": 18,
+        "end": 22
+      },
+      "questions": [
+        {
+          "questionNumber": 18,
+          "question": "According to the first paragraph, one of the ways in which science has benefited the visual and performing arts is by -",
+          "choices": [
+            "analyzing traditional artistic techniques",
+            "providing information about artistic creation",
+            "redefining the concept of creativity",
+            "making works of art available to more people"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "analyzing traditional artistic techniques"
+        },
+        {
+          "questionNumber": 19,
+          "question": "\"Nevertheless\" in line 8 can best be replaced by -",
+          "choices": [
+            "Although there are scientific explanations for many cooking techniques",
+            "Despite the differences between science and cooking",
+            "Because scientific techniques are now used regularly by cooks",
+            "Even though there is evidence that science was applied to cooking in the past"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "Although there are scientific explanations for many cooking techniques"
+        },
+        {
+          "questionNumber": 20,
+          "question": "It can be inferred from the third paragraph that a scientist might use chromatographic methods to -",
+          "choices": [
+            "check the structure of the proteins in eggs",
+            "explain how certain large molecules are created",
+            "find the substances that make fish taste fishy",
+            "compare chemical reactions in different types of cooking"
+          ],
+          "correctAnswer": 3,
+          "correctAnswerText": "find the substances that make fish taste fishy"
+        },
+        {
+          "questionNumber": 21,
+          "question": "The text mentions complex carbohydrates and proteins (line 18) because -",
+          "choices": [
+            "scientists can explain how they affect the taste and smell of food",
+            "they are components of food that can be scientifically analyzed",
+            "they are good examples of physical and chemical food properties",
+            "science brought them to the awareness of culinary artists"
+          ],
+          "correctAnswer": 3,
+          "correctAnswerText": "they are good examples of physical and chemical food properties"
+        },
+        {
+          "questionNumber": 22,
+          "question": "Based on the information in the last paragraph, which of the following is not one of the goals that chefs try to achieve?",
+          "choices": [
+            "making food that tastes delicious",
+            "preparing food that looks attractive",
+            "inventing new dishes",
+            "replacing old culinary tricks with new ones"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "making food that tastes delicious"
+        }
+      ]
+    },
+    {
+      "id": "5_text_1",
+      "exam": "5",
+      "textNumber": 1,
+      "passage": "Orchids are among the most popular flowering plants in the world. There are tens of thousands of known orchid species, and botanists believe that there are thousands more that have not yet been identified. Orchids are lovely to look at and often have a pleasant smell. One of the best-known kinds of orchids is the vanilla plant, whose seeds are used in flavoring food and making perfume. Although orchids are often thought of as exotic, they are actually very common. They are found on every continent except Antarctica and in most environments – from deserts to tropical rainforests to mountaintops. Many orchids are epiphytes; they grow on the bark of trees. Other species, called lithophytes, grow on rock. Some orchids even grow completely underground. Taiwan – also called the Republic of China – grows more orchids for export than any other country in the world. Sales of the flowers bring in tens of millions of dollars there each year. But orchids are more than just a money maker for Taiwan. They have been an important part of Chinese culture for thousands of years. They are used in traditional Chinese medicines that strengthen the body's immune system, improve eyesight, and cure a number of illnesses. In Chinese art, the flower symbolizes human qualities such as modesty and honesty. Indeed, the ancient Chinese philosopher Confucius compared virtuous people to orchids.",
+      "questionRange": {
+        "start": 13,
+        "end": 17
+      },
+      "questions": [
+        {
+          "questionNumber": 13,
+          "question": "Which of the following statements about the vanilla plant cannot be understood from the first paragraph?",
+          "choices": [
+            "It has beautiful flowers.",
+            "It is used in preparing food.",
+            "It has an unpleasant smell.",
+            "It is a well-known kind of orchid."
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "It has beautiful flowers."
+        },
+        {
+          "questionNumber": 14,
+          "question": "The main purpose of the second paragraph is to -",
+          "choices": [
+            "discuss the different places where orchids grow",
+            "explain what epiphytes and lithophytes are",
+            "discuss why orchids are considered exotic",
+            "explain how to grow orchids"
+          ],
+          "correctAnswer": 3,
+          "correctAnswerText": "discuss why orchids are considered exotic"
+        },
+        {
+          "questionNumber": 15,
+          "question": "In line 6, \"exotic\" is closest in meaning to -",
+          "choices": [
+            "unusual",
+            "difficult to grow",
+            "large",
+            "very colorful"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "very colorful"
+        },
+        {
+          "questionNumber": 16,
+          "question": "The last paragraph is mainly about -",
+          "choices": [
+            "orchids in Chinese culture",
+            "the orchid as a symbol",
+            "Taiwan's orchid exports",
+            "the medicinal uses of orchids"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "orchids in Chinese culture"
+        },
+        {
+          "questionNumber": 17,
+          "question": "According to the text, orchids are used in making all of the following except -",
+          "choices": [
+            "perfume",
+            "food",
+            "bark",
+            "medicine"
+          ],
+          "correctAnswer": 2,
+          "correctAnswerText": "food"
+        }
+      ]
+    },
+    {
+      "id": "5_text_1",
+      "exam": "5",
+      "textNumber": 1,
+      "passage": "For most of human history, the vast majority of people got plenty of exercise. The activities of daily life – hunting, plowing fields, chopping firewood, washing clothes by hand – demanded enough exertion to build strong muscles and healthy hearts and lungs. However, beginning in the 18th century, the Industrial Revolution changed the conditions of work and home. As technology continued to develop, physical activity declined steadily. Initially, this was hailed as freedom from toil and drudgery, but it was eventually recognized as a factor in the increased prevalence of certain health problems, such as heart disease. The physical culture movement, which emerged in Europe and North America in the 19th century, was an attempt to turn the tide. The movement advocated scheduled exercise and the introduction of physical education classes and organized sports into schools. Decades later in the early 1960s, U.S. President John F. Kennedy launched a nationwide campaign that challenged Americans of all ages to become physically fit. The second half of the 20th century saw the rise of fitness as a profitable industry. A myriad of companies began marketing sporting goods, exercise equipment, and memberships to gyms and exercise studios. Today, those interested in fitness can choose from a seemingly endless array of training and exercise methods. In addition, there is a growing body of scientific research on the effects of exercise and the best ways to keep fit. In spite of all this, more people than ever are out of shape, and medical conditions related to a sedentary lifestyle – such as obesity, diabetes, and high blood pressure – are increasingly pervasive. Why is this so? For one thing, some people remain unaware of the need for exercise, or are simply uninterested. Even those who would like to exercise may not have the time. Long days of work, commuting, and family responsibilities leave a person tired. People often spend what little leisure time they have in front of screens large and small. Thus, despite the best efforts of the physical culture movement, it seems people are getting less exercise than their pre-Industrial Revolution counterparts.",
+      "questionRange": {
+        "start": 13,
+        "end": 17
+      },
+      "questions": [
+        {
+          "questionNumber": 18,
+          "question": "The main purpose of the first paragraph is to -",
+          "choices": [
+            "introduce the life and work of Erno Rubik",
+            "describe the structure of the Rubik's Cube",
+            "discuss the origins of a popular puzzle",
+            "discuss the connection between geometry and puzzles"
+          ],
+          "correctAnswer": 2,
+          "correctAnswerText": "describe the structure of the Rubik's Cube"
+        },
+        {
+          "questionNumber": 19,
+          "question": "The second paragraph mainly discusses the of a Rubik's Cube.",
+          "choices": [
+            "colors and materials",
+            "appearance and manipulations",
+            "size and shape",
+            "configurations and solution"
+          ],
+          "correctAnswer": 3,
+          "correctAnswerText": "size and shape"
+        },
+        {
+          "questionNumber": 20,
+          "question": "Based on the information in the second paragraph, a correctly solved Rubik's Cube must have -",
+          "choices": [
+            "a red square on six faces",
+            "one white corner on each face",
+            "nine squares of different colors on one face",
+            "one face with nine blue squares"
+          ],
+          "correctAnswer": 3,
+          "correctAnswerText": "nine squares of different colors on one face"
+        },
+        {
+          "questionNumber": 21,
+          "question": "It can be inferred from the last paragraph that the Rubik's Cube -",
+          "choices": [
+            "did not sell well in the late 1980s",
+            "was less successful in Hungary than in other countries",
+            "is very different from the Magic Cube",
+            "was manufactured with new colors in the 1990s"
+          ],
+          "correctAnswer": 2,
+          "correctAnswerText": "was less successful in Hungary than in other countries"
+        },
+        {
+          "questionNumber": 22,
+          "question": "According to the last paragraph, timed competitions -",
+          "choices": [
+            "inspired Rubik to design new puzzles",
+            "were responsible for Rubik becoming famous",
+            "were Rubik's idea",
+            "led to renewed interest in the Rubik's Cube"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "led to renewed interest in the Rubik's Cube"
+        },
+        {
+          "questionNumber": 13,
+          "question": "The main purpose of the first paragraph is to discuss the Industrial Revolution.",
+          "choices": [
+            "health problems that increased after",
+            "the decrease in physical activity caused by",
+            "technologies developed during",
+            "changes in the workplace following"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "health problems that increased after"
+        },
+        {
+          "questionNumber": 14,
+          "question": "The main purpose of the second paragraph is to -",
+          "choices": [
+            "discuss the origins of the physical culture movement",
+            "describe efforts to make fitness a part of everyday life",
+            "compare physical activity in the 19th and 20th centuries",
+            "explain why the fitness industry is so profitable"
+          ],
+          "correctAnswer": 3,
+          "correctAnswerText": "compare physical activity in the 19th and 20th centuries"
+        },
+        {
+          "questionNumber": 15,
+          "question": "According to the second paragraph, the physical culture movement -",
+          "choices": [
+            "encouraged all people to exercise regularly",
+            "was launched by President Kennedy",
+            "was based on scientific research",
+            "succeeded in improving the fitness of all Americans"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "succeeded in improving the fitness of all Americans"
+        },
+        {
+          "questionNumber": 16,
+          "question": "Which of the following statements can be inferred from the second paragraph?",
+          "choices": [
+            "People are willing to spend money to stay fit.",
+            "Exercise studios have become less popular than they were in the 1960s.",
+            "People like playing organized sports more than going to a gym.",
+            "Many people want to exercise but cannot find something they enjoy."
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "People are willing to spend money to stay fit."
+        },
+        {
+          "questionNumber": 17,
+          "question": "Which of the following is not an answer to the question \"Why is this so?\" (line 22)?",
+          "choices": [
+            "Because people are too busy to exercise.",
+            "Because some people do not enjoy exercising.",
+            "Because people prefer to do other things in their free time.",
+            "Because exercise does not make people healthier."
+          ],
+          "correctAnswer": 2,
+          "correctAnswerText": "Because some people do not enjoy exercising."
+        }
+      ]
+    },
+    {
+      "id": "5_text_2",
+      "exam": "5",
+      "textNumber": 2,
+      "passage": "A Velocity of Being: Letters to a Young Reader (2018) is a collection of inspirational letters addressed to children about why we read and what books do for the human spirit. The letters are composed by 121 people, accomplished in fields ranging from astrophysics to philosophy and music. Reflecting an enormous range of human experiences, the writers – among whom are a Holocaust survivor and Italy's first woman in space – have one thing in common: their worldview has been shaped by a lifetime of reading. Rebecca Solnit, an eminent American writer and historian, contributed the following letter to the book: Dear Readers, Nearly every book has the same architecture – cover, spine, pages – but you open them onto worlds and gifts far beyond what paper and ink are, and on the inside they are every shape and power. Some books are toolkits you take up to fix things, from the most practical to the most mysterious, from your house to your heart, or to make things, from cakes to ships. Some books are wings. Some are horses that run away with you. Some are parties to which you are invited, full of friends who are there even when you have no friends. In some books you meet one remarkable person; in others a whole group or even a culture. Some books are medicine, bitter but clarifying. Some books are puzzles, mazes, tangles, jungles. Some long books are journeys, and at the end you are not the same person you were at the beginning. Some are handheld lights you can shine on almost anything. The books of my childhood were bricks, not for throwing but for building. I piled the books around me for protection and withdrew inside their battlements, building a tower in which I escaped my unhappy circumstances. There I lived for many years, in love with books, taking refuge in books, learning from books a strange data-rich out-of-date version of what it means to be human. Books gave me refuge. Or I built refuge out of them, out of these books that were both bricks and magical spells, protective spells I spun around myself. They can be doorways and ships and fortresses for anyone who loves them.",
+      "questionRange": {
+        "start": 18,
+        "end": 22
+      },
+      "questions": [
+        {
+          "questionNumber": 18,
+          "question": "The main purpose of the first paragraph is to -",
+          "choices": [
+            "discuss the benefits of reading to children",
+            "present some world-famous book lovers",
+            "discuss the rewards of reading",
+            "introduce a book meant to encourage children to read"
+          ],
+          "correctAnswer": 2,
+          "correctAnswerText": "present some world-famous book lovers"
+        },
+        {
+          "questionNumber": 19,
+          "question": "In the second paragraph, Solnit -",
+          "choices": [
+            "suggests that books should be selected carefully",
+            "discusses the relationship between a book's architecture and its contents",
+            "describes her favorite books",
+            "describes the benefits that reading can provide"
+          ],
+          "correctAnswer": 3,
+          "correctAnswerText": "describes her favorite books"
+        },
+        {
+          "questionNumber": 20,
+          "question": "In the second paragraph, Solnit compares books to all of the following except -",
+          "choices": [
+            "toolkits",
+            "parties",
+            "friends",
+            "journeys"
+          ],
+          "correctAnswer": 3,
+          "correctAnswerText": "friends"
+        },
+        {
+          "questionNumber": 21,
+          "question": "The main purpose of the last paragraph is to -",
+          "choices": [
+            "discuss the role that books played in Solnit's childhood",
+            "explore a less positive aspect of reading",
+            "discuss Solnit's difficult experiences as a child",
+            "show how books teach children to love"
+          ],
+          "correctAnswer": 2,
+          "correctAnswerText": "explore a less positive aspect of reading"
+        },
+        {
+          "questionNumber": 22,
+          "question": "\"There\" (line 23) refers to Solnit's -",
+          "choices": [
+            "humanity",
+            "childhood",
+            "childhood home",
+            "tower"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "tower"
+        }
+      ]
+    },
+    {
+      "id": "6_text_1",
+      "exam": "6",
+      "textNumber": 1,
+      "passage": "There are quite a few localities in the world that have odd or amusing names. For example, there is a community called Hot Coffee in the US state of Mississippi, and a village called Great Snoring in Norfolk, England. There are even places named after a number. One of these is the town of Eighty Eight in the US state of Kentucky. Legend has it that this small farming community was named by its first postmaster, Dabnie Nunnally, in the 1860s. He recorded details of the incoming and outgoing mail and needed a name for the community. Because Nunnally wrote numbers more legibly than letters, he chose a name that could be expressed in numerals. He picked the name after counting the money in his pocket, which added up to 88 cents. There are those who say, however, that the name plays on the distance between the community and Glasgow, the seat of the local government, located 8.8 miles away. At some point, the town's name was officially changed to \"Eighty Eight\", spelled out in words, but residents still sometimes receive mail bearing the address \"88, Kentucky\". For the most part, this tiny town has remained out of the spotlight, but it did enjoy a brief moment of fame in 1948. In the presidential election of that year, 88 votes were cast for President Harry Truman and 88 votes for his opponent Thomas Dewey. This remarkable coincidence was reported in Ripley's Believe It or Not!, a publication devoted to unusual and bizarre occurrences. Not surprisingly, the year 1988 also saw a major surge of interest in Eighty Eight. The New York Times reported that people from around the globe were sending letters along with self-addressed envelopes to the town's postmistress, requesting that she mail back the envelopes, which would be postmarked \"Eighty Eight\" and \"1988\". Such was the volume of mail that the postmistress was sending that she had to retire her old inkpad and stamp and have an efficient postmarking device installed. An especially popular request was that the envelopes be put aside and mailed on 8/8/88. The town of Eighty Eight will presumably be back in the news in 2088 – if people are still mailing letters, that is.",
+      "questionRange": {
+        "start": 13,
+        "end": 17
+      },
+      "questions": [
+        {
+          "questionNumber": 13,
+          "question": "An appropriate title for this text would be -",
+          "choices": [
+            "Eighty Eight's Special Post Office",
+            "Eighty Eight: Life in a Kentucky Community",
+            "What Happened in Eighty Eight in 1988?",
+            "Eighty Eight: An Unusual Town Name"
+          ],
+          "correctAnswer": 2,
+          "correctAnswerText": "Eighty Eight: Life in a Kentucky Community"
+        },
+        {
+          "questionNumber": 14,
+          "question": "The main purpose of the second paragraph is to -",
+          "choices": [
+            "explain why 88 was officially changed to Eighty Eight",
+            "explain how the town got its name",
+            "discuss Dabnie Nunnally's duties",
+            "introduce the town's first postmaster"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "introduce the town's first postmaster"
+        },
+        {
+          "questionNumber": 15,
+          "question": "The main purpose of the third paragraph is to discuss -",
+          "choices": [
+            "an event that brought Eighty Eight to the public's attention",
+            "stories about small towns that appeared in Ripley's Believe It or Not!",
+            "voting patterns among Eighty Eight's residents",
+            "changes that occurred in Eighty Eight between the 1860s and 1948"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "an event that brought Eighty Eight to the public's attention"
+        },
+        {
+          "questionNumber": 16,
+          "question": "The \"surge of interest\" described in the last paragraph was not surprising because -",
+          "choices": [
+            "it took place in a year that ended in \"88\"",
+            "many envelopes were mailed on 8/8/88",
+            "the postmistress was replaced in 1988",
+            "it was difficult to get a postmark from Eighty Eight"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "it took place in a year that ended in \"88\""
+        },
+        {
+          "questionNumber": 17,
+          "question": "In line 23, \"volume\" could best be replaced by -",
+          "choices": [
+            "type",
+            "value",
+            "amount",
+            "appearance"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "appearance"
+        }
+      ]
+    },
+    {
+      "id": "6_text_1",
+      "exam": "6",
+      "textNumber": 1,
+      "passage": "The Hunza Valley, nestled in the heart of the Karakoram Mountains in Pakistan, is home to a small ethnic group: the Burusho people, also known as the Hunzakut. Until the Karakoram Highway was opened in 1978, the valley was one of the most remote regions in the world. The Burusho people's prolonged isolation may explain why their language, Burushaski, appears unrelated to any other language in the world. Travelers to the region have brought back tales of the remarkable longevity enjoyed by the Burusho, claiming that they commonly live past the age of 100. Such claims are impossible to verify because Burushaski had no written form until relatively recently and so no relevant documents exist. Lifespan aside, observers are struck by the people's extraordinary good health. Irrespective of age, they seem to be exceptionally fit and disease-free. This is all the more remarkable considering that the Burusho have very little access to even basic modern health care. A number of factors may contribute to the unusual vitality of the Burusho. For one thing, they walk the hilly terrain every day. Another factor is their diet, which consists mainly of naturally grown grains, fruits, and vegetables. This diet is dictated mostly by their environment. Pastureland is scarce, so there is little meat or milk, but many crops flourish in the valley's fertile soil. A surprising staple food that has been highlighted as a major contributor to the robust health of the Burusho is the apricot. This succulent fruit, rich in essential vitamins, minerals, and antioxidants, has been consumed in enormous quantities for generations. The fruit is eaten year round – fresh in the summer and dried in the winter. Bataring daudo, or apricot soup, is a mainstay of the Burusho diet. This hearty soup has helped the Burusho endure many a frigid winter. To make it, dried apricots are boiled until soft. Next, wheat flour is mixed with water to create noodle-like nuggets of dough. Added to the simmering apricots, they transform the mixture into a nourishing dumpling soup. Less of a delicacy and more of a strategy to get through lean seasons with scant resources, bataring daudo speaks of Burusho self-sufficiency and resilience.",
+      "questionRange": {
+        "start": 13,
+        "end": 17
+      },
+      "questions": [
+        {
+          "questionNumber": 18,
+          "question": "Which of the following words or phrases in the first paragraph means something different from the others?",
+          "choices": [
+            "thoughts",
+            "silent speech",
+            "output-input",
+            "internal monologue"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "internal monologue"
+        },
+        {
+          "questionNumber": 19,
+          "question": "In line 10, \"all but undetectable\" is closest in meaning to -",
+          "choices": [
+            "not easy to see",
+            "always present",
+            "unpredictable",
+            "immeasurable"
+          ],
+          "correctAnswer": 2,
+          "correctAnswerText": "always present"
+        },
+        {
+          "questionNumber": 21,
+          "question": "It can be inferred that \"auditory feedback\" (line 22) -",
+          "choices": [
+            "is AlterEgo's main feature",
+            "can be heard by the user",
+            "is what enables a computer to read thoughts",
+            "improves AlterEgo's speed"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "improves AlterEgo's speed"
+        },
+        {
+          "questionNumber": 22,
+          "question": "Which of the following is not a reason that a person might use AlterEgo?",
+          "choices": [
+            "to access information without outward action",
+            "to conduct an internal monologue",
+            "to ask questions without disturbing people",
+            "to articulate thoughts out loud"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "to articulate thoughts out loud"
+        },
+        {
+          "questionNumber": 13,
+          "question": "Which of the following statements about Burushaski is not made in the text?",
+          "choices": [
+            "No other known language is similar to it.",
+            "There are no records of Burusho longevity written in it.",
+            "Its written form is relatively new.",
+            "It does not have words for health problems."
+          ],
+          "correctAnswer": 2,
+          "correctAnswerText": "There are no records of Burusho longevity written in it."
+        },
+        {
+          "questionNumber": 14,
+          "question": "Which of the following statements about the Burusho can be inferred from the first paragraph?",
+          "choices": [
+            "They are one of many small ethnic groups that live in the Hunza Valley.",
+            "Not many people came into contact with them before 1978.",
+            "Their language is one of the oldest in the world.",
+            "They helped build the Karakoram Highway."
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "They helped build the Karakoram Highway."
+        },
+        {
+          "questionNumber": 15,
+          "question": "According to the third paragraph, apricots -",
+          "choices": [
+            "can not be grown in hilly terrain",
+            "are difficult to grow in the Hunza Valley",
+            "are believed to play an important role in the Burusho people's health",
+            "are eaten by the Burusho more in the summer than in the winter"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "can not be grown in hilly terrain"
+        },
+        {
+          "questionNumber": 16,
+          "question": "The last paragraph mainly -",
+          "choices": [
+            "explains how apricot soup is made",
+            "explains why soup is a Burusho delicacy",
+            "describes the frigid winters in the Hunza Valley",
+            "discusses the nutritional value of bataring daudo"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "explains how apricot soup is made"
+        },
+        {
+          "questionNumber": 17,
+          "question": "It can be inferred from the last paragraph that during the winter -",
+          "choices": [
+            "the Burusho leave the Hunza Valley",
+            "few kinds of food are available in the Hunza Valley",
+            "fuel for cooking must be brought in through the Karakoram Highway",
+            "the Burusho have no access to water"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "the Burusho have no access to water"
+        }
+      ]
+    },
+    {
+      "id": "6_text_2",
+      "exam": "6",
+      "textNumber": 2,
+      "passage": "In 1519, an expedition led by Spanish explorer Hernán Cortés arrived in the New World. There, in the marketplaces of Tenochtitlan, the capital of the Aztec Empire and the site of present-day Mexico City, the Spaniards caught a glimpse of cloth dyed a vibrant red color, the likes of which had never been seen in Europe. Upon investigation, they learned that the crimson hue, called cochineal, was derived from the insect of the same name, which was used to create paints, dyes and even medicines. In Europe at the time, deep reds were elusive. Only a few natural substances produced red dyes and those tended to fade when exposed to heat and light. When Cortés reported his discovery to King Charles V of Spain, the monarch immediately recognized cochineal's commercial value. The Spanish began studying the Aztecs' technique for extracting dye from cochineals and shipped tons of dried insects back to Europe. The shade they yielded was deemed the \"perfect red\" and became a sensation. By the 1570s, the pigment had become a highly lucrative commodity, coveted by artists as well as the upper classes, who viewed it as a luxury and a symbol of status. To ensure that it remained the sole supplier of the dye, the Spanish monarchy made it a punishable offense to take cochineal out of Spain or its colonies without authorization. Spain also concealed information about the origins of cochineal so that, for years, few Europeans were aware that the dye came from an insect. Over the centuries, countries went to great lengths to uncover the secret. In 1776, French botanist Nicolas-Joseph Thiéry de Menonville sailed to North America with the aim of stealing live specimens of cochineal. He managed to smuggle some insects, as well as the prickly pear cactuses upon which they feed, to the nearby French colony of Saint- Dominique. Thiéry, however, died before he could free France from its dependence on Spain for cochineal. In the early 19th century, Spain lost its exclusive control of the cochineal industry. As more countries began manufacturing the dye, its price fell. Moreover, demand for cochineal was diminished at that time by the advent of synthetic dyes which, though more affected by heat and light, were much cheaper and easier to produce. Still, cochineal continued to be used, particularly in the food and cosmetic industries. Today, the insect is farmed mainly in Peru, which holds a 95% share of the international market.",
+      "questionRange": {
+        "start": 18,
+        "end": 22
+      },
+      "questions": [
+        {
+          "questionNumber": 18,
+          "question": "The main purpose of the first paragraph is to -",
+          "choices": [
+            "describe the first European encounter with cochineal",
+            "explain how cochineal is produced",
+            "describe the purpose of Cortés's expedition to the New World",
+            "discuss the uses of red dye"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "discuss the uses of red dye"
+        },
+        {
+          "questionNumber": 19,
+          "question": "According to the second paragraph, cochineal dye became a sensation in Europe because -",
+          "choices": [
+            "of its vibrant color",
+            "of its limited availability",
+            "it was inexpensive",
+            "it was a natural substance"
+          ],
+          "correctAnswer": 2,
+          "correctAnswerText": "of its limited availability"
+        },
+        {
+          "questionNumber": 20,
+          "question": "In line 12, \"they\" refers to the -",
+          "choices": [
+            "Aztecs",
+            "insects",
+            "artists",
+            "techniques"
+          ],
+          "correctAnswer": 1,
+          "correctAnswerText": "Aztecs"
+        },
+        {
+          "questionNumber": 21,
+          "question": "The main purpose of the third paragraph is to -",
+          "choices": [
+            "discuss why Spain wanted to keep cochineal extraction a secret",
+            "explain why Thiéry's plan failed",
+            "describe efforts to control the production of cochineal",
+            "describe the spread of cochineal production to other European countries"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "describe the spread of cochineal production to other European countries"
+        },
+        {
+          "questionNumber": 22,
+          "question": "It can be inferred that \"synthetic dyes\" (line 27) -",
+          "choices": [
+            "fade more easily than cochineal",
+            "were developed by Spain",
+            "are brighter than cochineal",
+            "are produced mainly in Peru"
+          ],
+          "correctAnswer": 4,
+          "correctAnswerText": "are produced mainly in Peru"
+        }
+      ]
+    }
+  ]
+}
