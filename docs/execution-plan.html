@@ -68,10 +68,6 @@ flowchart TD
             E3["API Key Management"]
             E4["Fix Hebrew Translations"]
         end
-    end
-
-    subgraph NOW["IN PROGRESS"]
-        direction TB
 
         subgraph P5b["Phase 5b: Voice Questions"]
             F1["Switch to OpenRouter FREE API"]
@@ -80,10 +76,6 @@ flowchart TD
             F4["Text Continuation mode"]
             F5["AI generates SC + Restatement"]
         end
-    end
-
-    subgraph NEXT["UPCOMING"]
-        direction TB
 
         subgraph P6["Phase 6: Vocal Exam Sim"]
             G1["Section timer 7min/4min"]
@@ -91,13 +83,21 @@ flowchart TD
             G3["Navigate between Qs in section"]
             G4["Mark for review"]
         end
+    end
+
+    subgraph NOW["IN PROGRESS"]
+        direction TB
 
         subgraph P7["Phase 7: Content & Polish"]
-            H1["Full 523 word translation audit"]
+            H1["Add more vocal sections"]
             H2["Add more exam questions"]
             H3["AI answer explanations"]
             H4["Better POS tagging"]
         end
+    end
+
+    subgraph NEXT["UPCOMING"]
+        direction TB
 
         subgraph P8["Phase 8: Production"]
             I1["Deploy to Vercel"]
@@ -107,11 +107,9 @@ flowchart TD
         end
     end
 
-    DONE -->|"Foundation Ready"| NOW
-    NOW -->|"Voice works"| NEXT
+    DONE -->|"Voice Ready"| NOW
+    NOW -->|"Content Complete"| NEXT
 
-    P5b --> P6
-    P6 --> P7
     P7 --> P8
 
     style DONE fill:#0d1117,stroke:#22c55e,color:#e5e5e5
@@ -122,9 +120,9 @@ flowchart TD
     style P3 fill:#1a1a2e,stroke:#22c55e,color:#e5e5e5
     style P4 fill:#1a1a2e,stroke:#22c55e,color:#e5e5e5
     style P5a fill:#1a1a2e,stroke:#22c55e,color:#e5e5e5
-    style P5b fill:#1a1a2e,stroke:#fb923c,color:#e5e5e5
-    style P6 fill:#1a1a2e,stroke:#8B5CF6,color:#e5e5e5
-    style P7 fill:#1a1a2e,stroke:#ec4899,color:#e5e5e5
+    style P5b fill:#1a1a2e,stroke:#22c55e,color:#e5e5e5
+    style P6 fill:#1a1a2e,stroke:#22c55e,color:#e5e5e5
+    style P7 fill:#1a1a2e,stroke:#fb923c,color:#e5e5e5
     style P8 fill:#1a1a2e,stroke:#3b82f6,color:#e5e5e5
     </div>
 
