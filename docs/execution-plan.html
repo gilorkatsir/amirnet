@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>AmirNet - Execution Plan</title>
+    <style>
+        body {
+            background: #0a0a0a;
+            color: #e5e5e5;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 40px;
+        }
+        h1 { text-align: center; color: #9333ea; margin-bottom: 8px; }
+        .subtitle { text-align: center; color: #6b7280; margin-bottom: 40px; }
+        .mermaid {
+            display: flex;
+            justify-content: center;
+            background: #111;
+            border-radius: 16px;
+            padding: 40px 20px;
+            border: 1px solid #222;
+        }
+    </style>
+</head>
+<body>
+    <h1>AmirNet Execution Plan</h1>
+    <p class="subtitle">React+Vite English Exam Prep App</p>
+
+    <div class="mermaid">
+flowchart TD
+    subgraph DONE["COMPLETED"]
+        direction TB
+
+        subgraph P1["Phase 1: Polish & Fix"]
+            A1["Sound Mute Toggle"]
+            A2["Fix Streak Calculation"]
+            A3["Wire My Words Button"]
+            A4["Data Export/Import"]
+            A5["localStorage Cleanup"]
+        end
+
+        subgraph P2["Phase 2: Architecture"]
+            B1["Extract Custom Hooks"]
+            B2["Add Router wouter"]
+            B3["Context + useReducer"]
+            B4["Wire Up security.js"]
+        end
+
+        subgraph P3["Phase 3: Features"]
+            C1["RC Study Mode"]
+            C2["Vocab Categories"]
+            C3["Enhanced User Words"]
+            C4["Detailed Exam Results"]
+            C5["Keyboard Shortcuts"]
+        end
+
+        subgraph P4["Phase 4: Infrastructure"]
+            D1["PWA + Service Worker"]
+            D2["Code Splitting"]
+            D3["Deploy Configs"]
+            D4["Vitest 49 tests"]
+        end
+
+        subgraph P5a["Phase 5a: AI Foundation"]
+            E1["ElevenLabs TTS Service"]
+            E2["AI Question Generator"]
+            E3["API Key Management"]
+            E4["Fix Hebrew Translations"]
+        end
+    end
+
+    subgraph NOW["IN PROGRESS"]
+        direction TB
+
+        subgraph P5b["Phase 5b: Voice Questions"]
+            F1["Switch to OpenRouter FREE API"]
+            F2["Upgrade ElevenLabs to Turbo v2"]
+            F3["Lecture + Questions mode"]
+            F4["Text Continuation mode"]
+            F5["AI generates SC + Restatement"]
+        end
+    end
+
+    subgraph NEXT["UPCOMING"]
+        direction TB
+
+        subgraph P6["Phase 6: Vocal Exam Sim"]
+            G1["Section timer 7min/4min"]
+            G2["Audio clip player with controls"]
+            G3["Navigate between Qs in section"]
+            G4["Mark for review"]
+        end
+
+        subgraph P7["Phase 7: Content & Polish"]
+            H1["Full 523 word translation audit"]
+            H2["Add more exam questions"]
+            H3["AI answer explanations"]
+            H4["Better POS tagging"]
+        end
+
+        subgraph P8["Phase 8: Production"]
+            I1["Deploy to Vercel"]
+            I2["Mobile optimization"]
+            I3["User accounts + sync"]
+            I4["Analytics dashboard"]
+        end
+    end
+
+    DONE -->|"Foundation Ready"| NOW
+    NOW -->|"Voice works"| NEXT
+
+    P5b --> P6
+    P6 --> P7
+    P7 --> P8
+
+    style DONE fill:#0d1117,stroke:#22c55e,color:#e5e5e5
+    style NOW fill:#0d1117,stroke:#fb923c,color:#e5e5e5
+    style NEXT fill:#0d1117,stroke:#8B5CF6,color:#e5e5e5
+    style P1 fill:#1a1a2e,stroke:#22c55e,color:#e5e5e5
+    style P2 fill:#1a1a2e,stroke:#22c55e,color:#e5e5e5
+    style P3 fill:#1a1a2e,stroke:#22c55e,color:#e5e5e5
+    style P4 fill:#1a1a2e,stroke:#22c55e,color:#e5e5e5
+    style P5a fill:#1a1a2e,stroke:#22c55e,color:#e5e5e5
+    style P5b fill:#1a1a2e,stroke:#fb923c,color:#e5e5e5
+    style P6 fill:#1a1a2e,stroke:#8B5CF6,color:#e5e5e5
+    style P7 fill:#1a1a2e,stroke:#ec4899,color:#e5e5e5
+    style P8 fill:#1a1a2e,stroke:#3b82f6,color:#e5e5e5
+    </div>
+
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                darkMode: true,
+                background: '#0a0a0a',
+                primaryColor: '#9333ea',
+                primaryTextColor: '#e5e5e5',
+                primaryBorderColor: '#333',
+                lineColor: '#6b7280',
+                secondaryColor: '#1a1a2e',
+                tertiaryColor: '#111'
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,14 +1,17 @@
 // ElevenLabs Text-to-Speech Service
+// Uses Turbo v2 model (half-price: 0.5 credits/char = 60K chars on $5 Starter plan)
 
 import { getElevenLabsKey } from './apiKeys';
 
-// Default voice - "Rachel" (clear American English, good for exams)
-const DEFAULT_VOICE_ID = '21m00Tcm4TlvDq8ikWAM';
+// "Daniel" - deep British male, clear & authoritative, ideal for exam questions
+const DEFAULT_VOICE_ID = 'onwK4e9ZLuTAKqWW03F9';
+// Turbo v2 - English only, half-price credits, ~250ms latency
+const DEFAULT_MODEL = 'eleven_turbo_v2';
 const API_BASE = 'https://api.elevenlabs.io/v1';
 
-// Simple in-memory cache for audio blobs (avoids re-generating same text)
+// In-memory cache for audio blobs (avoids re-generating same text)
 const audioCache = new Map();
-const MAX_CACHE_SIZE = 50;
+const MAX_CACHE_SIZE = 100;
 
 /**
  * Convert text to speech using ElevenLabs API
@@ -34,9 +37,9 @@ export async function textToSpeech(text, voiceId = DEFAULT_VOICE_ID) {
     },
     body: JSON.stringify({
       text,
-      model_id: 'eleven_monolingual_v1',
+      model_id: DEFAULT_MODEL,
       voice_settings: {
-        stability: 0.75,
+        stability: 0.8,        // Higher = more consistent/clear pronunciation
         similarity_boost: 0.75
       }
     })
@@ -51,7 +54,7 @@ export async function textToSpeech(text, voiceId = DEFAULT_VOICE_ID) {
 
   const blob = await response.blob();
 
-  // Cache the result
+  // Cache the result (LRU eviction)
   if (audioCache.size >= MAX_CACHE_SIZE) {
     const firstKey = audioCache.keys().next().value;
     audioCache.delete(firstKey);
@@ -83,9 +86,7 @@ export async function speakText(text) {
  */
 export function getQuestionReadText(question) {
   let text = question.question;
-
   // For sentence completion, replace blank with "blank"
   text = text.replace(/____+/g, 'blank');
-
   return text;
 }

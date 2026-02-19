@@ -266,8 +266,8 @@ const Settings = () => {
                                 <label style={{ display: 'block', fontSize: 13, color: C.muted, marginBottom: 6 }} dir="rtl">
                                     ספק AI לשאלות
                                 </label>
-                                <div style={{ display: 'flex', gap: 8 }}>
-                                    {['openai', 'anthropic'].map(p => (
+                                <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                                    {['openrouter', 'openai', 'anthropic'].map(p => (
                                         <button
                                             key={p}
                                             onClick={() => {
@@ -276,6 +276,7 @@ const Settings = () => {
                                             }}
                                             style={{
                                                 flex: 1,
+                                                minWidth: 80,
                                                 padding: '8px 12px',
                                                 borderRadius: 8,
                                                 background: aiProvider === p ? 'rgba(139, 92, 246, 0.2)' : 'rgba(0,0,0,0.3)',
@@ -286,15 +287,20 @@ const Settings = () => {
                                                 fontWeight: 600
                                             }}
                                         >
-                                            {p === 'openai' ? 'OpenAI' : 'Anthropic'}
+                                            {p === 'openrouter' ? 'OpenRouter (חינם)' : p === 'openai' ? 'OpenAI' : 'Anthropic'}
                                         </button>
                                     ))}
                                 </div>
                             </div>
                             <div>
                                 <label style={{ display: 'block', fontSize: 13, color: C.muted, marginBottom: 6 }} dir="rtl">
-                                    {aiProvider === 'openai' ? 'OpenAI API Key' : 'Anthropic API Key'} (שאלות AI)
+                                    {aiProvider === 'openrouter' ? 'OpenRouter API Key' : aiProvider === 'openai' ? 'OpenAI API Key' : 'Anthropic API Key'} (שאלות AI)
                                 </label>
+                                {aiProvider === 'openrouter' && (
+                                    <p style={{ margin: '0 0 8px', fontSize: 11, color: '#22c55e', lineHeight: 1.4 }} dir="rtl">
+                                        חינם! הירשם ב-openrouter.ai וקבל מפתח API בחינם.
+                                    </p>
+                                )}
                                 <input
                                     type="password"
                                     value={aiKey}
@@ -302,7 +308,7 @@ const Settings = () => {
                                         setAiKeyState(e.target.value);
                                         setAiKey(e.target.value);
                                     }}
-                                    placeholder={aiProvider === 'openai' ? 'sk-xxxxxxxxxxxxxxxx' : 'sk-ant-xxxxxxxxxxxxxxxx'}
+                                    placeholder={aiProvider === 'openrouter' ? 'sk-or-xxxxxxxxxxxxxxxx' : aiProvider === 'openai' ? 'sk-xxxxxxxxxxxxxxxx' : 'sk-ant-xxxxxxxxxxxxxxxx'}
                                     style={{
                                         width: '100%',
                                         background: 'rgba(0,0,0,0.3)',

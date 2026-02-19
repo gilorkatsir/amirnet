@@ -12,8 +12,8 @@ export const setElevenLabsKey = (key) => localStorage.setItem(KEYS.elevenlabs, k
 export const getAiKey = () => localStorage.getItem(KEYS.ai) || '';
 export const setAiKey = (key) => localStorage.setItem(KEYS.ai, key);
 
-// 'openai' or 'anthropic'
-export const getAiProvider = () => localStorage.getItem(KEYS.aiProvider) || 'openai';
+// 'openrouter' (free), 'openai', or 'anthropic'
+export const getAiProvider = () => localStorage.getItem(KEYS.aiProvider) || 'openrouter';
 export const setAiProvider = (provider) => localStorage.setItem(KEYS.aiProvider, provider);
 
 export const hasElevenLabsKey = () => !!getElevenLabsKey();
