@@ -90,7 +90,7 @@ const Settings = () => {
                                 <div style={{
                                     width: 20, height: 20, borderRadius: '50%', background: 'white',
                                     transition: 'transform 0.2s',
-                                    transform: soundOn ? 'translateX(-20px)' : 'translateX(0)'
+                                    transform: soundOn ? 'translateX(20px)' : 'translateX(0)'
                                 }} />
                             </div>
                         }

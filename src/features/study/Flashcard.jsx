@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
 import { Volume2, Hand, ArrowLeftRight, X, Check, CheckCircle } from 'lucide-react';
 import { C, GLASS, RADIUS } from '../../styles/theme';
 import { playCorrect, playIncorrect, playClick } from '../../utils/sounds';
+
+const SWIPE_THRESHOLD = 80;
 
 const cardVariants = {
     enter: { opacity: 0, scale: 0.95 },
@@ -29,6 +31,20 @@ const resultBtnVariants = {
 const Flashcard = ({ word, onResult, onNext }) => {
     const [flipped, setFlipped] = useState(false);
     const [revealed, setRevealed] = useState(false);
+
+    const dragX = useMotionValue(0);
+    const dragRotate = useTransform(dragX, [-200, 0, 200], [-12, 0, 12]);
+    const dragOpacityLeft = useTransform(dragX, [-SWIPE_THRESHOLD, 0], [1, 0]);
+    const dragOpacityRight = useTransform(dragX, [0, SWIPE_THRESHOLD], [0, 1]);
+
+    const handleDragEnd = (_e, info) => {
+        if (!flipped || revealed) return;
+        if (info.offset.x > SWIPE_THRESHOLD) {
+            handleResult(true);
+        } else if (info.offset.x < -SWIPE_THRESHOLD) {
+            handleResult(false);
+        }
+    };
 
     const handleResult = (success) => {
         if (revealed) return;
@@ -91,6 +107,10 @@ const Flashcard = ({ word, onResult, onNext }) => {
                 animate="center"
                 transition={{ type: 'spring', stiffness: 260, damping: 22 }}
                 onClick={() => !flipped && setFlipped(true)}
+                drag={flipped && !revealed ? 'x' : false}
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.8}
+                onDragEnd={handleDragEnd}
                 style={{
                     width: '100%', maxWidth: 340, aspectRatio: '3/4',
                     ...GLASS.card,
@@ -99,8 +119,31 @@ const Flashcard = ({ word, onResult, onNext }) => {
                     padding: 32, cursor: 'pointer',
                     position: 'relative', zIndex: 1,
                     perspective: 800,
+                    x: flipped ? dragX : 0,
+                    rotate: flipped ? dragRotate : 0,
                 }}
             >
+                {/* Swipe overlays */}
+                {flipped && !revealed && (
+                    <>
+                        <motion.div style={{
+                            position: 'absolute', inset: 0, borderRadius: GLASS.card.borderRadius,
+                            background: 'rgba(34,197,94,0.12)', border: '2px solid rgba(34,197,94,0.4)',
+                            pointerEvents: 'none', opacity: dragOpacityRight, zIndex: 10,
+                            display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        }}>
+                            <Check size={48} style={{ color: C.green, opacity: 0.7 }} />
+                        </motion.div>
+                        <motion.div style={{
+                            position: 'absolute', inset: 0, borderRadius: GLASS.card.borderRadius,
+                            background: 'rgba(239,68,68,0.12)', border: '2px solid rgba(239,68,68,0.4)',
+                            pointerEvents: 'none', opacity: dragOpacityLeft, zIndex: 10,
+                            display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        }}>
+                            <X size={48} style={{ color: C.red, opacity: 0.7 }} />
+                        </motion.div>
+                    </>
+                )}
                 {/* POS Badge + Volume */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 32 }}>
                     <div style={{
@@ -116,6 +159,7 @@ const Flashcard = ({ word, onResult, onNext }) => {
                     </div>
                     <motion.button
                         whileTap={{ scale: 0.96 }}
+                        onClick={(e) => { e.stopPropagation(); if (window.speechSynthesis) { const u = new SpeechSynthesisUtterance(word.english); u.lang = 'en-US'; window.speechSynthesis.speak(u); } }}
                         style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
                     >
                         <Volume2 size={20} style={{ color: C.dim }} />
@@ -179,7 +223,7 @@ const Flashcard = ({ word, onResult, onNext }) => {
                         fontSize: 12, color: C.dim, margin: 0,
                         display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, opacity: 0.6,
                     }}>
-                        <Hand size={14} /> {!flipped ? 'הקש להיפוך (Space)' : 'בחר אם ידעת (\u2190/\u2192)'}
+                        <Hand size={14} /> {!flipped ? 'הקש להיפוך' : 'החלק ימינה = ידעתי, שמאלה = לא'}
                     </p>
                 </div>
             </motion.div>

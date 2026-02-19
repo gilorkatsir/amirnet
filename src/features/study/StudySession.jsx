@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, MoreHorizontal } from 'lucide-react';
+import { X } from 'lucide-react';
 import { C, GLASS, RADIUS } from '../../styles/theme';
 import { useStatsContext } from '../../contexts/StatsContext';
 import Flashcard from './Flashcard';
@@ -13,6 +13,13 @@ const StudySession = ({ mode, session, onComplete }) => {
     const { updateWordProgress } = useStatsContext();
     const [index, setIndex] = useState(0);
     const [sessionResults, setSessionResults] = useState({ correct: 0, incorrect: 0, incorrectItems: [] });
+    const resultsRef = useRef(sessionResults);
+
+    // Guard: empty session
+    if (!session || session.length === 0) {
+        navigate('/', { replace: true });
+        return null;
+    }
 
     const currentWord = session[index];
     const progress = ((index + 1) / session.length) * 100;
@@ -45,11 +52,13 @@ const StudySession = ({ mode, session, onComplete }) => {
     }, [index, sessionResults]);
 
     const handleResult = (isCorrect) => {
-        setSessionResults(prev => ({
-            correct: prev.correct + (isCorrect ? 1 : 0),
-            incorrect: prev.incorrect + (isCorrect ? 0 : 1),
-            incorrectItems: isCorrect ? prev.incorrectItems : [...(prev.incorrectItems || []), currentWord.id]
-        }));
+        const updated = {
+            correct: resultsRef.current.correct + (isCorrect ? 1 : 0),
+            incorrect: resultsRef.current.incorrect + (isCorrect ? 0 : 1),
+            incorrectItems: isCorrect ? resultsRef.current.incorrectItems : [...(resultsRef.current.incorrectItems || []), currentWord.id]
+        };
+        resultsRef.current = updated;
+        setSessionResults(updated);
         updateWordProgress(currentWord.id, isCorrect);
     };
 
@@ -57,7 +66,7 @@ const StudySession = ({ mode, session, onComplete }) => {
         if (index < session.length - 1) {
             setIndex(index + 1);
         } else {
-            onComplete(sessionResults);
+            onComplete(resultsRef.current);
         }
     };
 
@@ -81,7 +90,7 @@ const StudySession = ({ mode, session, onComplete }) => {
             >
                 <motion.button
                     whileTap={{ scale: 0.9 }}
-                    onClick={() => navigate('/')}
+                    onClick={() => { if (window.confirm('לצאת מהתרגול? ההתקדמות נשמרת.')) navigate('/'); }}
                     style={circleBtn}
                 >
                     <X size={18} color={C.muted} />
@@ -108,9 +117,7 @@ const StudySession = ({ mode, session, onComplete }) => {
                     </div>
                 </div>
 
-                <div style={circleBtn}>
-                    <MoreHorizontal size={18} color={C.muted} />
-                </div>
+                <div style={{ width: 38 }} />
             </motion.header>
 
             {/* Mode Content */}

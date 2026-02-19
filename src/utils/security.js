@@ -10,12 +10,8 @@
  */
 export const sanitizeString = (str) => {
     if (typeof str !== 'string') return '';
-    return str
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#x27;');
+    // Strip HTML tags and control chars; React handles escaping in JSX
+    return str.replace(/<[^>]*>/g, '').replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, '').slice(0, 200);
 };
 
 /**

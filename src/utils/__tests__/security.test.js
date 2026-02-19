@@ -8,18 +8,20 @@ import {
 } from '../security';
 
 describe('sanitizeString', () => {
-  it('escapes HTML special characters', () => {
+  it('strips HTML tags', () => {
     expect(sanitizeString('<script>alert("xss")</script>')).toBe(
-      '&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;'
+      'alert("xss")'
     );
   });
 
-  it('escapes ampersands', () => {
-    expect(sanitizeString('Tom & Jerry')).toBe('Tom &amp; Jerry');
+  it('preserves ampersands and quotes (React handles escaping)', () => {
+    expect(sanitizeString('Tom & Jerry')).toBe('Tom & Jerry');
+    expect(sanitizeString("it's")).toBe("it's");
   });
 
-  it('escapes single quotes', () => {
-    expect(sanitizeString("it's")).toBe('it&#x27;s');
+  it('truncates to 200 characters', () => {
+    const long = 'a'.repeat(250);
+    expect(sanitizeString(long).length).toBe(200);
   });
 
   it('returns empty string for non-string input', () => {

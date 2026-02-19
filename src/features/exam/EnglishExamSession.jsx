@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -16,6 +16,13 @@ const EnglishExamSession = ({ mode, questions, title, onComplete }) => {
 
     const [index, setIndex] = useState(0);
     const [sessionResults, setSessionResults] = useState({ correct: 0, incorrect: 0, answers: [] });
+    const resultsRef = useRef(sessionResults);
+
+    // Guard: empty questions
+    if (!questions || questions.length === 0) {
+        navigate('/', { replace: true });
+        return null;
+    }
 
     const currentQuestion = questions[index];
     const progress = ((index + 1) / questions.length) * 100;
@@ -67,17 +74,19 @@ const EnglishExamSession = ({ mode, questions, title, onComplete }) => {
     }, [index, sessionResults]);
 
     const handleResult = (isCorrect) => {
-        setSessionResults(prev => ({
-            correct: prev.correct + (isCorrect ? 1 : 0),
-            incorrect: prev.incorrect + (isCorrect ? 0 : 1),
-            answers: [...prev.answers, { questionId: currentQuestion.id, type: currentQuestion.type, isCorrect }]
-        }));
+        const updated = {
+            correct: resultsRef.current.correct + (isCorrect ? 1 : 0),
+            incorrect: resultsRef.current.incorrect + (isCorrect ? 0 : 1),
+            answers: [...resultsRef.current.answers, { questionId: currentQuestion.id, type: currentQuestion.type, isCorrect }]
+        };
+        resultsRef.current = updated;
+        setSessionResults(updated);
         if (updateEnglishProgress) updateEnglishProgress(currentQuestion.id, isCorrect);
     };
 
     const handleNext = () => {
         if (index < questions.length - 1) setIndex(index + 1);
-        else onComplete(sessionResults);
+        else onComplete(resultsRef.current);
     };
 
     const getModeLabel = () => {
@@ -95,7 +104,7 @@ const EnglishExamSession = ({ mode, questions, title, onComplete }) => {
     return (
         <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: C.bg }}>
             <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 20px', ...GLASS.header }}>
-                <button onClick={() => navigate('/')} style={circleBtn(C.glass, C.glassBorder)}>
+                <button onClick={() => { if (window.confirm('לצאת מהתרגול? ההתקדמות נשמרת.')) navigate('/'); }} style={circleBtn(C.glass, C.glassBorder)}>
                     <X size={18} color={C.muted} />
                 </button>
 

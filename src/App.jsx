@@ -60,8 +60,13 @@ const App = () => {
       const saved = localStorage.getItem('wm_active_session');
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (parsed.view && ['study', 'english', 'exam', 'vocal-session'].includes(parsed.view)) {
+        if (parsed.view && ['study', 'english', 'exam'].includes(parsed.view)) {
           return parsed;
+        }
+        // vocal-session can't be restored (section data not persisted) — redirect to selector
+        if (parsed.view === 'vocal-session') {
+          localStorage.removeItem('wm_active_session');
+          return null;
         }
       }
     } catch (e) {
@@ -78,6 +83,7 @@ const App = () => {
   const [englishSession, setEnglishSession] = useState(savedSession?.englishSession || []);
   const [sessionResults, setSessionResults] = useState({ correct: 0, incorrect: 0 });
   const [aiLoading, setAiLoading] = useState(false);
+  const [aiError, setAiError] = useState(null);
   const [vocalSection, setVocalSection] = useState(null);
 
   // Handle initial redirect on fresh app open
@@ -183,7 +189,7 @@ const App = () => {
       setSessionResults({ correct: 0, incorrect: 0 });
       navigate('/english');
     } catch (err) {
-      alert(`AI Error: ${err.message}`);
+      setAiError(err.message);
     } finally {
       setAiLoading(false);
     }
@@ -254,7 +260,7 @@ const App = () => {
     localStorage.removeItem('wm_vocab_progress');
 
     if (sessionType === 'vocabulary') {
-      startSession(mode, session.length);
+      startSession(mode, session.length || 10);
     } else if (sessionType === 'ai-english') {
       navigate('/');
     } else if (sessionType === 'vocal') {
@@ -410,19 +416,32 @@ const App = () => {
           </Route>
         </Switch>
       </Suspense>
-      {aiLoading && (
+      {(aiLoading || aiError) && (
         <div style={{
           position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)',
           display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
           zIndex: 1000, backdropFilter: 'blur(4px)'
         }}>
-          <LoadingSpinner />
-          <p style={{ color: 'white', marginTop: 16, fontSize: 16, fontWeight: 600 }}>
-            מייצר שאלות AI...
-          </p>
-          <p style={{ color: 'rgba(255,255,255,0.6)', marginTop: 4, fontSize: 13 }}>
-            יצירת שאלות מותאמות למילים הקשות שלך
-          </p>
+          {aiError ? (
+            <>
+              <p style={{ color: '#ef4444', fontSize: 18, fontWeight: 600, marginBottom: 8 }}>שגיאה ביצירת שאלות</p>
+              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 13, marginBottom: 20, maxWidth: 280, textAlign: 'center' }}>{aiError}</p>
+              <button onClick={() => setAiError(null)} style={{
+                padding: '10px 28px', borderRadius: 999, border: 'none',
+                background: 'rgba(255,255,255,0.1)', color: 'white', fontSize: 15, fontWeight: 600, cursor: 'pointer'
+              }}>סגור</button>
+            </>
+          ) : (
+            <>
+              <LoadingSpinner />
+              <p style={{ color: 'white', marginTop: 16, fontSize: 16, fontWeight: 600 }}>
+                מייצר שאלות AI...
+              </p>
+              <p style={{ color: 'rgba(255,255,255,0.6)', marginTop: 4, fontSize: 13 }}>
+                יצירת שאלות מותאמות למילים הקשות שלך
+              </p>
+            </>
+          )}
         </div>
       )}
       <Analytics />
