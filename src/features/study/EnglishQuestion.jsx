@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../../components/Icon';
 import { C } from '../../styles/theme';
 import { readingPassages } from '../../data/reading_passages';
 import { playCorrect, playIncorrect } from '../../utils/sounds';
+import { speakText, getQuestionReadText } from '../../services/elevenLabsService';
+import { hasElevenLabsKey } from '../../services/apiKeys';
 
 /**
  * Universal English Question Component
@@ -12,6 +14,10 @@ import { playCorrect, playIncorrect } from '../../utils/sounds';
 const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
     const [selected, setSelected] = useState(null);
     const [answered, setAnswered] = useState(false);
+    const [ttsPlaying, setTtsPlaying] = useState(false);
+    const [ttsError, setTtsError] = useState(null);
+    const audioRef = useRef(null);
+    const showTts = hasElevenLabsKey();
 
     // Reset state when question changes
     React.useEffect(() => {
@@ -19,9 +25,39 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
         setAnswered(false);
         setUnknownWord('');
         setWordSaved(false);
+        setTtsError(null);
+        // Stop any playing audio
+        if (audioRef.current) {
+            audioRef.current.pause();
+            audioRef.current = null;
+        }
+        setTtsPlaying(false);
     }, [question]);
 
-    const handleSelect = (index) => {
+    const handleSpeak = async () => {
+        if (ttsPlaying && audioRef.current) {
+            audioRef.current.pause();
+            audioRef.current = null;
+            setTtsPlaying(false);
+            return;
+        }
+        setTtsPlaying(true);
+        setTtsError(null);
+        try {
+            const text = getQuestionReadText(question);
+            const audio = await speakText(text);
+            audioRef.current = audio;
+            audio.addEventListener('ended', () => {
+                setTtsPlaying(false);
+                audioRef.current = null;
+            });
+        } catch (err) {
+            setTtsError(err.message);
+            setTtsPlaying(false);
+        }
+    };
+
+    const handleSelect = useCallback((index) => {
         if (answered) return;
         setSelected(index);
         setAnswered(true);
@@ -37,7 +73,28 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
         }
 
         onResult(isCorrect);
-    };
+    }, [answered, question, onResult]);
+
+    // Keyboard shortcuts: A/B/C/D to select, Enter to advance, Escape to exit
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            // Don't capture when typing in input
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+            const keyMap = { a: 0, b: 1, c: 2, d: 3, '1': 0, '2': 1, '3': 2, '4': 3 };
+            const key = e.key.toLowerCase();
+
+            if (key in keyMap && !answered && question.options[keyMap[key]]) {
+                e.preventDefault();
+                handleSelect(keyMap[key]);
+            } else if ((key === 'enter' || key === ' ') && answered) {
+                e.preventDefault();
+                onNext();
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [answered, handleSelect, onNext, question]);
 
     const renderQuestionHeader = () => {
         const typeLabels = {
@@ -54,13 +111,43 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                 alignItems: 'center',
                 gap: 8,
                 marginBottom: 16,
-                padding: '8px 12px',
-                background: 'rgba(255,255,255,0.05)',
-                borderRadius: 8,
-                width: 'fit-content'
             }}>
-                <Icon name={typeInfo.icon} size={16} style={{ color: typeInfo.color }} />
-                <span style={{ fontSize: 12, fontWeight: 600, color: typeInfo.color }}>{typeInfo.he}</span>
+                <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 8,
+                    padding: '8px 12px',
+                    background: 'rgba(255,255,255,0.05)',
+                    borderRadius: 8,
+                }}>
+                    <Icon name={typeInfo.icon} size={16} style={{ color: typeInfo.color }} />
+                    <span style={{ fontSize: 12, fontWeight: 600, color: typeInfo.color }}>{typeInfo.he}</span>
+                </div>
+                {showTts && (
+                    <button
+                        onClick={handleSpeak}
+                        title={ttsPlaying ? 'Stop' : 'Listen'}
+                        style={{
+                            width: 36,
+                            height: 36,
+                            borderRadius: 8,
+                            background: ttsPlaying ? 'rgba(139, 92, 246, 0.2)' : 'rgba(255,255,255,0.05)',
+                            border: ttsPlaying ? `1px solid ${C.purple}` : `1px solid ${C.border}`,
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            color: ttsPlaying ? C.purple : C.muted,
+                            transition: 'all 0.2s',
+                            marginRight: 'auto'
+                        }}
+                    >
+                        <Icon name={ttsPlaying ? 'stop' : 'volume_up'} size={18} />
+                    </button>
+                )}
+                {ttsError && (
+                    <span style={{ fontSize: 11, color: C.red }}>{ttsError}</span>
+                )}
             </div>
         );
     };

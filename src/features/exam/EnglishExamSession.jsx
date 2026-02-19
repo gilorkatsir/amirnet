@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useLocation } from 'wouter';
 import Icon from '../../components/Icon';
 import { C } from '../../styles/theme';
 import EnglishQuestion from '../study/EnglishQuestion';
 import { playTimerComplete, playClick } from '../../utils/sounds';
+import { useStatsContext } from '../../contexts/StatsContext';
+import { useUserWords } from '../../contexts/UserWordsContext';
 
 /**
  * English Exam Session Component
@@ -13,11 +16,12 @@ const EnglishExamSession = ({
     mode, // 'practice' or 'exam'
     questions,
     title,
-    onUpdateProgress,
-    onSaveWord,
-    onComplete,
-    onExit
+    onComplete
 }) => {
+    const [, navigate] = useLocation();
+    const { updateEnglishProgress } = useStatsContext();
+    const { saveWord } = useUserWords();
+
     const [index, setIndex] = useState(0);
     const [sessionResults, setSessionResults] = useState({
         correct: 0,
@@ -113,8 +117,8 @@ const EnglishExamSession = ({
         }));
 
         // Update global progress
-        if (onUpdateProgress) {
-            onUpdateProgress(currentQuestion.id, isCorrect);
+        if (updateEnglishProgress) {
+            updateEnglishProgress(currentQuestion.id, isCorrect);
         }
     };
 
@@ -171,7 +175,7 @@ const EnglishExamSession = ({
                 borderBottom: `1px solid ${C.border}`
             }}>
                 <button
-                    onClick={onExit}
+                    onClick={() => navigate('/')}
                     style={{
                         width: 40,
                         height: 40,
@@ -309,7 +313,7 @@ const EnglishExamSession = ({
                     key={currentQuestion.id}
                     question={currentQuestion}
                     onResult={handleResult}
-                    onSaveWord={onSaveWord}
+                    onSaveWord={saveWord}
                     onNext={handleNext}
                 />
             </div>
@@ -321,10 +325,7 @@ EnglishExamSession.propTypes = {
     mode: PropTypes.oneOf(['practice', 'exam']).isRequired,
     questions: PropTypes.array.isRequired,
     title: PropTypes.string,
-    onUpdateProgress: PropTypes.func,
-    onSaveWord: PropTypes.func,
-    onComplete: PropTypes.func.isRequired,
-    onExit: PropTypes.func.isRequired
+    onComplete: PropTypes.func.isRequired
 };
 
 export default EnglishExamSession;

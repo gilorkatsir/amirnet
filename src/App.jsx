@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
+import { Route, Switch, useLocation } from 'wouter';
 import { VOCABULARY } from './data/vocabulary';
 import {
   ENGLISH_QUESTIONS,
@@ -9,26 +10,52 @@ import {
 import { C, FONTS } from './styles/theme';
 import Home from './features/Home';
 import WelcomeScreen from './features/WelcomeScreen';
-import StudySession from './features/study/StudySession';
-import EnglishExamSession from './features/exam/EnglishExamSession';
-import QuestionTypeSelector from './features/QuestionTypeSelector';
 import Results from './features/Results';
-import Stats from './features/Stats';
-import Settings from './features/Settings';
-import PomodoroTimer from './features/PomodoroTimer';
-import LegalPages from './features/LegalPages';
-import AccessibilityStatement from './features/AccessibilityStatement';
-import UserWordsList from './features/UserWordsList';
-import { recordDailyAccuracy } from './utils/dailyStats';
+import { recordDailyAccuracy, cleanOldStats } from './utils/dailyStats';
+import { useStatsContext } from './contexts/StatsContext';
+import { useUserWords } from './contexts/UserWordsContext';
+import LoadingSpinner from './components/LoadingSpinner';
+import { generateQuestions } from './services/aiQuestionService';
+
+// Lazy-loaded views (not needed on initial render)
+const StudySession = lazy(() => import('./features/study/StudySession'));
+const EnglishExamSession = lazy(() => import('./features/exam/EnglishExamSession'));
+const QuestionTypeSelector = lazy(() => import('./features/QuestionTypeSelector'));
+const Stats = lazy(() => import('./features/Stats'));
+const Settings = lazy(() => import('./features/Settings'));
+const PomodoroTimer = lazy(() => import('./features/PomodoroTimer'));
+const LegalPages = lazy(() => import('./features/LegalPages'));
+const AccessibilityStatement = lazy(() => import('./features/AccessibilityStatement'));
+const UserWordsList = lazy(() => import('./features/UserWordsList'));
+const ReadingComprehensionPractice = lazy(() => import('./features/study/ReadingComprehensionPractice'));
+const VocabCategorySelector = lazy(() => import('./features/VocabCategorySelector'));
+
+// Convert saved session view names to URL paths
+const viewToPath = (view) => {
+  switch (view) {
+    case 'home': return '/';
+    case 'englishSelect': return '/english-select';
+    default: return `/${view}`;
+  }
+};
+
+// Convert URL path to session view name (for persistence)
+const pathToView = (path) => {
+  if (path === '/') return 'home';
+  if (path === '/english-select') return 'englishSelect';
+  return path.slice(1);
+};
 
 const App = () => {
+  const [location, navigate] = useLocation();
+  const { stats, englishStats, calculatePriority } = useStatsContext();
+
   // Load saved session synchronously to prevent race conditions
   const getSavedSession = () => {
     try {
       const saved = localStorage.getItem('wm_active_session');
       if (saved) {
         const parsed = JSON.parse(saved);
-        // Only restore if valid active session view
         if (parsed.view && ['study', 'english', 'exam'].includes(parsed.view)) {
           return parsed;
         }
@@ -41,305 +68,210 @@ const App = () => {
 
   const savedSession = getSavedSession();
 
-  // Check if this is a fresh app open (show welcome) or returning to existing session
-  const shouldShowWelcome = () => {
-    const lastVisit = localStorage.getItem('wm_last_visit_time');
-    const now = Date.now();
-    // Show welcome if no saved session AND (first time OR more than 30 min since last visit)
-    if (!savedSession) {
-      if (!lastVisit || (now - parseInt(lastVisit)) > 30 * 60 * 1000) {
-        return true;
-      }
-    }
-    return false;
-  };
-
-  // Views: welcome, home, study, english, englishSelect, exam, results, stats
-  const [view, setView] = useState(savedSession?.view || (shouldShowWelcome() ? 'welcome' : 'home'));
-  const [mode, setMode] = useState(savedSession?.mode || 'flash'); // flash, quiz, english, exam
-  const [sessionType, setSessionType] = useState(savedSession?.sessionType || null); // For tracking what kind of session
-
-  const [stats, setStats] = useState({});
-  const [englishStats, setEnglishStats] = useState({}); // Separate stats for English questions
-
+  const [mode, setMode] = useState(savedSession?.mode || 'flash');
+  const [sessionType, setSessionType] = useState(savedSession?.sessionType || null);
   const [session, setSession] = useState(savedSession?.session || []);
   const [englishSession, setEnglishSession] = useState(savedSession?.englishSession || []);
   const [sessionResults, setSessionResults] = useState({ correct: 0, incorrect: 0 });
+  const [aiLoading, setAiLoading] = useState(false);
 
-  const [userWords, setUserWords] = useState([]); // Custom vocabulary list
-
-  // Load user words
+  // Handle initial redirect on fresh app open
   useEffect(() => {
-    const savedWords = localStorage.getItem('wm_user_words');
-    if (savedWords) {
-      try {
-        setUserWords(JSON.parse(savedWords));
-      } catch (e) {
-        console.error('Failed to parse user words', e);
-      }
+    if (location !== '/') return;
+
+    if (savedSession) {
+      navigate(viewToPath(savedSession.view), { replace: true });
+      return;
     }
+
+    const lastVisit = localStorage.getItem('wm_last_visit_time');
+    const now = Date.now();
+    if (!lastVisit || (now - parseInt(lastVisit)) > 30 * 60 * 1000) {
+      navigate('/welcome', { replace: true });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleSaveWord = (word) => {
-    if (!word || !word.trim()) return;
-
-    setUserWords(prev => {
-      // Avoid duplicates
-      if (prev.some(w => w.text.toLowerCase() === word.toLowerCase())) {
-        return prev;
-      }
-      const newWord = {
-        id: Date.now(),
-        text: word.trim(),
-        date: Date.now(),
-        translation: '' // Placeholder for future API translation feature
-      };
-      const newList = [newWord, ...prev];
-      localStorage.setItem('wm_user_words', JSON.stringify(newList));
-      return newList;
-    });
-  };
-
-  const handleDeleteWord = (wordId) => {
-    setUserWords(prev => {
-      const newList = prev.filter(w => w.id !== wordId);
-      localStorage.setItem('wm_user_words', JSON.stringify(newList));
-      return newList;
-    });
-  };
-
-  // Load stats from localStorage
+  // Clean old daily stats on mount (retain last 90 days)
   useEffect(() => {
-    const s = localStorage.getItem('wm_stats');
-    if (s) setStats(JSON.parse(s));
-
-    const es = localStorage.getItem('wm_english_stats');
-    if (es) setEnglishStats(JSON.parse(es));
+    cleanOldStats(90);
   }, []);
 
-  // Save session state whenever it changes
+  // Save session state whenever location or session data changes
   useEffect(() => {
-    if (view === 'study' || view === 'english' || view === 'exam') {
+    const currentView = pathToView(location);
+    if (['study', 'english', 'exam'].includes(currentView)) {
       const stateToSave = {
-        view,
+        view: currentView,
         mode,
         sessionType,
         session: session.length > 0 ? session : undefined,
         englishSession: englishSession.length > 0 ? englishSession : undefined
       };
       localStorage.setItem('wm_active_session', JSON.stringify(stateToSave));
-    } else if (view === 'home' || view === 'results') {
-      // Clear session when back home or finished
+    } else if (currentView === 'home' || currentView === 'results') {
       localStorage.removeItem('wm_active_session');
-      localStorage.removeItem('wm_english_progress'); // Clear sub-component progress too
+      localStorage.removeItem('wm_english_progress');
       localStorage.removeItem('wm_vocab_progress');
     }
-  }, [view, mode, sessionType, session, englishSession]);
+  }, [location, mode, sessionType, session, englishSession]);
 
-  const saveStats = (newStats) => {
-    setStats(newStats);
-    localStorage.setItem('wm_stats', JSON.stringify(newStats));
-  };
-
-  const saveEnglishStats = (newStats) => {
-    setEnglishStats(newStats);
-    localStorage.setItem('wm_english_stats', JSON.stringify(newStats));
-  };
-
-  const calculatePriority = useCallback((wordId) => {
-    const s = stats[wordId] || { correct: 0, incorrect: 0, level: 0 };
-    return (s.incorrect * 3) - s.correct - (s.level * 2);
-  }, [stats]);
-
-  // Vocabulary session start - with randomization
-  const startSession = (selectedMode, count = 10) => {
+  // Vocabulary session start
+  const startSession = (selectedMode, count = 10, customWords = null) => {
     setMode(selectedMode);
     setSessionType('vocabulary');
 
-    // Get words with most errors first, then shuffle
-    const sorted = [...VOCABULARY].sort((a, b) => calculatePriority(b.id) - calculatePriority(a.id));
-    const topSlice = sorted.slice(0, Math.min(sorted.length, count * 3));
-    // Shuffle the selection for variety
-    const shuffled = topSlice.sort(() => Math.random() - 0.5);
-    const selection = shuffled.slice(0, count);
+    let selection;
+    if (customWords) {
+      selection = customWords;
+    } else {
+      const sorted = [...VOCABULARY].sort((a, b) => calculatePriority(b.id) - calculatePriority(a.id));
+      const topSlice = sorted.slice(0, Math.min(sorted.length, count * 3));
+      const shuffled = topSlice.sort(() => Math.random() - 0.5);
+      selection = shuffled.slice(0, count);
+    }
 
     setSession(selection);
     setSessionResults({ correct: 0, incorrect: 0 });
-    setView('study');
+    navigate('/study');
   };
 
-  // Review failed vocabulary words
   const startFailedVocabReview = () => {
     setMode('flash');
     setSessionType('vocabulary');
 
-    // Get words that have more incorrect than correct answers
     const failedWords = VOCABULARY.filter(word => {
       const s = stats[word.id];
       return s && s.incorrect > s.correct;
     });
 
     if (failedWords.length === 0) {
-      // No failed words - start regular session
       startSession('flash', 10);
       return;
     }
 
-    // Shuffle failed words
     const shuffled = [...failedWords].sort(() => Math.random() - 0.5);
     const selection = shuffled.slice(0, Math.min(20, shuffled.length));
 
     setSession(selection);
     setSessionResults({ correct: 0, incorrect: 0 });
-    setView('study');
+    navigate('/study');
   };
 
-  // English practice session start
+  const startAiPractice = async () => {
+    const failedWords = VOCABULARY.filter(word => {
+      const s = stats[word.id];
+      return s && s.incorrect > s.correct;
+    });
+
+    if (failedWords.length === 0) return;
+
+    setAiLoading(true);
+    try {
+      const shuffled = [...failedWords].sort(() => Math.random() - 0.5);
+      const selected = shuffled.slice(0, Math.min(10, shuffled.length));
+      const aiQuestions = await generateQuestions(selected, selected.length);
+
+      setMode('english');
+      setSessionType('ai-english');
+      setEnglishSession(aiQuestions);
+      setSessionResults({ correct: 0, incorrect: 0 });
+      navigate('/english');
+    } catch (err) {
+      alert(`AI Error: ${err.message}`);
+    } finally {
+      setAiLoading(false);
+    }
+  };
+
   const startEnglishSession = (config) => {
     setMode('english');
     setSessionType('english');
 
     let questions;
     if (config.mode === 'exam') {
-      // Full exam mode - use all questions from the selected exam
       questions = config.questions;
     } else if (config.type === 'mixed') {
-      // Mixed practice
       questions = getRandomQuestions(config.count);
     } else {
-      // Specific type practice
       const typeQuestions = getQuestionsByType(config.type);
       questions = typeQuestions.sort(() => Math.random() - 0.5).slice(0, config.count);
     }
 
     setEnglishSession(questions);
     setSessionResults({ correct: 0, incorrect: 0 });
-    setView(config.mode === 'exam' ? 'exam' : 'english');
+    navigate(config.mode === 'exam' ? '/exam' : '/english');
   };
 
-  // Review failed English questions
   const startFailedEnglishReview = () => {
     setMode('english');
     setSessionType('english');
 
-    // Get questions that were answered incorrectly
     const failedQuestions = ENGLISH_QUESTIONS.filter(q => {
       const s = englishStats[q.id];
       return s && s.attempts > s.correct;
     });
 
     if (failedQuestions.length === 0) {
-      // No failed questions - start regular mixed practice
       startEnglishSession({ mode: 'practice', type: 'mixed', count: 10 });
       return;
     }
 
-    // Shuffle failed questions
     const shuffled = [...failedQuestions].sort(() => Math.random() - 0.5);
     const selection = shuffled.slice(0, Math.min(15, shuffled.length));
 
     setEnglishSession(selection);
     setSessionResults({ correct: 0, incorrect: 0 });
-    setView('english');
+    navigate('/english');
   };
 
   const handleSessionComplete = (results) => {
     setSessionResults(results);
 
-    // Record daily stats for charts
     const total = results.correct + results.incorrect;
     if (total > 0) {
-      const type = sessionType === 'english' ? 'english' : 'vocab';
+      const type = (sessionType === 'english' || sessionType === 'ai-english') ? 'english' : 'vocab';
       recordDailyAccuracy(results.correct, total, type);
     }
 
-    setView('results');
-    // localStorage clearing is handled by the useEffect above when view changes to 'results'
-  };
-
-  const updateWordProgress = (wordId, isCorrect) => {
-    const current = stats[wordId] || { correct: 0, incorrect: 0, level: 0 };
-    const newStats = {
-      ...stats,
-      [wordId]: {
-        correct: current.correct + (isCorrect ? 1 : 0),
-        incorrect: current.incorrect + (isCorrect ? 0 : 1),
-        level: isCorrect ? Math.min(current.level + 1, 5) : Math.max(current.level - 1, 0),
-        lastSeen: new Date().toISOString()
-      }
-    };
-    saveStats(newStats);
-  };
-
-  const updateEnglishProgress = (questionId, isCorrect) => {
-    const current = englishStats[questionId] || { correct: 0, incorrect: 0, attempts: 0 };
-    const newStats = {
-      ...englishStats,
-      [questionId]: {
-        correct: current.correct + (isCorrect ? 1 : 0),
-        incorrect: current.incorrect + (isCorrect ? 0 : 1),
-        attempts: current.attempts + 1,
-        lastSeen: new Date().toISOString()
-      }
-    };
-    saveEnglishStats(newStats);
+    navigate('/results');
   };
 
   const handleRestart = () => {
-    // Clear persisted progress before restarting
     localStorage.removeItem('wm_english_progress');
     localStorage.removeItem('wm_vocab_progress');
 
     if (sessionType === 'vocabulary') {
       startSession(mode, session.length);
+    } else if (sessionType === 'ai-english') {
+      navigate('/');
     } else if (sessionType === 'english') {
-      setView('englishSelect');
+      navigate('/english-select');
     }
-  };
-
-  const handleResetStats = (type) => {
-    if (type === 'vocab' || type === 'all') {
-      setStats({});
-      localStorage.removeItem('wm_stats');
-      localStorage.removeItem('wm_vocab_progress');
-    }
-    if (type === 'english' || type === 'all') {
-      setEnglishStats({});
-      localStorage.removeItem('wm_english_stats');
-      localStorage.removeItem('wm_english_progress');
-    }
-    if (type === 'all') {
-      localStorage.removeItem('wm_active_session');
-    }
-    // Force refresh of stats if needed by clearing state, but setStats({}) already does that.
   };
 
   const handleReviewMistakes = () => {
-    // Clear persist before starting new session to avoid resuming the old completed one
     localStorage.removeItem('wm_english_progress');
     localStorage.removeItem('wm_vocab_progress');
 
     if (sessionType === 'vocabulary' && sessionResults.incorrectItems?.length > 0) {
-      // Filter incorrectly answered words
       const incorrectWords = VOCABULARY.filter(w => sessionResults.incorrectItems.includes(w.id));
       if (incorrectWords.length > 0) {
         setSession(incorrectWords);
-        setSessionResults({ correct: 0, incorrect: 0 }); // Reset scores
+        setSessionResults({ correct: 0, incorrect: 0 });
         setSessionType('vocabulary');
-        setMode('flash'); // Default to flash mode for review? Or keep same mode? Let's use flash for learning.
-        setView('study');
+        setMode('flash');
+        navigate('/study');
       }
     } else if (sessionType === 'english' && sessionResults.answers?.length > 0) {
-      // Filter incorrectly answered questions
       const incorrectIds = sessionResults.answers.filter(a => !a.isCorrect).map(a => a.questionId);
       const incorrectQuestions = ENGLISH_QUESTIONS.filter(q => incorrectIds.includes(q.id));
 
       if (incorrectQuestions.length > 0) {
         setEnglishSession(incorrectQuestions);
-        setSessionResults({ correct: 0, incorrect: 0 }); // Reset scores
+        setSessionResults({ correct: 0, incorrect: 0 });
         setSessionType('english');
-        // Use 'practice' mode for review, not exam
-        setView('english');
+        navigate('/english');
       }
     }
   };
@@ -354,129 +286,111 @@ const App = () => {
 
   return (
     <div style={appStyles}>
-      {view === 'welcome' && (
-        <WelcomeScreen
-          stats={stats}
-          englishStats={englishStats}
-          totalWords={VOCABULARY.length}
-          totalQuestions={ENGLISH_QUESTIONS.length}
-          onContinue={() => {
-            localStorage.setItem('wm_last_visit_time', Date.now().toString());
-            setView('home');
-          }}
-        />
-      )}
+      <Suspense fallback={<LoadingSpinner />}>
+        <Switch>
+          <Route path="/welcome">
+            <WelcomeScreen />
+          </Route>
 
-      {view === 'home' && (
-        <Home
-          stats={stats}
-          englishStats={englishStats}
-          userWords={userWords}
-          totalWords={VOCABULARY.length}
-          totalQuestions={ENGLISH_QUESTIONS.length}
-          onStart={startSession}
-          onStartEnglish={() => setView('englishSelect')}
-          onStartFailedVocab={startFailedVocabReview}
-          onStartFailedEnglish={startFailedEnglishReview}
-          onOpenStats={() => setView('stats')}
-          onOpenSettings={() => setView('settings')}
-          onOpenPomodoro={() => setView('pomodoro')}
-          onOpenMyWords={() => setView('my-words')}
-        />
-      )}
+          <Route path="/study">
+            <StudySession
+              mode={mode}
+              session={session}
+              onComplete={handleSessionComplete}
+            />
+          </Route>
 
-      {view === 'settings' && (
-        <Settings
-          onBack={() => setView('home')}
-          onResetStats={handleResetStats}
-          onOpenLegal={() => setView('legal')}
-          onOpenAccessibility={() => setView('accessibility')}
-        />
-      )}
+          <Route path="/english-select">
+            <QuestionTypeSelector
+              onSelect={startEnglishSession}
+            />
+          </Route>
 
-      {view === 'legal' && (
-        <LegalPages
-          onBack={() => setView('settings')}
-        />
-      )}
+          <Route path="/english">
+            <EnglishExamSession
+              mode="practice"
+              questions={englishSession}
+              onComplete={handleSessionComplete}
+            />
+          </Route>
 
-      {view === 'accessibility' && (
-        <AccessibilityStatement
-          onBack={() => setView('settings')}
-        />
-      )}
+          <Route path="/exam">
+            <EnglishExamSession
+              mode="exam"
+              questions={englishSession}
+              onComplete={handleSessionComplete}
+            />
+          </Route>
 
-      {view === 'pomodoro' && (
-        <PomodoroTimer
-          onBack={() => setView('home')}
-        />
-      )}
+          <Route path="/results">
+            <Results
+              results={sessionResults}
+              sessionType={sessionType}
+              onRestart={handleRestart}
+              onReview={handleReviewMistakes}
+            />
+          </Route>
 
-      {view === 'my-words' && (
-        <UserWordsList
-          words={userWords}
-          onDelete={handleDeleteWord}
-          onBack={() => setView('home')}
-        />
-      )}
+          <Route path="/stats">
+            <Stats />
+          </Route>
 
-      {view === 'stats' && (
-        <Stats
-          stats={stats}
-          englishStats={englishStats}
-          totalWords={VOCABULARY.length}
-          totalQuestions={ENGLISH_QUESTIONS.length}
-          onBack={() => setView('home')}
-        />
-      )}
+          <Route path="/settings">
+            <Settings />
+          </Route>
 
-      {view === 'study' && (
-        <StudySession
-          mode={mode}
-          session={session}
-          onUpdateProgress={updateWordProgress}
-          onComplete={handleSessionComplete}
-          onExit={() => setView('home')}
-        />
-      )}
+          <Route path="/legal">
+            <LegalPages />
+          </Route>
 
-      {view === 'englishSelect' && (
-        <QuestionTypeSelector
-          onSelect={startEnglishSession}
-          onBack={() => setView('home')}
-        />
-      )}
+          <Route path="/accessibility">
+            <AccessibilityStatement />
+          </Route>
 
-      {view === 'english' && (
-        <EnglishExamSession
-          mode="practice"
-          questions={englishSession}
-          onUpdateProgress={updateEnglishProgress}
-          onSaveWord={handleSaveWord}
-          onComplete={handleSessionComplete}
-          onExit={() => setView('home')}
-        />
-      )}
+          <Route path="/pomodoro">
+            <PomodoroTimer />
+          </Route>
 
-      {view === 'exam' && (
-        <EnglishExamSession
-          mode="exam"
-          questions={englishSession}
-          onUpdateProgress={updateEnglishProgress}
-          onSaveWord={handleSaveWord}
-          onComplete={handleSessionComplete}
-          onExit={() => setView('home')}
-        />
-      )}
+          <Route path="/my-words">
+            <UserWordsList />
+          </Route>
 
-      {view === 'results' && (
-        <Results
-          results={sessionResults}
-          sessionType={sessionType}
-          onRestart={handleRestart}
-          onHome={() => setView('home')}
-          onReview={handleReviewMistakes}
-        />
+          <Route path="/vocab-categories">
+            <VocabCategorySelector
+              onStart={startSession}
+            />
+          </Route>
+
+          <Route path="/rc-practice">
+            <ReadingComprehensionPractice
+              onComplete={handleSessionComplete}
+            />
+          </Route>
+
+          <Route path="/">
+            <Home
+              onStart={startSession}
+              onStartFailedVocab={startFailedVocabReview}
+              onStartFailedEnglish={startFailedEnglishReview}
+              onStartAiPractice={startAiPractice}
+            />
+          </Route>
+        </Switch>
+      </Suspense>
+      {aiLoading && (
+        <div style={{
+          position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)',
+          display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+          zIndex: 1000, backdropFilter: 'blur(4px)'
+        }}>
+          <LoadingSpinner />
+          <p style={{ color: 'white', marginTop: 16, fontSize: 16, fontWeight: 600 }}>
+            מייצר שאלות AI...
+          </p>
+          <p style={{ color: 'rgba(255,255,255,0.6)', marginTop: 4, fontSize: 13 }}>
+            יצירת שאלות מותאמות למילים הקשות שלך
+          </p>
+        </div>
       )}
     </div>
   );

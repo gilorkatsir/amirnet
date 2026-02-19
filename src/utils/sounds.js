@@ -5,6 +5,31 @@
 
 let audioContext = null;
 
+const SOUND_ENABLED_KEY = 'wm_sound_enabled';
+
+/**
+ * Check if sound is enabled
+ */
+export const isSoundEnabled = () => {
+    try {
+        const stored = localStorage.getItem(SOUND_ENABLED_KEY);
+        return stored === null ? true : stored === 'true';
+    } catch {
+        return true;
+    }
+};
+
+/**
+ * Set sound enabled/disabled
+ */
+export const setSoundEnabled = (enabled) => {
+    try {
+        localStorage.setItem(SOUND_ENABLED_KEY, String(enabled));
+    } catch (e) {
+        console.warn('Failed to save sound preference:', e);
+    }
+};
+
 const getAudioContext = () => {
     if (!audioContext) {
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -20,6 +45,7 @@ const getAudioContext = () => {
  * @param {number} volume - 0 to 1
  */
 const playTone = (frequency, duration, type = 'sine', volume = 0.3) => {
+    if (!isSoundEnabled()) return;
     try {
         const ctx = getAudioContext();
         const oscillator = ctx.createOscillator();

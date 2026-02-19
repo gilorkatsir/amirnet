@@ -1,22 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useLocation } from 'wouter';
 import Icon from '../components/Icon';
 import { C } from '../styles/theme';
+import { isSoundEnabled, setSoundEnabled } from '../utils/sounds';
+import { calculateStreak } from '../utils/dailyStats';
+import { useStatsContext } from '../contexts/StatsContext';
+import { useUserWords } from '../contexts/UserWordsContext';
+import useDerivedStats from '../hooks/useStats';
+import { hasAiKey } from '../services/apiKeys';
 
-const Home = ({ stats, englishStats = {}, userWords = [], totalWords, totalQuestions = 220, onStart, onStartEnglish, onStartFailedVocab, onStartFailedEnglish, onOpenStats, onOpenSettings, onOpenPomodoro, onOpenMyWords }) => {
-    const learnedCount = Object.keys(stats).length;
-    const masteredCount = Object.values(stats).filter(s => s.level >= 4).length;
-
-    // Calculate vocabulary accuracy
-    const totalCorrect = Object.values(stats).reduce((acc, s) => acc + s.correct, 0);
-    const totalIncorrect = Object.values(stats).reduce((acc, s) => acc + s.incorrect, 0);
-    const totalAttempts = totalCorrect + totalIncorrect;
-    const accuracy = totalAttempts > 0 ? Math.round((totalCorrect / totalAttempts) * 100) : 0;
+const Home = ({ onStart, onStartFailedVocab, onStartFailedEnglish, onStartAiPractice }) => {
+    const [, navigate] = useLocation();
+    const { stats, englishStats, totalWords, totalQuestions } = useStatsContext();
+    const { userWords } = useUserWords();
+    const [soundOn, setSoundOn] = useState(isSoundEnabled());
+    const streak = calculateStreak();
+    const { learnedCount, masteredCount, totalCorrect, totalAttempts, accuracy, failedCount } = useDerivedStats(stats, totalWords);
 
     // Calculate English questions stats
     const englishAnswered = Object.keys(englishStats).length;
-    const englishCorrect = Object.values(englishStats).reduce((acc, s) => acc + s.correct, 0);
-    const englishTotal = Object.values(englishStats).reduce((acc, s) => acc + s.attempts, 0);
+    const englishCorrect = Object.values(englishStats).reduce((acc, s) => acc + (s.correct || 0), 0);
+    const englishTotal = Object.values(englishStats).reduce((acc, s) => acc + (s.attempts || 0), 0);
     const englishAccuracy = englishTotal > 0 ? Math.round((englishCorrect / englishTotal) * 100) : 0;
 
     const StudyOption = ({ icon, title, desc, color, onClick }) => (
@@ -60,7 +65,21 @@ const Home = ({ stats, englishStats = {}, userWords = [], totalWords, totalQuest
                     </div>
                     <div style={{ display: 'flex', gap: 12 }}>
                         <button
-                            onClick={onOpenPomodoro}
+                            onClick={() => {
+                                const newVal = !soundOn;
+                                setSoundOn(newVal);
+                                setSoundEnabled(newVal);
+                            }}
+                            style={{
+                                width: 40, height: 40, borderRadius: '50%', background: C.surface,
+                                border: `1px solid ${C.border}`, color: C.muted, cursor: 'pointer',
+                                display: 'flex', alignItems: 'center', justifyContent: 'center'
+                            }}
+                        >
+                            <Icon name={soundOn ? "volume_up" : "volume_off"} size={20} />
+                        </button>
+                        <button
+                            onClick={() => navigate('/pomodoro')}
                             style={{
                                 width: 40, height: 40, borderRadius: '50%', background: C.surface,
                                 border: `1px solid ${C.border}`, color: C.muted, cursor: 'pointer',
@@ -70,7 +89,7 @@ const Home = ({ stats, englishStats = {}, userWords = [], totalWords, totalQuest
                             <Icon name="timer" size={20} />
                         </button>
                         <button
-                            onClick={onOpenSettings}
+                            onClick={() => navigate('/settings')}
                             style={{
                                 width: 40, height: 40, borderRadius: '50%', background: C.surface,
                                 border: `1px solid ${C.border}`, color: C.muted, cursor: 'pointer',
@@ -208,10 +227,10 @@ const Home = ({ stats, englishStats = {}, userWords = [], totalWords, totalQuest
                                 <span style={{ fontSize: 11, color: C.muted, fontWeight: 600 }}>רצף לימוד</span>
                             </div>
                             <p style={{ margin: 0, fontSize: 20, fontWeight: 700 }}>
-                                {totalAttempts > 0 ? '1' : '0'} 🔥
+                                {streak} 🔥
                             </p>
                             <p style={{ margin: '4px 0 0', fontSize: 11, color: C.muted }}>
-                                {totalAttempts > 0 ? 'יום ברציפות!' : 'התחל היום!'}
+                                {streak > 0 ? (streak === 1 ? 'יום ברציפות!' : `ימים ברציפות!`) : 'התחל היום!'}
                             </p>
                         </div>
                     </div>
@@ -252,7 +271,7 @@ const Home = ({ stats, englishStats = {}, userWords = [], totalWords, totalQuest
 
                 {/* English Questions Hero */}
                 <section
-                    onClick={onStartEnglish}
+                    onClick={() => navigate('/english-select')}
                     style={{ position: 'relative', borderRadius: 12, overflow: 'hidden', border: `1px solid ${C.border}`, cursor: 'pointer', boxShadow: '0 8px 32px rgba(0,0,0,0.3)' }}
                 >
                     <div style={{ position: 'absolute', inset: 0, background: C.surface }} />
@@ -287,12 +306,22 @@ const Home = ({ stats, englishStats = {}, userWords = [], totalWords, totalQuest
                         color={C.purple} onClick={() => onStart('quiz', 10)}
                     />
                     <StudyOption
-                        icon="replay" title="חזרה על טעויות" desc={`${Object.values(stats).filter(s => s.incorrect > s.correct).length} מילים לחזרה`}
-                        color={C.orange} onClick={onStartFailedVocab}
+                        icon="category" title="לפי קטגוריה" desc="10 קטגוריות + חזרה חכמה"
+                        color={C.blue || '#3b82f6'} onClick={() => navigate('/vocab-categories')}
                     />
                     <StudyOption
+                        icon="replay" title="חזרה על טעויות" desc={`${failedCount} מילים לחזרה`}
+                        color={C.orange} onClick={onStartFailedVocab}
+                    />
+                    {hasAiKey() && failedCount > 0 && (
+                        <StudyOption
+                            icon="auto_awesome" title="תרגול AI חכם" desc={`שאלות מותאמות ל-${failedCount} מילים קשות`}
+                            color="#8B5CF6" onClick={onStartAiPractice}
+                        />
+                    )}
+                    <StudyOption
                         icon="bookmark" title="המילים שלי" desc={`${userWords?.length || 0} מילים ששמרת`}
-                        color={C.pink} onClick={() => { }} // Placeholder until we have a view for this
+                        color={C.pink} onClick={() => navigate('/my-words')}
                     />
                 </section>
 
@@ -304,11 +333,11 @@ const Home = ({ stats, englishStats = {}, userWords = [], totalWords, totalQuest
 
                     <StudyOption
                         icon="quiz" title="תרגול לפי סוג" desc="השלמת משפטים, רסטייטמנט, הבנת הנקרא"
-                        color={C.green} onClick={onStartEnglish}
+                        color={C.green} onClick={() => navigate('/english-select')}
                     />
                     <StudyOption
                         icon="assignment" title="סימולציית מבחן" desc="22 שאלות כמו במבחן האמיתי"
-                        color={C.orange} onClick={onStartEnglish}
+                        color={C.orange} onClick={() => navigate('/english-select')}
                     />
                     <StudyOption
                         icon="replay" title="חזרה על טעויות" desc={`${Object.values(englishStats).filter(s => s.attempts > s.correct).length} שאלות לחזרה`}
@@ -331,7 +360,7 @@ const Home = ({ stats, englishStats = {}, userWords = [], totalWords, totalQuest
                     <button onClick={() => onStart('flash', 10)} style={{ width: 56, height: 56, borderRadius: '50%', background: C.gradient, border: `4px solid ${C.bg}`, marginTop: -30, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: `0 0 20px -5px ${C.pink}`, cursor: 'pointer' }}>
                         <Icon name="bolt" size={28} style={{ color: 'white' }} />
                     </button>
-                    <button onClick={onOpenStats} style={{ background: 'none', border: 'none', color: C.muted, cursor: 'pointer' }}>
+                    <button onClick={() => navigate('/stats')} style={{ background: 'none', border: 'none', color: C.muted, cursor: 'pointer' }}>
                         <Icon name="bar_chart" size={24} />
                         <span style={{ display: 'block', fontSize: 10, marginTop: 4 }}>מדדים</span>
                     </button>
@@ -342,19 +371,9 @@ const Home = ({ stats, englishStats = {}, userWords = [], totalWords, totalQuest
 };
 
 Home.propTypes = {
-    stats: PropTypes.object.isRequired,
-    englishStats: PropTypes.object,
-    userWords: PropTypes.array,
-    totalWords: PropTypes.number.isRequired,
-    totalQuestions: PropTypes.number,
     onStart: PropTypes.func.isRequired,
-    onStartEnglish: PropTypes.func.isRequired,
     onStartFailedVocab: PropTypes.func,
-    onStartFailedEnglish: PropTypes.func,
-    onOpenStats: PropTypes.func,
-    onOpenSettings: PropTypes.func,
-    onOpenPomodoro: PropTypes.func,
-    onOpenMyWords: PropTypes.func
+    onStartFailedEnglish: PropTypes.func
 };
 
 export default Home;

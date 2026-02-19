@@ -1,30 +1,30 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useLocation } from 'wouter';
 import Icon from '../components/Icon';
 import ProgressChart from '../components/ProgressChart';
 import { C } from '../styles/theme';
 import { getLastNDaysAccuracy, getWeeklyAccuracy } from '../utils/dailyStats';
+import { useStatsContext } from '../contexts/StatsContext';
+import useDerivedStats from '../hooks/useStats';
 
 /**
  * Stats/Metrics Page Component
  * Shows detailed statistics for vocabulary and English questions progress
  */
-const Stats = ({ stats, englishStats, totalWords, totalQuestions, onBack }) => {
+const Stats = () => {
+    const [, navigate] = useLocation();
+    const { stats, englishStats, totalWords, totalQuestions } = useStatsContext();
     // Get chart data
     const dailyData = getLastNDaysAccuracy(7);
     const weeklyData = getWeeklyAccuracy(4);
-    // Vocabulary stats
-    const vocabLearned = Object.keys(stats).length;
-    const vocabMastered = Object.values(stats).filter(s => s.level >= 4).length;
-    const vocabCorrect = Object.values(stats).reduce((acc, s) => acc + s.correct, 0);
-    const vocabIncorrect = Object.values(stats).reduce((acc, s) => acc + s.incorrect, 0);
-    const vocabTotal = vocabCorrect + vocabIncorrect;
-    const vocabAccuracy = vocabTotal > 0 ? Math.round((vocabCorrect / vocabTotal) * 100) : 0;
+
+    // Vocabulary stats via hook
+    const { learnedCount: vocabLearned, masteredCount: vocabMastered, totalCorrect: vocabCorrect, totalAttempts: vocabTotal, accuracy: vocabAccuracy } = useDerivedStats(stats, totalWords);
 
     // English stats
     const englishAnswered = Object.keys(englishStats).length;
-    const englishCorrect = Object.values(englishStats).reduce((acc, s) => acc + s.correct, 0);
-    const englishTotal = Object.values(englishStats).reduce((acc, s) => acc + s.attempts, 0);
+    const englishCorrect = Object.values(englishStats).reduce((acc, s) => acc + (s.correct || 0), 0);
+    const englishTotal = Object.values(englishStats).reduce((acc, s) => acc + (s.attempts || 0), 0);
     const englishAccuracy = englishTotal > 0 ? Math.round((englishCorrect / englishTotal) * 100) : 0;
 
     const StatCard = ({ icon, title, value, subtitle, color, progress }) => (
@@ -83,7 +83,7 @@ const Stats = ({ stats, englishStats, totalWords, totalQuestions, onBack }) => {
                 gap: 16
             }}>
                 <button
-                    onClick={onBack}
+                    onClick={() => navigate('/')}
                     style={{
                         background: 'none',
                         border: 'none',
@@ -202,14 +202,6 @@ const Stats = ({ stats, englishStats, totalWords, totalQuestions, onBack }) => {
             </main>
         </div>
     );
-};
-
-Stats.propTypes = {
-    stats: PropTypes.object.isRequired,
-    englishStats: PropTypes.object.isRequired,
-    totalWords: PropTypes.number.isRequired,
-    totalQuestions: PropTypes.number.isRequired,
-    onBack: PropTypes.func.isRequired
 };
 
 export default Stats;

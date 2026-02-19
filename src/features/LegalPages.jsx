@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useLocation } from 'wouter';
 import Icon from '../components/Icon';
 import { C } from '../styles/theme';
 
-const LegalPages = ({ onBack }) => {
+const LegalPages = () => {
+    const [, navigate] = useLocation();
     const [activeTab, setActiveTab] = useState('privacy');
 
     const tabs = [
@@ -22,7 +24,7 @@ const LegalPages = ({ onBack }) => {
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                     <h1 style={{ fontSize: 18, fontWeight: 700, margin: 0 }}>מידע משפטי</h1>
                     <button
-                        onClick={onBack}
+                        onClick={() => navigate('/settings')}
                         style={{
                             background: 'none', border: 'none',
                             color: C.muted, cursor: 'pointer', padding: 8
@@ -209,10 +211,6 @@ const Section = ({ title, children }) => (
 Section.propTypes = {
     title: PropTypes.string.isRequired,
     children: PropTypes.node.isRequired
-};
-
-LegalPages.propTypes = {
-    onBack: PropTypes.func.isRequired
 };
 
 export default LegalPages;

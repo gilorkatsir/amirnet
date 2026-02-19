@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../../components/Icon';
 import { C } from '../../styles/theme';
@@ -36,14 +36,32 @@ const Quiz = ({ word, onResult, onNext }) => {
         generateOptions();
     }, [word]);
 
-    const handleSelect = (index) => {
+    const handleSelect = useCallback((index) => {
         if (answered) return;
         setSelected(index);
         setAnswered(true);
 
         const isCorrect = options[index].isCorrect;
         onResult(isCorrect);
-    };
+    }, [answered, options, onResult]);
+
+    // Keyboard shortcuts: A/B/C/D to select, Enter to advance
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            const keyMap = { a: 0, b: 1, c: 2, d: 3, '1': 0, '2': 1, '3': 2, '4': 3 };
+            const key = e.key.toLowerCase();
+
+            if (key in keyMap && !answered && options[keyMap[key]]) {
+                e.preventDefault();
+                handleSelect(keyMap[key]);
+            } else if ((key === 'enter' || key === ' ') && answered) {
+                e.preventDefault();
+                onNext();
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [answered, options, handleSelect, onNext]);
 
     return (
         <div style={{ flex: 1, padding: 24, maxWidth: 448, margin: '0 auto', width: '100%', display: 'flex', flexDirection: 'column' }}>

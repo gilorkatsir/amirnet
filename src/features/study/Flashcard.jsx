@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../../components/Icon';
 import { C } from '../../styles/theme';
@@ -21,16 +21,35 @@ const Flashcard = ({ word, onResult, onNext }) => {
 
         onResult(success);
 
-        // Auto advance after short delay if correct, or let user read only if incorrect?
-        // V2 implementation: User clicks "Known" -> Next immediately. 
-        // User clicks "Unknown" -> Next immediately.
-        // So we just call onNext.
         setTimeout(() => {
             setFlipped(false);
             setRevealed(false);
             onNext();
         }, 200);
     };
+
+    // Keyboard shortcuts: Space to flip, ArrowRight/1 = known, ArrowLeft/2 = unknown
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (revealed) return;
+            const key = e.key;
+
+            if ((key === ' ' || key === 'Enter') && !flipped) {
+                e.preventDefault();
+                setFlipped(true);
+            } else if (flipped) {
+                if (key === 'ArrowRight' || key === '1') {
+                    e.preventDefault();
+                    handleResult(true);
+                } else if (key === 'ArrowLeft' || key === '2') {
+                    e.preventDefault();
+                    handleResult(false);
+                }
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [flipped, revealed]);
 
     return (
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 24, position: 'relative' }}>
@@ -74,7 +93,7 @@ const Flashcard = ({ word, onResult, onNext }) => {
 
                 <div style={{ marginTop: 'auto', paddingTop: 24, borderTop: '1px solid #33333380', textAlign: 'center' }}>
                     <p style={{ fontSize: 12, color: '#4b5563', margin: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, opacity: 0.6 }}>
-                        <Icon name="touch_app" size={14} /> {!flipped ? 'הקש להיפוך' : 'בחר אם ידעת'}
+                        <Icon name="touch_app" size={14} /> {!flipped ? 'הקש להיפוך (Space)' : 'בחר אם ידעת (←/→)'}
                     </p>
                 </div>
             </div>

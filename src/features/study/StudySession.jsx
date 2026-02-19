@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useLocation } from 'wouter';
 import Icon from '../../components/Icon';
 import { C } from '../../styles/theme';
+import { useStatsContext } from '../../contexts/StatsContext';
 import Flashcard from './Flashcard';
 import Quiz from './Quiz';
 
-const StudySession = ({ mode, session, onUpdateProgress, onComplete, onExit }) => {
+const StudySession = ({ mode, session, onComplete }) => {
+    const [, navigate] = useLocation();
+    const { updateWordProgress } = useStatsContext();
     const [index, setIndex] = useState(0);
     const [sessionResults, setSessionResults] = useState({ correct: 0, incorrect: 0, incorrectItems: [] });
 
@@ -50,7 +54,7 @@ const StudySession = ({ mode, session, onUpdateProgress, onComplete, onExit }) =
         }));
 
         // Update global progress immediately (spaced repetition)
-        onUpdateProgress(currentWord.id, isCorrect);
+        updateWordProgress(currentWord.id, isCorrect);
     };
 
     const handleNext = () => {
@@ -65,7 +69,7 @@ const StudySession = ({ mode, session, onUpdateProgress, onComplete, onExit }) =
         <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
             {/* Header */}
             <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 20px', background: 'rgba(26,26,26,0.95)', backdropFilter: 'blur(8px)' }}>
-                <button onClick={onExit} style={{ width: 40, height: 40, borderRadius: '50%', background: 'transparent', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <button onClick={() => navigate('/')} style={{ width: 40, height: 40, borderRadius: '50%', background: 'transparent', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Icon name="close" size={24} style={{ color: '#d1d5db' }} />
                 </button>
                 <div style={{ textAlign: 'center' }}>
@@ -110,9 +114,7 @@ const StudySession = ({ mode, session, onUpdateProgress, onComplete, onExit }) =
 StudySession.propTypes = {
     mode: PropTypes.oneOf(['flash', 'quiz']).isRequired,
     session: PropTypes.array.isRequired,
-    onUpdateProgress: PropTypes.func.isRequired,
-    onComplete: PropTypes.func.isRequired,
-    onExit: PropTypes.func.isRequired
+    onComplete: PropTypes.func.isRequired
 };
 
 export default StudySession;

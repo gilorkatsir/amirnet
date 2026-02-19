@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import { useLocation } from 'wouter';
 import Icon from '../components/Icon';
 import { C } from '../styles/theme';
+import { useStatsContext } from '../contexts/StatsContext';
+import useDerivedStats from '../hooks/useStats';
 
-const WelcomeScreen = ({ stats, englishStats, totalWords, totalQuestions, onContinue }) => {
+const WelcomeScreen = () => {
+    const [, navigate] = useLocation();
+    const { stats, englishStats, totalWords, totalQuestions } = useStatsContext();
     const [showContent, setShowContent] = useState(false);
     const [animationPhase, setAnimationPhase] = useState(0);
 
@@ -25,13 +29,8 @@ const WelcomeScreen = ({ stats, englishStats, totalWords, totalQuestions, onCont
     };
 
     // Calculate stats
-    const learnedCount = Object.keys(stats).length;
+    const { learnedCount, totalAttempts, accuracy } = useDerivedStats(stats, totalWords);
     const englishAnswered = Object.keys(englishStats).length;
-
-    const totalCorrect = Object.values(stats).reduce((acc, s) => acc + s.correct, 0);
-    const totalIncorrect = Object.values(stats).reduce((acc, s) => acc + s.incorrect, 0);
-    const totalAttempts = totalCorrect + totalIncorrect;
-    const accuracy = totalAttempts > 0 ? Math.round((totalCorrect / totalAttempts) * 100) : 0;
 
     // Get last login from localStorage
     const getLastLogin = () => {
@@ -234,7 +233,10 @@ const WelcomeScreen = ({ stats, englishStats, totalWords, totalQuestions, onCont
 
             {/* CTA Button */}
             <button
-                onClick={onContinue}
+                onClick={() => {
+                    localStorage.setItem('wm_last_visit_time', Date.now().toString());
+                    navigate('/');
+                }}
                 style={{
                     opacity: animationPhase >= 3 ? 1 : 0,
                     transform: animationPhase >= 3 ? 'translateY(0)' : 'translateY(20px)',
@@ -278,19 +280,6 @@ const WelcomeScreen = ({ stats, englishStats, totalWords, totalQuestions, onCont
             `}</style>
         </div>
     );
-};
-
-WelcomeScreen.propTypes = {
-    stats: PropTypes.object.isRequired,
-    englishStats: PropTypes.object,
-    totalWords: PropTypes.number.isRequired,
-    totalQuestions: PropTypes.number,
-    onContinue: PropTypes.func.isRequired
-};
-
-WelcomeScreen.defaultProps = {
-    englishStats: {},
-    totalQuestions: 220
 };
 
 export default WelcomeScreen;

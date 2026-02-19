@@ -63,6 +63,39 @@ export const recordDailyAccuracy = (correct, total, type = 'overall') => {
 };
 
 /**
+ * Calculate the current study streak (consecutive days with activity)
+ * Walks backward from today counting consecutive days with data
+ * @returns {number} Number of consecutive days
+ */
+export const calculateStreak = () => {
+    const stats = getDailyStats();
+    let streak = 0;
+    const now = new Date();
+
+    for (let i = 0; i < 365; i++) {
+        const date = new Date(now);
+        date.setDate(date.getDate() - i);
+        const key = date.toISOString().split('T')[0];
+        const dayData = stats[key];
+
+        if (dayData) {
+            const totalAttempts = (dayData.vocab?.total || 0) + (dayData.english?.total || 0);
+            if (totalAttempts > 0) {
+                streak++;
+            } else {
+                break;
+            }
+        } else {
+            // If today has no data yet but yesterday does, don't break streak
+            if (i === 0) continue;
+            break;
+        }
+    }
+
+    return streak;
+};
+
+/**
  * Get last N days of accuracy data
  * @param {number} days - Number of days to retrieve
  * @returns {Array} Array of { date, accuracy, vocabAccuracy, englishAccuracy }
@@ -107,6 +140,32 @@ export const getLastNDaysAccuracy = (days = 7) => {
     }
 
     return result;
+};
+
+/**
+ * Clean old daily stats entries beyond the retention period
+ * @param {number} daysToKeep - Number of days to retain (default 90)
+ */
+export const cleanOldStats = (daysToKeep = 90) => {
+    const stats = getDailyStats();
+    const keys = Object.keys(stats);
+    if (keys.length === 0) return;
+
+    const cutoff = new Date();
+    cutoff.setDate(cutoff.getDate() - daysToKeep);
+    const cutoffKey = cutoff.toISOString().split('T')[0];
+
+    let changed = false;
+    for (const key of keys) {
+        if (key < cutoffKey) {
+            delete stats[key];
+            changed = true;
+        }
+    }
+
+    if (changed) {
+        saveDailyStats(stats);
+    }
 };
 
 /**

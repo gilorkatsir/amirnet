@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
+import { useLocation } from 'wouter';
 import Icon from '../components/Icon';
 import { C } from '../styles/theme';
 import { playTimerComplete, playBreak, playStart, playClick } from '../utils/sounds';
@@ -11,7 +11,8 @@ const DEFAULT_INTERVALS = {
     long: 15
 };
 
-const PomodoroTimer = ({ onBack }) => {
+const PomodoroTimer = () => {
+    const [, navigate] = useLocation();
     // Load saved intervals from localStorage
     const getSavedIntervals = () => {
         try {
@@ -175,7 +176,7 @@ const PomodoroTimer = ({ onBack }) => {
                     <Icon name="settings" size={20} />
                 </button>
                 <button
-                    onClick={onBack}
+                    onClick={() => navigate('/')}
                     style={{
                         width: 40, height: 40, borderRadius: '50%', background: C.surface,
                         border: `1px solid ${C.border}`, color: C.muted, cursor: 'pointer',
@@ -279,10 +280,6 @@ const PomodoroTimer = ({ onBack }) => {
             {showSettings && <SettingsModal />}
         </div>
     );
-};
-
-PomodoroTimer.propTypes = {
-    onBack: PropTypes.func.isRequired
 };
 
 export default PomodoroTimer;

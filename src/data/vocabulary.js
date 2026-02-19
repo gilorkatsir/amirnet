@@ -202,7 +202,7 @@ export const VOCABULARY = [
   {
     "id": 26,
     "english": "perpetually",
-    "hebrew": "תמידית, לנצח",
+    "hebrew": "באופן תמידי, לנצח",
     "example": "Perpetually complaining.",
     "category": "Connectors & Transitions",
     "pos": "general"
@@ -322,7 +322,7 @@ export const VOCABULARY = [
   {
     "id": 41,
     "english": "plane",
-    "hebrew": "מישור; מטוס; מקצוע",
+    "hebrew": "מישור; מטוס",
     "example": "A flat plane.",
     "category": "General Words",
     "pos": "general"
@@ -1882,7 +1882,7 @@ export const VOCABULARY = [
   {
     "id": 236,
     "english": "eloquent",
-    "hebrew": "רהוט, נואם",
+    "hebrew": "רהוט, מליצי",
     "example": "An eloquent speech.",
     "category": "Education & Law",
     "pos": "general"
@@ -1922,7 +1922,7 @@ export const VOCABULARY = [
   {
     "id": 241,
     "english": "insurmountable",
-    "hebrew": "בלתי עביר",
+    "hebrew": "בלתי עביר, שאי אפשר להתגבר עליו",
     "example": "Insurmountable obstacles.",
     "category": "Education & Law",
     "pos": "general"
@@ -2538,7 +2538,7 @@ export const VOCABULARY = [
   {
     "id": 318,
     "english": "hegemony",
-    "hebrew": "הגמוניה",
+    "hebrew": "הגמוניה, שליטה",
     "example": "Cultural hegemony.",
     "category": "Crime & Justice",
     "pos": "general"
@@ -2874,7 +2874,7 @@ export const VOCABULARY = [
   {
     "id": 360,
     "english": "tact",
-    "hebrew": "טקט",
+    "hebrew": "טקט, עדינות",
     "example": "Show tact.",
     "category": "Crime & Justice",
     "pos": "general"
@@ -2986,7 +2986,7 @@ export const VOCABULARY = [
   {
     "id": 374,
     "english": "cosmopolitan",
-    "hebrew": "קוסמופוליטי",
+    "hebrew": "קוסמופוליטי, רב-תרבותי",
     "example": "A cosmopolitan city.",
     "category": "Emotions & Character",
     "pos": "general"
@@ -3010,7 +3010,7 @@ export const VOCABULARY = [
   {
     "id": 377,
     "english": "dandy",
-    "hebrew": "נאה, מצוין (סלנג)",
+    "hebrew": "גנדרן; מצוין (סלנג)",
     "example": "That's just dandy.",
     "category": "Emotions & Character",
     "pos": "general"
@@ -3106,7 +3106,7 @@ export const VOCABULARY = [
   {
     "id": 389,
     "english": "eccentric",
-    "hebrew": "אקסצנטרי",
+    "hebrew": "מוזר, תמהוני",
     "example": "An eccentric professor.",
     "category": "Emotions & Character",
     "pos": "general"
@@ -3450,7 +3450,7 @@ export const VOCABULARY = [
   {
     "id": 432,
     "english": "reciprocate",
-    "hebrew": "להשיב, להדדי",
+    "hebrew": "להשיב, לגמול",
     "example": "Reciprocate kindness.",
     "category": "Emotions & Character",
     "pos": "general"
@@ -3770,7 +3770,7 @@ export const VOCABULARY = [
   {
     "id": 472,
     "english": "folklore",
-    "hebrew": "פולקלור",
+    "hebrew": "פולקלור, מסורת עממית",
     "example": "Local folklore.",
     "category": "Science & Nature",
     "pos": "general"
@@ -3842,7 +3842,7 @@ export const VOCABULARY = [
   {
     "id": 481,
     "english": "janitor",
-    "hebrew": "שרת",
+    "hebrew": "שוער, איש אחזקה",
     "example": "The school janitor.",
     "category": "Science & Nature",
     "pos": "general"
@@ -3938,7 +3938,7 @@ export const VOCABULARY = [
   {
     "id": 493,
     "english": "pathology",
-    "hebrew": "פתולוגיה",
+    "hebrew": "פתולוגיה, תורת המחלות",
     "example": "Study pathology.",
     "category": "Science & Nature",
     "pos": "general"
@@ -3946,7 +3946,7 @@ export const VOCABULARY = [
   {
     "id": 494,
     "english": "perch (n)",
-    "hebrew": "מוט; דג פרש",
+    "hebrew": "מוט; דג פרך",
     "example": "A bird's perch.",
     "category": "Science & Nature",
     "pos": "general"
@@ -4146,7 +4146,7 @@ export const VOCABULARY = [
   {
     "id": 519,
     "english": "using up",
-    "hebrew": "כילוי, שימוש",
+    "hebrew": "כילוי, מיצוי",
     "example": "Using up resources.",
     "category": "Science & Nature",
     "pos": "general"

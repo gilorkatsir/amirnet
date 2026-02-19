@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useLocation } from 'wouter';
 import Icon from '../components/Icon';
 import { C } from '../styles/theme';
 
@@ -7,7 +7,8 @@ import { C } from '../styles/theme';
  * Accessibility Statement Page - הצהרת נגישות
  * Required by Israeli Accessibility Law (תקנות שוויון זכויות לאנשים עם מוגבלות)
  */
-const AccessibilityStatement = ({ onBack }) => {
+const AccessibilityStatement = () => {
+    const [, navigate] = useLocation();
     const Section = ({ title, children }) => (
         <section style={{ marginBottom: 24 }}>
             <h2 style={{ fontSize: 16, fontWeight: 700, color: 'white', marginBottom: 12 }}>{title}</h2>
@@ -31,7 +32,7 @@ const AccessibilityStatement = ({ onBack }) => {
                 gap: 16
             }}>
                 <button
-                    onClick={onBack}
+                    onClick={() => navigate('/settings')}
                     aria-label="חזרה לדף הקודם"
                     style={{
                         background: 'none',
@@ -115,10 +116,6 @@ const AccessibilityStatement = ({ onBack }) => {
             </main>
         </div>
     );
-};
-
-AccessibilityStatement.propTypes = {
-    onBack: PropTypes.func.isRequired
 };
 
 export default AccessibilityStatement;
