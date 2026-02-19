@@ -63,11 +63,14 @@ const StudySession = ({ mode, session, onComplete }) => {
     };
 
     const handleNext = () => {
-        if (index < session.length - 1) {
-            setIndex(index + 1);
-        } else {
-            onComplete(resultsRef.current);
-        }
+        setIndex(prev => {
+            if (prev < session.length - 1) {
+                return prev + 1;
+            } else {
+                onComplete(resultsRef.current);
+                return prev;
+            }
+        });
     };
 
     const circleBtn = {

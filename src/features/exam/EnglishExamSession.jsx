@@ -85,8 +85,14 @@ const EnglishExamSession = ({ mode, questions, title, onComplete }) => {
     };
 
     const handleNext = () => {
-        if (index < questions.length - 1) setIndex(index + 1);
-        else onComplete(resultsRef.current);
+        setIndex(prev => {
+            if (prev < questions.length - 1) {
+                return prev + 1;
+            } else {
+                onComplete(resultsRef.current);
+                return prev;
+            }
+        });
     };
 
     const getModeLabel = () => {

@@ -132,6 +132,7 @@ const App = () => {
 
   // Vocabulary session start
   const startSession = (selectedMode, count = 10, customWords = null) => {
+    localStorage.removeItem('wm_vocab_progress');
     setMode(selectedMode);
     setSessionType('vocabulary');
 
@@ -206,6 +207,7 @@ const App = () => {
   };
 
   const startEnglishSession = (config) => {
+    localStorage.removeItem('wm_english_progress');
     setMode('english');
     setSessionType('english');
 

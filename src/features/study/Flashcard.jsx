@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
 import { Volume2, Hand, ArrowLeftRight, X, Check, CheckCircle } from 'lucide-react';
@@ -33,6 +33,12 @@ const Flashcard = ({ word, onResult, onNext }) => {
     const [revealed, setRevealed] = useState(false);
     const [showReinforcement, setShowReinforcement] = useState(false);
 
+    // Refs to ensure callbacks in setTimeout always use latest props
+    const onNextRef = useRef(onNext);
+    const onResultRef = useRef(onResult);
+    onNextRef.current = onNext;
+    onResultRef.current = onResult;
+
     const dragX = useMotionValue(0);
     const dragRotate = useTransform(dragX, [-200, 0, 200], [-12, 0, 12]);
     const dragOpacityLeft = useTransform(dragX, [-SWIPE_THRESHOLD, 0], [1, 0]);
@@ -53,15 +59,15 @@ const Flashcard = ({ word, onResult, onNext }) => {
 
         if (success) {
             playCorrect();
-            onResult(success);
+            onResultRef.current(success);
             setTimeout(() => {
                 setFlipped(false);
                 setRevealed(false);
-                onNext();
+                onNextRef.current();
             }, 100);
         } else {
             playIncorrect();
-            onResult(success);
+            onResultRef.current(success);
             // Show reinforcement for wrong answers
             setFlipped(true);
             setShowReinforcement(true);
@@ -69,7 +75,7 @@ const Flashcard = ({ word, onResult, onNext }) => {
                 setFlipped(false);
                 setRevealed(false);
                 setShowReinforcement(false);
-                onNext();
+                onNextRef.current();
             }, 1800);
         }
     };
