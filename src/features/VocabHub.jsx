@@ -1,0 +1,102 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useLocation } from 'wouter';
+import { motion } from 'framer-motion';
+import {
+    ArrowRight, Layers, RotateCcw, Sparkles, Bookmark
+} from 'lucide-react';
+import { C, GLASS, SURFACE, MOTION, HEADING } from '../styles/theme';
+import { useStatsContext } from '../contexts/StatsContext';
+import { useUserWords } from '../contexts/UserWordsContext';
+import { VOCABULARY } from '../data/vocabulary';
+import useDerivedStats from '../hooks/useStats';
+
+const VocabHub = ({ onStartFailedVocab, onStartAiPractice }) => {
+    const [, navigate] = useLocation();
+    const { stats, totalWords } = useStatsContext();
+    const { userWords } = useUserWords();
+    const { failedCount } = useDerivedStats(stats, totalWords);
+
+    const items = [
+        {
+            icon: Layers, title: 'לפי קטגוריה', desc: '10 קטגוריות + חזרה חכמה',
+            color: C.blue, onClick: () => navigate('/vocab-categories')
+        },
+        {
+            icon: RotateCcw, title: 'חזרה על טעויות', desc: `${failedCount} מילים לחזרה`,
+            color: C.orange, onClick: onStartFailedVocab
+        },
+        {
+            icon: Sparkles, title: 'תרגול AI חכם',
+            desc: failedCount > 0 ? `שאלות מותאמות ל-${failedCount} מילים קשות` : 'תרגל מילים קודם כדי ליצור שאלות AI',
+            color: C.purple,
+            onClick: failedCount > 0 ? onStartAiPractice : () => { alert('תרגל מילים קודם! ה-AI יוצר שאלות מהמילים שטעית בהן.'); navigate('/vocab-categories'); }
+        },
+        {
+            icon: Bookmark, title: 'המילים שלי', desc: `${userWords?.length || 0} מילים ששמרת`,
+            color: C.pink, onClick: () => navigate('/my-words')
+        },
+    ];
+
+    return (
+        <div style={{ minHeight: '100vh', background: C.bg }}>
+            {/* Header */}
+            <header style={{
+                position: 'sticky', top: 0, zIndex: 10, ...GLASS.header,
+                padding: '16px 20px', display: 'flex', alignItems: 'center', gap: 12
+            }}>
+                <motion.button
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => navigate('/')}
+                    style={{
+                        width: 36, height: 36, borderRadius: 9999, background: 'transparent',
+                        border: 'none', color: C.muted, cursor: 'pointer',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center'
+                    }}
+                >
+                    <ArrowRight size={20} />
+                </motion.button>
+                <h1 style={{ ...HEADING.section, margin: 0, color: C.text }}>אוצר מילים</h1>
+            </header>
+
+            <main style={{ padding: 20 }}>
+                {items.map((item, i) => (
+                    <motion.button
+                        key={i}
+                        variants={MOTION.fadeUp}
+                        initial="hidden"
+                        animate="visible"
+                        transition={{ duration: 0.25, delay: i * 0.04 }}
+                        whileHover={{ background: 'rgba(255,255,255,0.03)' }}
+                        whileTap={{ scale: 0.98 }}
+                        onClick={item.onClick}
+                        style={{
+                            display: 'flex', alignItems: 'center', gap: 14, width: '100%',
+                            padding: '14px 16px', marginBottom: 8,
+                            background: C.surface, border: `1px solid ${C.border}`,
+                            borderRadius: 14, color: C.text, cursor: 'pointer', textAlign: 'right',
+                            transition: 'background 0.2s'
+                        }}
+                    >
+                        <item.icon
+                            size={20}
+                            color={item.color}
+                            style={{ flexShrink: 0 }}
+                        />
+                        <div style={{ flex: 1 }}>
+                            <h3 style={{ margin: 0, fontWeight: 600, fontSize: 15, color: C.text }}>{item.title}</h3>
+                            <p style={{ margin: '3px 0 0', fontSize: 13, color: C.muted }}>{item.desc}</p>
+                        </div>
+                    </motion.button>
+                ))}
+            </main>
+        </div>
+    );
+};
+
+VocabHub.propTypes = {
+    onStartFailedVocab: PropTypes.func.isRequired,
+    onStartAiPractice: PropTypes.func.isRequired,
+};
+
+export default VocabHub;

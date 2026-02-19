@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
-import Icon from '../../components/Icon';
+import { Pencil, ArrowLeftRight, BookOpen, HelpCircle, Volume2, Square, Check, X, CheckCircle, ArrowLeft, Lightbulb, Loader } from 'lucide-react';
 import { C } from '../../styles/theme';
 import { readingPassages } from '../../data/reading_passages';
 import { playCorrect, playIncorrect } from '../../utils/sounds';
 import { speakText, getQuestionReadText } from '../../services/elevenLabsService';
 import { hasElevenLabsKey } from '../../services/apiKeys';
+import { fetchExplanation } from '../../services/explanationService';
 
 /**
  * Universal English Question Component
@@ -16,6 +17,9 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
     const [answered, setAnswered] = useState(false);
     const [ttsPlaying, setTtsPlaying] = useState(false);
     const [ttsError, setTtsError] = useState(null);
+    const [explanation, setExplanation] = useState(null);
+    const [explanationLoading, setExplanationLoading] = useState(false);
+    const [explanationError, setExplanationError] = useState(null);
     const audioRef = useRef(null);
     const showTts = hasElevenLabsKey();
 
@@ -26,6 +30,9 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
         setUnknownWord('');
         setWordSaved(false);
         setTtsError(null);
+        setExplanation(null);
+        setExplanationLoading(false);
+        setExplanationError(null);
         // Stop any playing audio
         if (audioRef.current) {
             audioRef.current.pause();
@@ -98,12 +105,12 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
 
     const renderQuestionHeader = () => {
         const typeLabels = {
-            'Sentence Completion': { he: 'השלמת משפט', icon: 'edit_note', color: C.purple },
-            'Restatement': { he: 'ניסוח מחדש', icon: 'swap_horiz', color: C.orange },
-            'Reading Comprehension': { he: 'הבנת הנקרא', icon: 'menu_book', color: C.pink }
+            'Sentence Completion': { he: 'השלמת משפט', Icon: Pencil, color: C.purple },
+            'Restatement': { he: 'ניסוח מחדש', Icon: ArrowLeftRight, color: C.orange },
+            'Reading Comprehension': { he: 'הבנת הנקרא', Icon: BookOpen, color: C.pink }
         };
 
-        const typeInfo = typeLabels[question.type] || { he: question.type, icon: 'quiz', color: C.muted };
+        const typeInfo = typeLabels[question.type] || { he: question.type, Icon: HelpCircle, color: C.muted };
 
         return (
             <div style={{
@@ -120,7 +127,7 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                     background: 'rgba(255,255,255,0.05)',
                     borderRadius: 8,
                 }}>
-                    <Icon name={typeInfo.icon} size={16} style={{ color: typeInfo.color }} />
+                    <typeInfo.Icon size={16} style={{ color: typeInfo.color }} />
                     <span style={{ fontSize: 12, fontWeight: 600, color: typeInfo.color }}>{typeInfo.he}</span>
                 </div>
                 {showTts && (
@@ -142,7 +149,7 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                             marginRight: 'auto'
                         }}
                     >
-                        <Icon name={ttsPlaying ? 'stop' : 'volume_up'} size={18} />
+                        {ttsPlaying ? <Square size={18} /> : <Volume2 size={18} />}
                     </button>
                 )}
                 {ttsError && (
@@ -166,7 +173,7 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                         borderRadius: 12,
                         marginBottom: 20,
                         borderRight: `3px solid ${C.purple}`,
-                        maxHeight: '300px',
+                        maxHeight: '40vh',
                         overflowY: 'auto',
                         border: '1px solid rgba(139, 92, 246, 0.2)'
                     }}>
@@ -179,7 +186,7 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                             alignItems: 'center',
                             gap: 6
                         }}>
-                            <Icon name="menu_book" size={16} />
+                            <BookOpen size={16} />
                             {question.passage}
                         </h4>
                         <p style={{
@@ -187,6 +194,7 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                             lineHeight: 1.6,
                             color: 'rgba(255,255,255,0.9)',
                             whiteSpace: 'pre-wrap',
+                            overflowWrap: 'break-word',
                             margin: 0
                         }}>
                             {passageContent}
@@ -241,7 +249,8 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                     fontSize: 18,
                     lineHeight: 1.7,
                     color: 'rgba(255,255,255,0.95)',
-                    margin: 0
+                    margin: 0,
+                    overflowWrap: 'break-word'
                 }}>
                     {questionText}
                 </p>
@@ -307,11 +316,9 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                             }}>
                                 {isSelected && (
                                     answered ? (
-                                        <Icon
-                                            name={isCorrect ? 'check' : 'close'}
-                                            size={14}
-                                            style={{ color: 'white' }}
-                                        />
+                                        isCorrect
+                                            ? <Check size={14} style={{ color: 'white' }} />
+                                            : <X size={14} style={{ color: 'white' }} />
                                     ) : (
                                         <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'white' }} />
                                     )
@@ -339,6 +346,20 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                 })}
             </div>
         );
+    };
+
+    const handleExplain = async () => {
+        if (explanation || explanationLoading) return;
+        setExplanationLoading(true);
+        setExplanationError(null);
+        try {
+            const text = await fetchExplanation(question, selected);
+            setExplanation(text);
+        } catch (err) {
+            setExplanationError(err.message);
+        } finally {
+            setExplanationLoading(false);
+        }
     };
 
     const [unknownWord, setUnknownWord] = useState('');
@@ -369,6 +390,92 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                 {renderOptions()}
             </div>
 
+            {/* AI Explanation */}
+            {answered && (
+                <div style={{ marginTop: 16 }}>
+                    {!explanation && !explanationLoading && !explanationError && (
+                        <button
+                            onClick={handleExplain}
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: 8,
+                                padding: '10px 16px',
+                                borderRadius: 10,
+                                background: 'rgba(251,191,36,0.08)',
+                                border: '1px solid rgba(251,191,36,0.15)',
+                                color: '#fbbf24',
+                                fontSize: 13,
+                                fontWeight: 600,
+                                cursor: 'pointer',
+                                transition: 'background 0.2s',
+                            }}
+                        >
+                            <Lightbulb size={16} />
+                            למה? הסבר AI
+                        </button>
+                    )}
+                    {explanationLoading && (
+                        <div style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: 8,
+                            padding: '12px 16px',
+                            borderRadius: 10,
+                            background: 'rgba(251,191,36,0.06)',
+                            border: '1px solid rgba(251,191,36,0.1)',
+                            color: C.muted,
+                            fontSize: 13,
+                        }}>
+                            <Loader size={14} style={{ animation: 'spin 1s linear infinite' }} />
+                            טוען הסבר...
+                        </div>
+                    )}
+                    {explanation && (
+                        <div style={{
+                            padding: '14px 16px',
+                            borderRadius: 10,
+                            background: 'rgba(251,191,36,0.06)',
+                            border: '1px solid rgba(251,191,36,0.12)',
+                        }}>
+                            <div style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: 6,
+                                marginBottom: 8,
+                                color: '#fbbf24',
+                                fontSize: 12,
+                                fontWeight: 700,
+                            }}>
+                                <Lightbulb size={14} />
+                                AI Explanation
+                            </div>
+                            <p style={{
+                                margin: 0,
+                                fontSize: 14,
+                                lineHeight: 1.6,
+                                color: 'rgba(255,255,255,0.85)',
+                            }}>
+                                {explanation}
+                            </p>
+                        </div>
+                    )}
+                    {explanationError && (
+                        <div style={{
+                            padding: '10px 16px',
+                            borderRadius: 10,
+                            background: 'rgba(239,68,68,0.06)',
+                            border: '1px solid rgba(239,68,68,0.12)',
+                            color: C.muted,
+                            fontSize: 12,
+                        }}>
+                            {explanationError}
+                        </div>
+                    )}
+                    <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+                </div>
+            )}
+
             {/* Add Unknown Word Section */}
             {answered && onSaveWord && (
                 <div style={{
@@ -390,7 +497,7 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                             color: C.green,
                             padding: 8
                         }} dir="rtl">
-                            <Icon name="check_circle" size={20} />
+                            <CheckCircle size={20} />
                             <span style={{ fontWeight: 600 }}>המילה נשמרה בהצלחה!</span>
                             <button
                                 onClick={() => setWordSaved(false)}
@@ -474,7 +581,7 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                     }}
                 >
                     {answered ? (
-                        <>Continue <Icon name="arrow_forward" size={20} /></>
+                        <>Continue <ArrowLeft size={20} /></>
                     ) : (
                         'Select an answer'
                     )}

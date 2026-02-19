@@ -5,7 +5,7 @@ export const VOCABULARY = [
     "hebrew": "סמוך ל-, צמוד ל-",
     "example": "The park is adjacent to the school.",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "phrase"
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@ export const VOCABULARY = [
     "hebrew": "אם כי, למרות ש-",
     "example": "He accepted, albeit reluctantly.",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "conj"
   },
   {
     "id": 3,
@@ -21,7 +21,7 @@ export const VOCABULARY = [
     "hebrew": "בתוך, באמצע, בעיצומו של",
     "example": "She stayed calm amid the chaos.",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "prep"
   },
   {
     "id": 4,
@@ -29,7 +29,7 @@ export const VOCABULARY = [
     "hebrew": "בעיקר, בראש ובראשונה",
     "example": "The area is chiefly agricultural.",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "adv"
   },
   {
     "id": 5,
@@ -37,7 +37,7 @@ export const VOCABULARY = [
     "hebrew": "סותר, מנוגד",
     "example": "The statements were contradictory.",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 6,
@@ -45,7 +45,7 @@ export const VOCABULARY = [
     "hebrew": "הפוך, מנוגד",
     "example": "Contrary to expectations, he won.",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 7,
@@ -53,7 +53,7 @@ export const VOCABULARY = [
     "hebrew": "לעומת זאת, להיפך",
     "example": "Rich get richer; conversely, poor get poorer.",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "adv"
   },
   {
     "id": 8,
@@ -61,7 +61,7 @@ export const VOCABULARY = [
     "hebrew": "בהתאם, באופן מקביל",
     "example": "Prices rose correspondingly.",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "adv"
   },
   {
     "id": 9,
@@ -69,7 +69,7 @@ export const VOCABULARY = [
     "hebrew": "לדוגמה (exempli gratia)",
     "example": "Fruits, e.g., apples and oranges.",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "abbr"
   },
   {
     "id": 10,
@@ -77,7 +77,7 @@ export const VOCABULARY = [
     "hebrew": "רחוק יותר (מרחק פיזי)",
     "example": "We walked farther than expected.",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "adv"
   },
   {
     "id": 11,
@@ -85,7 +85,7 @@ export const VOCABULARY = [
     "hebrew": "בהנחה ש-, נניח ש-",
     "example": "Granted that it's true, what now?",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 12,
@@ -93,7 +93,7 @@ export const VOCABULARY = [
     "hebrew": "לפיכך, מכאן",
     "example": "Hence the need for reform.",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "conj"
   },
   {
     "id": 13,
@@ -101,7 +101,7 @@ export const VOCABULARY = [
     "hebrew": "כלומר, דהיינו (id est)",
     "example": "The capital, i.e., Jerusalem.",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "abbr"
   },
   {
     "id": 14,
@@ -109,7 +109,7 @@ export const VOCABULARY = [
     "hebrew": "בבוא העת, בזמנו",
     "example": "You'll understand in due time.",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "phrase"
   },
   {
     "id": 15,
@@ -117,7 +117,7 @@ export const VOCABULARY = [
     "hebrew": "לאור, בהתחשב ב-",
     "example": "In light of the evidence...",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "phrase"
   },
   {
     "id": 16,
@@ -125,7 +125,7 @@ export const VOCABULARY = [
     "hebrew": "אגב, דרך אגב",
     "example": "Incidentally, I saw him yesterday.",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "adv"
   },
   {
     "id": 17,
@@ -133,7 +133,7 @@ export const VOCABULARY = [
     "hebrew": "האחרון (מבין שניים)",
     "example": "Between tea and coffee, I prefer the latter.",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 18,
@@ -141,7 +141,7 @@ export const VOCABULARY = [
     "hebrew": "באופן בולט, במידה ניכרת",
     "example": "Results improved markedly.",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "adv"
   },
   {
     "id": 19,
@@ -149,7 +149,7 @@ export const VOCABULARY = [
     "hebrew": "יתר על כן, זאת ועוד",
     "example": "Moreover, costs have risen.",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "conj"
   },
   {
     "id": 20,
@@ -157,7 +157,7 @@ export const VOCABULARY = [
     "hebrew": "דהיינו, קרי",
     "example": "Two countries, namely France and Spain.",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "adv"
   },
   {
     "id": 21,
@@ -165,7 +165,7 @@ export const VOCABULARY = [
     "hebrew": "לא... ולא...",
     "example": "Neither rich nor poor.",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "phrase"
   },
   {
     "id": 22,
@@ -173,7 +173,7 @@ export const VOCABULARY = [
     "hebrew": "בכל זאת, למרות זאת",
     "example": "Nevertheless, we continued.",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "conj"
   },
   {
     "id": 23,
@@ -181,7 +181,7 @@ export const VOCABULARY = [
     "hebrew": "בכל זאת, עם זאת",
     "example": "Nonetheless, she persisted.",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "conj"
   },
   {
     "id": 24,
@@ -189,7 +189,7 @@ export const VOCABULARY = [
     "hebrew": "להיפך, אדרבה",
     "example": "On the contrary, I agree.",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "phrase"
   },
   {
     "id": 25,
@@ -197,7 +197,7 @@ export const VOCABULARY = [
     "hebrew": "בגלל, עקב",
     "example": "Owing to the rain, we stayed home.",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "phrase"
   },
   {
     "id": 26,
@@ -205,7 +205,7 @@ export const VOCABULARY = [
     "hebrew": "באופן תמידי, לנצח",
     "example": "Perpetually complaining.",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "adv"
   },
   {
     "id": 27,
@@ -213,7 +213,7 @@ export const VOCABULARY = [
     "hebrew": "כעת, בקרוב",
     "example": "He will arrive presently.",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "adv"
   },
   {
     "id": 28,
@@ -221,7 +221,7 @@ export const VOCABULARY = [
     "hebrew": "לעיתים רחוקות",
     "example": "She seldom visits.",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "adv"
   },
   {
     "id": 29,
@@ -229,7 +229,7 @@ export const VOCABULARY = [
     "hebrew": "לפיכך, כך",
     "example": "Thus, we conclude...",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "conj"
   },
   {
     "id": 30,
@@ -237,7 +237,7 @@ export const VOCABULARY = [
     "hebrew": "את מי, למי (מושא)",
     "example": "The person whom I met.",
     "category": "Connectors & Transitions",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 31,
@@ -245,7 +245,7 @@ export const VOCABULARY = [
     "hebrew": "לגמרי, בסך הכל",
     "example": "Altogether, it cost $100.",
     "category": "General Words",
-    "pos": "general"
+    "pos": "adv"
   },
   {
     "id": 32,
@@ -253,7 +253,7 @@ export const VOCABULARY = [
     "hebrew": "דו-משמעי, מעורפל",
     "example": "An ambiguous statement.",
     "category": "General Words",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 33,
@@ -261,7 +261,7 @@ export const VOCABULARY = [
     "hebrew": "אציל, בן אצולה",
     "example": "The aristocrat owned vast lands.",
     "category": "General Words",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 34,
@@ -269,7 +269,7 @@ export const VOCABULARY = [
     "hebrew": "רהוט, ברור",
     "example": "An articulate speaker.",
     "category": "General Words",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 35,
@@ -277,7 +277,7 @@ export const VOCABULARY = [
     "hebrew": "לבטא, להביע",
     "example": "She articulated her views clearly.",
     "category": "General Words",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 36,
@@ -285,7 +285,7 @@ export const VOCABULARY = [
     "hebrew": "מאמן; כרכרה",
     "example": "The coach trained the team.",
     "category": "General Words",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 37,
@@ -293,7 +293,7 @@ export const VOCABULARY = [
     "hebrew": "קולוניאלי",
     "example": "Colonial architecture.",
     "category": "General Words",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 38,
@@ -301,7 +301,7 @@ export const VOCABULARY = [
     "hebrew": "קוביה (קוביות)",
     "example": "Roll the dice.",
     "category": "General Words",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 39,
@@ -309,7 +309,7 @@ export const VOCABULARY = [
     "hebrew": "שמועה, עדות שמיעה",
     "example": "That's just hearsay.",
     "category": "General Words",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 40,
@@ -317,7 +317,7 @@ export const VOCABULARY = [
     "hebrew": "חסר פניות, אובייקטיבי",
     "example": "An impartial judge.",
     "category": "General Words",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 41,
@@ -325,7 +325,7 @@ export const VOCABULARY = [
     "hebrew": "מישור; מטוס",
     "example": "A flat plane.",
     "category": "General Words",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 42,
@@ -333,7 +333,7 @@ export const VOCABULARY = [
     "hebrew": "פתאומי, חד",
     "example": "An abrupt change.",
     "category": "Legal & Judicial",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 43,
@@ -341,7 +341,7 @@ export const VOCABULARY = [
     "hebrew": "לנהל, לתת (תרופה)",
     "example": "Administer the test.",
     "category": "Legal & Judicial",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 44,
@@ -349,7 +349,7 @@ export const VOCABULARY = [
     "hebrew": "להקצות",
     "example": "Allocate resources wisely.",
     "category": "Legal & Judicial",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 45,
@@ -357,7 +357,7 @@ export const VOCABULARY = [
     "hebrew": "עונש מוות",
     "example": "Capital punishment is controversial.",
     "category": "Legal & Judicial",
-    "pos": "general"
+    "pos": "phrase"
   },
   {
     "id": 46,
@@ -365,7 +365,7 @@ export const VOCABULARY = [
     "hebrew": "לסכם, להסיק",
     "example": "We conclude that...",
     "category": "Legal & Judicial",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 47,
@@ -373,7 +373,7 @@ export const VOCABULARY = [
     "hebrew": "להסיק, להגיע למסקנה",
     "example": "Deduce from the evidence.",
     "category": "Legal & Judicial",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 48,
@@ -381,7 +381,7 @@ export const VOCABULARY = [
     "hebrew": "לנבוע, להפיק",
     "example": "Derive meaning from context.",
     "category": "Legal & Judicial",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 49,
@@ -389,7 +389,7 @@ export const VOCABULARY = [
     "hebrew": "להפליל, לערב",
     "example": "The evidence implicates him.",
     "category": "Legal & Judicial",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 50,
@@ -397,7 +397,7 @@ export const VOCABULARY = [
     "hebrew": "השלכות, משמעויות",
     "example": "Consider the implications.",
     "category": "Legal & Judicial",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 51,
@@ -405,7 +405,7 @@ export const VOCABULARY = [
     "hebrew": "לא מספיק, לקוי",
     "example": "Inadequate preparation.",
     "category": "Legal & Judicial",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 52,
@@ -413,7 +413,7 @@ export const VOCABULARY = [
     "hebrew": "בלתי מובן",
     "example": "Incomprehensible instructions.",
     "category": "Legal & Judicial",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 53,
@@ -421,7 +421,7 @@ export const VOCABULARY = [
     "hebrew": "תמותה",
     "example": "Infant mortality rates.",
     "category": "Legal & Judicial",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 54,
@@ -429,7 +429,7 @@ export const VOCABULARY = [
     "hebrew": "קריין חדשות",
     "example": "The newscaster reported live.",
     "category": "Legal & Judicial",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 55,
@@ -437,7 +437,7 @@ export const VOCABULARY = [
     "hebrew": "לשמש כשופט/פקיד",
     "example": "Officiate at a wedding.",
     "category": "Legal & Judicial",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 56,
@@ -445,7 +445,7 @@ export const VOCABULARY = [
     "hebrew": "רכוש, החזקה",
     "example": "In possession of evidence.",
     "category": "Legal & Judicial",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 57,
@@ -453,7 +453,7 @@ export const VOCABULARY = [
     "hebrew": "נוכחות",
     "example": "Your presence is required.",
     "category": "Legal & Judicial",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 58,
@@ -461,7 +461,7 @@ export const VOCABULARY = [
     "hebrew": "ראשי, עיקרי; ראשוני",
     "example": "Prime minister; prime numbers.",
     "category": "Legal & Judicial",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 59,
@@ -469,7 +469,7 @@ export const VOCABULARY = [
     "hebrew": "שלטון, למלוך",
     "example": "During her reign.",
     "category": "Legal & Judicial",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 60,
@@ -477,7 +477,7 @@ export const VOCABULARY = [
     "hebrew": "נוף, תפאורה",
     "example": "Beautiful scenery.",
     "category": "Legal & Judicial",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 61,
@@ -485,7 +485,7 @@ export const VOCABULARY = [
     "hebrew": "ובכך, על ידי כך",
     "example": "Thereby solving the problem.",
     "category": "Legal & Judicial",
-    "pos": "general"
+    "pos": "adv"
   },
   {
     "id": 62,
@@ -493,7 +493,7 @@ export const VOCABULARY = [
     "hebrew": "לא ממופה, לא ידוע",
     "example": "Uncharted territory.",
     "category": "Legal & Judicial",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 63,
@@ -501,7 +501,7 @@ export const VOCABULARY = [
     "hebrew": "לקיים, לאשר",
     "example": "Uphold the law.",
     "category": "Legal & Judicial",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 64,
@@ -509,7 +509,7 @@ export const VOCABULARY = [
     "hebrew": "אמיד, עשיר",
     "example": "An affluent neighborhood.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 65,
@@ -517,7 +517,7 @@ export const VOCABULARY = [
     "hebrew": "לתקן, לשנות",
     "example": "Amend the constitution.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 66,
@@ -525,7 +525,7 @@ export const VOCABULARY = [
     "hebrew": "כן, גלוי לב",
     "example": "A candid conversation.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 67,
@@ -533,7 +533,7 @@ export const VOCABULARY = [
     "hebrew": "לחפוף, להתרחש בו-זמנית",
     "example": "Our vacations coincide.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 68,
@@ -541,7 +541,7 @@ export const VOCABULARY = [
     "hebrew": "עצום, ענקי",
     "example": "A colossal statue.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 69,
@@ -549,7 +549,7 @@ export const VOCABULARY = [
     "hebrew": "להתחיל",
     "example": "Commence the ceremony.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 70,
@@ -557,7 +557,7 @@ export const VOCABULARY = [
     "hebrew": "תפיסה; הריון",
     "example": "A new conception of art.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 71,
@@ -565,7 +565,7 @@ export const VOCABULARY = [
     "hebrew": "להעניק; להתייעץ",
     "example": "Confer a degree; confer with colleagues.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 72,
@@ -573,7 +573,7 @@ export const VOCABULARY = [
     "hebrew": "להתוודות, לגלות סוד",
     "example": "Confide in a friend.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 73,
@@ -581,7 +581,7 @@ export const VOCABULARY = [
     "hebrew": "השערה",
     "example": "Pure conjecture.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 74,
@@ -589,7 +589,7 @@ export const VOCABULARY = [
     "hebrew": "בן זמננו, עכשווי",
     "example": "Contemporary art.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 75,
@@ -597,7 +597,7 @@ export const VOCABULARY = [
     "hebrew": "להעביר, למסור",
     "example": "Convey a message.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 76,
@@ -605,7 +605,7 @@ export const VOCABULARY = [
     "hebrew": "להידרדר, להתדרדר",
     "example": "Health deteriorated.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 77,
@@ -613,7 +613,7 @@ export const VOCABULARY = [
     "hebrew": "בולט, נכבד",
     "example": "An eminent scientist.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 78,
@@ -621,7 +621,7 @@ export const VOCABULARY = [
     "hebrew": "לצרף, להקיף",
     "example": "Enclose a check.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 79,
@@ -629,7 +629,7 @@ export const VOCABULARY = [
     "hebrew": "להתחמק",
     "example": "Evade taxes.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 80,
@@ -637,7 +637,7 @@ export const VOCABULARY = [
     "hebrew": "לפרוח, לשגשג",
     "example": "Business flourished.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 81,
@@ -645,7 +645,7 @@ export const VOCABULARY = [
     "hebrew": "לנטוש, לזנוח",
     "example": "Forsake old habits.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 82,
@@ -653,7 +653,7 @@ export const VOCABULARY = [
     "hebrew": "לפגוע, להחליש",
     "example": "Impair vision.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 83,
@@ -661,7 +661,7 @@ export const VOCABULARY = [
     "hebrew": "להקנות, למסור",
     "example": "Impart knowledge.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 84,
@@ -669,7 +669,7 @@ export const VOCABULARY = [
     "hebrew": "באופן אובייקטיבי",
     "example": "Judge impartially.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "adv"
   },
   {
     "id": 85,
@@ -677,7 +677,7 @@ export const VOCABULARY = [
     "hebrew": "להטיל, לכפות",
     "example": "Impose restrictions.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 86,
@@ -685,7 +685,7 @@ export const VOCABULARY = [
     "hebrew": "הוסק, נלמד",
     "example": "It can be inferred that...",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 87,
@@ -693,7 +693,7 @@ export const VOCABULARY = [
     "hebrew": "לשלול, לבטל",
     "example": "Negate the effect.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 88,
@@ -701,7 +701,7 @@ export const VOCABULARY = [
     "hebrew": "רבים, מרובים",
     "example": "Numerous occasions.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 89,
@@ -709,7 +709,7 @@ export const VOCABULARY = [
     "hebrew": "תקדים",
     "example": "Set a precedent.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 90,
@@ -717,7 +717,7 @@ export const VOCABULARY = [
     "hebrew": "קודם",
     "example": "The preceding chapter.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 91,
@@ -725,7 +725,7 @@ export const VOCABULARY = [
     "hebrew": "נגזר מראש",
     "example": "Predestined to fail.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 92,
@@ -733,7 +733,7 @@ export const VOCABULARY = [
     "hebrew": "עמוק, מעמיק",
     "example": "A profound impact.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 93,
@@ -741,7 +741,7 @@ export const VOCABULARY = [
     "hebrew": "באופן עמוק",
     "example": "Profoundly affected.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "adv"
   },
   {
     "id": 94,
@@ -749,7 +749,7 @@ export const VOCABULARY = [
     "hebrew": "להפריך",
     "example": "Refute the argument.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 95,
@@ -757,7 +757,7 @@ export const VOCABULARY = [
     "hebrew": "מהסס, לא רוצה",
     "example": "Reluctant to leave.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 96,
@@ -765,7 +765,7 @@ export const VOCABULARY = [
     "hebrew": "חידוש, המשך",
     "example": "Resumption of talks.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 97,
@@ -773,7 +773,7 @@ export const VOCABULARY = [
     "hebrew": "להתרומם, לזנק",
     "example": "Prices soared.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 98,
@@ -781,7 +781,7 @@ export const VOCABULARY = [
     "hebrew": "לבקש, לשדל",
     "example": "Solicit donations.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 99,
@@ -789,7 +789,7 @@ export const VOCABULARY = [
     "hebrew": "בדידות, התבודדות",
     "example": "Enjoy solitude.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 100,
@@ -797,7 +797,7 @@ export const VOCABULARY = [
     "hebrew": "מהיר",
     "example": "A swift response.",
     "category": "Wealth & Status",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 101,
@@ -805,7 +805,7 @@ export const VOCABULARY = [
     "hebrew": "לרשותך",
     "example": "I'm at your disposal.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "phrase"
   },
   {
     "id": 102,
@@ -813,7 +813,7 @@ export const VOCABULARY = [
     "hebrew": "למנוע, להסיט",
     "example": "Avert disaster.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 103,
@@ -821,7 +821,7 @@ export const VOCABULARY = [
     "hebrew": "נדבנים, תורמים",
     "example": "Generous benefactors.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 104,
@@ -829,7 +829,7 @@ export const VOCABULARY = [
     "hebrew": "להרחיב",
     "example": "Broaden horizons.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 105,
@@ -837,7 +837,7 @@ export const VOCABULARY = [
     "hebrew": "ועדה",
     "example": "The committee met.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 106,
@@ -845,7 +845,7 @@ export const VOCABULARY = [
     "hebrew": "סתירה",
     "example": "A clear contradiction.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 107,
@@ -853,7 +853,7 @@ export const VOCABULARY = [
     "hebrew": "שיירה",
     "example": "A military convoy.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 108,
@@ -861,7 +861,7 @@ export const VOCABULARY = [
     "hebrew": "ניב, להג",
     "example": "Local dialect.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 109,
@@ -869,7 +869,7 @@ export const VOCABULARY = [
     "hebrew": "לחוקק, להעביר חוק",
     "example": "Enact legislation.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 110,
@@ -877,7 +877,7 @@ export const VOCABULARY = [
     "hebrew": "להצטיין",
     "example": "Excel in sports.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 111,
@@ -885,7 +885,7 @@ export const VOCABULARY = [
     "hebrew": "לנצל",
     "example": "Exploit resources.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 112,
@@ -893,7 +893,7 @@ export const VOCABULARY = [
     "hebrew": "הישג, מעשה גבורה",
     "example": "Military exploits.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 113,
@@ -901,7 +901,7 @@ export const VOCABULARY = [
     "hebrew": "לאבד (זכות), חילוט",
     "example": "Forfeit the game.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 114,
@@ -909,7 +909,7 @@ export const VOCABULARY = [
     "hebrew": "בר מזל",
     "example": "Fortunate to survive.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 115,
@@ -917,7 +917,7 @@ export const VOCABULARY = [
     "hebrew": "חרוץ, שקדן",
     "example": "An industrious worker.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 116,
@@ -925,7 +925,7 @@ export const VOCABULARY = [
     "hebrew": "השקיה",
     "example": "Irrigation system.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 117,
@@ -933,7 +933,7 @@ export const VOCABULARY = [
     "hebrew": "פקיעה; שגיאה",
     "example": "A lapse in judgment.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 118,
@@ -941,7 +941,7 @@ export const VOCABULARY = [
     "hebrew": "לחוקק",
     "example": "Legislate new laws.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 119,
@@ -949,7 +949,7 @@ export const VOCABULARY = [
     "hebrew": "חקיקה",
     "example": "New legislation passed.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 120,
@@ -957,7 +957,7 @@ export const VOCABULARY = [
     "hebrew": "כתב יד",
     "example": "Ancient manuscript.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 121,
@@ -965,7 +965,7 @@ export const VOCABULARY = [
     "hebrew": "מונומנטלי, אדיר",
     "example": "A monumental achievement.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 122,
@@ -973,7 +973,7 @@ export const VOCABULARY = [
     "hebrew": "מיושן, לא בשימוש",
     "example": "Obsolete technology.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 123,
@@ -981,7 +981,7 @@ export const VOCABULARY = [
     "hebrew": "השמטה",
     "example": "A critical omission.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 124,
@@ -989,7 +989,7 @@ export const VOCABULARY = [
     "hebrew": "להשמיט",
     "example": "Omit unnecessary details.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 125,
@@ -997,7 +997,7 @@ export const VOCABULARY = [
     "hebrew": "עליון, חשוב ביותר",
     "example": "Of paramount importance.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 126,
@@ -1005,7 +1005,7 @@ export const VOCABULARY = [
     "hebrew": "רדיפה",
     "example": "Religious persecution.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 127,
@@ -1013,7 +1013,7 @@ export const VOCABULARY = [
     "hebrew": "דמי דואר",
     "example": "Postage stamps.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 128,
@@ -1021,7 +1021,7 @@ export const VOCABULARY = [
     "hebrew": "לדחות",
     "example": "Postpone the meeting.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 129,
@@ -1029,7 +1029,7 @@ export const VOCABULARY = [
     "hebrew": "פרסום, שם טוב",
     "example": "Of great renown.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 130,
@@ -1037,7 +1037,7 @@ export const VOCABULARY = [
     "hebrew": "מגורים, מקום מגורים",
     "example": "Place of residence.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 131,
@@ -1045,7 +1045,7 @@ export const VOCABULARY = [
     "hebrew": "טהור, מוחלט; תלול; שקוף",
     "example": "Sheer luck; sheer cliff.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 132,
@@ -1053,7 +1053,7 @@ export const VOCABULARY = [
     "hebrew": "לקלקל, לפנק",
     "example": "Don't spoil the surprise.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 133,
@@ -1061,7 +1061,7 @@ export const VOCABULARY = [
     "hebrew": "להכניע, לרסן",
     "example": "Subdue the enemy.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 134,
@@ -1069,7 +1069,7 @@ export const VOCABULARY = [
     "hebrew": "להגיש; להיכנע",
     "example": "Submit an application.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 135,
@@ -1077,7 +1077,7 @@ export const VOCABULARY = [
     "hebrew": "עדין, מתוחכם",
     "example": "A subtle difference.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 136,
@@ -1085,7 +1085,7 @@ export const VOCABULARY = [
     "hebrew": "שטחי",
     "example": "Superficial wounds.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 137,
@@ -1093,7 +1093,7 @@ export const VOCABULARY = [
     "hebrew": "דיכוי",
     "example": "Suppression of rights.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 138,
@@ -1101,7 +1101,7 @@ export const VOCABULARY = [
     "hebrew": "לקיים, לתמוך",
     "example": "Sustain growth.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 139,
@@ -1109,7 +1109,7 @@ export const VOCABULARY = [
     "hebrew": "מיוסר, מעונה",
     "example": "A tormented soul.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 140,
@@ -1117,7 +1117,7 @@ export const VOCABULARY = [
     "hebrew": "לקחת על עצמו",
     "example": "Undertake a project.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 141,
@@ -1125,7 +1125,7 @@ export const VOCABULARY = [
     "hebrew": "משתנה",
     "example": "Variable weather.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 142,
@@ -1133,7 +1133,7 @@ export const VOCABULARY = [
     "hebrew": "בנמרצות",
     "example": "Work vigorously.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "adv"
   },
   {
     "id": 143,
@@ -1141,7 +1141,7 @@ export const VOCABULARY = [
     "hebrew": "אגף (בבית חולים); חסות",
     "example": "Hospital ward.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 144,
@@ -1149,7 +1149,7 @@ export const VOCABULARY = [
     "hebrew": "לתת תשואה; להיכנע",
     "example": "Yield results; yield to pressure.",
     "category": "Work & Society",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 145,
@@ -1157,7 +1157,7 @@ export const VOCABULARY = [
     "hebrew": "הכרה, שבח",
     "example": "Won critical acclaim.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 146,
@@ -1165,7 +1165,7 @@ export const VOCABULARY = [
     "hebrew": "לצבור",
     "example": "Amass wealth.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 147,
@@ -1173,7 +1173,7 @@ export const VOCABULARY = [
     "hebrew": "מעורר",
     "example": "Arousing suspicion.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 148,
@@ -1181,7 +1181,7 @@ export const VOCABULARY = [
     "hebrew": "ביקורת (חשבונות)",
     "example": "Financial audit.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 149,
@@ -1189,7 +1189,7 @@ export const VOCABULARY = [
     "hebrew": "באופן ראוי לשבח",
     "example": "Acted commendably.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "adv"
   },
   {
     "id": 150,
@@ -1197,7 +1197,7 @@ export const VOCABULARY = [
     "hebrew": "משבח",
     "example": "The report commends her work.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 151,
@@ -1205,7 +1205,7 @@ export const VOCABULARY = [
     "hebrew": "חבר, בן לוויה",
     "example": "A loyal companion.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 152,
@@ -1213,7 +1213,7 @@ export const VOCABULARY = [
     "hebrew": "להרות; לתפוס (רעיון)",
     "example": "Conceive an idea.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 153,
@@ -1221,7 +1221,7 @@ export const VOCABULARY = [
     "hebrew": "מתואם, משותף",
     "example": "A concerted effort.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 154,
@@ -1229,7 +1229,7 @@ export const VOCABULARY = [
     "hebrew": "להסכים",
     "example": "I concur with your view.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 155,
@@ -1237,7 +1237,7 @@ export const VOCABULARY = [
     "hebrew": "הסכמה",
     "example": "With your concurrence.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 156,
@@ -1245,7 +1245,7 @@ export const VOCABULARY = [
     "hebrew": "כליאה, הגבלה",
     "example": "Solitary confinement.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 157,
@@ -1253,7 +1253,7 @@ export const VOCABULARY = [
     "hebrew": "להחרים",
     "example": "Confiscate property.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 158,
@@ -1261,7 +1261,7 @@ export const VOCABULARY = [
     "hebrew": "להתאים, לציית",
     "example": "Conform to standards.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 159,
@@ -1269,7 +1269,7 @@ export const VOCABULARY = [
     "hebrew": "לשמר",
     "example": "Conserve energy.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 160,
@@ -1277,7 +1277,7 @@ export const VOCABULARY = [
     "hebrew": "לטעון; להתחרות",
     "example": "Contend for the title.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 161,
@@ -1285,7 +1285,7 @@ export const VOCABULARY = [
     "hebrew": "מחלוקת, פולמוס",
     "example": "A heated controversy.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 162,
@@ -1293,7 +1293,7 @@ export const VOCABULARY = [
     "hebrew": "לכנס",
     "example": "Convene a meeting.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 163,
@@ -1301,7 +1301,7 @@ export const VOCABULARY = [
     "hebrew": "להתכתב; להתאים",
     "example": "Correspond with friends.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 164,
@@ -1309,7 +1309,7 @@ export const VOCABULARY = [
     "hebrew": "התכתבות",
     "example": "Business correspondence.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 165,
@@ -1317,7 +1317,7 @@ export const VOCABULARY = [
     "hebrew": "גולמי, גס",
     "example": "Crude oil; crude behavior.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 166,
@@ -1325,7 +1325,7 @@ export const VOCABULARY = [
     "hebrew": "להונות, לרמות",
     "example": "Deceive the public.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 167,
@@ -1333,7 +1333,7 @@ export const VOCABULARY = [
     "hebrew": "מכוון, מתוכנן",
     "example": "A deliberate act.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 168,
@@ -1341,7 +1341,7 @@ export const VOCABULARY = [
     "hebrew": "דיון, שיקול דעת",
     "example": "After much deliberation.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 169,
@@ -1349,7 +1349,7 @@ export const VOCABULARY = [
     "hebrew": "שומם, עזוב",
     "example": "A desolate landscape.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 170,
@@ -1357,7 +1357,7 @@ export const VOCABULARY = [
     "hebrew": "לגרוע",
     "example": "Detract from the value.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 171,
@@ -1365,7 +1365,7 @@ export const VOCABULARY = [
     "hebrew": "סוטה, חריג",
     "example": "Deviant behavior.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 172,
@@ -1373,7 +1373,7 @@ export const VOCABULARY = [
     "hebrew": "להמציא, לתכנן",
     "example": "Devise a plan.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 173,
@@ -1381,7 +1381,7 @@ export const VOCABULARY = [
     "hebrew": "משווה",
     "example": "He equates money with happiness.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 174,
@@ -1389,7 +1389,7 @@ export const VOCABULARY = [
     "hebrew": "לעורר",
     "example": "Evoke memories.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 175,
@@ -1397,7 +1397,7 @@ export const VOCABULARY = [
     "hebrew": "לסכל",
     "example": "Foil a plan.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 176,
@@ -1405,7 +1405,7 @@ export const VOCABULARY = [
     "hebrew": "לעצור",
     "example": "Halt production.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 177,
@@ -1413,7 +1413,7 @@ export const VOCABULARY = [
     "hebrew": "יורש",
     "example": "Heir to the throne.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 178,
@@ -1421,7 +1421,7 @@ export const VOCABULARY = [
     "hebrew": "תורשה",
     "example": "Heredity vs. environment.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 179,
@@ -1429,7 +1429,7 @@ export const VOCABULARY = [
     "hebrew": "אדישות",
     "example": "Showed indifference.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 180,
@@ -1437,7 +1437,7 @@ export const VOCABULARY = [
     "hebrew": "מולד, טבעי",
     "example": "Innate ability.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 181,
@@ -1445,7 +1445,7 @@ export const VOCABULARY = [
     "hebrew": "יודע קרוא וכתוב",
     "example": "A literate population.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 182,
@@ -1453,7 +1453,7 @@ export const VOCABULARY = [
     "hebrew": "תת-תזונה",
     "example": "Suffer from malnutrition.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 183,
@@ -1461,7 +1461,7 @@ export const VOCABULARY = [
     "hebrew": "לתווך",
     "example": "Mediate a dispute.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 184,
@@ -1469,7 +1469,7 @@ export const VOCABULARY = [
     "hebrew": "לילי",
     "example": "Nocturnal animals.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 185,
@@ -1477,7 +1477,7 @@ export const VOCABULARY = [
     "hebrew": "בים, מחוץ לחוף",
     "example": "Offshore drilling.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 186,
@@ -1485,7 +1485,7 @@ export const VOCABULARY = [
     "hebrew": "לשכנע",
     "example": "Persuade him to stay.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 187,
@@ -1493,7 +1493,7 @@ export const VOCABULARY = [
     "hebrew": "שכנוע",
     "example": "The art of persuasion.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 188,
@@ -1501,7 +1501,7 @@ export const VOCABULARY = [
     "hebrew": "סביר, מתקבל על הדעת",
     "example": "A plausible explanation.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 189,
@@ -1509,7 +1509,7 @@ export const VOCABULARY = [
     "hebrew": "תירוץ, עילה",
     "example": "Under the pretext of...",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 190,
@@ -1517,7 +1517,7 @@ export const VOCABULARY = [
     "hebrew": "הניע, גרם",
     "example": "Prompted by curiosity.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 191,
@@ -1525,7 +1525,7 @@ export const VOCABULARY = [
     "hebrew": "תומך, מצדד",
     "example": "A proponent of change.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 192,
@@ -1533,7 +1533,7 @@ export const VOCABULARY = [
     "hebrew": "שגשוג",
     "example": "Economic prosperity.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 193,
@@ -1541,7 +1541,7 @@ export const VOCABULARY = [
     "hebrew": "משגשג",
     "example": "A prosperous nation.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 194,
@@ -1549,7 +1549,7 @@ export const VOCABULARY = [
     "hebrew": "לפייס; להתאים",
     "example": "Reconcile differences.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 195,
@@ -1557,7 +1557,7 @@ export const VOCABULARY = [
     "hebrew": "להחיות מחדש",
     "example": "Reinvigorate the economy.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 196,
@@ -1565,7 +1565,7 @@ export const VOCABULARY = [
     "hebrew": "בסיסי, ראשוני",
     "example": "Rudimentary knowledge.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 197,
@@ -1573,7 +1573,7 @@ export const VOCABULARY = [
     "hebrew": "סייסמי, רעידתי",
     "example": "Seismic activity.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 198,
@@ -1581,7 +1581,7 @@ export const VOCABULARY = [
     "hebrew": "צער, עצב",
     "example": "Deep sorrow.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 199,
@@ -1589,7 +1589,7 @@ export const VOCABULARY = [
     "hebrew": "מאבק, סכסוך",
     "example": "Political strife.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 200,
@@ -1597,7 +1597,7 @@ export const VOCABULARY = [
     "hebrew": "מספיק",
     "example": "Sufficient evidence.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 201,
@@ -1605,7 +1605,7 @@ export const VOCABULARY = [
     "hebrew": "מיותר",
     "example": "Superfluous details.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 202,
@@ -1613,7 +1613,7 @@ export const VOCABULARY = [
     "hebrew": "אוהד, מזדהה",
     "example": "A sympathetic ear.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 203,
@@ -1621,7 +1621,7 @@ export const VOCABULARY = [
     "hebrew": "לסיים, להפסיק",
     "example": "Terminate the contract.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 204,
@@ -1629,7 +1629,7 @@ export const VOCABULARY = [
     "hebrew": "שווא; גאוותן",
     "example": "In vain; a vain person.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 205,
@@ -1637,7 +1637,7 @@ export const VOCABULARY = [
     "hebrew": "מיזם; להעז",
     "example": "A business venture.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 206,
@@ -1645,7 +1645,7 @@ export const VOCABULARY = [
     "hebrew": "בזדון, ברשעות",
     "example": "Smiled wickedly.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "adv"
   },
   {
     "id": 207,
@@ -1653,7 +1653,7 @@ export const VOCABULARY = [
     "hebrew": "חוכמה",
     "example": "Words of wisdom.",
     "category": "Discussion & Persuasion",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 208,
@@ -1661,7 +1661,7 @@ export const VOCABULARY = [
     "hebrew": "להימנע",
     "example": "Abstain from voting.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 209,
@@ -1669,7 +1669,7 @@ export const VOCABULARY = [
     "hebrew": "להדגיש",
     "example": "Accentuate the positive.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 210,
@@ -1677,7 +1677,7 @@ export const VOCABULARY = [
     "hebrew": "מספיק, הולם",
     "example": "Adequate preparation.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 211,
@@ -1685,7 +1685,7 @@ export const VOCABULARY = [
     "hebrew": "זיקה, קרבה",
     "example": "An affinity for music.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 212,
@@ -1693,7 +1693,7 @@ export const VOCABULARY = [
     "hebrew": "מכשיר, מנגנון",
     "example": "Scientific apparatus.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 213,
@@ -1701,7 +1701,7 @@ export const VOCABULARY = [
     "hebrew": "לספק אוכל; לשרת",
     "example": "Cater to all tastes.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 214,
@@ -1709,7 +1709,7 @@ export const VOCABULARY = [
     "hebrew": "מרכבה",
     "example": "Roman chariot.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 215,
@@ -1717,7 +1717,7 @@ export const VOCABULARY = [
     "hebrew": "חובה",
     "example": "Compulsory education.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 216,
@@ -1725,7 +1725,7 @@ export const VOCABULARY = [
     "hebrew": "תמציתי",
     "example": "A concise summary.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 217,
@@ -1733,7 +1733,7 @@ export const VOCABULARY = [
     "hebrew": "להתכנס",
     "example": "People congregated outside.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 218,
@@ -1741,7 +1741,7 @@ export const VOCABULARY = [
     "hebrew": "בולט לעין",
     "example": "Conspicuous absence.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 219,
@@ -1749,7 +1749,7 @@ export const VOCABULARY = [
     "hebrew": "מועצה",
     "example": "City council.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 220,
@@ -1757,7 +1757,7 @@ export const VOCABULARY = [
     "hebrew": "עצה; עורך דין",
     "example": "Legal counsel.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 221,
@@ -1765,7 +1765,7 @@ export const VOCABULARY = [
     "hebrew": "לייעץ",
     "example": "Counsel the patient.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 222,
@@ -1773,7 +1773,7 @@ export const VOCABULARY = [
     "hebrew": "מקביל, עמית",
     "example": "His French counterpart.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 223,
@@ -1781,7 +1781,7 @@ export const VOCABULARY = [
     "hebrew": "אדיב, מנומס",
     "example": "A courteous reply.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 224,
@@ -1789,7 +1789,7 @@ export const VOCABULARY = [
     "hebrew": "אדיבות",
     "example": "Common courtesy.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 225,
@@ -1797,7 +1797,7 @@ export const VOCABULARY = [
     "hebrew": "לפענח",
     "example": "Decipher the code.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 226,
@@ -1805,7 +1805,7 @@ export const VOCABULARY = [
     "hebrew": "נציג, משלח",
     "example": "A delegate to the conference.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 227,
@@ -1813,7 +1813,7 @@ export const VOCABULARY = [
     "hebrew": "להאציל",
     "example": "Delegate authority.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 228,
@@ -1821,7 +1821,7 @@ export const VOCABULARY = [
     "hebrew": "עבריין",
     "example": "Juvenile delinquent.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 229,
@@ -1829,7 +1829,7 @@ export const VOCABULARY = [
     "hebrew": "פושע; באיחור",
     "example": "Delinquent payment.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 230,
@@ -1837,7 +1837,7 @@ export const VOCABULARY = [
     "hebrew": "לזלזל, להשמיץ",
     "example": "Disparage competitors.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 231,
@@ -1845,7 +1845,7 @@ export const VOCABULARY = [
     "hebrew": "מחאה, התנגדות",
     "example": "Voice dissent.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 232,
@@ -1853,7 +1853,7 @@ export const VOCABULARY = [
     "hebrew": "הבחנה; הצטיינות",
     "example": "A distinction between...",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 233,
@@ -1861,7 +1861,7 @@ export const VOCABULARY = [
     "hebrew": "ייחודי, מובחן",
     "example": "A distinctive style.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 234,
@@ -1869,7 +1869,7 @@ export const VOCABULARY = [
     "hebrew": "בצורת",
     "example": "Severe drought.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 235,
@@ -1877,7 +1877,7 @@ export const VOCABULARY = [
     "hebrew": "דו-קרב",
     "example": "Fight a duel.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 236,
@@ -1885,7 +1885,7 @@ export const VOCABULARY = [
     "hebrew": "רהוט, מליצי",
     "example": "An eloquent speech.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 237,
@@ -1893,7 +1893,7 @@ export const VOCABULARY = [
     "hebrew": "להתחמק מ-",
     "example": "Elude capture.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 238,
@@ -1901,7 +1901,7 @@ export const VOCABULARY = [
     "hebrew": "נחלה, עיזבון",
     "example": "Real estate.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 239,
@@ -1909,7 +1909,7 @@ export const VOCABULARY = [
     "hebrew": "עדר; להתקהל",
     "example": "A flock of sheep.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 240,
@@ -1917,7 +1917,7 @@ export const VOCABULARY = [
     "hebrew": "ברד; לברך",
     "example": "Hail a taxi; hail the winner.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 241,
@@ -1925,7 +1925,7 @@ export const VOCABULARY = [
     "hebrew": "בלתי עביר, שאי אפשר להתגבר עליו",
     "example": "Insurmountable obstacles.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 242,
@@ -1933,7 +1933,7 @@ export const VOCABULARY = [
     "hebrew": "להפעיל, לקרוא בשם",
     "example": "Invoke the law.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 243,
@@ -1941,7 +1941,7 @@ export const VOCABULARY = [
     "hebrew": "פועל",
     "example": "Manual laborer.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 244,
@@ -1949,7 +1949,7 @@ export const VOCABULARY = [
     "hebrew": "חפרפרת; שומה; מרגל",
     "example": "A mole in the organization.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 245,
@@ -1957,7 +1957,7 @@ export const VOCABULARY = [
     "hebrew": "אינספור, רבבה",
     "example": "Myriad possibilities.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 246,
@@ -1965,7 +1965,7 @@ export const VOCABULARY = [
     "hebrew": "אצולה",
     "example": "The nobility.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 247,
@@ -1973,7 +1973,7 @@ export const VOCABULARY = [
     "hebrew": "קישוט",
     "example": "Christmas ornaments.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 248,
@@ -1981,7 +1981,7 @@ export const VOCABULARY = [
     "hebrew": "גלוי, ישיר",
     "example": "An outspoken critic.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 249,
@@ -1989,7 +1989,7 @@ export const VOCABULARY = [
     "hebrew": "רווח, חודר",
     "example": "Pervasive influence.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 250,
@@ -1997,7 +1997,7 @@ export const VOCABULARY = [
     "hebrew": "מחזאי",
     "example": "A famous playwright.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 251,
@@ -2005,7 +2005,7 @@ export const VOCABULARY = [
     "hebrew": "חזק, עוצמתי",
     "example": "A potent drug.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 252,
@@ -2013,7 +2013,7 @@ export const VOCABULARY = [
     "hebrew": "דעה קדומה",
     "example": "Racial prejudice.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 253,
@@ -2021,7 +2021,7 @@ export const VOCABULARY = [
     "hebrew": "נפוץ, שכיח",
     "example": "A prevalent view.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 254,
@@ -2029,7 +2029,7 @@ export const VOCABULARY = [
     "hebrew": "נבואה",
     "example": "Fulfill a prophecy.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 255,
@@ -2037,7 +2037,7 @@ export const VOCABULARY = [
     "hebrew": "לפסק; להדגיש",
     "example": "Punctuate correctly.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 256,
@@ -2045,7 +2045,7 @@ export const VOCABULARY = [
     "hebrew": "פיסוק",
     "example": "Punctuation marks.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 257,
@@ -2053,7 +2053,7 @@ export const VOCABULARY = [
     "hebrew": "שאילתה, שאלה",
     "example": "Database query.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 258,
@@ -2061,7 +2061,7 @@ export const VOCABULARY = [
     "hebrew": "הפרכה",
     "example": "Offer a rebuttal.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 259,
@@ -2069,7 +2069,7 @@ export const VOCABULARY = [
     "hebrew": "כפרי",
     "example": "Rural areas.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 260,
@@ -2077,7 +2077,7 @@ export const VOCABULARY = [
     "hebrew": "נדיר, מועט",
     "example": "Scarce resources.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 261,
@@ -2085,7 +2085,7 @@ export const VOCABULARY = [
     "hebrew": "חילוני",
     "example": "Secular education.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 262,
@@ -2093,7 +2093,7 @@ export const VOCABULARY = [
     "hebrew": "הוצאת דיבה",
     "example": "Accused of slander.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 263,
@@ -2101,7 +2101,7 @@ export const VOCABULARY = [
     "hebrew": "קפץ (עבר של spring)",
     "example": "He sprang into action.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 264,
@@ -2109,7 +2109,7 @@ export const VOCABULARY = [
     "hebrew": "חמור, מוחלט; חשוף",
     "example": "Stark contrast.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 265,
@@ -2117,7 +2117,7 @@ export const VOCABULARY = [
     "hebrew": "ביישן, פחדן",
     "example": "A timid child.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 266,
@@ -2125,7 +2125,7 @@ export const VOCABULARY = [
     "hebrew": "ניצחון",
     "example": "A great triumph.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 267,
@@ -2133,7 +2133,7 @@ export const VOCABULARY = [
     "hebrew": "לא צודק",
     "example": "Unjust treatment.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 268,
@@ -2141,7 +2141,7 @@ export const VOCABULARY = [
     "hebrew": "עמימות",
     "example": "Deliberate vagueness.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 269,
@@ -2149,7 +2149,7 @@ export const VOCABULARY = [
     "hebrew": "אמיתות",
     "example": "Question the veracity.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 270,
@@ -2157,7 +2157,7 @@ export const VOCABULARY = [
     "hebrew": "פסק דין",
     "example": "The jury's verdict.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 271,
@@ -2165,7 +2165,7 @@ export const VOCABULARY = [
     "hebrew": "רווחה",
     "example": "Social welfare.",
     "category": "Education & Law",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 272,
@@ -2173,7 +2173,7 @@ export const VOCABULARY = [
     "hebrew": "שותפים לפשע",
     "example": "The accomplices fled.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 273,
@@ -2181,7 +2181,7 @@ export const VOCABULARY = [
     "hebrew": "זוכה",
     "example": "Acquitted of all charges.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 274,
@@ -2189,7 +2189,7 @@ export const VOCABULARY = [
     "hebrew": "רמז",
     "example": "A literary allusion.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 275,
@@ -2197,7 +2197,7 @@ export const VOCABULARY = [
     "hebrew": "מספיק, רב",
     "example": "Ample evidence.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 276,
@@ -2205,7 +2205,7 @@ export const VOCABULARY = [
     "hebrew": "להעריך",
     "example": "Appraise the value.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 277,
@@ -2213,7 +2213,7 @@ export const VOCABULARY = [
     "hebrew": "תיבה",
     "example": "Noah's ark.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 278,
@@ -2221,7 +2221,7 @@ export const VOCABULARY = [
     "hebrew": "חפץ עתיק",
     "example": "Ancient artifacts.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 279,
@@ -2229,7 +2229,7 @@ export const VOCABULARY = [
     "hebrew": "לבוש",
     "example": "Formal attire.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 280,
@@ -2237,7 +2237,7 @@ export const VOCABULARY = [
     "hebrew": "מבולבל, נבוך",
     "example": "Completely baffled.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 281,
@@ -2245,7 +2245,7 @@ export const VOCABULARY = [
     "hebrew": "ביישן",
     "example": "A bashful smile.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 282,
@@ -2253,7 +2253,7 @@ export const VOCABULARY = [
     "hebrew": "לחזק",
     "example": "Bolster confidence.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 283,
@@ -2261,7 +2261,7 @@ export const VOCABULARY = [
     "hebrew": "לנסוע לעבודה; להמיר",
     "example": "Commute daily; commute a sentence.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 284,
@@ -2269,7 +2269,7 @@ export const VOCABULARY = [
     "hebrew": "להתעלם מ-, לסלוח",
     "example": "Cannot condone violence.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 285,
@@ -2277,7 +2277,7 @@ export const VOCABULARY = [
     "hebrew": "נעים, ידידותי",
     "example": "A congenial atmosphere.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 286,
@@ -2285,7 +2285,7 @@ export const VOCABULARY = [
     "hebrew": "מולד (רפואי)",
     "example": "Congenital defect.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 287,
@@ -2293,7 +2293,7 @@ export const VOCABULARY = [
     "hebrew": "להתמודד",
     "example": "Cope with stress.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 288,
@@ -2301,7 +2301,7 @@ export const VOCABULARY = [
     "hebrew": "לטפח, לגדל",
     "example": "Cultivate relationships.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 289,
@@ -2309,7 +2309,7 @@ export const VOCABULARY = [
     "hebrew": "סקרנות",
     "example": "Out of curiosity.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 290,
@@ -2317,7 +2317,7 @@ export const VOCABULARY = [
     "hebrew": "חלום בהקיץ",
     "example": "Lost in a daydream.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 291,
@@ -2325,7 +2325,7 @@ export const VOCABULARY = [
     "hebrew": "עיוות, מום",
     "example": "A physical deformity.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 292,
@@ -2333,7 +2333,7 @@ export const VOCABULARY = [
     "hebrew": "להשפיל",
     "example": "Demean oneself.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 293,
@@ -2341,7 +2341,7 @@ export const VOCABULARY = [
     "hebrew": "לבוז",
     "example": "Despise dishonesty.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 294,
@@ -2349,7 +2349,7 @@ export const VOCABULARY = [
     "hebrew": "נטול, חסר",
     "example": "Devoid of meaning.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 295,
@@ -2357,7 +2357,7 @@ export const VOCABULARY = [
     "hebrew": "בוז",
     "example": "Look with disdain.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 296,
@@ -2365,7 +2365,7 @@ export const VOCABULARY = [
     "hebrew": "תחפושת; להסוות",
     "example": "In disguise.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 297,
@@ -2373,7 +2373,7 @@ export const VOCABULARY = [
     "hebrew": "זילזול",
     "example": "Public disparagement.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 298,
@@ -2381,7 +2381,7 @@ export const VOCABULARY = [
     "hebrew": "להפיץ",
     "example": "Disseminate information.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 299,
@@ -2389,7 +2389,7 @@ export const VOCABULARY = [
     "hebrew": "צייתן, נוח",
     "example": "A docile pet.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 300,
@@ -2397,7 +2397,7 @@ export const VOCABULARY = [
     "hebrew": "עובר",
     "example": "Human embryo.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 301,
@@ -2405,7 +2405,7 @@ export const VOCABULARY = [
     "hebrew": "לדמיין",
     "example": "Envision the future.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 302,
@@ -2413,7 +2413,7 @@ export const VOCABULARY = [
     "hebrew": "מכובד, נערץ",
     "example": "An esteemed colleague.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 303,
@@ -2421,7 +2421,7 @@ export const VOCABULARY = [
     "hebrew": "להפעיל (כוח/השפעה)",
     "example": "Exert pressure.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 304,
@@ -2429,7 +2429,7 @@ export const VOCABULARY = [
     "hebrew": "לזרז",
     "example": "Expedite the process.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 305,
@@ -2437,7 +2437,7 @@ export const VOCABULARY = [
     "hebrew": "פורה",
     "example": "Fertile soil.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 306,
@@ -2445,7 +2445,7 @@ export const VOCABULARY = [
     "hebrew": "מטאפורי",
     "example": "Figurative language.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 307,
@@ -2453,7 +2453,7 @@ export const VOCABULARY = [
     "hebrew": "בוטה",
     "example": "Flagrant violation.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 308,
@@ -2461,7 +2461,7 @@ export const VOCABULARY = [
     "hebrew": "לחזות",
     "example": "Foresee problems.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 309,
@@ -2469,7 +2469,7 @@ export const VOCABULARY = [
     "hebrew": "סוג (ביולוגי)",
     "example": "The genus Homo.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 310,
@@ -2477,7 +2477,7 @@ export const VOCABULARY = [
     "hebrew": "גביע",
     "example": "A silver goblet.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 311,
@@ -2485,7 +2485,7 @@ export const VOCABULARY = [
     "hebrew": "אבל, צער",
     "example": "Overcome with grief.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 312,
@@ -2493,7 +2493,7 @@ export const VOCABULARY = [
     "hebrew": "תלונה, עוול",
     "example": "Air grievances.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 313,
@@ -2501,7 +2501,7 @@ export const VOCABULARY = [
     "hebrew": "לחצות",
     "example": "Halve the ingredients.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 314,
@@ -2509,7 +2509,7 @@ export const VOCABULARY = [
     "hebrew": "למהר, לזרז",
     "example": "Hasten the process.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 315,
@@ -2517,7 +2517,7 @@ export const VOCABULARY = [
     "hebrew": "חפוז",
     "example": "A hasty decision.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 316,
@@ -2525,7 +2525,7 @@ export const VOCABULARY = [
     "hebrew": "לגרור; משלוח",
     "example": "A long haul.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 317,
@@ -2533,7 +2533,7 @@ export const VOCABULARY = [
     "hebrew": "לשים לב",
     "example": "Heed the warning.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 318,
@@ -2541,7 +2541,7 @@ export const VOCABULARY = [
     "hebrew": "הגמוניה, שליטה",
     "example": "Cultural hegemony.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 319,
@@ -2549,7 +2549,7 @@ export const VOCABULARY = [
     "hebrew": "כפירה",
     "example": "Accused of heresy.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 320,
@@ -2557,7 +2557,7 @@ export const VOCABULARY = [
     "hebrew": "להפריע, לעכב",
     "example": "Hinder progress.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 321,
@@ -2565,7 +2565,7 @@ export const VOCABULARY = [
     "hebrew": "כוורת",
     "example": "A bee hive.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 322,
@@ -2573,7 +2573,7 @@ export const VOCABULARY = [
     "hebrew": "להתחנן",
     "example": "Implore for mercy.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 323,
@@ -2581,7 +2581,7 @@ export const VOCABULARY = [
     "hebrew": "בשוגג, בטעות",
     "example": "Inadvertently deleted.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "adv"
   },
   {
     "id": 324,
@@ -2589,7 +2589,7 @@ export const VOCABULARY = [
     "hebrew": "חייב תודה",
     "example": "Deeply indebted.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 325,
@@ -2597,7 +2597,7 @@ export const VOCABULARY = [
     "hebrew": "ינקות",
     "example": "In its infancy.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 326,
@@ -2605,7 +2605,7 @@ export const VOCABULARY = [
     "hebrew": "לרשת",
     "example": "Inherit wealth.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 327,
@@ -2613,7 +2613,7 @@ export const VOCABULARY = [
     "hebrew": "קריאה, מילת קריאה",
     "example": "An interjection of surprise.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 328,
@@ -2621,7 +2621,7 @@ export const VOCABULARY = [
     "hebrew": "אבן פינה",
     "example": "The keystone of the argument.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 329,
@@ -2629,7 +2629,7 @@ export const VOCABULARY = [
     "hebrew": "חסר ברק",
     "example": "A lackluster performance.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 330,
@@ -2637,7 +2637,7 @@ export const VOCABULARY = [
     "hebrew": "פנאי",
     "example": "At your leisure.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 331,
@@ -2645,7 +2645,7 @@ export const VOCABULARY = [
     "hebrew": "בנחת",
     "example": "A leisurely walk.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "adv"
   },
   {
     "id": 332,
@@ -2653,7 +2653,7 @@ export const VOCABULARY = [
     "hebrew": "רווחי",
     "example": "A lucrative deal.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 333,
@@ -2661,7 +2661,7 @@ export const VOCABULARY = [
     "hebrew": "אורב",
     "example": "Danger lurking.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 334,
@@ -2669,7 +2669,7 @@ export const VOCABULARY = [
     "hebrew": "עיוות, מום",
     "example": "A genetic malformation.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 335,
@@ -2677,7 +2677,7 @@ export const VOCABULARY = [
     "hebrew": "זכות, ראוי",
     "example": "Judge on merit.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 336,
@@ -2685,7 +2685,7 @@ export const VOCABULARY = [
     "hebrew": "מלך, מונרך",
     "example": "The reigning monarch.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 337,
@@ -2693,7 +2693,7 @@ export const VOCABULARY = [
     "hebrew": "עצוב, קודר",
     "example": "A morose expression.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 338,
@@ -2701,7 +2701,7 @@ export const VOCABULARY = [
     "hebrew": "מטרד",
     "example": "A public nuisance.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 339,
@@ -2709,7 +2709,7 @@ export const VOCABULARY = [
     "hebrew": "לטפח",
     "example": "Nature vs. nurture.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 340,
@@ -2717,7 +2717,7 @@ export const VOCABULARY = [
     "hebrew": "חובה, התחייבות",
     "example": "Legal obligation.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 341,
@@ -2725,7 +2725,7 @@ export const VOCABULARY = [
     "hebrew": "לחייב; להיענות",
     "example": "Much obliged.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 342,
@@ -2733,7 +2733,7 @@ export const VOCABULARY = [
     "hebrew": "לפקח",
     "example": "Oversee operations.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 343,
@@ -2741,7 +2741,7 @@ export const VOCABULARY = [
     "hebrew": "להנציח",
     "example": "Perpetuate stereotypes.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 344,
@@ -2749,7 +2749,7 @@ export const VOCABULARY = [
     "hebrew": "מזיק",
     "example": "Garden pests.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 345,
@@ -2757,7 +2757,7 @@ export const VOCABULARY = [
     "hebrew": "מבחן, תקופת ניסיון",
     "example": "On probation.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 346,
@@ -2765,7 +2765,7 @@ export const VOCABULARY = [
     "hebrew": "להתרבות",
     "example": "Weapons proliferate.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 347,
@@ -2773,7 +2773,7 @@ export const VOCABULARY = [
     "hebrew": "פורה, יצרני",
     "example": "A prolific writer.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 348,
@@ -2781,7 +2781,7 @@ export const VOCABULARY = [
     "hebrew": "עתידי, פוטנציאלי",
     "example": "Prospective buyers.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 349,
@@ -2789,7 +2789,7 @@ export const VOCABULARY = [
     "hebrew": "בנקל, ברצון",
     "example": "Readily available.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "adv"
   },
   {
     "id": 350,
@@ -2797,7 +2797,7 @@ export const VOCABULARY = [
     "hebrew": "גידול",
     "example": "Child rearing.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 351,
@@ -2805,7 +2805,7 @@ export const VOCABULARY = [
     "hebrew": "שריד",
     "example": "Ancient relics.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 352,
@@ -2813,7 +2813,7 @@ export const VOCABULARY = [
     "hebrew": "דכאני",
     "example": "Repressive regime.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 353,
@@ -2821,7 +2821,7 @@ export const VOCABULARY = [
     "hebrew": "מתפטר; משלים עם",
     "example": "He resigned himself to fate.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 354,
@@ -2829,7 +2829,7 @@ export const VOCABULARY = [
     "hebrew": "לתקן, לשנות",
     "example": "Revise the plan.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 355,
@@ -2837,7 +2837,7 @@ export const VOCABULARY = [
     "hebrew": "ללעוג",
     "example": "Subject to ridicule.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 356,
@@ -2845,7 +2845,7 @@ export const VOCABULARY = [
     "hebrew": "פינוק עצמי",
     "example": "Accused of self-indulgence.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 357,
@@ -2853,7 +2853,7 @@ export const VOCABULARY = [
     "hebrew": "לצחקק",
     "example": "Snicker at someone.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 358,
@@ -2861,7 +2861,7 @@ export const VOCABULARY = [
     "hebrew": "הדר, פאר",
     "example": "Royal splendor.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 359,
@@ -2869,7 +2869,7 @@ export const VOCABULARY = [
     "hebrew": "רגיש, פגיע",
     "example": "Susceptible to illness.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 360,
@@ -2877,7 +2877,7 @@ export const VOCABULARY = [
     "hebrew": "טקט, עדינות",
     "example": "Show tact.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 361,
@@ -2885,7 +2885,7 @@ export const VOCABULARY = [
     "hebrew": "עץ (לבניה)",
     "example": "Timber industry.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 362,
@@ -2893,7 +2893,7 @@ export const VOCABULARY = [
     "hebrew": "להרגיע",
     "example": "Tranquilize the animal.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 363,
@@ -2901,7 +2901,7 @@ export const VOCABULARY = [
     "hebrew": "מידה טובה, סגולה",
     "example": "A person of virtue.",
     "category": "Crime & Justice",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 364,
@@ -2909,7 +2909,7 @@ export const VOCABULARY = [
     "hebrew": "לתעב",
     "example": "Abhor violence.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 365,
@@ -2917,7 +2917,7 @@ export const VOCABULARY = [
     "hebrew": "התבגרות",
     "example": "During adolescence.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 366,
@@ -2925,7 +2925,7 @@ export const VOCABULARY = [
     "hebrew": "אדיש",
     "example": "Apathetic voters.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 367,
@@ -2933,7 +2933,7 @@ export const VOCABULARY = [
     "hebrew": "לפייס, להרגיע",
     "example": "Appease the crowd.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 368,
@@ -2941,7 +2941,7 @@ export const VOCABULARY = [
     "hebrew": "למחוא כפיים",
     "example": "Applaud the performance.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 369,
@@ -2949,7 +2949,7 @@ export const VOCABULARY = [
     "hebrew": "ראוי לעיבוד",
     "example": "Arable land.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 370,
@@ -2957,7 +2957,7 @@ export const VOCABULARY = [
     "hebrew": "יראה, התפעלות",
     "example": "Stand in awe.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 371,
@@ -2965,7 +2965,7 @@ export const VOCABULARY = [
     "hebrew": "אגן",
     "example": "River basin.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 372,
@@ -2973,7 +2973,7 @@ export const VOCABULARY = [
     "hebrew": "חלל",
     "example": "A cavity in the tooth.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 373,
@@ -2981,7 +2981,7 @@ export const VOCABULARY = [
     "hebrew": "גלימה; להסתיר",
     "example": "Cloak and dagger.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 374,
@@ -2989,7 +2989,7 @@ export const VOCABULARY = [
     "hebrew": "קוסמופוליטי, רב-תרבותי",
     "example": "A cosmopolitan city.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 375,
@@ -2997,7 +2997,7 @@ export const VOCABULARY = [
     "hebrew": "לשתק, נכה",
     "example": "Cripple the economy.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 376,
@@ -3005,7 +3005,7 @@ export const VOCABULARY = [
     "hebrew": "יבול",
     "example": "A bumper crop.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 377,
@@ -3013,7 +3013,7 @@ export const VOCABULARY = [
     "hebrew": "גנדרן; מצוין (סלנג)",
     "example": "That's just dandy.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 378,
@@ -3021,7 +3021,7 @@ export const VOCABULARY = [
     "hebrew": "לתאר",
     "example": "Depict a scene.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 379,
@@ -3029,7 +3029,7 @@ export const VOCABULARY = [
     "hebrew": "לעג",
     "example": "Greeted with derision.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 380,
@@ -3037,7 +3037,7 @@ export const VOCABULARY = [
     "hebrew": "מזיק",
     "example": "Detrimental effects.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 381,
@@ -3045,7 +3045,7 @@ export const VOCABULARY = [
     "hebrew": "פירוק נשק",
     "example": "Nuclear disarmament.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 382,
@@ -3053,7 +3053,7 @@ export const VOCABULARY = [
     "hebrew": "מחלוקת",
     "example": "Sow discord.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 383,
@@ -3061,7 +3061,7 @@ export const VOCABULARY = [
     "hebrew": "לנתח",
     "example": "Dissect a frog.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 384,
@@ -3069,7 +3069,7 @@ export const VOCABULARY = [
     "hebrew": "ניתוח",
     "example": "Careful dissection.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 385,
@@ -3077,7 +3077,7 @@ export const VOCABULARY = [
     "hebrew": "טיוטה; גיוס; משב רוח",
     "example": "A rough draft.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 386,
@@ -3085,7 +3085,7 @@ export const VOCABULARY = [
     "hebrew": "עמום; משעמם; קהה",
     "example": "A dull color; a dull knife.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 387,
@@ -3093,7 +3093,7 @@ export const VOCABULARY = [
     "hebrew": "לגור, להתעכב",
     "example": "Dwell on the past.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 388,
@@ -3101,7 +3101,7 @@ export const VOCABULARY = [
     "hebrew": "מגורים",
     "example": "A humble dwelling.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 389,
@@ -3109,7 +3109,7 @@ export const VOCABULARY = [
     "hebrew": "מוזר, תמהוני",
     "example": "An eccentric professor.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 390,
@@ -3117,7 +3117,7 @@ export const VOCABULARY = [
     "hebrew": "למרר",
     "example": "Embittered by failure.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 391,
@@ -3125,7 +3125,7 @@ export const VOCABULARY = [
     "hebrew": "להקסים",
     "example": "Enchant the audience.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 392,
@@ -3133,7 +3133,7 @@ export const VOCABULARY = [
     "hebrew": "לפלוש",
     "example": "Encroach on territory.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 393,
@@ -3141,7 +3141,7 @@ export const VOCABULARY = [
     "hebrew": "להעשיר",
     "example": "Enrich the soil.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 394,
@@ -3149,7 +3149,7 @@ export const VOCABULARY = [
     "hebrew": "להתרחש בעקבות",
     "example": "Chaos ensued.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 395,
@@ -3157,7 +3157,7 @@ export const VOCABULARY = [
     "hebrew": "קנאי",
     "example": "Envious of success.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 396,
@@ -3165,7 +3165,7 @@ export const VOCABULARY = [
     "hebrew": "לסמל, להוות דוגמה",
     "example": "Epitomize elegance.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 397,
@@ -3173,7 +3173,7 @@ export const VOCABULARY = [
     "hebrew": "שחיקה, סחף",
     "example": "Soil erosion.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 398,
@@ -3181,7 +3181,7 @@ export const VOCABULARY = [
     "hebrew": "שגוי",
     "example": "An erroneous assumption.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 399,
@@ -3189,7 +3189,7 @@ export const VOCABULARY = [
     "hebrew": "מעורר",
     "example": "Evocative images.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 400,
@@ -3197,7 +3197,7 @@ export const VOCABULARY = [
     "hebrew": "גולה",
     "example": "American expatriates.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 401,
@@ -3205,7 +3205,7 @@ export const VOCABULARY = [
     "hebrew": "סחיטה",
     "example": "Accused of extortion.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 402,
@@ -3213,7 +3213,7 @@ export const VOCABULARY = [
     "hebrew": "להקיש, להסיק",
     "example": "Extrapolate from data.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 403,
@@ -3221,7 +3221,7 @@ export const VOCABULARY = [
     "hebrew": "שוליים",
     "example": "On the fringes.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 404,
@@ -3229,7 +3229,7 @@ export const VOCABULARY = [
     "hebrew": "חסכן",
     "example": "A frugal lifestyle.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 405,
@@ -3237,7 +3237,7 @@ export const VOCABULARY = [
     "hebrew": "בראשית, מקור",
     "example": "The genesis of an idea.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 406,
@@ -3245,7 +3245,7 @@ export const VOCABULARY = [
     "hebrew": "ענווה",
     "example": "Show humility.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 407,
@@ -3253,7 +3253,7 @@ export const VOCABULARY = [
     "hebrew": "הפרה",
     "example": "Traffic infraction.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 408,
@@ -3261,7 +3261,7 @@ export const VOCABULARY = [
     "hebrew": "להקנות",
     "example": "Instill values.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 409,
@@ -3269,7 +3269,7 @@ export const VOCABULARY = [
     "hebrew": "מרד",
     "example": "Armed insurrection.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 410,
@@ -3277,7 +3277,7 @@ export const VOCABULARY = [
     "hebrew": "פולשני",
     "example": "Intrusive questions.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 411,
@@ -3285,7 +3285,7 @@ export const VOCABULARY = [
     "hebrew": "משונן",
     "example": "Jagged edges.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 412,
@@ -3293,7 +3293,7 @@ export const VOCABULARY = [
     "hebrew": "מצער",
     "example": "A lamentable situation.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 413,
@@ -3301,7 +3301,7 @@ export const VOCABULARY = [
     "hebrew": "גפה; ענף",
     "example": "Go out on a limb.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 414,
@@ -3309,7 +3309,7 @@ export const VOCABULARY = [
     "hebrew": "גמיש",
     "example": "Limber up before exercise.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 415,
@@ -3317,7 +3317,7 @@ export const VOCABULARY = [
     "hebrew": "שושלת",
     "example": "Royal lineage.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 416,
@@ -3325,7 +3325,7 @@ export const VOCABULARY = [
     "hebrew": "להתמהמה",
     "example": "Linger over coffee.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 417,
@@ -3333,7 +3333,7 @@ export const VOCABULARY = [
     "hebrew": "בקתה; להגיש",
     "example": "Lodge a complaint.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 418,
@@ -3341,7 +3341,7 @@ export const VOCABULARY = [
     "hebrew": "בול עץ; יומן",
     "example": "Ship's log.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 419,
@@ -3349,7 +3349,7 @@ export const VOCABULARY = [
     "hebrew": "עץ לבניה; ללכת בכבדות",
     "example": "Lumber industry.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 420,
@@ -3357,7 +3357,7 @@ export const VOCABULARY = [
     "hebrew": "שובבות",
     "example": "Get into mischief.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 421,
@@ -3365,7 +3365,7 @@ export const VOCABULARY = [
     "hebrew": "סיפור, קריינות",
     "example": "First-person narration.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 422,
@@ -3373,7 +3373,7 @@ export const VOCABULARY = [
     "hebrew": "סליחה, חנינה",
     "example": "Beg your pardon.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 423,
@@ -3381,7 +3381,7 @@ export const VOCABULARY = [
     "hebrew": "לסלוח",
     "example": "Pardon the interruption.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 424,
@@ -3389,7 +3389,7 @@ export const VOCABULARY = [
     "hebrew": "קטנוני; פעוט",
     "example": "Petty crime; petty cash.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 425,
@@ -3397,7 +3397,7 @@ export const VOCABULARY = [
     "hebrew": "להתחנן; לטעון",
     "example": "Plead guilty.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 426,
@@ -3405,7 +3405,7 @@ export const VOCABULARY = [
     "hebrew": "התחייבות",
     "example": "Make a pledge.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 427,
@@ -3413,7 +3413,7 @@ export const VOCABULARY = [
     "hebrew": "מרגש, צורב",
     "example": "A poignant moment.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 428,
@@ -3421,7 +3421,7 @@ export const VOCABULARY = [
     "hebrew": "בעיקר",
     "example": "Predominantly rural.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "adv"
   },
   {
     "id": 429,
@@ -3429,7 +3429,7 @@ export const VOCABULARY = [
     "hebrew": "פתגם",
     "example": "A wise proverb.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 430,
@@ -3437,7 +3437,7 @@ export const VOCABULARY = [
     "hebrew": "לכבות (צמא)",
     "example": "Quench your thirst.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 431,
@@ -3445,7 +3445,7 @@ export const VOCABULARY = [
     "hebrew": "מקבל",
     "example": "The recipient of an award.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 432,
@@ -3453,7 +3453,7 @@ export const VOCABULARY = [
     "hebrew": "להשיב, לגמול",
     "example": "Reciprocate kindness.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 433,
@@ -3461,7 +3461,7 @@ export const VOCABULARY = [
     "hebrew": "הודח",
     "example": "Relegated to second place.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 434,
@@ -3469,7 +3469,7 @@ export const VOCABULARY = [
     "hebrew": "מרד",
     "example": "Lead a revolt.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 435,
@@ -3477,7 +3477,7 @@ export const VOCABULARY = [
     "hebrew": "ישועה",
     "example": "Seek salvation.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 436,
@@ -3485,7 +3485,7 @@ export const VOCABULARY = [
     "hebrew": "בוז",
     "example": "Treat with scorn.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 437,
@@ -3493,7 +3493,7 @@ export const VOCABULARY = [
     "hebrew": "לבחון בקפידה",
     "example": "Scrutinize the evidence.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 438,
@@ -3501,7 +3501,7 @@ export const VOCABULARY = [
     "hebrew": "תרופת הרגעה",
     "example": "Prescribe a sedative.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 439,
@@ -3509,7 +3509,7 @@ export const VOCABULARY = [
     "hebrew": "הפרדה",
     "example": "Racial segregation.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 440,
@@ -3517,7 +3517,7 @@ export const VOCABULARY = [
     "hebrew": "תכריך; לעטוף",
     "example": "Shrouded in mystery.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 441,
@@ -3525,7 +3525,7 @@ export const VOCABULARY = [
     "hebrew": "כנות",
     "example": "Speak with sincerity.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 442,
@@ -3533,7 +3533,7 @@ export const VOCABULARY = [
     "hebrew": "פולט",
     "example": "Spewing smoke.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 443,
@@ -3541,7 +3541,7 @@ export const VOCABULARY = [
     "hebrew": "להכתים",
     "example": "Taint a reputation.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 444,
@@ -3549,7 +3549,7 @@ export const VOCABULARY = [
     "hebrew": "מזוהם, פגום",
     "example": "Tainted evidence.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 445,
@@ -3557,7 +3557,7 @@ export const VOCABULARY = [
     "hebrew": "מאולף; לאלף",
     "example": "A tame animal.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 446,
@@ -3565,7 +3565,7 @@ export const VOCABULARY = [
     "hebrew": "זמני, ניסיוני",
     "example": "A tentative plan.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 447,
@@ -3573,7 +3573,7 @@ export const VOCABULARY = [
     "hebrew": "בלתי נסלח",
     "example": "An unpardonable offense.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 448,
@@ -3581,7 +3581,7 @@ export const VOCABULARY = [
     "hebrew": "תהפוכה",
     "example": "Political upheaval.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 449,
@@ -3589,7 +3589,7 @@ export const VOCABULARY = [
     "hebrew": "מהומה",
     "example": "Cause an uproar.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 450,
@@ -3597,7 +3597,7 @@ export const VOCABULARY = [
     "hebrew": "מוחלט",
     "example": "Utter nonsense.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 451,
@@ -3605,7 +3605,7 @@ export const VOCABULARY = [
     "hebrew": "להוציא מהפה",
     "example": "Utter a word.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 452,
@@ -3613,7 +3613,7 @@ export const VOCABULARY = [
     "hebrew": "עגלה",
     "example": "A wagon train.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 453,
@@ -3621,7 +3621,7 @@ export const VOCABULARY = [
     "hebrew": "עשוי; גרם",
     "example": "Wrought iron; wrought havoc.",
     "category": "Emotions & Character",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 454,
@@ -3629,7 +3629,7 @@ export const VOCABULARY = [
     "hebrew": "חשבונייה",
     "example": "Calculate with an abacus.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 455,
@@ -3637,7 +3637,7 @@ export const VOCABULARY = [
     "hebrew": "לקשט",
     "example": "Adorn with flowers.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 456,
@@ -3645,7 +3645,7 @@ export const VOCABULARY = [
     "hebrew": "אצות",
     "example": "Green algae.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 457,
@@ -3653,7 +3653,7 @@ export const VOCABULARY = [
     "hebrew": "חרוז",
     "example": "String of beads.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 458,
@@ -3661,7 +3661,7 @@ export const VOCABULARY = [
     "hebrew": "מקור",
     "example": "A bird's beak.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 459,
@@ -3669,7 +3669,7 @@ export const VOCABULARY = [
     "hebrew": "קודר, עגום",
     "example": "A bleak future.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 460,
@@ -3677,7 +3677,7 @@ export const VOCABULARY = [
     "hebrew": "זחל",
     "example": "A fuzzy caterpillar.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 461,
@@ -3685,7 +3685,7 @@ export const VOCABULARY = [
     "hebrew": "מנצח; מוליך",
     "example": "Orchestra conductor.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 462,
@@ -3693,7 +3693,7 @@ export const VOCABULARY = [
     "hebrew": "כובש ספרדי",
     "example": "Spanish conquistadors.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 463,
@@ -3701,7 +3701,7 @@ export const VOCABULARY = [
     "hebrew": "עיצור",
     "example": "Consonant sounds.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 464,
@@ -3709,7 +3709,7 @@ export const VOCABULARY = [
     "hebrew": "לול",
     "example": "Chicken coop.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 465,
@@ -3717,7 +3717,7 @@ export const VOCABULARY = [
     "hebrew": "פומה",
     "example": "A mountain cougar.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 466,
@@ -3725,7 +3725,7 @@ export const VOCABULARY = [
     "hebrew": "להגיע לשיא",
     "example": "Culminate in victory.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 467,
@@ -3733,7 +3733,7 @@ export const VOCABULARY = [
     "hebrew": "צאר",
     "example": "The Russian czar.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 468,
@@ -3741,7 +3741,7 @@ export const VOCABULARY = [
     "hebrew": "מכנה",
     "example": "Common denominator.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 469,
@@ -3749,7 +3749,7 @@ export const VOCABULARY = [
     "hebrew": "יומי",
     "example": "Diurnal cycle.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 470,
@@ -3757,7 +3757,7 @@ export const VOCABULARY = [
     "hebrew": "שובך",
     "example": "A wooden dovecote.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 471,
@@ -3765,7 +3765,7 @@ export const VOCABULARY = [
     "hebrew": "להתמעט",
     "example": "Resources dwindled.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 472,
@@ -3773,7 +3773,7 @@ export const VOCABULARY = [
     "hebrew": "פולקלור, מסורת עממית",
     "example": "Local folklore.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 473,
@@ -3781,7 +3781,7 @@ export const VOCABULARY = [
     "hebrew": "לרהט; לספק",
     "example": "Furnish an apartment.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 474,
@@ -3789,7 +3789,7 @@ export const VOCABULARY = [
     "hebrew": "קרחון",
     "example": "A melting glacier.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 475,
@@ -3797,7 +3797,7 @@ export const VOCABULARY = [
     "hebrew": "חול גס; נחישות",
     "example": "True grit.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 476,
@@ -3805,7 +3805,7 @@ export const VOCABULARY = [
     "hebrew": "גיליוטינה",
     "example": "The French guillotine.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 477,
@@ -3813,7 +3813,7 @@ export const VOCABULARY = [
     "hebrew": "פונדק",
     "example": "A country inn.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 478,
@@ -3821,7 +3821,7 @@ export const VOCABULARY = [
     "hebrew": "לשכר",
     "example": "Intoxicated by success.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 479,
@@ -3829,7 +3829,7 @@ export const VOCABULARY = [
     "hebrew": "חסר חוליות",
     "example": "Invertebrate animals.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 480,
@@ -3837,7 +3837,7 @@ export const VOCABULARY = [
     "hebrew": "שנהב",
     "example": "Ivory trade.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 481,
@@ -3845,7 +3845,7 @@ export const VOCABULARY = [
     "hebrew": "שוער, איש אחזקה",
     "example": "The school janitor.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 482,
@@ -3853,7 +3853,7 @@ export const VOCABULARY = [
     "hebrew": "קומקום",
     "example": "Put the kettle on.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 483,
@@ -3861,7 +3861,7 @@ export const VOCABULARY = [
     "hebrew": "לכבס; להלבין כסף",
     "example": "Launder money.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 484,
@@ -3869,7 +3869,7 @@ export const VOCABULARY = [
     "hebrew": "סלחנות",
     "example": "Show leniency.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 485,
@@ -3877,7 +3877,7 @@ export const VOCABULARY = [
     "hebrew": "לתעב",
     "example": "Loathe dishonesty.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 486,
@@ -3885,7 +3885,7 @@ export const VOCABULARY = [
     "hebrew": "חיית כיס",
     "example": "Kangaroos are marsupials.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 487,
@@ -3893,7 +3893,7 @@ export const VOCABULARY = [
     "hebrew": "בחילה",
     "example": "Feel nausea.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 488,
@@ -3901,7 +3901,7 @@ export const VOCABULARY = [
     "hebrew": "מונה",
     "example": "The numerator in a fraction.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 489,
@@ -3909,7 +3909,7 @@ export const VOCABULARY = [
     "hebrew": "אודה (שיר הלל)",
     "example": "An ode to joy.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 490,
@@ -3917,7 +3917,7 @@ export const VOCABULARY = [
     "hebrew": "תזמורת",
     "example": "Symphony orchestra.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 491,
@@ -3925,7 +3925,7 @@ export const VOCABULARY = [
     "hebrew": "לתזמר, לארגן",
     "example": "Orchestrate a campaign.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 492,
@@ -3933,7 +3933,7 @@ export const VOCABULARY = [
     "hebrew": "שיפוץ יסודי",
     "example": "A complete overhaul.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 493,
@@ -3941,7 +3941,7 @@ export const VOCABULARY = [
     "hebrew": "פתולוגיה, תורת המחלות",
     "example": "Study pathology.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 494,
@@ -3949,7 +3949,7 @@ export const VOCABULARY = [
     "hebrew": "מוט; דג פרך",
     "example": "A bird's perch.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 495,
@@ -3957,7 +3957,7 @@ export const VOCABULARY = [
     "hebrew": "לשבת על",
     "example": "Perch on a branch.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 496,
@@ -3965,7 +3965,7 @@ export const VOCABULARY = [
     "hebrew": "לדקור; דקירה",
     "example": "Prick your finger.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 497,
@@ -3973,7 +3973,7 @@ export const VOCABULARY = [
     "hebrew": "מיומנות",
     "example": "Military prowess.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 498,
@@ -3981,7 +3981,7 @@ export const VOCABULARY = [
     "hebrew": "רגזן",
     "example": "A quarrelsome neighbor.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 499,
@@ -3989,7 +3989,7 @@ export const VOCABULARY = [
     "hebrew": "חזרה",
     "example": "Dress rehearsal.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 500,
@@ -3997,7 +3997,7 @@ export const VOCABULARY = [
     "hebrew": "לחזור",
     "example": "Rehearse the play.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 501,
@@ -4005,7 +4005,7 @@ export const VOCABULARY = [
     "hebrew": "גלגול נשמות",
     "example": "Believe in reincarnation.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 502,
@@ -4013,7 +4013,7 @@ export const VOCABULARY = [
     "hebrew": "חלוק, גלימה",
     "example": "A silk robe.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 503,
@@ -4021,7 +4021,7 @@ export const VOCABULARY = [
     "hebrew": "סרקופג (ארון קבורה)",
     "example": "An ancient sarcophagus.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 504,
@@ -4029,7 +4029,7 @@ export const VOCABULARY = [
     "hebrew": "רגשות",
     "example": "Express sentiments.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 505,
@@ -4037,7 +4037,7 @@ export const VOCABULARY = [
     "hebrew": "שלבקת חוגרת",
     "example": "Suffer from shingles.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 506,
@@ -4045,7 +4045,7 @@ export const VOCABULARY = [
     "hebrew": "ערפיח",
     "example": "Heavy smog.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 507,
@@ -4053,7 +4053,7 @@ export const VOCABULARY = [
     "hebrew": "לנהום; סבך",
     "example": "Traffic snarl.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 508,
@@ -4061,7 +4061,7 @@ export const VOCABULARY = [
     "hebrew": "כתם, נקודה",
     "example": "A tiny speck.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 509,
@@ -4069,7 +4069,7 @@ export const VOCABULARY = [
     "hebrew": "נאמן, איתן",
     "example": "A staunch supporter.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 510,
@@ -4077,7 +4077,7 @@ export const VOCABULARY = [
     "hebrew": "לעצור (דימום)",
     "example": "Staunch the bleeding.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 511,
@@ -4085,7 +4085,7 @@ export const VOCABULARY = [
     "hebrew": "חיסור",
     "example": "Basic subtraction.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 512,
@@ -4093,7 +4093,7 @@ export const VOCABULARY = [
     "hebrew": "נוכל",
     "example": "A notorious swindler.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 513,
@@ -4101,7 +4101,7 @@ export const VOCABULARY = [
     "hebrew": "הברה",
     "example": "A two-syllable word.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 514,
@@ -4109,7 +4109,7 @@ export const VOCABULARY = [
     "hebrew": "אצבעון",
     "example": "Sew with a thimble.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 515,
@@ -4117,7 +4117,7 @@ export const VOCABULARY = [
     "hebrew": "לא ביקורתי",
     "example": "Uncritical acceptance.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 516,
@@ -4125,7 +4125,7 @@ export const VOCABULARY = [
     "hebrew": "חינוך, גידול",
     "example": "A strict upbringing.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 517,
@@ -4133,7 +4133,7 @@ export const VOCABULARY = [
     "hebrew": "ריפוד",
     "example": "Leather upholstery.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 518,
@@ -4141,7 +4141,7 @@ export const VOCABULARY = [
     "hebrew": "סדרן; להוביל",
     "example": "Usher in a new era.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 519,
@@ -4149,7 +4149,7 @@ export const VOCABULARY = [
     "hebrew": "כילוי, מיצוי",
     "example": "Using up resources.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "phrase"
   },
   {
     "id": 520,
@@ -4157,7 +4157,7 @@ export const VOCABULARY = [
     "hebrew": "בעל חוליות",
     "example": "Vertebrate animals.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "verb"
   },
   {
     "id": 521,
@@ -4165,7 +4165,7 @@ export const VOCABULARY = [
     "hebrew": "רועש, צווחני",
     "example": "Vociferous protests.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "adj"
   },
   {
     "id": 522,
@@ -4173,7 +4173,7 @@ export const VOCABULARY = [
     "hebrew": "תנועה (אות)",
     "example": "Vowel sounds.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   },
   {
     "id": 523,
@@ -4181,6 +4181,6 @@ export const VOCABULARY = [
     "hebrew": "יבלת",
     "example": "A skin wart.",
     "category": "Science & Nature",
-    "pos": "general"
+    "pos": "noun"
   }
 ];

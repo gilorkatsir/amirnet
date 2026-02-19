@@ -1,8 +1,9 @@
 import React from 'react';
 import { useLocation } from 'wouter';
-import Icon from '../components/Icon';
+import { motion } from 'framer-motion';
+import { ArrowRight, LineChart, Layers, GraduationCap, Trophy, CheckCircle, ClipboardList, TrendingUp, HelpCircle, Trash2 } from 'lucide-react';
 import ProgressChart from '../components/ProgressChart';
-import { C } from '../styles/theme';
+import { C, GLASS, RADIUS, SURFACE, HEADING } from '../styles/theme';
 import { getLastNDaysAccuracy, getWeeklyAccuracy } from '../utils/dailyStats';
 import { useStatsContext } from '../contexts/StatsContext';
 import useDerivedStats from '../hooks/useStats';
@@ -27,44 +28,40 @@ const Stats = () => {
     const englishTotal = Object.values(englishStats).reduce((acc, s) => acc + (s.attempts || 0), 0);
     const englishAccuracy = englishTotal > 0 ? Math.round((englishCorrect / englishTotal) * 100) : 0;
 
-    const StatCard = ({ icon, title, value, subtitle, color, progress }) => (
-        <div style={{
-            background: C.surface,
-            border: `1px solid ${C.border}`,
-            borderRadius: 12,
-            padding: 16,
-            marginBottom: 12
-        }}>
+    const StatCard = ({ icon: StatIcon, title, value, subtitle, color, progress, index = 0 }) => (
+        <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: index * 0.08, ease: 'easeOut' }}
+            style={{
+                ...SURFACE.inset,
+                padding: 16,
+                marginBottom: 12
+            }}
+        >
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
-                <div style={{
-                    width: 40,
-                    height: 40,
-                    borderRadius: 10,
-                    background: `${color}20`,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                }}>
-                    <Icon name={icon} size={20} style={{ color }} />
-                </div>
+                <StatIcon size={18} color={color} style={{ flexShrink: 0 }} />
                 <div style={{ flex: 1 }}>
-                    <h3 style={{ margin: 0, fontSize: 14, fontWeight: 600, color: 'white' }}>{title}</h3>
+                    <h3 style={{ margin: 0, fontSize: 14, fontWeight: 600, color: C.text }}>{title}</h3>
                     <p style={{ margin: '2px 0 0', fontSize: 12, color: C.muted }}>{subtitle}</p>
                 </div>
                 <span style={{ fontSize: 24, fontWeight: 700, color }}>{value}</span>
             </div>
             {progress !== undefined && (
                 <div style={{ height: 6, background: C.border, borderRadius: 3, overflow: 'hidden' }}>
-                    <div style={{
-                        height: '100%',
-                        width: `${progress}%`,
-                        background: color,
-                        borderRadius: 3,
-                        transition: 'width 0.3s ease'
-                    }} />
+                    <motion.div
+                        initial={{ width: 0 }}
+                        animate={{ width: `${progress}%` }}
+                        transition={{ duration: 0.8, ease: 'easeOut' }}
+                        style={{
+                            height: '100%',
+                            background: color,
+                            borderRadius: 3
+                        }}
+                    />
                 </div>
             )}
-        </div>
+        </motion.div>
     );
 
     return (
@@ -74,10 +71,8 @@ const Stats = () => {
                 position: 'sticky',
                 top: 0,
                 zIndex: 10,
-                background: 'rgba(18,18,18,0.95)',
-                backdropFilter: 'blur(12px)',
+                ...GLASS.header,
                 padding: '16px 20px',
-                borderBottom: `1px solid ${C.border}`,
                 display: 'flex',
                 alignItems: 'center',
                 gap: 16
@@ -91,9 +86,9 @@ const Stats = () => {
                         padding: 8
                     }}
                 >
-                    <Icon name="arrow_back" size={24} style={{ color: C.muted }} />
+                    <ArrowRight size={24} style={{ color: C.muted }} />
                 </button>
-                <h1 style={{ fontSize: 18, fontWeight: 700, margin: 0, color: 'white' }}>
+                <h1 style={{ fontSize: 18, fontWeight: 700, margin: 0, color: C.text }}>
                     סטטיסטיקות
                 </h1>
             </header>
@@ -101,10 +96,15 @@ const Stats = () => {
             <main style={{ padding: 20 }}>
                 {/* Progress Charts */}
                 <section style={{ marginBottom: 32 }}>
-                    <h2 style={{ fontSize: 14, fontWeight: 600, color: C.muted, marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8 }}>
-                        <Icon name="show_chart" size={16} />
+                    <motion.h2
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.4 }}
+                        style={{ fontSize: 14, fontWeight: 600, color: C.muted, marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8 }}
+                    >
+                        <LineChart size={16} />
                         מעקב התקדמות
-                    </h2>
+                    </motion.h2>
 
                     <ProgressChart data={dailyData} type="daily" />
                     <ProgressChart data={weeklyData} type="weekly" />
@@ -112,66 +112,82 @@ const Stats = () => {
 
                 {/* Vocabulary Section */}
                 <section style={{ marginBottom: 32 }}>
-                    <h2 style={{ fontSize: 14, fontWeight: 600, color: C.muted, marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8 }}>
-                        <Icon name="style" size={16} />
+                    <motion.h2
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.4, delay: 0.1 }}
+                        style={{ fontSize: 14, fontWeight: 600, color: C.muted, marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8 }}
+                    >
+                        <Layers size={16} />
                         אוצר מילים
-                    </h2>
+                    </motion.h2>
 
                     <StatCard
-                        icon="school"
+                        icon={GraduationCap}
                         title="מילים שנלמדו"
                         value={vocabLearned}
                         subtitle={`מתוך ${totalWords} מילים`}
                         color={C.pink}
                         progress={totalWords > 0 ? (vocabLearned / totalWords) * 100 : 0}
+                        index={0}
                     />
 
                     <StatCard
-                        icon="emoji_events"
+                        icon={Trophy}
                         title="מילים שנשלטו"
                         value={vocabMastered}
                         subtitle="רמה 4 ומעלה"
                         color={C.orange}
                         progress={vocabLearned > 0 ? (vocabMastered / vocabLearned) * 100 : 0}
+                        index={1}
                     />
 
                     <StatCard
-                        icon="check_circle"
+                        icon={CheckCircle}
                         title="דיוק"
                         value={`${vocabAccuracy}%`}
                         subtitle={`${vocabCorrect} נכון מתוך ${vocabTotal} ניסיונות`}
                         color={C.green}
+                        index={2}
                     />
                 </section>
 
                 {/* English Questions Section */}
                 <section style={{ marginBottom: 32 }}>
-                    <h2 style={{ fontSize: 14, fontWeight: 600, color: C.muted, marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8 }}>
-                        <Icon name="quiz" size={16} />
+                    <motion.h2
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.4, delay: 0.2 }}
+                        style={{ fontSize: 14, fontWeight: 600, color: C.muted, marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8 }}
+                    >
+                        <HelpCircle size={16} />
                         שאלות באנגלית
-                    </h2>
+                    </motion.h2>
 
                     <StatCard
-                        icon="assignment"
+                        icon={ClipboardList}
                         title="שאלות שנענו"
                         value={englishAnswered}
                         subtitle={`מתוך ${totalQuestions} שאלות`}
                         color={C.purple}
                         progress={totalQuestions > 0 ? (englishAnswered / totalQuestions) * 100 : 0}
+                        index={3}
                     />
 
                     <StatCard
-                        icon="trending_up"
+                        icon={TrendingUp}
                         title="דיוק"
                         value={`${englishAccuracy}%`}
                         subtitle={`${englishCorrect} נכון מתוך ${englishTotal} ניסיונות`}
                         color={C.green}
+                        index={4}
                     />
                 </section>
 
                 {/* Reset Data */}
                 <section>
-                    <button
+                    <motion.button
+                        whileTap={{ scale: 0.96 }}
                         onClick={() => {
                             if (window.confirm('האם אתה בטוח שברצונך לאפס את כל הנתונים?')) {
                                 localStorage.removeItem('wm_stats');
@@ -184,7 +200,7 @@ const Stats = () => {
                             padding: '14px 20px',
                             background: 'rgba(239, 68, 68, 0.1)',
                             border: `1px solid ${C.red}50`,
-                            borderRadius: 12,
+                            borderRadius: RADIUS.md,
                             color: C.red,
                             fontSize: 14,
                             fontWeight: 600,
@@ -195,9 +211,9 @@ const Stats = () => {
                             gap: 8
                         }}
                     >
-                        <Icon name="delete" size={18} />
+                        <Trash2 size={18} />
                         איפוס כל הנתונים
-                    </button>
+                    </motion.button>
                 </section>
             </main>
         </div>

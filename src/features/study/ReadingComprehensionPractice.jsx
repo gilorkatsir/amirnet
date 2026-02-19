@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'wouter';
-import Icon from '../../components/Icon';
+import { ArrowLeft, BookOpen, X, Check, ArrowRight } from 'lucide-react';
 import { C } from '../../styles/theme';
 import rcDatabase from '../../data/reading_comprehension_database.json';
 import { playCorrect, playIncorrect, playClick } from '../../utils/sounds';
@@ -110,7 +110,7 @@ const ReadingComprehensionPractice = ({ onComplete }) => {
                         width: 40, height: 40, borderRadius: '50%', background: 'transparent',
                         border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center'
                     }}>
-                        <Icon name="arrow_forward" size={24} style={{ color: 'white' }} />
+                        <ArrowLeft size={24} style={{ color: 'white' }} />
                     </button>
                     <div>
                         <h2 style={{ fontSize: 18, fontWeight: 700, margin: 0, color: 'white' }}>הבנת הנקרא</h2>
@@ -145,7 +145,7 @@ const ReadingComprehensionPractice = ({ onComplete }) => {
                                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                                             color: accuracy !== null ? C.purple : C.muted
                                         }}>
-                                            <Icon name="menu_book" size={18} />
+                                            <BookOpen size={18} />
                                         </div>
                                         <div>
                                             <h3 style={{ margin: 0, fontSize: 14, fontWeight: 600, color: 'white' }}>
@@ -194,7 +194,7 @@ const ReadingComprehensionPractice = ({ onComplete }) => {
                     width: 36, height: 36, borderRadius: '50%', background: 'transparent',
                     border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center'
                 }}>
-                    <Icon name="close" size={22} style={{ color: '#d1d5db' }} />
+                    <X size={22} style={{ color: '#d1d5db' }} />
                 </button>
                 <div style={{ textAlign: 'center' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
@@ -224,7 +224,7 @@ const ReadingComprehensionPractice = ({ onComplete }) => {
                     maxHeight: '40vh', overflowY: 'auto'
                 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10 }}>
-                        <Icon name="menu_book" size={14} style={{ color: C.purple }} />
+                        <BookOpen size={14} style={{ color: C.purple }} />
                         <span style={{ fontSize: 11, fontWeight: 700, color: C.purple, textTransform: 'uppercase', letterSpacing: 1 }}>
                             Passage (tap a word to save)
                         </span>
@@ -288,7 +288,7 @@ const ReadingComprehensionPractice = ({ onComplete }) => {
                                 }}>
                                     {isSelected && (
                                         answered ? (
-                                            <Icon name={isCorrect ? 'check' : 'close'} size={14} style={{ color: 'white' }} />
+                                            isCorrect ? <Check size={14} style={{ color: 'white' }} /> : <X size={14} style={{ color: 'white' }} />
                                         ) : (
                                             <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'white' }} />
                                         )
@@ -318,8 +318,8 @@ const ReadingComprehensionPractice = ({ onComplete }) => {
                 >
                     {answered ? (
                         questionIndex < selectedPassage.questions.length - 1
-                            ? <>שאלה הבאה <Icon name="arrow_back" size={20} /></>
-                            : <>סיום <Icon name="check" size={20} /></>
+                            ? <>שאלה הבאה <ArrowRight size={20} /></>
+                            : <>סיום <Check size={20} /></>
                     ) : 'בחר תשובה'}
                 </button>
             </div>

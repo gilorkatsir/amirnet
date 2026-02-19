@@ -16,6 +16,7 @@ import { useStatsContext } from './contexts/StatsContext';
 import { useUserWords } from './contexts/UserWordsContext';
 import LoadingSpinner from './components/LoadingSpinner';
 import { generateQuestions } from './services/aiQuestionService';
+import { Analytics } from '@vercel/analytics/react';
 
 // Lazy-loaded views (not needed on initial render)
 const StudySession = lazy(() => import('./features/study/StudySession'));
@@ -31,6 +32,7 @@ const ReadingComprehensionPractice = lazy(() => import('./features/study/Reading
 const VocabCategorySelector = lazy(() => import('./features/VocabCategorySelector'));
 const VocalSectionSelector = lazy(() => import('./features/VocalSectionSelector'));
 const VocalExamSession = lazy(() => import('./features/exam/VocalExamSession'));
+const VocabHub = lazy(() => import('./features/VocabHub'));
 
 // Convert saved session view names to URL paths
 const viewToPath = (view) => {
@@ -394,12 +396,16 @@ const App = () => {
             )}
           </Route>
 
+          <Route path="/vocab-hub">
+            <VocabHub
+              onStartFailedVocab={startFailedVocabReview}
+              onStartAiPractice={startAiPractice}
+            />
+          </Route>
+
           <Route path="/">
             <Home
               onStart={startSession}
-              onStartFailedVocab={startFailedVocabReview}
-              onStartFailedEnglish={startFailedEnglishReview}
-              onStartAiPractice={startAiPractice}
             />
           </Route>
         </Switch>
@@ -419,6 +425,7 @@ const App = () => {
           </p>
         </div>
       )}
+      <Analytics />
     </div>
   );
 };

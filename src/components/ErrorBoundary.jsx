@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { C } from '../styles/theme';
-import Icon from './Icon';
+import { AlertCircle, RotateCcw } from 'lucide-react';
 
 class ErrorBoundary extends React.Component {
     constructor(props) {
@@ -49,7 +49,7 @@ class ErrorBoundary extends React.Component {
                         justifyContent: 'center',
                         marginBottom: 24
                     }}>
-                        <Icon name="error" size={40} style={{ color: '#ef4444' }} />
+                        <AlertCircle size={40} style={{ color: '#ef4444' }} />
                     </div>
 
                     <h1 style={{ fontSize: 24, fontWeight: 700, color: 'white', margin: '0 0 12px' }}>
@@ -77,7 +77,7 @@ class ErrorBoundary extends React.Component {
                                 gap: 8
                             }}
                         >
-                            <Icon name="refresh" size={18} />
+                            <RotateCcw size={18} />
                             רענן דף
                         </button>
 

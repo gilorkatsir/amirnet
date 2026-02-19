@@ -3,8 +3,22 @@
 
 import { getElevenLabsKey } from './apiKeys';
 
-// "Daniel" - deep British male, clear & authoritative, ideal for exam questions
-const DEFAULT_VOICE_ID = 'onwK4e9ZLuTAKqWW03F9';
+// Diverse voices for vocal exam sections — different accents and genders
+// Static audio uses Edge TTS (free). API fallback uses ElevenLabs (paid).
+export const VOICES = {
+  daniel:    { id: 'onwK4e9ZLuTAKqWW03F9', edge: 'en-GB-RyanNeural',     label: 'Daniel',    accent: 'British',       gender: 'male' },
+  rachel:    { id: '21m00Tcm4TlvDq8ikWAM', edge: 'en-US-JennyNeural',    label: 'Rachel',    accent: 'American',      gender: 'female' },
+  charlie:   { id: 'IKne3meq5aSn9XLyUdCD', edge: 'en-AU-WilliamMultilingualNeural', label: 'Charlie', accent: 'Australian', gender: 'male' },
+  fin:       { id: 'D38z5RcWu1voky8WS1ja', edge: 'en-IE-ConnorNeural',   label: 'Fin',       accent: 'Irish',         gender: 'male' },
+  charlotte: { id: 'XB0fDUnXU5powFXDhCwa', edge: 'en-GB-SoniaNeural',    label: 'Charlotte', accent: 'British',       gender: 'female' },
+  george:    { id: 'JBFqnCBsd6RMkjVDRZzb', edge: 'en-GB-ThomasNeural',   label: 'George',    accent: 'British',       gender: 'male' },
+  aria:      { id: '9BWtsMINqrJLrRacOk9x', edge: 'en-US-AriaNeural',     label: 'Aria',      accent: 'American',      gender: 'female' },
+  callum:    { id: 'N2lVS1w4EtoT3dr4eOWO', edge: 'en-US-AndrewNeural',   label: 'Callum',    accent: 'American',      gender: 'male' },
+  lily:      { id: 'pFZP5JQG7iQjIQuC4Bku', edge: 'en-GB-LibbyNeural',    label: 'Lily',      accent: 'British',       gender: 'female' },
+  drew:      { id: '29vD33N1CtxCmqQRPOHJ', edge: 'en-US-GuyNeural',      label: 'Drew',      accent: 'American',      gender: 'male' },
+};
+
+const DEFAULT_VOICE_ID = VOICES.daniel.id;
 // Turbo v2 - English only, half-price credits, ~250ms latency
 const DEFAULT_MODEL = 'eleven_turbo_v2';
 const API_BASE = 'https://api.elevenlabs.io/v1';

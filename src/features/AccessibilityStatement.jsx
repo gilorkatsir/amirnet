@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'wouter';
-import Icon from '../components/Icon';
+import { ArrowRight, Mail, Phone } from 'lucide-react';
 import { C } from '../styles/theme';
 
 /**
@@ -41,7 +41,7 @@ const AccessibilityStatement = () => {
                         padding: 8
                     }}
                 >
-                    <Icon name="arrow_back" size={24} style={{ color: C.muted }} />
+                    <ArrowRight size={24} style={{ color: C.muted }} />
                 </button>
                 <h1 style={{ fontSize: 18, fontWeight: 700, margin: 0, color: 'white' }}>
                     הצהרת נגישות
@@ -100,11 +100,11 @@ const AccessibilityStatement = () => {
                         marginTop: 12
                     }}>
                         <p style={{ margin: '0 0 8px', display: 'flex', alignItems: 'center', gap: 8 }}>
-                            <Icon name="email" size={16} style={{ color: C.purple }} />
+                            <Mail size={16} style={{ color: C.purple }} />
                             <strong>אימייל:</strong> accessibility@wordmaster.app
                         </p>
                         <p style={{ margin: 0, display: 'flex', alignItems: 'center', gap: 8 }}>
-                            <Icon name="phone" size={16} style={{ color: C.green }} />
+                            <Phone size={16} style={{ color: C.green }} />
                             <strong>טלפון:</strong> 03-1234567
                         </p>
                     </div>

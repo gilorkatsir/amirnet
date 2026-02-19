@@ -1,22 +1,22 @@
 import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'wouter';
-import Icon from '../components/Icon';
-import { C } from '../styles/theme';
+import { ArrowLeft, Sparkles, LayoutGrid, Sparkle, TrendingUp, CheckCircle, Scale, Brain, FlaskConical, GraduationCap, MessageSquare, Briefcase, DollarSign, Link, Tag, ChevronLeft } from 'lucide-react';
+import { C, SURFACE } from '../styles/theme';
 import { VOCABULARY } from '../data/vocabulary';
 import { useStatsContext } from '../contexts/StatsContext';
 
 const CATEGORY_ICONS = {
-    'Crime & Justice': 'gavel',
-    'Emotions & Character': 'psychology',
-    'Science & Nature': 'science',
-    'Education & Law': 'school',
-    'Discussion & Persuasion': 'forum',
-    'Work & Society': 'work',
-    'Wealth & Status': 'paid',
-    'Connectors & Transitions': 'link',
-    'Legal & Judicial': 'balance',
-    'General Words': 'abc'
+    'Crime & Justice': Scale,
+    'Emotions & Character': Brain,
+    'Science & Nature': FlaskConical,
+    'Education & Law': GraduationCap,
+    'Discussion & Persuasion': MessageSquare,
+    'Work & Society': Briefcase,
+    'Wealth & Status': DollarSign,
+    'Connectors & Transitions': Link,
+    'Legal & Judicial': Scale,
+    'General Words': Tag
 };
 
 const CATEGORY_COLORS = {
@@ -93,10 +93,10 @@ const VocabCategorySelector = ({ onStart }) => {
     };
 
     const filterOptions = [
-        { key: 'all', label: 'הכל', icon: 'apps' },
-        { key: 'new', label: 'חדשות', icon: 'fiber_new' },
-        { key: 'learning', label: 'בלמידה', icon: 'trending_up' },
-        { key: 'mastered', label: 'נשלטו', icon: 'check_circle' }
+        { key: 'all', label: 'הכל', Icon: LayoutGrid },
+        { key: 'new', label: 'חדשות', Icon: Sparkle },
+        { key: 'learning', label: 'בלמידה', Icon: TrendingUp },
+        { key: 'mastered', label: 'נשלטו', Icon: CheckCircle }
     ];
 
     return (
@@ -110,7 +110,7 @@ const VocabCategorySelector = ({ onStart }) => {
                     width: 40, height: 40, borderRadius: '50%', background: 'transparent',
                     border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center'
                 }}>
-                    <Icon name="arrow_forward" size={24} style={{ color: 'white' }} />
+                    <ArrowLeft size={24} style={{ color: 'white' }} />
                 </button>
                 <div>
                     <h2 style={{ fontSize: 18, fontWeight: 700, margin: 0, color: 'white' }}>קטגוריות מילים</h2>
@@ -130,7 +130,7 @@ const VocabCategorySelector = ({ onStart }) => {
                         boxShadow: '0 8px 24px rgba(124,58,237,0.3)'
                     }}
                 >
-                    <Icon name="auto_awesome" size={20} />
+                    <Sparkles size={20} />
                     חזרה חכמה (20 מילים)
                 </button>
 
@@ -149,7 +149,7 @@ const VocabCategorySelector = ({ onStart }) => {
                                 display: 'flex', alignItems: 'center', gap: 6, transition: 'all 0.2s'
                             }}
                         >
-                            <Icon name={opt.icon} size={14} />
+                            <opt.Icon size={14} />
                             {opt.label}
                         </button>
                     ))}
@@ -160,7 +160,7 @@ const VocabCategorySelector = ({ onStart }) => {
                     {categories.map(cat => {
                         const filtered = getFilteredWords(cat.words);
                         const color = CATEGORY_COLORS[cat.name] || C.muted;
-                        const icon = CATEGORY_ICONS[cat.name] || 'label';
+                        const CatIcon = CATEGORY_ICONS[cat.name] || Tag;
                         const masteryPercent = cat.words.length > 0
                             ? Math.round((cat.mastered / cat.words.length) * 100) : 0;
 
@@ -171,20 +171,13 @@ const VocabCategorySelector = ({ onStart }) => {
                                 disabled={filtered.length === 0}
                                 style={{
                                     display: 'flex', alignItems: 'center', gap: 14,
-                                    padding: 16, background: C.surface,
-                                    border: `1px solid ${C.border}`, borderRadius: 12,
+                                    padding: 16, ...SURFACE.elevated,
                                     cursor: filtered.length > 0 ? 'pointer' : 'default',
                                     textAlign: 'right', transition: 'all 0.2s',
                                     opacity: filtered.length === 0 ? 0.5 : 1
                                 }}
                             >
-                                <div style={{
-                                    width: 44, height: 44, borderRadius: 10,
-                                    background: `${color}20`,
-                                    display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
-                                }}>
-                                    <Icon name={icon} size={22} style={{ color }} />
-                                </div>
+                                <CatIcon size={20} color={color} style={{ flexShrink: 0 }} />
                                 <div style={{ flex: 1 }}>
                                     <h3 style={{ margin: 0, fontSize: 14, fontWeight: 600, color: 'white' }}>{cat.name}</h3>
                                     <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 4 }}>
@@ -195,7 +188,7 @@ const VocabCategorySelector = ({ onStart }) => {
                                         <span style={{ fontSize: 11, color, fontWeight: 600 }}>{masteryPercent}%</span>
                                     </div>
                                 </div>
-                                <Icon name="chevron_left" size={20} style={{ color: C.muted }} />
+                                <ChevronLeft size={20} style={{ color: C.muted }} />
                             </button>
                         );
                     })}

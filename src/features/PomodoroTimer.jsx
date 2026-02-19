@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'wouter';
-import Icon from '../components/Icon';
+import { Settings, X, Play, Pause, RotateCcw } from 'lucide-react';
 import { C } from '../styles/theme';
 import { playTimerComplete, playBreak, playStart, playClick } from '../utils/sounds';
 
@@ -173,7 +173,7 @@ const PomodoroTimer = () => {
                         display: 'flex', alignItems: 'center', justifyContent: 'center'
                     }}
                 >
-                    <Icon name="settings" size={20} />
+                    <Settings size={20} />
                 </button>
                 <button
                     onClick={() => navigate('/')}
@@ -183,7 +183,7 @@ const PomodoroTimer = () => {
                         display: 'flex', alignItems: 'center', justifyContent: 'center'
                     }}
                 >
-                    <Icon name="close" size={24} />
+                    <X size={24} />
                 </button>
             </div>
 
@@ -258,7 +258,7 @@ const PomodoroTimer = () => {
                         boxShadow: isActive ? 'none' : `0 0 20px -5px ${MODES[mode].color}`
                     }}
                 >
-                    <Icon name={isActive ? "pause" : "play_arrow"} size={32} />
+                    {isActive ? <Pause size={32} /> : <Play size={32} />}
                 </button>
 
                 <button
@@ -272,7 +272,7 @@ const PomodoroTimer = () => {
                         display: 'flex', alignItems: 'center', justifyContent: 'center'
                     }}
                 >
-                    <Icon name="replay" size={32} />
+                    <RotateCcw size={32} />
                 </button>
             </div>
 

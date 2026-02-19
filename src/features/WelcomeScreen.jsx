@@ -1,45 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useLocation } from 'wouter';
-import Icon from '../components/Icon';
-import { C } from '../styles/theme';
+import { motion } from 'framer-motion';
+import { Rocket } from 'lucide-react';
+import { C, MOTION } from '../styles/theme';
 import { useStatsContext } from '../contexts/StatsContext';
 import useDerivedStats from '../hooks/useStats';
+import ShaderBackground from '../components/ShaderBackground';
 
 const WelcomeScreen = () => {
     const [, navigate] = useLocation();
     const { stats, englishStats, totalWords, totalQuestions } = useStatsContext();
-    const [showContent, setShowContent] = useState(false);
-    const [animationPhase, setAnimationPhase] = useState(0);
-
-    // Animate in on mount
-    useEffect(() => {
-        setTimeout(() => setShowContent(true), 100);
-        setTimeout(() => setAnimationPhase(1), 400);
-        setTimeout(() => setAnimationPhase(2), 800);
-        setTimeout(() => setAnimationPhase(3), 1200);
-    }, []);
-
-    // Get time-based greeting
-    const getGreeting = () => {
-        const hour = new Date().getHours();
-        if (hour >= 5 && hour < 12) return { text: 'בוקר טוב', emoji: '☀️' };
-        if (hour >= 12 && hour < 17) return { text: 'צהריים טובים', emoji: '🌤️' };
-        if (hour >= 17 && hour < 21) return { text: 'ערב טוב', emoji: '🌅' };
-        return { text: 'לילה טוב', emoji: '🌙' };
-    };
-
-    // Calculate stats
     const { learnedCount, totalAttempts, accuracy } = useDerivedStats(stats, totalWords);
     const englishAnswered = Object.keys(englishStats).length;
+    const progress = Math.round(((learnedCount / totalWords) + (englishAnswered / totalQuestions)) / 2 * 100);
 
-    // Get last login from localStorage
+    const getGreeting = () => {
+        const hour = new Date().getHours();
+        if (hour >= 5 && hour < 12) return 'בוקר טוב';
+        if (hour >= 12 && hour < 17) return 'צהריים טובים';
+        if (hour >= 17 && hour < 21) return 'ערב טוב';
+        return 'לילה טוב';
+    };
+
     const getLastLogin = () => {
         try {
             const last = localStorage.getItem('wm_last_login');
             if (last) {
-                const date = new Date(parseInt(last));
-                const now = new Date();
-                const diffDays = Math.floor((now - date) / (1000 * 60 * 60 * 24));
+                const diffDays = Math.floor((Date.now() - parseInt(last)) / 86400000);
                 if (diffDays === 0) return 'היום';
                 if (diffDays === 1) return 'אתמול';
                 return `לפני ${diffDays} ימים`;
@@ -48,236 +35,111 @@ const WelcomeScreen = () => {
         } catch { return 'פעם ראשונה!'; }
     };
 
-    // Save current login
     useEffect(() => {
         localStorage.setItem('wm_last_login', Date.now().toString());
     }, []);
 
-    const greeting = getGreeting();
-    const progress = Math.round(((learnedCount / totalWords) + (englishAnswered / totalQuestions)) / 2 * 100);
-
     return (
         <div style={{
-            minHeight: '100vh',
-            background: C.bg,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: 24,
-            position: 'relative',
-            overflow: 'hidden'
+            minHeight: '100vh', background: C.bg,
+            display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+            padding: 24, position: 'relative', overflow: 'hidden'
         }}>
-            {/* Animated Background Elements */}
-            <div style={{
-                position: 'absolute',
-                top: '10%',
-                left: '10%',
-                width: 300,
-                height: 300,
-                background: 'radial-gradient(circle, rgba(139,92,246,0.15) 0%, transparent 70%)',
-                borderRadius: '50%',
-                filter: 'blur(60px)',
-                animation: 'float 6s ease-in-out infinite',
-                pointerEvents: 'none'
-            }} />
-            <div style={{
-                position: 'absolute',
-                bottom: '20%',
-                right: '5%',
-                width: 250,
-                height: 250,
-                background: 'radial-gradient(circle, rgba(236,72,153,0.12) 0%, transparent 70%)',
-                borderRadius: '50%',
-                filter: 'blur(50px)',
-                animation: 'float 8s ease-in-out infinite reverse',
-                pointerEvents: 'none'
-            }} />
+            <ShaderBackground opacity={0.25} />
 
-            {/* Logo/Brand */}
-            <div style={{
-                opacity: showContent ? 1 : 0,
-                transform: showContent ? 'translateY(0)' : 'translateY(-20px)',
-                transition: 'all 0.6s ease-out',
-                textAlign: 'center',
-                marginBottom: 40
-            }}>
-                <div style={{
-                    width: 80,
-                    height: 80,
-                    margin: '0 auto 16px',
-                    borderRadius: 20,
-                    background: C.gradient,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    boxShadow: '0 8px 32px rgba(139,92,246,0.4)',
-                    animation: 'pulse 2s ease-in-out infinite'
-                }}>
-                    <Icon name="school" size={40} style={{ color: 'white' }} />
-                </div>
+            {/* Wordmark */}
+            <motion.div
+                variants={MOTION.scaleIn}
+                initial="hidden"
+                animate="visible"
+                transition={{ duration: 0.7, type: 'spring', bounce: 0.3 }}
+                style={{ textAlign: 'center', marginBottom: 40 }}
+            >
                 <h1 style={{
-                    fontSize: 28,
-                    fontWeight: 700,
-                    margin: 0,
-                    background: C.gradient,
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent'
+                    fontSize: 42, fontWeight: 800, margin: 0, letterSpacing: -1,
+                    ...C.gradientText,
                 }}>
-                    WordMaster
+                    AMIRNET
                 </h1>
-            </div>
+                <p style={{ fontSize: 14, color: C.muted, marginTop: 6, fontWeight: 500 }}>
+                    הכנה לאנגלית פסיכומטרית
+                </p>
+            </motion.div>
 
             {/* Greeting */}
-            <div style={{
-                opacity: animationPhase >= 1 ? 1 : 0,
-                transform: animationPhase >= 1 ? 'translateY(0)' : 'translateY(20px)',
-                transition: 'all 0.5s ease-out',
-                textAlign: 'center',
-                marginBottom: 32
-            }}>
-                <p style={{ fontSize: 32, margin: 0, marginBottom: 8 }}>{greeting.emoji}</p>
-                <h2 style={{ fontSize: 24, fontWeight: 600, margin: 0, color: 'white' }}>
-                    {greeting.text}!
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.25 }}
+                style={{ textAlign: 'center', marginBottom: 32 }}
+            >
+                <h2 style={{ fontSize: 24, fontWeight: 600, margin: 0, color: C.text }}>
+                    {getGreeting()}!
                 </h2>
                 <p style={{ fontSize: 14, color: C.muted, marginTop: 8 }}>
                     כניסה אחרונה: {getLastLogin()}
                 </p>
-            </div>
+            </motion.div>
 
-            {/* Stats Cards */}
-            <div style={{
-                opacity: animationPhase >= 2 ? 1 : 0,
-                transform: animationPhase >= 2 ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.95)',
-                transition: 'all 0.5s ease-out',
-                display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: 12,
-                width: '100%',
-                maxWidth: 360,
-                marginBottom: 40
-            }}>
-                {/* Progress */}
-                <div style={{
-                    background: C.surface,
-                    border: `1px solid ${C.border}`,
-                    borderRadius: 16,
-                    padding: 16,
-                    textAlign: 'center'
-                }}>
-                    <div style={{
-                        fontSize: 28,
-                        fontWeight: 700,
-                        background: C.gradient,
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent'
-                    }}>
-                        {progress}%
+            {/* Stats row — text only, no cards */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                style={{
+                    display: 'flex', gap: 32, justifyContent: 'center',
+                    width: '100%', maxWidth: 360, marginBottom: 36
+                }}
+            >
+                {[
+                    { value: `${progress}%`, label: 'התקדמות', color: C.text },
+                    { value: `${accuracy}%`, label: 'דיוק', color: accuracy >= 70 ? C.green : C.orange },
+                    { value: learnedCount, label: 'מילים', color: C.purple },
+                ].map((s, i) => (
+                    <div key={i} style={{ textAlign: 'center' }}>
+                        <div style={{ fontSize: 28, fontWeight: 700, color: s.color }}>{s.value}</div>
+                        <p style={{ fontSize: 11, color: C.muted, margin: '4px 0 0', letterSpacing: 0.3 }}>{s.label}</p>
                     </div>
-                    <p style={{ fontSize: 11, color: C.muted, margin: '4px 0 0' }}>התקדמות</p>
-                </div>
+                ))}
+            </motion.div>
 
-                {/* Accuracy */}
-                <div style={{
-                    background: C.surface,
-                    border: `1px solid ${C.border}`,
-                    borderRadius: 16,
-                    padding: 16,
-                    textAlign: 'center'
-                }}>
-                    <div style={{
-                        fontSize: 28,
-                        fontWeight: 700,
-                        color: accuracy >= 70 ? C.green : C.orange
-                    }}>
-                        {accuracy}%
-                    </div>
-                    <p style={{ fontSize: 11, color: C.muted, margin: '4px 0 0' }}>דיוק</p>
-                </div>
-
-                {/* Words Learned */}
-                <div style={{
-                    background: C.surface,
-                    border: `1px solid ${C.border}`,
-                    borderRadius: 16,
-                    padding: 16,
-                    textAlign: 'center'
-                }}>
-                    <div style={{ fontSize: 28, fontWeight: 700, color: C.purple }}>
-                        {learnedCount}
-                    </div>
-                    <p style={{ fontSize: 11, color: C.muted, margin: '4px 0 0' }}>מילים</p>
-                </div>
-            </div>
-
-            {/* Improvement Trend */}
+            {/* Improvement hint */}
             {totalAttempts > 0 && (
-                <div style={{
-                    opacity: animationPhase >= 2 ? 1 : 0,
-                    transition: 'all 0.5s ease-out 0.2s',
-                    background: 'rgba(34,197,94,0.1)',
-                    border: '1px solid rgba(34,197,94,0.2)',
-                    borderRadius: 12,
-                    padding: '12px 20px',
-                    marginBottom: 32,
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 8
-                }}>
-                    <Icon name="trending_up" size={20} style={{ color: C.green }} />
-                    <span style={{ fontSize: 14, color: C.green, fontWeight: 500 }}>
-                        המשך כך! התקדמת יפה 💪
-                    </span>
-                </div>
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.55 }}
+                    style={{
+                        fontSize: 14, color: C.green, fontWeight: 500,
+                        marginBottom: 28, textAlign: 'center'
+                    }}
+                >
+                    המשך כך! התקדמת יפה
+                </motion.p>
             )}
 
-            {/* CTA Button */}
-            <button
+            {/* CTA — pill shape */}
+            <motion.button
+                variants={MOTION.fadeUp}
+                initial="hidden"
+                animate="visible"
+                transition={{ duration: 0.5, delay: 0.6 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={() => {
                     localStorage.setItem('wm_last_visit_time', Date.now().toString());
                     navigate('/');
                 }}
                 style={{
-                    opacity: animationPhase >= 3 ? 1 : 0,
-                    transform: animationPhase >= 3 ? 'translateY(0)' : 'translateY(20px)',
-                    transition: 'all 0.5s ease-out',
-                    width: '100%',
-                    maxWidth: 320,
-                    padding: '18px 32px',
-                    borderRadius: 16,
-                    border: 'none',
-                    background: C.gradient,
-                    color: 'white',
-                    fontSize: 18,
-                    fontWeight: 700,
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: 10,
-                    boxShadow: '0 8px 32px rgba(139,92,246,0.4)',
-                    animation: animationPhase >= 3 ? 'glow 2s ease-in-out infinite' : 'none'
+                    width: '100%', maxWidth: 340, padding: '18px 40px',
+                    borderRadius: 9999, border: 'none', background: C.gradient,
+                    color: 'white', fontSize: 18, fontWeight: 700, cursor: 'pointer',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
+                    boxShadow: '0 8px 32px rgba(139,92,246,0.35)',
                 }}
             >
-                <Icon name="rocket_launch" size={24} />
+                <Rocket size={22} />
                 בוא נתחיל ללמוד!
-            </button>
-
-            {/* CSS Animations */}
-            <style>{`
-                @keyframes float {
-                    0%, 100% { transform: translateY(0) rotate(0deg); }
-                    50% { transform: translateY(-20px) rotate(5deg); }
-                }
-                @keyframes pulse {
-                    0%, 100% { transform: scale(1); box-shadow: 0 8px 32px rgba(139,92,246,0.4); }
-                    50% { transform: scale(1.05); box-shadow: 0 12px 40px rgba(139,92,246,0.5); }
-                }
-                @keyframes glow {
-                    0%, 100% { box-shadow: 0 8px 32px rgba(139,92,246,0.4); }
-                    50% { box-shadow: 0 8px 48px rgba(236,72,153,0.5); }
-                }
-            `}</style>
+            </motion.button>
         </div>
     );
 };

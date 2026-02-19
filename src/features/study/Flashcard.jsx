@@ -1,18 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Icon from '../../components/Icon';
-import { C } from '../../styles/theme';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Volume2, Hand, ArrowLeftRight, X, Check, CheckCircle } from 'lucide-react';
+import { C, GLASS, RADIUS } from '../../styles/theme';
 import { playCorrect, playIncorrect, playClick } from '../../utils/sounds';
+
+const cardVariants = {
+    enter: { opacity: 0, scale: 0.95 },
+    center: { opacity: 1, scale: 1 },
+    exit: { opacity: 0, scale: 0.95 },
+};
+
+const faceVariants = {
+    enter: { opacity: 0, rotateY: 90 },
+    center: { opacity: 1, rotateY: 0 },
+    exit: { opacity: 0, rotateY: -90 },
+};
+
+const resultBtnVariants = {
+    hidden: { opacity: 0, y: 12 },
+    visible: (i) => ({
+        opacity: 1,
+        y: 0,
+        transition: { delay: i * 0.08, type: 'spring', stiffness: 300, damping: 24 },
+    }),
+};
 
 const Flashcard = ({ word, onResult, onNext }) => {
     const [flipped, setFlipped] = useState(false);
-    const [revealed, setRevealed] = useState(false); // To prevent multiple answers
+    const [revealed, setRevealed] = useState(false);
 
     const handleResult = (success) => {
         if (revealed) return;
         setRevealed(true);
 
-        // Play sound feedback
         if (success) {
             playCorrect();
         } else {
@@ -54,84 +75,199 @@ const Flashcard = ({ word, onResult, onNext }) => {
     return (
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 24, position: 'relative' }}>
             {/* Background Glow */}
-            <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 256, height: 256, background: 'rgba(139,92,246,0.1)', borderRadius: '50%', filter: 'blur(80px)', pointerEvents: 'none', zIndex: 0 }} />
+            <div style={{
+                position: 'absolute', top: '50%', left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: 256, height: 256,
+                background: 'rgba(139,92,246,0.1)',
+                borderRadius: '50%', filter: 'blur(80px)',
+                pointerEvents: 'none', zIndex: 0
+            }} />
 
             {/* Card */}
-            <div
+            <motion.div
+                variants={cardVariants}
+                initial="enter"
+                animate="center"
+                transition={{ type: 'spring', stiffness: 260, damping: 22 }}
                 onClick={() => !flipped && setFlipped(true)}
                 style={{
                     width: '100%', maxWidth: 340, aspectRatio: '3/4',
-                    background: '#282828', borderRadius: 16, border: '1px solid rgba(255,255,255,0.1)',
-                    boxShadow: '0 4px 20px rgba(0,0,0,0.2)', display: 'flex', flexDirection: 'column',
-                    padding: 32, cursor: 'pointer', position: 'relative', zIndex: 1
+                    ...GLASS.card,
+                    boxShadow: C.shadowMd,
+                    display: 'flex', flexDirection: 'column',
+                    padding: 32, cursor: 'pointer',
+                    position: 'relative', zIndex: 1,
+                    perspective: 800,
                 }}
             >
+                {/* POS Badge + Volume */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 32 }}>
-                    <div style={{ padding: '6px 12px', borderRadius: 16, background: '#1a1a1a', border: '1px solid #333', display: 'flex', alignItems: 'center', gap: 6 }}>
-                        <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#8B5CF6' }} />
-                        <span style={{ fontSize: 10, fontWeight: 700, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: 1 }}>{word.pos || 'General'}</span>
+                    <div style={{
+                        ...GLASS.button,
+                        padding: '6px 12px',
+                        borderRadius: RADIUS.full,
+                        display: 'flex', alignItems: 'center', gap: 6,
+                    }}>
+                        <div style={{ width: 6, height: 6, borderRadius: '50%', background: C.purple }} />
+                        <span style={{ fontSize: 10, fontWeight: 700, color: C.muted, textTransform: 'uppercase', letterSpacing: 1 }}>
+                            {word.pos || 'General'}
+                        </span>
                     </div>
-                    <button style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}>
-                        <Icon name="volume_up" size={20} style={{ color: '#6b7280' }} />
-                    </button>
+                    <motion.button
+                        whileTap={{ scale: 0.96 }}
+                        style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
+                    >
+                        <Volume2 size={20} style={{ color: C.dim }} />
+                    </motion.button>
                 </div>
 
-                <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }} dir="ltr">
-                    {!flipped ? (
-                        <>
-                            <h1 style={{ fontSize: 42, fontWeight: 500, margin: '0 0 12px', fontFamily: 'Manrope, sans-serif', color: 'white', letterSpacing: -0.5 }}>{word.english}</h1>
-                            {word.phonetic && <p style={{ fontSize: 18, color: '#6b7280', fontFamily: 'monospace', fontWeight: 300 }}>{word.phonetic}</p>}
-                        </>
-                    ) : (
-                        <>
-                            <h1 style={{ fontSize: 36, fontWeight: 700, margin: '0 0 16px' }} dir="rtl">{word.hebrew}</h1>
-                            <p style={{ fontSize: 20, color: '#9ca3af', fontFamily: 'Manrope' }}>{word.english}</p>
-                            {word.example && <p style={{ fontSize: 14, color: '#6b7280', marginTop: 16, fontStyle: 'italic' }}>"{word.example}"</p>}
-                        </>
-                    )}
+                {/* Card Face Content */}
+                <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', overflow: 'hidden' }} dir="ltr">
+                    <AnimatePresence mode="wait">
+                        {!flipped ? (
+                            <motion.div
+                                key="front"
+                                variants={faceVariants}
+                                initial="enter"
+                                animate="center"
+                                exit="exit"
+                                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+                            >
+                                <h1 style={{
+                                    fontSize: 42, fontWeight: 500, margin: '0 0 12px',
+                                    fontFamily: 'Manrope, sans-serif', color: C.text, letterSpacing: -0.5,
+                                }}>
+                                    {word.english}
+                                </h1>
+                                {word.phonetic && (
+                                    <p style={{ fontSize: 18, color: C.dim, fontFamily: 'monospace', fontWeight: 300 }}>
+                                        {word.phonetic}
+                                    </p>
+                                )}
+                            </motion.div>
+                        ) : (
+                            <motion.div
+                                key="back"
+                                variants={faceVariants}
+                                initial="enter"
+                                animate="center"
+                                exit="exit"
+                                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+                            >
+                                <h1 style={{ fontSize: 36, fontWeight: 700, margin: '0 0 16px' }} dir="rtl">
+                                    {word.hebrew}
+                                </h1>
+                                <p style={{ fontSize: 20, color: C.muted, fontFamily: 'Manrope' }}>
+                                    {word.english}
+                                </p>
+                                {word.example && (
+                                    <p style={{ fontSize: 14, color: C.dim, marginTop: 16, fontStyle: 'italic' }}>
+                                        "{word.example}"
+                                    </p>
+                                )}
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </div>
 
-                <div style={{ marginTop: 'auto', paddingTop: 24, borderTop: '1px solid #33333380', textAlign: 'center' }}>
-                    <p style={{ fontSize: 12, color: '#4b5563', margin: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, opacity: 0.6 }}>
-                        <Icon name="touch_app" size={14} /> {!flipped ? 'הקש להיפוך (Space)' : 'בחר אם ידעת (←/→)'}
+                {/* Bottom hint */}
+                <div style={{ marginTop: 'auto', paddingTop: 24, borderTop: `1px solid ${C.border}`, textAlign: 'center' }}>
+                    <p style={{
+                        fontSize: 12, color: C.dim, margin: 0,
+                        display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, opacity: 0.6,
+                    }}>
+                        <Hand size={14} /> {!flipped ? 'הקש להיפוך (Space)' : 'בחר אם ידעת (\u2190/\u2192)'}
                     </p>
                 </div>
-            </div>
+            </motion.div>
 
             {/* Controls */}
             <div style={{ width: '100%', maxWidth: 340, marginTop: 32, display: 'flex', flexDirection: 'column', gap: 12 }}>
-                {!flipped ? (
-                    <button
-                        onClick={() => setFlipped(true)}
-                        style={{ width: '100%', padding: 16, borderRadius: 12, border: 'none', background: 'linear-gradient(135deg, #8B5CF6, #EC4899)', color: 'white', fontSize: 16, fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, boxShadow: '0 8px 24px rgba(236,72,153,0.2)' }}
-                    >
-                        <Icon name="sync_alt" size={20} /> הצג הגדרה
-                    </button>
-                ) : (
-                    <div style={{ display: 'flex', gap: 12 }}>
-                        <button
-                            onClick={() => handleResult(false)}
-                            style={{ flex: 1, padding: 16, borderRadius: 12, background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', color: C.red, fontSize: 15, fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}
+                <AnimatePresence mode="wait">
+                    {!flipped ? (
+                        <motion.div
+                            key="pre-flip"
+                            initial={{ opacity: 0, y: 8 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -8 }}
+                            transition={{ duration: 0.2 }}
+                            style={{ display: 'flex', flexDirection: 'column', gap: 12 }}
                         >
-                            <Icon name="close" size={18} /> לא ידעתי
-                        </button>
-                        <button
-                            onClick={() => handleResult(true)}
-                            style={{ flex: 1, padding: 16, borderRadius: 12, background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.3)', color: C.green, fontSize: 15, fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}
-                        >
-                            <Icon name="check" size={18} /> ידעתי
-                        </button>
-                    </div>
-                )}
+                            <motion.button
+                                whileTap={{ scale: 0.96 }}
+                                onClick={() => setFlipped(true)}
+                                style={{
+                                    width: '100%', padding: 16, borderRadius: RADIUS.md, border: 'none',
+                                    background: 'linear-gradient(135deg, #8B5CF6, #EC4899)',
+                                    color: C.text, fontSize: 16, fontWeight: 700, cursor: 'pointer',
+                                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+                                    boxShadow: '0 8px 24px rgba(236,72,153,0.2)',
+                                }}
+                            >
+                                <ArrowLeftRight size={20} /> הצג הגדרה
+                            </motion.button>
 
-                {!flipped && (
-                    <button
-                        onClick={() => handleResult(true)}
-                        style={{ width: '100%', padding: 16, borderRadius: 12, background: '#282828', border: '1px solid #333', color: '#d1d5db', fontSize: 15, fontWeight: 500, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}
-                    >
-                        <Icon name="check_circle" size={18} style={{ color: '#8B5CF6', opacity: 0 }} /> אני מכיר
-                    </button>
-                )}
+                            <motion.button
+                                whileTap={{ scale: 0.96 }}
+                                onClick={() => handleResult(true)}
+                                style={{
+                                    width: '100%', padding: 16, borderRadius: RADIUS.md,
+                                    ...GLASS.card,
+                                    color: C.text, fontSize: 15, fontWeight: 500, cursor: 'pointer',
+                                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+                                }}
+                            >
+                                <CheckCircle size={18} style={{ color: C.purple, opacity: 0 }} /> אני מכיר
+                            </motion.button>
+                        </motion.div>
+                    ) : (
+                        <motion.div
+                            key="post-flip"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            style={{ display: 'flex', gap: 12 }}
+                        >
+                            <motion.button
+                                custom={0}
+                                variants={resultBtnVariants}
+                                initial="hidden"
+                                animate="visible"
+                                whileTap={{ scale: 0.96 }}
+                                onClick={() => handleResult(false)}
+                                style={{
+                                    flex: 1, padding: 16, borderRadius: RADIUS.md,
+                                    background: 'rgba(239,68,68,0.1)',
+                                    border: '1px solid rgba(239,68,68,0.3)',
+                                    color: C.red, fontSize: 15, fontWeight: 600, cursor: 'pointer',
+                                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
+                                }}
+                            >
+                                <X size={18} /> לא ידעתי
+                            </motion.button>
+                            <motion.button
+                                custom={1}
+                                variants={resultBtnVariants}
+                                initial="hidden"
+                                animate="visible"
+                                whileTap={{ scale: 0.96 }}
+                                onClick={() => handleResult(true)}
+                                style={{
+                                    flex: 1, padding: 16, borderRadius: RADIUS.md,
+                                    background: 'rgba(34,197,94,0.1)',
+                                    border: '1px solid rgba(34,197,94,0.3)',
+                                    color: C.green, fontSize: 15, fontWeight: 600, cursor: 'pointer',
+                                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
+                                }}
+                            >
+                                <Check size={18} /> ידעתי
+                            </motion.button>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
         </div>
     );

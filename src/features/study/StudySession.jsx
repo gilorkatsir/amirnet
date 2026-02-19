@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'wouter';
-import Icon from '../../components/Icon';
-import { C } from '../../styles/theme';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, MoreHorizontal } from 'lucide-react';
+import { C, GLASS, RADIUS } from '../../styles/theme';
 import { useStatsContext } from '../../contexts/StatsContext';
 import Flashcard from './Flashcard';
 import Quiz from './Quiz';
@@ -22,8 +23,6 @@ const StudySession = ({ mode, session, onComplete }) => {
         if (saved) {
             try {
                 const parsed = JSON.parse(saved);
-                // Heuristic: check if current word ID matches stored session data to ensure validity
-                // Since session prop is dynamic, we rely on App.jsx restoring the correct session array
                 if (parsed.index < session.length) {
                     setIndex(parsed.index);
                     setSessionResults(parsed.results);
@@ -46,14 +45,11 @@ const StudySession = ({ mode, session, onComplete }) => {
     }, [index, sessionResults]);
 
     const handleResult = (isCorrect) => {
-        // Update local session stats
         setSessionResults(prev => ({
             correct: prev.correct + (isCorrect ? 1 : 0),
             incorrect: prev.incorrect + (isCorrect ? 0 : 1),
             incorrectItems: isCorrect ? prev.incorrectItems : [...(prev.incorrectItems || []), currentWord.id]
         }));
-
-        // Update global progress immediately (spaced repetition)
         updateWordProgress(currentWord.id, isCorrect);
     };
 
@@ -65,48 +61,83 @@ const StudySession = ({ mode, session, onComplete }) => {
         }
     };
 
+    const circleBtn = {
+        width: 38, height: 38, borderRadius: RADIUS.full,
+        ...GLASS.button, cursor: 'pointer',
+        display: 'flex', alignItems: 'center', justifyContent: 'center'
+    };
+
     return (
-        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: C.bg }}>
             {/* Header */}
-            <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 20px', background: 'rgba(26,26,26,0.95)', backdropFilter: 'blur(8px)' }}>
-                <button onClick={() => navigate('/')} style={{ width: 40, height: 40, borderRadius: '50%', background: 'transparent', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <Icon name="close" size={24} style={{ color: '#d1d5db' }} />
-                </button>
+            <motion.header
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+                style={{
+                    display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                    padding: '16px 20px', ...GLASS.header
+                }}
+            >
+                <motion.button
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => navigate('/')}
+                    style={circleBtn}
+                >
+                    <X size={18} color={C.muted} />
+                </motion.button>
+
                 <div style={{ textAlign: 'center' }}>
-                    <h2 style={{ fontSize: 11, fontWeight: 700, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: 2, margin: '0 0 4px' }}>
+                    <h2 style={{
+                        fontSize: 11, fontWeight: 700, color: C.purple,
+                        textTransform: 'uppercase', letterSpacing: 2, margin: '0 0 4px'
+                    }}>
                         {mode === 'flash' ? 'אוצר מילים' : 'תרגול'}
                     </h2>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                        <span style={{ fontSize: 12, fontWeight: 700, background: C.gradient, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{index + 1}</span>
-                        <div style={{ width: 80, height: 4, background: '#282828', borderRadius: 2, overflow: 'hidden' }}>
-                            <div style={{ height: '100%', borderRadius: 2, width: `${progress}%`, background: C.gradient }} />
+                        <span style={{ fontSize: 12, fontWeight: 700, ...C.gradientText }}>{index + 1}</span>
+                        <div style={{ width: 80, height: 4, background: C.border, borderRadius: 2, overflow: 'hidden' }}>
+                            <motion.div
+                                style={{ height: '100%', borderRadius: 2, background: C.gradient }}
+                                initial={{ width: 0 }}
+                                animate={{ width: `${progress}%` }}
+                                transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                            />
                         </div>
-                        <span style={{ fontSize: 12, color: '#4b5563' }}>{session.length}</span>
+                        <span style={{ fontSize: 12, color: C.dim }}>{session.length}</span>
                     </div>
                 </div>
-                <button style={{ width: 40, height: 40, borderRadius: '50%', background: 'transparent', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <Icon name="more_horiz" size={24} style={{ color: '#d1d5db' }} />
-                </button>
-            </header>
+
+                <div style={circleBtn}>
+                    <MoreHorizontal size={18} color={C.muted} />
+                </div>
+            </motion.header>
 
             {/* Mode Content */}
-            <div style={{ flex: 1, display: 'flex', background: '#1a1a1a' }}>
-                {mode === 'flash' ? (
-                    <Flashcard
-                        key={currentWord.id}
-                        word={currentWord}
-                        onResult={handleResult}
-                        onNext={handleNext}
-                    />
-                ) : (
-                    <Quiz
-                        key={currentWord.id}
-                        word={currentWord}
-                        onResult={handleResult}
-                        onNext={handleNext}
-                    />
-                )}
-            </div>
+            <AnimatePresence mode="wait">
+                <motion.div
+                    key={currentWord.id}
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -30 }}
+                    transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+                    style={{ flex: 1, display: 'flex', background: C.bg }}
+                >
+                    {mode === 'flash' ? (
+                        <Flashcard
+                            word={currentWord}
+                            onResult={handleResult}
+                            onNext={handleNext}
+                        />
+                    ) : (
+                        <Quiz
+                            word={currentWord}
+                            onResult={handleResult}
+                            onNext={handleNext}
+                        />
+                    )}
+                </motion.div>
+            </AnimatePresence>
         </div>
     );
 };

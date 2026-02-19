@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useLocation } from 'wouter';
-import Icon from '../components/Icon';
+import { ArrowLeft, X, Check, ListChecks, Layers, Clock, ArrowDownAZ, Languages, Trash2, SearchX, Bookmark } from 'lucide-react';
 import { C } from '../styles/theme';
 import { playCorrect, playIncorrect } from '../utils/sounds';
 import { useUserWords } from '../contexts/UserWordsContext';
@@ -71,7 +71,7 @@ const UserWordsList = () => {
                     background: C.surface, border: `1px solid ${C.border}`, color: C.muted, cursor: 'pointer',
                     display: 'flex', alignItems: 'center', justifyContent: 'center'
                 }}>
-                    <Icon name="close" size={24} />
+                    <X size={24} />
                 </button>
 
                 <p style={{ color: C.muted, fontSize: 13, marginBottom: 20 }}>
@@ -110,13 +110,13 @@ const UserWordsList = () => {
                         onClick={() => { playIncorrect(); setStudyFlipped(false); setStudyIndex(prev => prev + 1); }}
                         style={{ flex: 1, padding: 14, borderRadius: 12, background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', color: C.red, fontSize: 15, fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}
                     >
-                        <Icon name="close" size={18} /> לא ידעתי
+                        <X size={18} /> לא ידעתי
                     </button>
                     <button
                         onClick={() => { playCorrect(); setStudyFlipped(false); setStudyIndex(prev => prev + 1); }}
                         style={{ flex: 1, padding: 14, borderRadius: 12, background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.3)', color: C.green, fontSize: 15, fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}
                     >
-                        <Icon name="check" size={18} /> ידעתי
+                        <Check size={18} /> ידעתי
                     </button>
                 </div>
             </div>
@@ -136,7 +136,7 @@ const UserWordsList = () => {
                     width: 40, height: 40, borderRadius: '50%', background: 'transparent', border: 'none',
                     cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center'
                 }}>
-                    <Icon name="arrow_forward" size={24} style={{ color: 'white' }} />
+                    <ArrowLeft size={24} style={{ color: 'white' }} />
                 </button>
                 <div style={{ flex: 1 }}>
                     <h1 style={{ fontSize: 18, fontWeight: 700, margin: 0, color: 'white' }}>המילים שלי</h1>
@@ -151,14 +151,14 @@ const UserWordsList = () => {
                             border: `1px solid ${C.border}`, color: bulkSelect ? 'white' : C.muted,
                             cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center'
                         }}>
-                            <Icon name="checklist" size={18} />
+                            <ListChecks size={18} />
                         </button>
                         <button onClick={() => { setStudyMode(true); setStudyIndex(0); setStudyFlipped(false); }} style={{
                             width: 36, height: 36, borderRadius: 8, background: C.surface,
                             border: `1px solid ${C.border}`, color: C.muted,
                             cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center'
                         }}>
-                            <Icon name="style" size={18} />
+                            <Layers size={18} />
                         </button>
                     </div>
                 )}
@@ -186,9 +186,9 @@ const UserWordsList = () => {
                         {/* Sort */}
                         <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
                             {[
-                                { key: 'date', label: 'תאריך', icon: 'schedule' },
-                                { key: 'alpha', label: 'א-ב', icon: 'sort_by_alpha' },
-                                { key: 'studied', label: 'תורגם', icon: 'translate' }
+                                { key: 'date', label: 'תאריך', Icon: Clock },
+                                { key: 'alpha', label: 'א-ב', Icon: ArrowDownAZ },
+                                { key: 'studied', label: 'תורגם', Icon: Languages }
                             ].map(opt => (
                                 <button
                                     key={opt.key}
@@ -202,7 +202,7 @@ const UserWordsList = () => {
                                         display: 'flex', alignItems: 'center', gap: 4
                                     }}
                                 >
-                                    <Icon name={opt.icon} size={14} />
+                                    <opt.Icon size={14} />
                                     {opt.label}
                                 </button>
                             ))}
@@ -219,7 +219,7 @@ const UserWordsList = () => {
                                     cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8
                                 }}
                             >
-                                <Icon name="delete" size={18} />
+                                <Trash2 size={18} />
                                 מחק {selectedIds.size} מילים
                             </button>
                         )}
@@ -228,7 +228,7 @@ const UserWordsList = () => {
 
                 {displayWords.length === 0 && words.length > 0 ? (
                     <div style={{ textAlign: 'center', marginTop: 40, color: C.muted }}>
-                        <Icon name="search_off" size={48} style={{ opacity: 0.5 }} />
+                        <SearchX size={48} style={{ opacity: 0.5 }} />
                         <p style={{ marginTop: 12 }}>לא נמצאו מילים</p>
                     </div>
                 ) : words.length === 0 ? (
@@ -243,7 +243,7 @@ const UserWordsList = () => {
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                             margin: '0 auto 16px'
                         }}>
-                            <Icon name="bookmark" size={32} style={{ color: C.pink }} />
+                            <Bookmark size={32} style={{ color: C.pink }} />
                         </div>
                         <h3 style={{ margin: '0 0 8px', color: 'white' }}>עדיין אין מילים שמורות</h3>
                         <p style={{ margin: 0, color: C.muted, lineHeight: 1.5, fontSize: 14 }}>
@@ -275,7 +275,7 @@ const UserWordsList = () => {
                                                     cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center'
                                                 }}
                                             >
-                                                {selectedIds.has(item.id) && <Icon name="check" size={14} style={{ color: 'white' }} />}
+                                                {selectedIds.has(item.id) && <Check size={14} style={{ color: 'white' }} />}
                                             </button>
                                         )}
                                         <div>
@@ -299,7 +299,7 @@ const UserWordsList = () => {
                                                 display: 'flex', alignItems: 'center', justifyContent: 'center'
                                             }}
                                         >
-                                            <Icon name="delete" size={18} />
+                                            <Trash2 size={18} />
                                         </button>
                                     )}
                                 </div>
@@ -348,7 +348,7 @@ const UserWordsList = () => {
                                             }}
                                             dir="rtl"
                                         >
-                                            <Icon name="translate" size={14} style={{ color: C.muted }} />
+                                            <Languages size={14} style={{ color: C.muted }} />
                                             {item.translation || 'הוסף תרגום לעברית...'}
                                         </button>
                                     )}

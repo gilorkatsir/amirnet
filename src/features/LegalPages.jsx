@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'wouter';
-import Icon from '../components/Icon';
+import { X, Shield, FileText } from 'lucide-react';
 import { C } from '../styles/theme';
 
 const LegalPages = () => {
@@ -9,8 +9,8 @@ const LegalPages = () => {
     const [activeTab, setActiveTab] = useState('privacy');
 
     const tabs = [
-        { id: 'privacy', label: 'מדיניות פרטיות', icon: 'shield' },
-        { id: 'terms', label: 'תנאי שימוש', icon: 'description' }
+        { id: 'privacy', label: 'מדיניות פרטיות', Icon: Shield },
+        { id: 'terms', label: 'תנאי שימוש', Icon: FileText }
     ];
 
     return (
@@ -30,7 +30,7 @@ const LegalPages = () => {
                             color: C.muted, cursor: 'pointer', padding: 8
                         }}
                     >
-                        <Icon name="close" size={24} />
+                        <X size={24} />
                     </button>
                 </div>
 
@@ -50,7 +50,7 @@ const LegalPages = () => {
                                 transition: 'all 0.2s'
                             }}
                         >
-                            <Icon name={tab.icon} size={16} />
+                            <tab.Icon size={16} />
                             {tab.label}
                         </button>
                     ))}

@@ -3,8 +3,8 @@
   line-height: 1.5;
   font-weight: 400;
   color-scheme: dark;
-  background-color: #121212;
-  color: #EDEDED;
+  background-color: #0a0a0f;
+  color: #f0f0f5;
 }
 
 body {
@@ -17,6 +17,11 @@ body {
   box-sizing: border-box;
 }
 
+p, h1, h2, h3, h4, span {
+  overflow-wrap: break-word;
+}
+
 button {
   font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
 }

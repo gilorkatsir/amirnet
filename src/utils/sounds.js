@@ -126,11 +126,64 @@ export const playBreak = () => {
     setTimeout(() => playTone(392, 0.2, 'sine', 0.25), 300); // G4
 };
 
+/**
+ * Sound: Page Transition
+ * Quick whoosh effect
+ */
+export const playTransition = () => {
+    if (!isSoundEnabled()) return;
+    try {
+        const ctx = getAudioContext();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(300, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(600, ctx.currentTime + 0.08);
+        gain.gain.setValueAtTime(0.08, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.1);
+        osc.start(ctx.currentTime);
+        osc.stop(ctx.currentTime + 0.1);
+    } catch (e) {
+        console.warn('Audio playback failed:', e);
+    }
+};
+
+/**
+ * Sound: Session Success
+ * Richer chord for high scores and session completion
+ */
+export const playSuccess = () => {
+    if (!isSoundEnabled()) return;
+    try {
+        const ctx = getAudioContext();
+        const freqs = [523.25, 659.25, 783.99, 1046.5]; // C5, E5, G5, C6
+        freqs.forEach((freq, i) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, ctx.currentTime);
+            gain.gain.setValueAtTime(0, ctx.currentTime + i * 0.08);
+            gain.gain.linearRampToValueAtTime(0.15, ctx.currentTime + i * 0.08 + 0.02);
+            gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + i * 0.08 + 0.5);
+            osc.start(ctx.currentTime + i * 0.08);
+            osc.stop(ctx.currentTime + i * 0.08 + 0.5);
+        });
+    } catch (e) {
+        console.warn('Audio playback failed:', e);
+    }
+};
+
 export default {
     playCorrect,
     playIncorrect,
     playTimerComplete,
     playClick,
     playStart,
-    playBreak
+    playBreak,
+    playTransition,
+    playSuccess
 };

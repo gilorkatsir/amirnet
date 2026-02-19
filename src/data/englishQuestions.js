@@ -3,23 +3,25 @@
 
 import questionsDb1 from './english_questions_database.json';
 import questionsDb2 from './english_questions_part2.json';
+import questionsDb3 from './english_questions_part3.json';
 
-// Combine all questions from both files
+// Combine all questions from all files
 export const ENGLISH_QUESTIONS = [
     ...questionsDb1.questions,
-    ...questionsDb2.questions
+    ...questionsDb2.questions,
+    ...questionsDb3.questions
 ];
 
 // Metadata
 export const ENGLISH_QUESTIONS_METADATA = {
     totalQuestions: ENGLISH_QUESTIONS.length,
-    exams: ['Spring 2024', 'Summer 2024', 'Fall 2024', 'Winter 2024', 'Summer 2025'],
+    exams: ['Spring 2024', 'Summer 2024', 'Fall 2024', 'Winter 2024', 'Summer 2025', 'Fall 2025'],
     questionTypes: ['Sentence Completion', 'Restatement', 'Reading Comprehension'],
     questionsPerSection: 22,
     breakdown: {
-        sentenceCompletion: { perSection: 8, total: 80 },
-        restatement: { perSection: 4, total: 40 },
-        readingComprehension: { perSection: 10, total: 100 }
+        sentenceCompletion: { perSection: 8, total: ENGLISH_QUESTIONS.filter(q => q.type === 'Sentence Completion').length },
+        restatement: { perSection: 4, total: ENGLISH_QUESTIONS.filter(q => q.type === 'Restatement').length },
+        readingComprehension: { perSection: 10, total: ENGLISH_QUESTIONS.filter(q => q.type === 'Reading Comprehension').length }
     }
 };
 

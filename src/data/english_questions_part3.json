@@ -1,0 +1,648 @@
+{
+  "questions": [
+    {
+      "id": 221,
+      "exam": "Fall 2025",
+      "section": 1,
+      "questionNumber": 1,
+      "type": "Sentence Completion",
+      "question": "The committee decided to ____ the old regulations and introduce a more flexible policy.",
+      "options": ["abolish", "cherish", "furnish", "publish"],
+      "correctAnswer": "abolish",
+      "correctIndex": 1
+    },
+    {
+      "id": 222,
+      "exam": "Fall 2025",
+      "section": 1,
+      "questionNumber": 2,
+      "type": "Sentence Completion",
+      "question": "The ____ between the two nations grew worse after the border dispute escalated.",
+      "options": ["remedy", "friction", "surplus", "fabric"],
+      "correctAnswer": "friction",
+      "correctIndex": 2
+    },
+    {
+      "id": 223,
+      "exam": "Fall 2025",
+      "section": 1,
+      "questionNumber": 3,
+      "type": "Sentence Completion",
+      "question": "Although the evidence was largely ____, the jury found it convincing enough to reach a verdict.",
+      "options": ["territorial", "municipal", "circumstantial", "residential"],
+      "correctAnswer": "circumstantial",
+      "correctIndex": 3
+    },
+    {
+      "id": 224,
+      "exam": "Fall 2025",
+      "section": 1,
+      "questionNumber": 4,
+      "type": "Sentence Completion",
+      "question": "Researchers have found that sleep deprivation can ____ impair cognitive function and decision-making.",
+      "options": ["marginally", "severely", "reluctantly", "eloquently"],
+      "correctAnswer": "severely",
+      "correctIndex": 2
+    },
+    {
+      "id": 225,
+      "exam": "Fall 2025",
+      "section": 1,
+      "questionNumber": 5,
+      "type": "Sentence Completion",
+      "question": "The architect's design was praised for its ____ blend of modern aesthetics and traditional elements.",
+      "options": ["volatile", "mediocre", "harmonious", "hazardous"],
+      "correctAnswer": "harmonious",
+      "correctIndex": 3
+    },
+    {
+      "id": 226,
+      "exam": "Fall 2025",
+      "section": 1,
+      "questionNumber": 6,
+      "type": "Sentence Completion",
+      "question": "The government imposed strict ____ on the import of certain agricultural products.",
+      "options": ["restrictions", "dimensions", "nominations", "submissions"],
+      "correctAnswer": "restrictions",
+      "correctIndex": 1
+    },
+    {
+      "id": 227,
+      "exam": "Fall 2025",
+      "section": 1,
+      "questionNumber": 7,
+      "type": "Sentence Completion",
+      "question": "The professor's lecture was so ____ that even students who usually lost interest remained attentive throughout.",
+      "options": ["tedious", "obscure", "engaging", "redundant"],
+      "correctAnswer": "engaging",
+      "correctIndex": 3
+    },
+    {
+      "id": 228,
+      "exam": "Fall 2025",
+      "section": 1,
+      "questionNumber": 8,
+      "type": "Sentence Completion",
+      "question": "The new medication proved to be highly ____ in treating the symptoms, with most patients reporting improvement within days.",
+      "options": ["deficient", "adjacent", "compatible", "effective"],
+      "correctAnswer": "effective",
+      "correctIndex": 4
+    },
+    {
+      "id": 229,
+      "exam": "Fall 2025",
+      "section": 1,
+      "questionNumber": 9,
+      "type": "Restatement",
+      "question": "The widespread adoption of electric vehicles has been hindered primarily by the lack of charging infrastructure.",
+      "options": [
+        "Electric vehicles have become popular despite limited charging stations.",
+        "The main obstacle to the broad use of electric vehicles has been insufficient charging facilities.",
+        "Charging infrastructure has improved significantly since electric vehicles were introduced.",
+        "Most people prefer electric vehicles but cannot afford the cost of charging them."
+      ],
+      "correctAnswer": "The main obstacle to the broad use of electric vehicles has been insufficient charging facilities.",
+      "correctIndex": 2
+    },
+    {
+      "id": 230,
+      "exam": "Fall 2025",
+      "section": 1,
+      "questionNumber": 10,
+      "type": "Restatement",
+      "question": "Only after the scandal became public did the corporation acknowledge its responsibility for the environmental damage.",
+      "options": [
+        "The corporation denied causing any environmental damage even after the scandal.",
+        "The corporation took responsibility for the damage before the scandal was exposed.",
+        "It was not until the scandal was revealed that the corporation admitted its role in the environmental harm.",
+        "The corporation caused the scandal by refusing to acknowledge the environmental damage."
+      ],
+      "correctAnswer": "It was not until the scandal was revealed that the corporation admitted its role in the environmental harm.",
+      "correctIndex": 3
+    },
+    {
+      "id": 231,
+      "exam": "Fall 2025",
+      "section": 1,
+      "questionNumber": 11,
+      "type": "Restatement",
+      "question": "Despite its remote location, the village attracts thousands of tourists annually due to its unique cultural heritage.",
+      "options": [
+        "The village's isolation has prevented it from becoming a tourist destination.",
+        "Thousands of tourists visit the village every year, drawn by its distinctive culture, even though it is hard to reach.",
+        "The village has become accessible to tourists thanks to recent infrastructure development.",
+        "Cultural heritage sites are typically found in remote villages throughout the region."
+      ],
+      "correctAnswer": "Thousands of tourists visit the village every year, drawn by its distinctive culture, even though it is hard to reach.",
+      "correctIndex": 2
+    },
+    {
+      "id": 232,
+      "exam": "Fall 2025",
+      "section": 1,
+      "questionNumber": 12,
+      "type": "Restatement",
+      "question": "No sooner had the policy been implemented than its shortcomings became apparent to everyone involved.",
+      "options": [
+        "The policy's flaws were evident immediately after it was put into effect.",
+        "Everyone involved agreed that the policy should be implemented despite its flaws.",
+        "The shortcomings of the policy were identified long before it was implemented.",
+        "The policy was implemented successfully, though minor adjustments were later needed."
+      ],
+      "correctAnswer": "The policy's flaws were evident immediately after it was put into effect.",
+      "correctIndex": 1
+    },
+    {
+      "id": 233,
+      "exam": "Fall 2025",
+      "section": 1,
+      "questionNumber": 13,
+      "type": "Reading Comprehension",
+      "passage": "Text I - The decline of handwriting",
+      "question": "According to the first paragraph, handwriting instruction in schools -",
+      "options": [
+        "has always been considered less important than typing skills",
+        "has been reduced or eliminated in many educational systems",
+        "remains a core requirement in all Western countries",
+        "was recently reintroduced after being removed for decades"
+      ],
+      "correctAnswer": "has been reduced or eliminated in many educational systems",
+      "correctIndex": 2
+    },
+    {
+      "id": 234,
+      "exam": "Fall 2025",
+      "section": 1,
+      "questionNumber": 14,
+      "type": "Reading Comprehension",
+      "passage": "Text I - The decline of handwriting",
+      "question": "The word 'proponents' in the second paragraph most likely refers to people who -",
+      "options": [
+        "oppose the teaching of handwriting",
+        "study the history of writing systems",
+        "support maintaining handwriting education",
+        "develop new digital writing tools"
+      ],
+      "correctAnswer": "support maintaining handwriting education",
+      "correctIndex": 3
+    },
+    {
+      "id": 235,
+      "exam": "Fall 2025",
+      "section": 1,
+      "questionNumber": 15,
+      "type": "Reading Comprehension",
+      "passage": "Text I - The decline of handwriting",
+      "question": "Research mentioned in the text suggests that handwriting -",
+      "options": [
+        "is slower and therefore less efficient than typing",
+        "activates brain regions associated with learning and memory",
+        "should be taught only to students with learning difficulties",
+        "has no measurable cognitive benefits compared to typing"
+      ],
+      "correctAnswer": "activates brain regions associated with learning and memory",
+      "correctIndex": 2
+    },
+    {
+      "id": 236,
+      "exam": "Fall 2025",
+      "section": 1,
+      "questionNumber": 16,
+      "type": "Reading Comprehension",
+      "passage": "Text I - The decline of handwriting",
+      "question": "According to the text, students who take notes by hand -",
+      "options": [
+        "write down more information than those who type",
+        "tend to process information more deeply than those who type",
+        "perform worse on tests than students who use laptops",
+        "prefer this method because it is faster"
+      ],
+      "correctAnswer": "tend to process information more deeply than those who type",
+      "correctIndex": 2
+    },
+    {
+      "id": 237,
+      "exam": "Fall 2025",
+      "section": 1,
+      "questionNumber": 17,
+      "type": "Reading Comprehension",
+      "passage": "Text I - The decline of handwriting",
+      "question": "The author's attitude toward the decline of handwriting can best be described as -",
+      "options": [
+        "indifferent, seeing it as inevitable progress",
+        "concerned, suggesting that important benefits may be lost",
+        "enthusiastic, favoring digital alternatives",
+        "nostalgic, but ultimately supportive of the change"
+      ],
+      "correctAnswer": "concerned, suggesting that important benefits may be lost",
+      "correctIndex": 2
+    },
+    {
+      "id": 238,
+      "exam": "Fall 2025",
+      "section": 1,
+      "questionNumber": 18,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Urban vertical farming",
+      "question": "What is the main advantage of vertical farming mentioned in the first paragraph?",
+      "options": [
+        "It requires less water than traditional farming",
+        "It allows food to be grown in densely populated areas year-round",
+        "It produces crops that taste better than conventionally grown ones",
+        "It eliminates the need for artificial lighting"
+      ],
+      "correctAnswer": "It allows food to be grown in densely populated areas year-round",
+      "correctIndex": 2
+    },
+    {
+      "id": 239,
+      "exam": "Fall 2025",
+      "section": 1,
+      "questionNumber": 19,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Urban vertical farming",
+      "question": "According to the text, one challenge facing vertical farming is -",
+      "options": [
+        "the inability to grow root vegetables",
+        "resistance from traditional farmers",
+        "the high energy costs of artificial lighting",
+        "a shortage of qualified agricultural workers"
+      ],
+      "correctAnswer": "the high energy costs of artificial lighting",
+      "correctIndex": 3
+    },
+    {
+      "id": 240,
+      "exam": "Fall 2025",
+      "section": 1,
+      "questionNumber": 20,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Urban vertical farming",
+      "question": "The text states that vertical farms use significantly less water because -",
+      "options": [
+        "the crops grown require very little irrigation",
+        "water is recycled within a closed-loop system",
+        "rainfall is collected on the building's roof",
+        "genetically modified plants need less water"
+      ],
+      "correctAnswer": "water is recycled within a closed-loop system",
+      "correctIndex": 2
+    },
+    {
+      "id": 241,
+      "exam": "Fall 2025",
+      "section": 1,
+      "questionNumber": 21,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Urban vertical farming",
+      "question": "The word 'scalability' in the third paragraph refers to -",
+      "options": [
+        "the weight of the crops that can be produced",
+        "the ability to increase production to meet growing demand",
+        "the height of the buildings used for farming",
+        "the variety of crops that can be cultivated"
+      ],
+      "correctAnswer": "the ability to increase production to meet growing demand",
+      "correctIndex": 2
+    },
+    {
+      "id": 242,
+      "exam": "Fall 2025",
+      "section": 1,
+      "questionNumber": 22,
+      "type": "Reading Comprehension",
+      "passage": "Text II - Urban vertical farming",
+      "question": "Based on the text, the future of vertical farming depends primarily on -",
+      "options": [
+        "government subsidies for urban agriculture",
+        "consumer willingness to pay higher prices",
+        "advances in energy efficiency and cost reduction",
+        "the development of new crop varieties"
+      ],
+      "correctAnswer": "advances in energy efficiency and cost reduction",
+      "correctIndex": 3
+    },
+    {
+      "id": 243,
+      "exam": "Fall 2025",
+      "section": 2,
+      "questionNumber": 1,
+      "type": "Sentence Completion",
+      "question": "The journalist's ____ investigation uncovered a network of corruption that had gone unnoticed for years.",
+      "options": ["superficial", "meticulous", "ambiguous", "sporadic"],
+      "correctAnswer": "meticulous",
+      "correctIndex": 2
+    },
+    {
+      "id": 244,
+      "exam": "Fall 2025",
+      "section": 2,
+      "questionNumber": 2,
+      "type": "Sentence Completion",
+      "question": "The company's decision to ____ its overseas factories resulted in thousands of lost jobs.",
+      "options": ["relocate", "inaugurate", "subsidize", "renovate"],
+      "correctAnswer": "relocate",
+      "correctIndex": 1
+    },
+    {
+      "id": 245,
+      "exam": "Fall 2025",
+      "section": 2,
+      "questionNumber": 3,
+      "type": "Sentence Completion",
+      "question": "Many historians argue that the treaty was merely a ____ measure, delaying rather than preventing the inevitable conflict.",
+      "options": ["permanent", "radical", "temporary", "conclusive"],
+      "correctAnswer": "temporary",
+      "correctIndex": 3
+    },
+    {
+      "id": 246,
+      "exam": "Fall 2025",
+      "section": 2,
+      "questionNumber": 4,
+      "type": "Sentence Completion",
+      "question": "The artist's work is ____ for its bold use of color and unconventional composition.",
+      "options": ["renowned", "confined", "destined", "restrained"],
+      "correctAnswer": "renowned",
+      "correctIndex": 1
+    },
+    {
+      "id": 247,
+      "exam": "Fall 2025",
+      "section": 2,
+      "questionNumber": 5,
+      "type": "Sentence Completion",
+      "question": "The doctor warned that failure to ____ the prescribed treatment could lead to serious complications.",
+      "options": ["adhere to", "dispose of", "account for", "object to"],
+      "correctAnswer": "adhere to",
+      "correctIndex": 1
+    },
+    {
+      "id": 248,
+      "exam": "Fall 2025",
+      "section": 2,
+      "questionNumber": 6,
+      "type": "Sentence Completion",
+      "question": "The volcanic eruption had ____ consequences for the surrounding ecosystem, destroying habitats that had taken centuries to develop.",
+      "options": ["negligible", "devastating", "provisional", "supplementary"],
+      "correctAnswer": "devastating",
+      "correctIndex": 2
+    },
+    {
+      "id": 249,
+      "exam": "Fall 2025",
+      "section": 2,
+      "questionNumber": 7,
+      "type": "Sentence Completion",
+      "question": "The organization aims to ____ public awareness about the importance of mental health through educational campaigns.",
+      "options": ["diminish", "elevate", "withhold", "distort"],
+      "correctAnswer": "elevate",
+      "correctIndex": 2
+    },
+    {
+      "id": 250,
+      "exam": "Fall 2025",
+      "section": 2,
+      "questionNumber": 8,
+      "type": "Sentence Completion",
+      "question": "The data presented in the report is ____ with the findings of previous studies on the same topic.",
+      "options": ["consistent", "deficient", "indifferent", "resistant"],
+      "correctAnswer": "consistent",
+      "correctIndex": 1
+    },
+    {
+      "id": 251,
+      "exam": "Fall 2025",
+      "section": 2,
+      "questionNumber": 9,
+      "type": "Restatement",
+      "question": "Had the rescue team arrived even a few minutes later, the outcome would have been tragically different.",
+      "options": [
+        "The rescue team arrived too late to prevent the tragic outcome.",
+        "The timely arrival of the rescue team was crucial in averting a disaster.",
+        "The rescue team's delay of a few minutes did not affect the outcome.",
+        "If the rescue team had come earlier, the tragedy could still not have been prevented."
+      ],
+      "correctAnswer": "The timely arrival of the rescue team was crucial in averting a disaster.",
+      "correctIndex": 2
+    },
+    {
+      "id": 252,
+      "exam": "Fall 2025",
+      "section": 2,
+      "questionNumber": 10,
+      "type": "Restatement",
+      "question": "The archaeological discovery was deemed so significant that it fundamentally altered scholars' understanding of ancient trade routes.",
+      "options": [
+        "Scholars had already known about the ancient trade routes before the discovery.",
+        "The archaeological find was important enough to reshape how academics viewed ancient commerce pathways.",
+        "Ancient trade routes were discovered thanks to a significant change in scholarly methods.",
+        "The discovery confirmed what scholars had long believed about ancient trade routes."
+      ],
+      "correctAnswer": "The archaeological find was important enough to reshape how academics viewed ancient commerce pathways.",
+      "correctIndex": 2
+    },
+    {
+      "id": 253,
+      "exam": "Fall 2025",
+      "section": 2,
+      "questionNumber": 11,
+      "type": "Restatement",
+      "question": "The new regulation applies to all businesses, irrespective of their size or annual revenue.",
+      "options": [
+        "The regulation was designed specifically for large businesses with high revenue.",
+        "Small businesses are exempt from the regulation if their revenue is below a threshold.",
+        "Every business must comply with the regulation, regardless of how large or profitable it is.",
+        "The regulation's impact varies depending on the size of the business."
+      ],
+      "correctAnswer": "Every business must comply with the regulation, regardless of how large or profitable it is.",
+      "correctIndex": 3
+    },
+    {
+      "id": 254,
+      "exam": "Fall 2025",
+      "section": 2,
+      "questionNumber": 12,
+      "type": "Restatement",
+      "question": "Far from being a disadvantage, the candidate's lack of political experience was seen by many voters as a refreshing quality.",
+      "options": [
+        "Voters were concerned about the candidate's inexperience in politics.",
+        "The candidate's political inexperience, rather than being a drawback, was viewed positively by many.",
+        "Many voters refused to support a candidate without political experience.",
+        "The candidate's experience in other fields compensated for the lack of political background."
+      ],
+      "correctAnswer": "The candidate's political inexperience, rather than being a drawback, was viewed positively by many.",
+      "correctIndex": 2
+    },
+    {
+      "id": 255,
+      "exam": "Fall 2025",
+      "section": 2,
+      "questionNumber": 13,
+      "type": "Reading Comprehension",
+      "passage": "Text III - The science of forgetting",
+      "question": "According to the first paragraph, forgetting is -",
+      "options": [
+        "always a sign of cognitive decline",
+        "a normal and even useful brain function",
+        "more common in older adults than in children",
+        "caused primarily by stress and lack of sleep"
+      ],
+      "correctAnswer": "a normal and even useful brain function",
+      "correctIndex": 2
+    },
+    {
+      "id": 256,
+      "exam": "Fall 2025",
+      "section": 2,
+      "questionNumber": 14,
+      "type": "Reading Comprehension",
+      "passage": "Text III - The science of forgetting",
+      "question": "The 'decay theory' mentioned in the text suggests that -",
+      "options": [
+        "memories are deliberately erased by the brain",
+        "memory traces weaken over time if not reinforced",
+        "all memories eventually become false memories",
+        "forgetting occurs only during sleep"
+      ],
+      "correctAnswer": "memory traces weaken over time if not reinforced",
+      "correctIndex": 2
+    },
+    {
+      "id": 257,
+      "exam": "Fall 2025",
+      "section": 2,
+      "questionNumber": 15,
+      "type": "Reading Comprehension",
+      "passage": "Text III - The science of forgetting",
+      "question": "Based on the text, interference theory explains forgetting as -",
+      "options": [
+        "a result of new information competing with or replacing old memories",
+        "a consequence of emotional trauma blocking access to memories",
+        "a natural process of clearing unnecessary information during sleep",
+        "an effect of physical damage to specific brain regions"
+      ],
+      "correctAnswer": "a result of new information competing with or replacing old memories",
+      "correctIndex": 1
+    },
+    {
+      "id": 258,
+      "exam": "Fall 2025",
+      "section": 2,
+      "questionNumber": 16,
+      "type": "Reading Comprehension",
+      "passage": "Text III - The science of forgetting",
+      "question": "The text implies that a person who remembers everything -",
+      "options": [
+        "has a significant intellectual advantage",
+        "can process new information more efficiently",
+        "may actually suffer from this condition",
+        "is extremely rare but otherwise unaffected"
+      ],
+      "correctAnswer": "may actually suffer from this condition",
+      "correctIndex": 3
+    },
+    {
+      "id": 259,
+      "exam": "Fall 2025",
+      "section": 2,
+      "questionNumber": 17,
+      "type": "Reading Comprehension",
+      "passage": "Text III - The science of forgetting",
+      "question": "An appropriate title for the text would be -",
+      "options": [
+        "Memory Loss: A Growing Health Crisis",
+        "Why We Forget — And Why It Matters",
+        "New Treatments for Memory Disorders",
+        "The Difference Between Short-Term and Long-Term Memory"
+      ],
+      "correctAnswer": "Why We Forget — And Why It Matters",
+      "correctIndex": 2
+    },
+    {
+      "id": 260,
+      "exam": "Fall 2025",
+      "section": 2,
+      "questionNumber": 18,
+      "type": "Reading Comprehension",
+      "passage": "Text IV - The economics of fast fashion",
+      "question": "According to the text, the fast fashion industry grew rapidly because -",
+      "options": [
+        "consumers demanded higher quality clothing",
+        "retailers offered trendy clothing at very low prices",
+        "traditional fashion houses lowered their prices",
+        "online shopping made clothing more accessible"
+      ],
+      "correctAnswer": "retailers offered trendy clothing at very low prices",
+      "correctIndex": 2
+    },
+    {
+      "id": 261,
+      "exam": "Fall 2025",
+      "section": 2,
+      "questionNumber": 19,
+      "type": "Reading Comprehension",
+      "passage": "Text IV - The economics of fast fashion",
+      "question": "The environmental impact of fast fashion includes all of the following EXCEPT -",
+      "options": [
+        "massive textile waste in landfills",
+        "water pollution from dyeing processes",
+        "deforestation for cotton plantations",
+        "depletion of rare earth minerals"
+      ],
+      "correctAnswer": "depletion of rare earth minerals",
+      "correctIndex": 4
+    },
+    {
+      "id": 262,
+      "exam": "Fall 2025",
+      "section": 2,
+      "questionNumber": 20,
+      "type": "Reading Comprehension",
+      "passage": "Text IV - The economics of fast fashion",
+      "question": "The 'slow fashion' movement mentioned in the third paragraph advocates for -",
+      "options": [
+        "wearing only handmade clothing",
+        "buying fewer, higher-quality items that last longer",
+        "returning to traditional tailoring methods",
+        "boycotting all major clothing brands"
+      ],
+      "correctAnswer": "buying fewer, higher-quality items that last longer",
+      "correctIndex": 2
+    },
+    {
+      "id": 263,
+      "exam": "Fall 2025",
+      "section": 2,
+      "questionNumber": 21,
+      "type": "Reading Comprehension",
+      "passage": "Text IV - The economics of fast fashion",
+      "question": "The word 'exploitative' in the text most likely describes practices that are -",
+      "options": [
+        "innovative and forward-thinking",
+        "unfair, taking advantage of vulnerable workers",
+        "outdated and no longer in use",
+        "expensive but justified by quality"
+      ],
+      "correctAnswer": "unfair, taking advantage of vulnerable workers",
+      "correctIndex": 2
+    },
+    {
+      "id": 264,
+      "exam": "Fall 2025",
+      "section": 2,
+      "questionNumber": 22,
+      "type": "Reading Comprehension",
+      "passage": "Text IV - The economics of fast fashion",
+      "question": "The author's main purpose in writing this text is to -",
+      "options": [
+        "promote specific clothing brands that are environmentally friendly",
+        "explain the economic model of fast fashion and highlight its consequences",
+        "argue that fashion should be regulated by government agencies",
+        "compare the cost of fast fashion with that of luxury brands"
+      ],
+      "correctAnswer": "explain the economic model of fast fashion and highlight its consequences",
+      "correctIndex": 2
+    }
+  ]
+}
