@@ -124,10 +124,10 @@ const StudySession = ({ mode, session, onComplete }) => {
             <AnimatePresence mode="wait">
                 <motion.div
                     key={currentWord.id}
-                    initial={{ opacity: 0, x: 30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -30 }}
-                    transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+                    initial={{ opacity: 0, x: 60, scale: 0.96 }}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    exit={{ opacity: 0, x: -60, scale: 0.96 }}
+                    transition={{ duration: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
                     style={{ flex: 1, display: 'flex', background: C.bg }}
                 >
                     {mode === 'flash' ? (

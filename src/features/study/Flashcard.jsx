@@ -8,15 +8,15 @@ import { playCorrect, playIncorrect, playClick } from '../../utils/sounds';
 const SWIPE_THRESHOLD = 80;
 
 const cardVariants = {
-    enter: { opacity: 0, scale: 0.95 },
-    center: { opacity: 1, scale: 1 },
-    exit: { opacity: 0, scale: 0.95 },
+    enter: { opacity: 0, scale: 0.92, y: 10 },
+    center: { opacity: 1, scale: 1, y: 0 },
+    exit: { opacity: 0, scale: 0.92, y: -10 },
 };
 
 const faceVariants = {
-    enter: { opacity: 0, rotateY: 90 },
+    enter: { opacity: 0, rotateY: 80 },
     center: { opacity: 1, rotateY: 0 },
-    exit: { opacity: 0, rotateY: -90 },
+    exit: { opacity: 0, rotateY: -80 },
 };
 
 const resultBtnVariants = {
@@ -58,7 +58,7 @@ const Flashcard = ({ word, onResult, onNext }) => {
                 setFlipped(false);
                 setRevealed(false);
                 onNext();
-            }, 200);
+            }, 100);
         } else {
             playIncorrect();
             onResult(success);
@@ -114,7 +114,7 @@ const Flashcard = ({ word, onResult, onNext }) => {
                 variants={cardVariants}
                 initial="enter"
                 animate="center"
-                transition={{ type: 'spring', stiffness: 260, damping: 22 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 28 }}
                 onClick={() => !flipped && setFlipped(true)}
                 drag={flipped && !revealed ? 'x' : false}
                 dragConstraints={{ left: 0, right: 0 }}

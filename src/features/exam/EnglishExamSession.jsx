@@ -169,10 +169,10 @@ const EnglishExamSession = ({ mode, questions, title, onComplete }) => {
             <AnimatePresence mode="wait">
                 <motion.div
                     key={currentQuestion.id}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
-                    transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+                    initial={{ opacity: 0, x: 50, scale: 0.97 }}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    exit={{ opacity: 0, x: -50, scale: 0.97 }}
+                    transition={{ duration: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
                     style={{ flex: 1, display: 'flex', background: C.bg, overflowY: 'auto' }}
                 >
                     <EnglishQuestion

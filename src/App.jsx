@@ -1,5 +1,6 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Route, Switch, useLocation } from 'wouter';
+import { motion, AnimatePresence } from 'framer-motion';
 import { VOCABULARY } from './data/vocabulary';
 import {
   ENGLISH_QUESTIONS,
@@ -17,6 +18,8 @@ import { useUserWords } from './contexts/UserWordsContext';
 import LoadingSpinner from './components/LoadingSpinner';
 import { generateQuestions } from './services/aiQuestionService';
 import { Analytics } from '@vercel/analytics/react';
+import { Quantum } from 'ldrs/react';
+import 'ldrs/react/Quantum.css';
 
 // Lazy-loaded views (not needed on initial render)
 const StudySession = lazy(() => import('./features/study/StudySession'));
@@ -416,34 +419,53 @@ const App = () => {
           </Route>
         </Switch>
       </Suspense>
-      {(aiLoading || aiError) && (
-        <div style={{
-          position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)',
-          display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-          zIndex: 1000, backdropFilter: 'blur(4px)'
-        }}>
-          {aiError ? (
-            <>
-              <p style={{ color: '#ef4444', fontSize: 18, fontWeight: 600, marginBottom: 8 }}>שגיאה ביצירת שאלות</p>
-              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 13, marginBottom: 20, maxWidth: 280, textAlign: 'center' }}>{aiError}</p>
-              <button onClick={() => setAiError(null)} style={{
-                padding: '10px 28px', borderRadius: 999, border: 'none',
-                background: 'rgba(255,255,255,0.1)', color: 'white', fontSize: 15, fontWeight: 600, cursor: 'pointer'
-              }}>סגור</button>
-            </>
-          ) : (
-            <>
-              <LoadingSpinner />
-              <p style={{ color: 'white', marginTop: 16, fontSize: 16, fontWeight: 600 }}>
-                מייצר שאלות AI...
-              </p>
-              <p style={{ color: 'rgba(255,255,255,0.6)', marginTop: 4, fontSize: 13 }}>
-                יצירת שאלות מותאמות למילים הקשות שלך
-              </p>
-            </>
-          )}
-        </div>
-      )}
+      <AnimatePresence>
+        {(aiLoading || aiError) && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            style={{
+              position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.8)',
+              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+              zIndex: 1000, backdropFilter: 'blur(8px)'
+            }}
+          >
+            {aiError ? (
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+              >
+                <p style={{ color: '#ef4444', fontSize: 18, fontWeight: 600, marginBottom: 8 }}>שגיאה ביצירת שאלות</p>
+                <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 13, marginBottom: 20, maxWidth: 280, textAlign: 'center' }}>{aiError}</p>
+                <button onClick={() => setAiError(null)} style={{
+                  padding: '10px 28px', borderRadius: 999, border: 'none',
+                  background: 'rgba(255,255,255,0.1)', color: 'white', fontSize: 15, fontWeight: 600, cursor: 'pointer'
+                }}>סגור</button>
+              </motion.div>
+            ) : (
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 24 }}
+              >
+                <Quantum size={52} speed={1.2} color="#8B5CF6" />
+                <div style={{ textAlign: 'center' }}>
+                  <p style={{ color: 'white', fontSize: 18, fontWeight: 700, margin: '0 0 6px' }}>
+                    מייצר שאלות AI...
+                  </p>
+                  <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 13, margin: 0 }}>
+                    יצירת שאלות מותאמות למילים הקשות שלך
+                  </p>
+                </div>
+              </motion.div>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
       <Analytics />
     </div>
   );

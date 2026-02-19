@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { Rocket } from 'lucide-react';
@@ -9,6 +9,7 @@ import ShaderBackground from '../components/ShaderBackground';
 
 const WelcomeScreen = () => {
     const [, navigate] = useLocation();
+    const [exiting, setExiting] = useState(false);
     const { stats, englishStats, totalWords, totalQuestions } = useStatsContext();
     const { learnedCount, totalAttempts, accuracy } = useDerivedStats(stats, totalWords);
     const englishAnswered = Object.keys(englishStats).length;
@@ -41,11 +42,15 @@ const WelcomeScreen = () => {
     }, []);
 
     return (
-        <div style={{
-            minHeight: '100vh', background: C.bg,
-            display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-            padding: 24, position: 'relative', overflow: 'hidden'
-        }}>
+        <motion.div
+            animate={exiting ? { scale: 1.1, opacity: 0 } : { scale: 1, opacity: 1 }}
+            transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+            style={{
+                minHeight: '100vh', background: C.bg,
+                display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                padding: 24, position: 'relative', overflow: 'hidden'
+            }}
+        >
             <ShaderBackground opacity={0.25} />
 
             {/* Wordmark */}
@@ -128,7 +133,8 @@ const WelcomeScreen = () => {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => {
                     localStorage.setItem('wm_last_visit_time', Date.now().toString());
-                    navigate('/');
+                    setExiting(true);
+                    setTimeout(() => navigate('/'), 350);
                 }}
                 style={{
                     width: '100%', maxWidth: 340, padding: '18px 40px',
@@ -141,7 +147,7 @@ const WelcomeScreen = () => {
                 <Rocket size={22} />
                 בוא נתחיל ללמוד!
             </motion.button>
-        </div>
+        </motion.div>
     );
 };
 

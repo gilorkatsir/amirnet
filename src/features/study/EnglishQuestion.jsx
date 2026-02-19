@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Pencil, ArrowLeftRight, BookOpen, HelpCircle, Volume2, Square, Check, X, CheckCircle, ArrowLeft, Lightbulb, Loader } from 'lucide-react';
+import { Pencil, ArrowLeftRight, BookOpen, HelpCircle, Volume2, Square, Check, X, CheckCircle, ArrowLeft, Lightbulb } from 'lucide-react';
+import { DotPulse } from 'ldrs/react';
+import 'ldrs/react/DotPulse.css';
 import { C } from '../../styles/theme';
 import { readingPassages } from '../../data/reading_passages';
 import { playCorrect, playIncorrect } from '../../utils/sounds';
@@ -427,7 +429,7 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                             color: C.muted,
                             fontSize: 13,
                         }}>
-                            <Loader size={14} style={{ animation: 'spin 1s linear infinite' }} />
+                            <DotPulse size={20} speed={1.3} color="#fbbf24" />
                             טוען הסבר...
                         </div>
                     )}
