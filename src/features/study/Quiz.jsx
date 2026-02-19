@@ -136,6 +136,33 @@ const Quiz = ({ word, onResult, onNext }) => {
                         );
                     })}
                 </section>
+
+                {/* Wrong answer reinforcement */}
+                {answered && selected !== null && !options[selected]?.isCorrect && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3 }}
+                        style={{
+                            marginTop: 16, padding: '12px 16px', borderRadius: 12,
+                            background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.15)',
+                            textAlign: 'right'
+                        }}
+                        dir="rtl"
+                    >
+                        <p style={{ margin: 0, fontSize: 13, color: C.red, fontWeight: 600, marginBottom: 4 }}>
+                            התשובה הנכונה:
+                        </p>
+                        <p style={{ margin: 0, fontSize: 16, color: C.text }}>
+                            <strong>{word.english}</strong> = {word.hebrew}
+                        </p>
+                        {word.example && (
+                            <p style={{ margin: '6px 0 0', fontSize: 13, color: C.dim, fontStyle: 'italic' }} dir="ltr">
+                                "{word.example}"
+                            </p>
+                        )}
+                    </motion.div>
+                )}
             </div>
 
             <footer style={{ marginTop: 32 }} dir="ltr">
@@ -162,7 +189,7 @@ const Quiz = ({ word, onResult, onNext }) => {
                         boxShadow: '0 8px 24px rgba(124,58,237,0.25)'
                     }}
                 >
-                    Check Answer <ArrowLeft size={20} />
+                    {answered ? 'הבא' : 'Check Answer'} <ArrowLeft size={20} />
                 </motion.button>
             </footer>
         </div>

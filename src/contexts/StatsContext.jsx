@@ -92,9 +92,32 @@ export const StatsProvider = ({ children }) => {
     }
   }, []);
 
+  // Spaced repetition intervals (days) per level — simplified Leitner
+  const SRS_INTERVALS = [0, 1, 3, 7, 14, 30];
+
   const calculatePriority = useCallback((wordId) => {
-    const s = state.vocabStats[wordId] || { correct: 0, incorrect: 0, level: 0 };
-    return (s.incorrect * 3) - s.correct - (s.level * 2);
+    const s = state.vocabStats[wordId] || { correct: 0, incorrect: 0, level: 0, lastSeen: null };
+
+    // Base priority from accuracy
+    let priority = (s.incorrect * 3) - s.correct - (s.level * 2);
+
+    // Time-based boost: words past their review interval get higher priority
+    if (s.lastSeen) {
+      const daysSince = (Date.now() - new Date(s.lastSeen).getTime()) / 86400000;
+      const interval = SRS_INTERVALS[Math.min(s.level, 5)];
+      if (daysSince >= interval) {
+        // Overdue — boost priority proportionally to how overdue it is
+        priority += Math.min(daysSince - interval, 30);
+      } else {
+        // Not due yet — suppress priority
+        priority -= 10;
+      }
+    } else {
+      // Never seen — high priority (new word)
+      priority += 5;
+    }
+
+    return priority;
   }, [state.vocabStats]);
 
   const value = {

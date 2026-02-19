@@ -15,7 +15,7 @@ import useDerivedStats from '../hooks/useStats';
 const Home = ({ onStart }) => {
     const [, navigate] = useLocation();
     const { stats, englishStats, totalWords, totalQuestions } = useStatsContext();
-    const streak = calculateStreak();
+    const streak = useMemo(() => calculateStreak(), []);
     const { learnedCount, accuracy } = useDerivedStats(stats, totalWords);
     const englishAnswered = Object.keys(englishStats).length;
 

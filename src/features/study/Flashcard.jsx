@@ -31,6 +31,7 @@ const resultBtnVariants = {
 const Flashcard = ({ word, onResult, onNext }) => {
     const [flipped, setFlipped] = useState(false);
     const [revealed, setRevealed] = useState(false);
+    const [showReinforcement, setShowReinforcement] = useState(false);
 
     const dragX = useMotionValue(0);
     const dragRotate = useTransform(dragX, [-200, 0, 200], [-12, 0, 12]);
@@ -52,17 +53,25 @@ const Flashcard = ({ word, onResult, onNext }) => {
 
         if (success) {
             playCorrect();
+            onResult(success);
+            setTimeout(() => {
+                setFlipped(false);
+                setRevealed(false);
+                onNext();
+            }, 200);
         } else {
             playIncorrect();
+            onResult(success);
+            // Show reinforcement for wrong answers
+            setFlipped(true);
+            setShowReinforcement(true);
+            setTimeout(() => {
+                setFlipped(false);
+                setRevealed(false);
+                setShowReinforcement(false);
+                onNext();
+            }, 1800);
         }
-
-        onResult(success);
-
-        setTimeout(() => {
-            setFlipped(false);
-            setRevealed(false);
-            onNext();
-        }, 200);
     };
 
     // Keyboard shortcuts: Space to flip, ArrowRight/1 = known, ArrowLeft/2 = unknown
@@ -201,6 +210,15 @@ const Flashcard = ({ word, onResult, onNext }) => {
                                 transition={{ duration: 0.3, ease: 'easeInOut' }}
                                 style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
                             >
+                                {showReinforcement && (
+                                    <p style={{
+                                        fontSize: 12, fontWeight: 700, color: C.red,
+                                        margin: '0 0 12px', padding: '4px 12px', borderRadius: 8,
+                                        background: 'rgba(239,68,68,0.1)',
+                                    }}>
+                                        התשובה הנכונה:
+                                    </p>
+                                )}
                                 <h1 style={{ fontSize: 36, fontWeight: 700, margin: '0 0 16px' }} dir="rtl">
                                     {word.hebrew}
                                 </h1>

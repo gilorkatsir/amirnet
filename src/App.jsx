@@ -347,7 +347,7 @@ const App = () => {
               results={sessionResults}
               sessionType={sessionType}
               onRestart={handleRestart}
-              onReview={handleReviewMistakes}
+              onReview={(sessionType === 'vocabulary' || sessionType === 'english') ? handleReviewMistakes : undefined}
             />
           </Route>
 

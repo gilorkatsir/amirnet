@@ -15,6 +15,8 @@ const UserWordsList = () => {
     const [studyMode, setStudyMode] = useState(false);
     const [studyIndex, setStudyIndex] = useState(0);
     const [studyFlipped, setStudyFlipped] = useState(false);
+    const [studyResults, setStudyResults] = useState({ correct: 0, incorrect: 0 });
+    const [studyComplete, setStudyComplete] = useState(false);
     const [bulkSelect, setBulkSelect] = useState(false);
     const [selectedIds, setSelectedIds] = useState(new Set());
 
@@ -62,11 +64,48 @@ const UserWordsList = () => {
 
     // Flashcard study mode for personal words
     if (studyMode && displayWords.length > 0) {
-        const word = displayWords[studyIndex % displayWords.length];
+        // Completion screen
+        if (studyComplete) {
+            const total = studyResults.correct + studyResults.incorrect;
+            const pct = total > 0 ? Math.round((studyResults.correct / total) * 100) : 0;
+            return (
+                <div style={{ minHeight: '100vh', background: C.bg, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 24, textAlign: 'center' }}>
+                    <Check size={48} color={C.green} style={{ marginBottom: 16 }} />
+                    <h2 style={{ fontSize: 24, fontWeight: 700, margin: '0 0 8px', color: 'white' }}>סיימת!</h2>
+                    <p style={{ fontSize: 16, color: C.muted, marginBottom: 24 }}>
+                        {studyResults.correct} מתוך {total} ({pct}%)
+                    </p>
+                    <div style={{ display: 'flex', gap: 12 }}>
+                        <button onClick={() => { setStudyIndex(0); setStudyResults({ correct: 0, incorrect: 0 }); setStudyComplete(false); setStudyFlipped(false); }}
+                            style={{ padding: '12px 24px', borderRadius: 12, background: 'rgba(139,92,246,0.1)', border: `1px solid ${C.purple}40`, color: C.purple, fontSize: 15, fontWeight: 600, cursor: 'pointer' }}>
+                            שוב
+                        </button>
+                        <button onClick={() => { setStudyMode(false); setStudyComplete(false); setStudyResults({ correct: 0, incorrect: 0 }); }}
+                            style={{ padding: '12px 24px', borderRadius: 12, background: C.surface, border: `1px solid ${C.border}`, color: C.text, fontSize: 15, fontWeight: 600, cursor: 'pointer' }}>
+                            סיום
+                        </button>
+                    </div>
+                </div>
+            );
+        }
+
+        const word = displayWords[studyIndex];
+
+        const advanceStudy = (isCorrect) => {
+            if (isCorrect) { playCorrect(); } else { playIncorrect(); }
+            const updated = { correct: studyResults.correct + (isCorrect ? 1 : 0), incorrect: studyResults.incorrect + (isCorrect ? 0 : 1) };
+            setStudyResults(updated);
+            setStudyFlipped(false);
+            if (studyIndex >= displayWords.length - 1) {
+                setStudyComplete(true);
+            } else {
+                setStudyIndex(studyIndex + 1);
+            }
+        };
 
         return (
             <div style={{ minHeight: '100vh', background: C.bg, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 24 }}>
-                <button onClick={() => setStudyMode(false)} style={{
+                <button onClick={() => { setStudyMode(false); setStudyComplete(false); setStudyResults({ correct: 0, incorrect: 0 }); }} style={{
                     position: 'absolute', top: 20, right: 20, width: 40, height: 40, borderRadius: '50%',
                     background: C.surface, border: `1px solid ${C.border}`, color: C.muted, cursor: 'pointer',
                     display: 'flex', alignItems: 'center', justifyContent: 'center'
@@ -102,18 +141,18 @@ const UserWordsList = () => {
                 </div>
 
                 <p style={{ fontSize: 12, color: '#4b5563', marginTop: 16 }}>
-                    הקש להיפוך (Space)
+                    הקש להיפוך
                 </p>
 
                 <div style={{ display: 'flex', gap: 12, marginTop: 24 }}>
                     <button
-                        onClick={() => { playIncorrect(); setStudyFlipped(false); setStudyIndex(prev => prev + 1); }}
+                        onClick={() => advanceStudy(false)}
                         style={{ flex: 1, padding: 14, borderRadius: 12, background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', color: C.red, fontSize: 15, fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}
                     >
                         <X size={18} /> לא ידעתי
                     </button>
                     <button
-                        onClick={() => { playCorrect(); setStudyFlipped(false); setStudyIndex(prev => prev + 1); }}
+                        onClick={() => advanceStudy(true)}
                         style={{ flex: 1, padding: 14, borderRadius: 12, background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.3)', color: C.green, fontSize: 15, fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}
                     >
                         <Check size={18} /> ידעתי

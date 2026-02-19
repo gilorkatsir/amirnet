@@ -37,6 +37,7 @@ const WelcomeScreen = () => {
 
     useEffect(() => {
         localStorage.setItem('wm_last_login', Date.now().toString());
+        localStorage.setItem('wm_last_visit_time', Date.now().toString());
     }, []);
 
     return (
