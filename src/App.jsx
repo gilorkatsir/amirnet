@@ -29,6 +29,8 @@ const AccessibilityStatement = lazy(() => import('./features/AccessibilityStatem
 const UserWordsList = lazy(() => import('./features/UserWordsList'));
 const ReadingComprehensionPractice = lazy(() => import('./features/study/ReadingComprehensionPractice'));
 const VocabCategorySelector = lazy(() => import('./features/VocabCategorySelector'));
+const VocalSectionSelector = lazy(() => import('./features/VocalSectionSelector'));
+const VocalExamSession = lazy(() => import('./features/exam/VocalExamSession'));
 
 // Convert saved session view names to URL paths
 const viewToPath = (view) => {
@@ -56,7 +58,7 @@ const App = () => {
       const saved = localStorage.getItem('wm_active_session');
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (parsed.view && ['study', 'english', 'exam'].includes(parsed.view)) {
+        if (parsed.view && ['study', 'english', 'exam', 'vocal-session'].includes(parsed.view)) {
           return parsed;
         }
       }
@@ -74,6 +76,7 @@ const App = () => {
   const [englishSession, setEnglishSession] = useState(savedSession?.englishSession || []);
   const [sessionResults, setSessionResults] = useState({ correct: 0, incorrect: 0 });
   const [aiLoading, setAiLoading] = useState(false);
+  const [vocalSection, setVocalSection] = useState(null);
 
   // Handle initial redirect on fresh app open
   useEffect(() => {
@@ -100,7 +103,7 @@ const App = () => {
   // Save session state whenever location or session data changes
   useEffect(() => {
     const currentView = pathToView(location);
-    if (['study', 'english', 'exam'].includes(currentView)) {
+    if (['study', 'english', 'exam', 'vocal-session'].includes(currentView)) {
       const stateToSave = {
         view: currentView,
         mode,
@@ -184,6 +187,13 @@ const App = () => {
     }
   };
 
+  const startVocalSession = (section) => {
+    setVocalSection(section);
+    setSessionType('vocal');
+    setSessionResults({ correct: 0, incorrect: 0 });
+    navigate('/vocal-session');
+  };
+
   const startEnglishSession = (config) => {
     setMode('english');
     setSessionType('english');
@@ -230,7 +240,7 @@ const App = () => {
 
     const total = results.correct + results.incorrect;
     if (total > 0) {
-      const type = (sessionType === 'english' || sessionType === 'ai-english') ? 'english' : 'vocab';
+      const type = (sessionType === 'english' || sessionType === 'ai-english' || sessionType === 'vocal') ? 'english' : 'vocab';
       recordDailyAccuracy(results.correct, total, type);
     }
 
@@ -245,6 +255,8 @@ const App = () => {
       startSession(mode, session.length);
     } else if (sessionType === 'ai-english') {
       navigate('/');
+    } else if (sessionType === 'vocal') {
+      navigate('/vocal-select');
     } else if (sessionType === 'english') {
       navigate('/english-select');
     }
@@ -365,6 +377,21 @@ const App = () => {
             <ReadingComprehensionPractice
               onComplete={handleSessionComplete}
             />
+          </Route>
+
+          <Route path="/vocal-select">
+            <VocalSectionSelector
+              onSelect={startVocalSession}
+            />
+          </Route>
+
+          <Route path="/vocal-session">
+            {vocalSection && (
+              <VocalExamSession
+                section={vocalSection}
+                onComplete={handleSessionComplete}
+              />
+            )}
           </Route>
 
           <Route path="/">

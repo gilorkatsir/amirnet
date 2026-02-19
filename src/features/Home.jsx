@@ -340,6 +340,10 @@ const Home = ({ onStart, onStartFailedVocab, onStartFailedEnglish, onStartAiPrac
                         color={C.orange} onClick={() => navigate('/english-select')}
                     />
                     <StudyOption
+                        icon="headphones" title="שאלות קוליות" desc="הרצאה + שאלות, השלמת טקסט"
+                        color="#3b82f6" onClick={() => navigate('/vocal-select')}
+                    />
+                    <StudyOption
                         icon="replay" title="חזרה על טעויות" desc={`${Object.values(englishStats).filter(s => s.attempts > s.correct).length} שאלות לחזרה`}
                         color={C.red} onClick={onStartFailedEnglish}
                     />
