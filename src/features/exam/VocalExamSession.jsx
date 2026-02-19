@@ -15,23 +15,27 @@ const VocalExamSession = ({ section, onComplete }) => {
   const isLecture = section.type === 'lecture';
   const hasTts = hasElevenLabsKey();
 
-  // Phases: 'listening' → 'questions' (lecture) or per-clip flow (continuation)
+  // Phases: 'listening' → 'questions'
   const [phase, setPhase] = useState('listening');
   const [currentClipIndex, setCurrentClipIndex] = useState(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [audioState, setAudioState] = useState('idle'); // idle | loading | playing | paused | done
-  const [timeLeft, setTimeLeft] = useState(null); // timer starts in question phase
-  const [answers, setAnswers] = useState([]); // { questionIndex, selected, isCorrect }
+  const [timeLeft, setTimeLeft] = useState(null);
+  const [answers, setAnswers] = useState([]);
   const [selected, setSelected] = useState(null);
   const [answered, setAnswered] = useState(false);
   const [markedForReview, setMarkedForReview] = useState(new Set());
+  const [showText, setShowText] = useState(!hasTts); // Show text if no TTS, or user toggles
 
   const audioRef = useRef(null);
   const audioUrlRef = useRef(null);
+  const mountedRef = useRef(true);
 
-  // Cleanup audio on unmount
+  // Track mounted state for async safety
   useEffect(() => {
+    mountedRef.current = true;
     return () => {
+      mountedRef.current = false;
       if (audioRef.current) {
         audioRef.current.pause();
         audioRef.current = null;
@@ -42,7 +46,7 @@ const VocalExamSession = ({ section, onComplete }) => {
     };
   }, []);
 
-  // Timer countdown (only in question phase)
+  // Timer countdown
   useEffect(() => {
     if (timeLeft === null || timeLeft <= 0) return;
     const timer = setInterval(() => {
@@ -50,13 +54,21 @@ const VocalExamSession = ({ section, onComplete }) => {
         if (prev <= 1) {
           clearInterval(timer);
           playTimerComplete();
-          handleFinish();
           return 0;
         }
         return prev - 1;
       });
     }, 1000);
     return () => clearInterval(timer);
+  }, [timeLeft]);
+
+  // Auto-submit when timer hits 0
+  useEffect(() => {
+    if (timeLeft === 0) {
+      const correct = answers.filter(a => a.isCorrect).length;
+      const incorrect = answers.filter(a => !a.isCorrect).length;
+      onComplete({ correct, incorrect, answers });
+    }
   }, [timeLeft]);
 
   const formatTime = (s) => {
@@ -67,8 +79,7 @@ const VocalExamSession = ({ section, onComplete }) => {
   };
 
   // ─── AUDIO PLAYBACK ─────────────────────────────────────────
-  const playClip = useCallback(async (clipText) => {
-    // Stop previous
+  const stopAudio = useCallback(() => {
     if (audioRef.current) {
       audioRef.current.pause();
       audioRef.current = null;
@@ -77,9 +88,12 @@ const VocalExamSession = ({ section, onComplete }) => {
       URL.revokeObjectURL(audioUrlRef.current);
       audioUrlRef.current = null;
     }
+  }, []);
+
+  const playClip = useCallback(async (clipText) => {
+    stopAudio();
 
     if (!hasTts) {
-      // No TTS key — show text instead, auto-advance after delay
       setAudioState('done');
       return;
     }
@@ -87,24 +101,26 @@ const VocalExamSession = ({ section, onComplete }) => {
     setAudioState('loading');
     try {
       const blob = await textToSpeech(clipText);
+      if (!mountedRef.current) return; // Component unmounted during fetch
+
       const url = URL.createObjectURL(blob);
       audioUrlRef.current = url;
       const audio = new Audio(url);
       audioRef.current = audio;
 
       audio.addEventListener('ended', () => {
-        setAudioState('done');
+        if (mountedRef.current) setAudioState('done');
       });
       audio.addEventListener('error', () => {
-        setAudioState('done');
+        if (mountedRef.current) setAudioState('done');
       });
 
       setAudioState('playing');
       await audio.play();
     } catch {
-      setAudioState('done');
+      if (mountedRef.current) setAudioState('done');
     }
-  }, [hasTts]);
+  }, [hasTts, stopAudio]);
 
   const togglePlayPause = () => {
     if (!audioRef.current) return;
@@ -117,51 +133,55 @@ const VocalExamSession = ({ section, onComplete }) => {
     }
   };
 
-  const replayClip = () => {
-    const clips = isLecture ? section.clips : section.clips;
-    const clip = clips[currentClipIndex];
+  const replayCurrentClip = () => {
+    const clip = section.clips[currentClipIndex];
     if (clip) playClip(clip.text);
   };
 
-  // ─── LECTURE FLOW ───────────────────────────────────────────
-  // Auto-play first clip when entering listening phase
+  // Auto-play clip when entering listening phase or advancing clip
+  const prevClipRef = useRef(-1);
   useEffect(() => {
-    if (phase === 'listening' && isLecture) {
-      const clip = section.clips[currentClipIndex];
-      if (clip) playClip(clip.text);
-    }
-  }, [phase, currentClipIndex, isLecture]);
+    if (phase !== 'listening') return;
+    // Only auto-play when clip index actually changes (prevents StrictMode double-fire)
+    if (prevClipRef.current === currentClipIndex) return;
+    prevClipRef.current = currentClipIndex;
 
+    const clip = section.clips[currentClipIndex];
+    if (clip) playClip(clip.text);
+  }, [phase, currentClipIndex, playClip, section.clips]);
+
+  // ─── NAVIGATION ─────────────────────────────────────────────
   const handleNextClip = () => {
     playClick();
-    if (isLecture) {
-      if (currentClipIndex < section.clips.length - 1) {
-        setCurrentClipIndex(currentClipIndex + 1);
-        setAudioState('idle');
-      } else {
-        // All clips heard → move to questions
-        setPhase('questions');
-        setCurrentClipIndex(0);
-        setTimeLeft(section.timeLimit);
-      }
+    stopAudio();
+
+    if (currentClipIndex < section.clips.length - 1) {
+      setAudioState('idle');
+      prevClipRef.current = -1; // Allow auto-play for next clip
+      setCurrentClipIndex(prev => prev + 1);
+    } else {
+      // All clips done → move to questions
+      goToQuestions();
     }
   };
 
-  // ─── CONTINUATION FLOW ──────────────────────────────────────
-  useEffect(() => {
-    if (!isLecture && phase === 'listening') {
-      const clip = section.clips[currentClipIndex];
-      if (clip) playClip(clip.text);
+  const goToQuestions = () => {
+    stopAudio();
+    setPhase('questions');
+    if (isLecture) {
+      setCurrentClipIndex(0);
     }
-  }, [phase, currentClipIndex, isLecture]);
+    if (timeLeft === null) {
+      setTimeLeft(section.timeLimit);
+    }
+  };
 
   // ─── ANSWER HANDLING ────────────────────────────────────────
   const getCurrentQuestion = () => {
     if (isLecture) {
       return section.questions[currentQuestionIndex];
-    } else {
-      return section.clips[currentClipIndex];
     }
+    return section.clips[currentClipIndex];
   };
 
   const handleSelect = (index) => {
@@ -189,31 +209,36 @@ const VocalExamSession = ({ section, onComplete }) => {
 
     if (isLecture) {
       if (currentQuestionIndex < section.questions.length - 1) {
-        setCurrentQuestionIndex(currentQuestionIndex + 1);
+        setCurrentQuestionIndex(prev => prev + 1);
       } else {
-        handleFinish();
+        // Use callback to get latest answers
+        setAnswers(current => {
+          const correct = current.filter(a => a.isCorrect).length;
+          const incorrect = current.filter(a => !a.isCorrect).length;
+          setTimeout(() => onComplete({ correct, incorrect, answers: current }), 0);
+          return current;
+        });
       }
     } else {
       // Continuation: next clip
       if (currentClipIndex < section.clips.length - 1) {
-        setCurrentClipIndex(currentClipIndex + 1);
+        prevClipRef.current = -1;
+        setCurrentClipIndex(prev => prev + 1);
         setPhase('listening');
         setAudioState('idle');
       } else {
-        handleFinish();
+        setAnswers(current => {
+          const correct = current.filter(a => a.isCorrect).length;
+          const incorrect = current.filter(a => !a.isCorrect).length;
+          setTimeout(() => onComplete({ correct, incorrect, answers: current }), 0);
+          return current;
+        });
       }
     }
   };
 
-  const handleFinish = () => {
-    const correct = answers.filter(a => a.isCorrect).length;
-    const incorrect = answers.filter(a => !a.isCorrect).length;
-    onComplete({ correct, incorrect, answers });
-  };
-
   const handleJumpToQuestion = (idx) => {
     if (!isLecture || phase !== 'questions') return;
-    // Only allow jumping to answered or current
     if (idx <= answers.length) {
       setCurrentQuestionIndex(idx);
       const existing = answers.find(a => a.questionIndex === idx);
@@ -247,43 +272,98 @@ const VocalExamSession = ({ section, onComplete }) => {
         if (key === ' ' || key === 'enter') {
           e.preventDefault();
           if (audioState === 'done') handleNextClip();
+          else if (audioState === 'idle') replayCurrentClip();
           else togglePlayPause();
         }
-        if (key === 'r') {
-          e.preventDefault();
-          replayClip();
-        }
-      } else if (phase === 'questions' || !isLecture) {
+        if (key === 'r') { e.preventDefault(); replayCurrentClip(); }
+        if (key === 's') { e.preventDefault(); goToQuestions(); }
+      } else {
         const keyMap = { a: 0, b: 1, c: 2, d: 3, '1': 0, '2': 1, '3': 2, '4': 3 };
-        if (key in keyMap && !answered) {
-          e.preventDefault();
-          handleSelect(keyMap[key]);
-        }
-        if ((key === 'enter' || key === ' ') && answered) {
-          e.preventDefault();
-          handleNext();
-        }
-        if (key === 'm') {
-          e.preventDefault();
-          toggleMarkForReview();
-        }
+        if (key in keyMap && !answered) { e.preventDefault(); handleSelect(keyMap[key]); }
+        if ((key === 'enter' || key === ' ') && answered) { e.preventDefault(); handleNext(); }
+        if (key === 'm') { e.preventDefault(); toggleMarkForReview(); }
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [phase, audioState, answered, currentClipIndex, currentQuestionIndex]);
 
-  // ─── RENDER ─────────────────────────────────────────────────
+  // ─── RENDER HELPERS ─────────────────────────────────────────
 
   const totalQs = isLecture ? section.questions.length : section.clips.length;
-  const answeredCount = answers.length;
   const currentIdx = isLecture ? currentQuestionIndex : currentClipIndex;
 
+  const renderAudioControls = () => {
+    const clip = section.clips[currentClipIndex];
+
+    return (
+      <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
+        {/* Play / Pause / Replay */}
+        {audioState === 'idle' && hasTts && (
+          <button onClick={replayCurrentClip} style={btnStyle(C.purple)}>
+            <Icon name="play_arrow" size={24} />
+          </button>
+        )}
+        {audioState === 'loading' && (
+          <div style={{ ...btnStyle(C.border), cursor: 'default', opacity: 0.6 }}>
+            <Icon name="hourglass_top" size={24} />
+          </div>
+        )}
+        {(audioState === 'playing' || audioState === 'paused') && (
+          <button onClick={togglePlayPause} style={btnStyle(C.purple)}>
+            <Icon name={audioState === 'playing' ? 'pause' : 'play_arrow'} size={24} />
+          </button>
+        )}
+        {audioState === 'done' && hasTts && (
+          <button onClick={replayCurrentClip} style={btnStyle(C.muted)}>
+            <Icon name="replay" size={24} />
+          </button>
+        )}
+
+        {/* Next clip / Go to questions */}
+        {(audioState === 'done' || !hasTts) && (
+          <button onClick={handleNextClip} style={{
+            height: 48, padding: '0 24px', borderRadius: 24, background: C.gradient,
+            border: 'none', cursor: 'pointer', color: 'white', fontSize: 15,
+            fontWeight: 700, display: 'flex', alignItems: 'center', gap: 8,
+            boxShadow: '0 8px 24px rgba(124,58,237,0.25)'
+          }}>
+            {currentClipIndex < section.clips.length - 1 ? (isLecture ? 'קליפ הבא' : 'הבא') : (isLecture ? 'עבור לשאלות' : 'בחר המשך')}
+            <Icon name="arrow_back" size={20} />
+          </button>
+        )}
+
+        {/* Toggle text */}
+        {hasTts && (
+          <button
+            onClick={() => setShowText(!showText)}
+            style={{
+              width: 40, height: 40, borderRadius: '50%', background: showText ? 'rgba(139,92,246,0.2)' : C.surface,
+              border: `1px solid ${showText ? C.purple : C.border}`, cursor: 'pointer',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              color: showText ? C.purple : C.muted
+            }}
+            title="הצג/הסתר טקסט"
+          >
+            <Icon name={showText ? 'visibility' : 'visibility_off'} size={18} />
+          </button>
+        )}
+      </div>
+    );
+  };
+
+  const btnStyle = (color) => ({
+    width: 48, height: 48, borderRadius: '50%', background: C.surface,
+    border: `1px solid ${color}`, cursor: 'pointer',
+    display: 'flex', alignItems: 'center', justifyContent: 'center', color
+  });
+
   // ─── LISTENING PHASE ────────────────────────────────────────
-  if (phase === 'listening' && isLecture) {
+  if (phase === 'listening') {
     const clip = section.clips[currentClipIndex];
     const clipNum = currentClipIndex + 1;
     const totalClips = section.clips.length;
+    const accentColor = isLecture ? C.orange : '#3b82f6';
 
     return (
       <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: C.bg }}>
@@ -299,97 +379,76 @@ const VocalExamSession = ({ section, onComplete }) => {
             <Icon name="close" size={24} style={{ color: '#d1d5db' }} />
           </button>
           <div style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: 11, fontWeight: 700, color: C.orange, textTransform: 'uppercase', letterSpacing: 1.5, display: 'flex', alignItems: 'center', gap: 6, justifyContent: 'center' }}>
-              <Icon name="headphones" size={14} />
-              שלב האזנה
+            <div style={{ fontSize: 11, fontWeight: 700, color: accentColor, textTransform: 'uppercase', letterSpacing: 1.5, display: 'flex', alignItems: 'center', gap: 6, justifyContent: 'center' }}>
+              <Icon name={isLecture ? 'headphones' : 'hearing'} size={14} />
+              {isLecture ? 'שלב האזנה' : 'השלמת טקסט'}
             </div>
             <div style={{ fontSize: 13, color: C.muted, marginTop: 4 }}>
               קליפ {clipNum} מתוך {totalClips}
             </div>
           </div>
-          <div style={{ width: 40 }} />
+          {/* Skip to questions */}
+          <button onClick={goToQuestions} style={{
+            background: 'none', border: 'none', cursor: 'pointer',
+            color: C.muted, fontSize: 12, fontWeight: 600, padding: '8px 4px'
+          }} title="דלג לשאלות">
+            <Icon name="skip_next" size={20} />
+          </button>
         </header>
 
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 32, gap: 32 }}>
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '24px 20px', gap: 24 }}>
           <h2 style={{ fontSize: 20, fontWeight: 700, color: 'white', textAlign: 'center', margin: 0 }}>
             {section.title}
           </h2>
 
-          {/* Audio visualizer / status */}
+          {/* Audio circle */}
           <div style={{
-            width: 120, height: 120, borderRadius: '50%',
-            background: audioState === 'playing' ? 'rgba(139, 92, 246, 0.15)' : 'rgba(255,255,255,0.05)',
-            border: `2px solid ${audioState === 'playing' ? C.purple : C.border}`,
+            width: 100, height: 100, borderRadius: '50%',
+            background: audioState === 'playing' ? `${accentColor}20` : 'rgba(255,255,255,0.05)',
+            border: `2px solid ${audioState === 'playing' ? accentColor : C.border}`,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             transition: 'all 0.3s',
             animation: audioState === 'playing' ? 'pulse 2s infinite' : 'none'
           }}>
             <Icon
-              name={audioState === 'loading' ? 'hourglass_top' : audioState === 'playing' ? 'graphic_eq' : audioState === 'paused' ? 'pause' : audioState === 'done' ? 'check_circle' : 'headphones'}
-              size={48}
-              style={{ color: audioState === 'playing' ? C.purple : audioState === 'done' ? C.green : C.muted }}
+              name={audioState === 'loading' ? 'hourglass_top' : audioState === 'playing' ? 'graphic_eq' : audioState === 'paused' ? 'pause' : audioState === 'done' ? 'check_circle' : 'play_arrow'}
+              size={40}
+              style={{ color: audioState === 'playing' ? accentColor : audioState === 'done' ? C.green : C.muted }}
             />
           </div>
 
-          {!hasTts && (
+          {/* Status text */}
+          <p style={{ fontSize: 13, color: C.muted, textAlign: 'center', margin: 0 }} dir="rtl">
+            {audioState === 'loading' ? 'טוען אודיו...' :
+             audioState === 'playing' ? 'מאזינים...' :
+             audioState === 'paused' ? 'מושהה — לחץ להמשך' :
+             audioState === 'done' ? 'הקליפ הסתיים' :
+             hasTts ? 'לחץ Play להשמעה' : 'קרא את הטקסט'}
+          </p>
+
+          {/* Controls */}
+          {renderAudioControls()}
+
+          {/* Clip text (always shown if no TTS, toggleable if TTS) */}
+          {(showText || !hasTts) && (
             <div style={{
               padding: 20, background: 'rgba(255,255,255,0.05)', borderRadius: 12,
-              border: `1px solid ${C.border}`, maxWidth: 480, width: '100%'
+              border: `1px solid ${C.border}`, maxWidth: 520, width: '100%',
+              maxHeight: 200, overflowY: 'auto'
             }} dir="ltr">
-              <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.9)', margin: 0 }}>
+              <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.85)', margin: 0 }}>
                 {clip.text}
+                {!isLecture && <span style={{ color: C.orange, fontWeight: 700 }}>...</span>}
               </p>
             </div>
           )}
-
-          {hasTts && (
-            <p style={{ fontSize: 13, color: C.muted, textAlign: 'center', margin: 0 }} dir="rtl">
-              {audioState === 'loading' ? 'טוען אודיו...' :
-               audioState === 'playing' ? 'מאזינים...' :
-               audioState === 'paused' ? 'מושהה' :
-               audioState === 'done' ? 'הקליפ הסתיים' : 'מוכן להפעלה'}
-            </p>
-          )}
-
-          {/* Controls */}
-          <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-            {(audioState === 'playing' || audioState === 'paused') && (
-              <button onClick={togglePlayPause} style={{
-                width: 48, height: 48, borderRadius: '50%', background: C.surface,
-                border: `1px solid ${C.border}`, cursor: 'pointer',
-                display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white'
-              }}>
-                <Icon name={audioState === 'playing' ? 'pause' : 'play_arrow'} size={24} />
-              </button>
-            )}
-            {audioState === 'done' && (
-              <>
-                <button onClick={replayClip} style={{
-                  width: 48, height: 48, borderRadius: '50%', background: C.surface,
-                  border: `1px solid ${C.border}`, cursor: 'pointer',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center', color: C.muted
-                }}>
-                  <Icon name="replay" size={24} />
-                </button>
-                <button onClick={handleNextClip} style={{
-                  height: 48, padding: '0 24px', borderRadius: 24, background: C.gradient,
-                  border: 'none', cursor: 'pointer', color: 'white', fontSize: 15,
-                  fontWeight: 700, display: 'flex', alignItems: 'center', gap: 8,
-                  boxShadow: '0 8px 24px rgba(124,58,237,0.25)'
-                }}>
-                  {currentClipIndex < section.clips.length - 1 ? 'קליפ הבא' : 'עבור לשאלות'}
-                  <Icon name="arrow_back" size={20} />
-                </button>
-              </>
-            )}
-          </div>
 
           {/* Clip progress dots */}
           <div style={{ display: 'flex', gap: 8 }}>
             {section.clips.map((_, i) => (
               <div key={i} style={{
                 width: 8, height: 8, borderRadius: '50%',
-                background: i < currentClipIndex ? C.green : i === currentClipIndex ? C.purple : C.border,
+                background: i < currentClipIndex ? C.green : i === currentClipIndex ? accentColor : C.border,
                 transition: 'background 0.3s'
               }} />
             ))}
@@ -400,96 +459,6 @@ const VocalExamSession = ({ section, onComplete }) => {
           @keyframes pulse {
             0%, 100% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.3); }
             50% { box-shadow: 0 0 0 20px rgba(139, 92, 246, 0); }
-          }
-        `}</style>
-      </div>
-    );
-  }
-
-  // ─── CONTINUATION LISTENING PHASE ───────────────────────────
-  if (phase === 'listening' && !isLecture) {
-    const clip = section.clips[currentClipIndex];
-
-    return (
-      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: C.bg }}>
-        <header style={{
-          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-          padding: '16px 20px', background: 'rgba(26,26,26,0.95)',
-          backdropFilter: 'blur(8px)', borderBottom: `1px solid ${C.border}`
-        }}>
-          <button onClick={() => navigate('/')} style={{
-            width: 40, height: 40, borderRadius: '50%', background: 'transparent',
-            border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center'
-          }}>
-            <Icon name="close" size={24} style={{ color: '#d1d5db' }} />
-          </button>
-          <div style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: 11, fontWeight: 700, color: '#3b82f6', textTransform: 'uppercase', letterSpacing: 1.5, display: 'flex', alignItems: 'center', gap: 6, justifyContent: 'center' }}>
-              <Icon name="hearing" size={14} />
-              השלמת טקסט
-            </div>
-            <div style={{ fontSize: 13, color: C.muted, marginTop: 4 }}>
-              קליפ {currentClipIndex + 1} מתוך {section.clips.length}
-            </div>
-          </div>
-          {/* Timer for continuation starts from first clip */}
-          <div style={{ fontSize: 16, fontWeight: 700, color: timeLeft !== null && timeLeft < 60 ? '#ef4444' : 'white', fontVariantNumeric: 'tabular-nums' }}>
-            {timeLeft !== null ? formatTime(timeLeft) : ''}
-          </div>
-        </header>
-
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 32, gap: 24 }}>
-          <div style={{
-            width: 80, height: 80, borderRadius: '50%',
-            background: audioState === 'playing' ? 'rgba(59, 130, 246, 0.15)' : 'rgba(255,255,255,0.05)',
-            border: `2px solid ${audioState === 'playing' ? '#3b82f6' : C.border}`,
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            animation: audioState === 'playing' ? 'pulse-blue 2s infinite' : 'none'
-          }}>
-            <Icon
-              name={audioState === 'loading' ? 'hourglass_top' : audioState === 'playing' ? 'graphic_eq' : 'check_circle'}
-              size={36}
-              style={{ color: audioState === 'playing' ? '#3b82f6' : audioState === 'done' ? C.green : C.muted }}
-            />
-          </div>
-
-          {!hasTts && (
-            <div style={{
-              padding: 20, background: 'rgba(255,255,255,0.05)', borderRadius: 12,
-              border: `1px solid ${C.border}`, maxWidth: 480, width: '100%'
-            }} dir="ltr">
-              <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.9)', margin: 0 }}>
-                {clip.text}
-                <span style={{ color: C.orange, fontWeight: 700 }}>...</span>
-              </p>
-            </div>
-          )}
-
-          {hasTts && audioState === 'playing' && (
-            <p style={{ fontSize: 14, color: C.muted }} dir="rtl">מאזינים לקליפ...</p>
-          )}
-
-          {audioState === 'done' && (
-            <button onClick={() => {
-              // Start timer on first continuation answer
-              if (timeLeft === null) setTimeLeft(section.timeLimit);
-              setPhase('questions');
-            }} style={{
-              height: 48, padding: '0 24px', borderRadius: 24,
-              background: 'linear-gradient(135deg, #3b82f6, #8B5CF6)',
-              border: 'none', cursor: 'pointer', color: 'white', fontSize: 15,
-              fontWeight: 700, display: 'flex', alignItems: 'center', gap: 8
-            }}>
-              בחר המשך
-              <Icon name="arrow_back" size={20} />
-            </button>
-          )}
-        </div>
-
-        <style>{`
-          @keyframes pulse-blue {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.3); }
-            50% { box-shadow: 0 0 0 20px rgba(59, 130, 246, 0); }
           }
         `}</style>
       </div>
@@ -532,7 +501,6 @@ const VocalExamSession = ({ section, onComplete }) => {
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          {/* Mark for review */}
           <button onClick={toggleMarkForReview} style={{
             width: 36, height: 36, borderRadius: '50%',
             background: isMarked ? 'rgba(251, 146, 60, 0.2)' : C.surface,
@@ -543,7 +511,6 @@ const VocalExamSession = ({ section, onComplete }) => {
             <Icon name={isMarked ? 'flag' : 'outlined_flag'} size={18} />
           </button>
 
-          {/* Score */}
           <div style={{
             display: 'flex', alignItems: 'center', gap: 8,
             padding: '6px 12px', borderRadius: 20,
@@ -612,7 +579,7 @@ const VocalExamSession = ({ section, onComplete }) => {
             </div>
           </div>
 
-          {/* Question text (for lecture) or instruction (for continuation) */}
+          {/* Question text */}
           <div style={{ marginBottom: 24 }}>
             {isLecture ? (
               <p style={{ fontSize: 18, lineHeight: 1.7, color: 'rgba(255,255,255,0.95)', margin: 0, fontWeight: 500 }}>
