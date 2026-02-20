@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
 import { Volume2, Hand, ArrowLeftRight, X, Check, CheckCircle } from 'lucide-react';
 import { C, GLASS, RADIUS } from '../../styles/theme';
-import { playCorrect, playIncorrect, playClick } from '../../utils/sounds';
+import { playCorrect, playIncorrect, playClick, playFlip } from '../../utils/sounds';
 
 const SWIPE_THRESHOLD = 80;
 
@@ -88,6 +88,7 @@ const Flashcard = ({ word, onResult, onNext }) => {
 
             if ((key === ' ' || key === 'Enter') && !flipped) {
                 e.preventDefault();
+                playFlip();
                 setFlipped(true);
             } else if (flipped) {
                 if (key === 'ArrowRight' || key === '1') {
@@ -121,7 +122,7 @@ const Flashcard = ({ word, onResult, onNext }) => {
                 initial="enter"
                 animate="center"
                 transition={{ type: 'spring', stiffness: 400, damping: 28 }}
-                onClick={() => !flipped && setFlipped(true)}
+                onClick={() => { if (!flipped) { playFlip(); setFlipped(true); } }}
                 drag={flipped && !revealed ? 'x' : false}
                 dragConstraints={{ left: 0, right: 0 }}
                 dragElastic={0.8}
@@ -266,7 +267,7 @@ const Flashcard = ({ word, onResult, onNext }) => {
                         >
                             <motion.button
                                 whileTap={{ scale: 0.96 }}
-                                onClick={() => setFlipped(true)}
+                                onClick={() => { playFlip(); setFlipped(true); }}
                                 style={{
                                     width: '100%', padding: 16, borderRadius: RADIUS.md, border: 'none',
                                     background: 'linear-gradient(135deg, #8B5CF6, #EC4899)',

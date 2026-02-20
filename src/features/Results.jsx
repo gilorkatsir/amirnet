@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { Trophy, Star, Dumbbell, BookOpen, Check, X, PenLine, ArrowLeftRight, BookOpenText, Lightbulb, RotateCcw, Home } from 'lucide-react';
 import { C, GLASS, RADIUS, SURFACE } from '../styles/theme';
+import { playComplete } from '../utils/sounds';
 
 const Results = ({ results, sessionType, onRestart, onReview }) => {
     const [, navigate] = useLocation();
     const total = results.correct + results.incorrect;
     const pct = total > 0 ? Math.round((results.correct / total) * 100) : 0;
+
+    // Play completion sound once on mount
+    const completeSoundPlayed = useRef(false);
+    useEffect(() => {
+        if (!completeSoundPlayed.current) {
+            completeSoundPlayed.current = true;
+            // Small delay to let the page render first
+            const timer = setTimeout(() => playComplete(), 200);
+            return () => clearTimeout(timer);
+        }
+    }, []);
 
     const getInfo = () => {
         if (pct >= 90) return { icon: Trophy, msg: 'מצוין! שליטה מרשימה!', color: '#fbbf24' };

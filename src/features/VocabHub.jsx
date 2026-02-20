@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import {
-    ArrowRight, Layers, RotateCcw, Sparkles, Bookmark, Brain
+    ArrowRight, Layers, RotateCcw, Sparkles, Bookmark, Brain, ArrowLeftRight
 } from 'lucide-react';
 import { C, GLASS, SURFACE, MOTION, HEADING } from '../styles/theme';
 import { useStatsContext } from '../contexts/StatsContext';
@@ -38,6 +38,10 @@ const VocabHub = ({ onStartFailedVocab }) => {
         {
             icon: Layers, title: 'לפי קטגוריה', desc: '10 קטגוריות + חזרה חכמה',
             color: C.blue, onClick: () => navigate('/vocab-categories')
+        },
+        {
+            icon: ArrowLeftRight, title: 'תרגול החלקה', desc: 'החלק ימינה = ידעתי, שמאלה = לא',
+            color: C.pink, onClick: () => navigate('/swipe')
         },
         {
             icon: RotateCcw, title: 'חזרה על טעויות', desc: `${failedCount} מילים לחזרה`,

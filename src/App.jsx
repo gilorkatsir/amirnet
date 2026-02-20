@@ -45,6 +45,7 @@ const AIPracticeHub = lazy(() => import('./features/AIPracticeHub'));
 const SpacedRepSection = lazy(() => import('./features/SpacedRepSection'));
 const PrivacyPolicy = lazy(() => import('./features/PrivacyPolicy'));
 const TermsOfService = lazy(() => import('./features/TermsOfService'));
+const SwipeMode = lazy(() => import('./features/SwipeMode'));
 
 // Convert saved session view names to URL paths
 const viewToPath = (view) => {
@@ -478,6 +479,10 @@ const App = () => {
             <VocabHub
               onStartFailedVocab={startFailedVocabReview}
             />
+          </Route>
+
+          <Route path="/swipe">
+            <SwipeMode />
           </Route>
 
           <Route path="/spaced-rep">

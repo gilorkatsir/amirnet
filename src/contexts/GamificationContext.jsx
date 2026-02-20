@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState, useCallback, useEffect, use
 import { supabase } from '../services/supabase';
 import { useAuth } from './AuthContext';
 import { safeLocalStorageGet, safeLocalStorageSet } from '../utils/security';
+import { playLevelUp, playBadge } from '../utils/sounds';
 
 const GamificationContext = createContext(null);
 
@@ -126,6 +127,7 @@ export const GamificationProvider = ({ children }) => {
     if (newBadges.length > 0) {
       setBadges(prev => [...prev, ...newBadges]);
       setNewBadgeEvent(newBadges[0]);
+      playBadge();
     }
 
     return newBadges;
@@ -142,6 +144,7 @@ export const GamificationProvider = ({ children }) => {
 
     if (newLevel > prevLevel) {
       setLevelUpEvent({ from: prevLevel, to: newLevel, title: getLevelTitle(newLevel) });
+      playLevelUp();
     }
 
     checkBadges({
