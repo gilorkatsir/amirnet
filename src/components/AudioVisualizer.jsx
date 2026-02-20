@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Headphones, Mic, Pause } from 'lucide-react';
 import AudioWaveform from './AudioWaveform';

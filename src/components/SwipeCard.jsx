@@ -1,16 +1,18 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion';
 import { Volume2, Hand } from 'lucide-react';
 import { C, GLASS, RADIUS } from '../styles/theme';
+import { playFlip } from '../utils/sounds';
 
 const SWIPE_THRESHOLD = 100;
 const MAX_ROTATION = 15;
 
-const SwipeCard = ({ word, onSwipeRight, onSwipeLeft, stackIndex = 0 }) => {
+const SwipeCard = ({ word, onSwipeRight, onSwipeLeft, stackIndex = 0, onFlip }) => {
     const [flipped, setFlipped] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
     const [exitDirection, setExitDirection] = useState(null);
+    const cardRef = useRef(null);
 
     const dragX = useMotionValue(0);
     const dragRotate = useTransform(dragX, [-300, 0, 300], [-MAX_ROTATION, 0, MAX_ROTATION]);
@@ -77,9 +79,39 @@ const SwipeCard = ({ word, onSwipeRight, onSwipeLeft, stackIndex = 0 }) => {
     const handleTap = useCallback(() => {
         if (isDragging || stackIndex !== 0) return;
         if (Math.abs(currentXRef.current) < 5) {
+            playFlip();
             setFlipped(f => !f);
+            onFlip?.();
         }
-    }, [isDragging, stackIndex]);
+    }, [isDragging, stackIndex, onFlip]);
+
+    // Auto-focus the top card for keyboard access
+    useEffect(() => {
+        if (stackIndex === 0 && cardRef.current) {
+            cardRef.current.focus({ preventScroll: true });
+        }
+    }, [stackIndex, word.id]);
+
+    // Keyboard shortcuts
+    const handleKeyDown = useCallback((e) => {
+        if (stackIndex !== 0) return;
+        const key = e.key;
+
+        if ((key === ' ' || key === 'Enter') && !flipped) {
+            e.preventDefault();
+            playFlip();
+            setFlipped(true);
+            onFlip?.();
+        } else if (key === 'ArrowRight' || key === '1') {
+            e.preventDefault();
+            setExitDirection('right');
+            setTimeout(() => onSwipeRight?.(), 300);
+        } else if (key === 'ArrowLeft' || key === '2') {
+            e.preventDefault();
+            setExitDirection('left');
+            setTimeout(() => onSwipeLeft?.(), 300);
+        }
+    }, [stackIndex, flipped, onSwipeRight, onSwipeLeft, onFlip]);
 
     // Stack offset styling
     const stackScale = 1 - stackIndex * 0.05;
@@ -110,6 +142,14 @@ const SwipeCard = ({ word, onSwipeRight, onSwipeLeft, stackIndex = 0 }) => {
 
     return (
         <motion.div
+            ref={cardRef}
+            role="button"
+            tabIndex={stackIndex === 0 ? 0 : -1}
+            aria-label={
+                flipped
+                    ? `${word.hebrew} - ${word.english}. החלק ימינה אם ידעת, שמאלה אם לא`
+                    : `${word.english}. הקש להיפוך הכרטיס`
+            }
             initial={stackIndex === 0 ? { y: 40, opacity: 0, scale: 0.95 } : false}
             animate={{
                 y: stackY,
@@ -134,12 +174,14 @@ const SwipeCard = ({ word, onSwipeRight, onSwipeLeft, stackIndex = 0 }) => {
                 touchAction: 'none',
                 userSelect: 'none',
                 perspective: 800,
+                outline: 'none',
             }}
             onPointerDown={handlePointerDown}
             onPointerMove={handlePointerMove}
             onPointerUp={handlePointerUp}
             onPointerCancel={handlePointerUp}
             onClick={handleTap}
+            onKeyDown={handleKeyDown}
         >
             {/* Right swipe overlay - green glow */}
             {stackIndex === 0 && (
@@ -339,6 +381,7 @@ SwipeCard.propTypes = {
     onSwipeRight: PropTypes.func.isRequired,
     onSwipeLeft: PropTypes.func.isRequired,
     stackIndex: PropTypes.number,
+    onFlip: PropTypes.func,
 };
 
 export default SwipeCard;

@@ -29,6 +29,7 @@ export const C = {
     orange: '#fb923c',
     green: '#22c55e',
     red: '#ef4444',
+    yellow: '#eab308',
     cyan: '#06b6d4',
 
     // Gradients

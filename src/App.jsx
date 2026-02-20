@@ -4,8 +4,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { VOCABULARY } from './data/vocabulary';
 import {
   ENGLISH_QUESTIONS,
-  getRandomQuestions,
-  generateExamSection,
   getQuestionsByType
 } from './data/englishQuestions';
 import { C, FONTS } from './styles/theme';

@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import {
     ArrowRight, Layers, RotateCcw, Sparkles, Bookmark, Brain, ArrowLeftRight
 } from 'lucide-react';
-import { C, GLASS, SURFACE, MOTION, HEADING } from '../styles/theme';
+import { C, GLASS, MOTION, HEADING } from '../styles/theme';
 import { useStatsContext } from '../contexts/StatsContext';
 import { useUserWords } from '../contexts/UserWordsContext';
 import { useTier } from '../contexts/TierContext';

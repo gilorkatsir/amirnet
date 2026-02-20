@@ -82,6 +82,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           'vendor': ['react', 'react-dom', 'wouter'],
+          'ui-lib': ['framer-motion', 'lucide-react'],
           'data': ['./src/data/vocabulary.js', './src/data/englishQuestions.js'],
         }
       }

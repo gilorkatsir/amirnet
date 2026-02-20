@@ -1,13 +1,14 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { useLocation } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     ArrowRight, Brain, Volume2, RotateCcw, Trophy,
-    ChevronLeft, ChevronRight, Zap, TrendingUp, Clock
+    ChevronLeft, Zap, TrendingUp, Clock
 } from 'lucide-react';
-import { C, GLASS, RADIUS, MOTION, HEADING, SPACING } from '../styles/theme';
+import { C, GLASS, RADIUS, MOTION, HEADING } from '../styles/theme';
 import { VOCABULARY } from '../data/vocabulary';
 import { useTier } from '../contexts/TierContext';
+import { useGamification } from '../contexts/GamificationContext';
 import {
     loadSRData, saveSRData, getItemData, processReview,
     getNextReviewItems, getDueCount, getRetentionStats
@@ -75,11 +76,11 @@ const StatPill = ({ icon: Icon, label, value, color }) => (
 
 // ---------- Grade palette ----------
 const GRADES = [
-    { grade: 1, label: 'שכחתי', sublabel: 'לא ידעתי', color: '#ef4444', bg: 'rgba(239,68,68,0.10)', border: 'rgba(239,68,68,0.30)' },
-    { grade: 2, label: 'קשה', sublabel: 'זיהיתי', color: '#f97316', bg: 'rgba(249,115,22,0.10)', border: 'rgba(249,115,22,0.30)' },
-    { grade: 3, label: 'בקושי', sublabel: 'נכון', color: '#eab308', bg: 'rgba(234,179,8,0.10)', border: 'rgba(234,179,8,0.30)' },
-    { grade: 4, label: 'טוב', sublabel: '', color: '#22c55e', bg: 'rgba(34,197,94,0.10)', border: 'rgba(34,197,94,0.30)' },
-    { grade: 5, label: 'מושלם', sublabel: 'מיידי', color: '#8B5CF6', bg: 'rgba(139,92,246,0.10)', border: 'rgba(139,92,246,0.30)' },
+    { grade: 1, label: 'שכחתי', sublabel: 'לא ידעתי', color: C.red, bg: `${C.red}1a`, border: `${C.red}4d` },
+    { grade: 2, label: 'קשה', sublabel: 'זיהיתי', color: C.orange, bg: `${C.orange}1a`, border: `${C.orange}4d` },
+    { grade: 3, label: 'בקושי', sublabel: 'נכון', color: C.yellow, bg: `${C.yellow}1a`, border: `${C.yellow}4d` },
+    { grade: 4, label: 'טוב', sublabel: '', color: C.green, bg: `${C.green}1a`, border: `${C.green}4d` },
+    { grade: 5, label: 'מושלם', sublabel: 'מיידי', color: C.purple, bg: `${C.purple}1a`, border: `${C.purple}4d` },
 ];
 
 // ---------- Main Component ----------
@@ -87,6 +88,7 @@ const GRADES = [
 const SpacedRepSection = () => {
     const [, navigate] = useLocation();
     const { isPremium, canAccessWord } = useTier();
+    const { addXP, recordActivity } = useGamification();
 
     // State
     const [srData, setSrData] = useState(() => loadSRData());
@@ -95,6 +97,8 @@ const SpacedRepSection = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [flipped, setFlipped] = useState(false);
     const [sessionGrades, setSessionGrades] = useState([]); // { wordId, grade }[]
+    const [sessionXpEarned, setSessionXpEarned] = useState(0);
+    const sessionCompletedRef = useRef(false);
 
     // Available vocab (respecting free tier)
     const availableVocab = useMemo(() => {
@@ -115,6 +119,8 @@ const SpacedRepSection = () => {
         setCurrentIndex(0);
         setFlipped(false);
         setSessionGrades([]);
+        setSessionXpEarned(0);
+        sessionCompletedRef.current = false;
         setPhase('review');
     }, [availableVocab, srData]);
 
@@ -128,17 +134,42 @@ const SpacedRepSection = () => {
         setSrData(newSrData);
         saveSRData(newSrData);
 
+        // Award XP based on grade quality
+        // Grade 4-5 (good/perfect recall) = 5 XP
+        // Grade 3 (hard but correct) = 3 XP
+        // Grade 1-2 (forgot/wrong) = 2 XP for effort
+        const xpMap = { 1: 2, 2: 2, 3: 3, 4: 5, 5: 5 };
+        const cardXp = xpMap[grade] || 2;
+        addXP(cardXp);
+        setSessionXpEarned(prev => prev + cardXp);
+
         // Record grade for summary
         setSessionGrades(prev => [...prev, { wordId: currentWord.id, grade, word: currentWord.english }]);
 
         // Advance
-        if (currentIndex + 1 < sessionItems.length) {
+        const isLastCard = currentIndex + 1 >= sessionItems.length;
+        if (!isLastCard) {
             setCurrentIndex(prev => prev + 1);
             setFlipped(false);
         } else {
+            // Session complete — award bonus XP and record activity for streak
+            const bonusXp = 10;
+            addXP(bonusXp);
+            setSessionXpEarned(prev => prev + bonusXp);
+            recordActivity();
+            sessionCompletedRef.current = true;
             setPhase('summary');
         }
-    }, [currentWord, currentIndex, sessionItems, srData]);
+    }, [currentWord, currentIndex, sessionItems, srData, addXP, recordActivity]);
+
+    // Record activity when entering summary from early exit (back arrow during review)
+    // This ensures streak is tracked even for partial sessions
+    useEffect(() => {
+        if (phase === 'summary' && sessionGrades.length > 0 && !sessionCompletedRef.current) {
+            recordActivity();
+            sessionCompletedRef.current = true;
+        }
+    }, [phase, sessionGrades.length, recordActivity]);
 
     // Keyboard shortcuts
     useEffect(() => {
@@ -538,6 +569,9 @@ const SpacedRepSection = () => {
                         <StatPill icon={Brain} label="מילים שנבחנו" value={totalGraded} color={C.purple} />
                         <StatPill icon={TrendingUp} label="ציון ממוצע" value={avgGrade} color={C.blue} />
                         <StatPill icon={Zap} label="שימור בחזרה" value={`${retention}%`} color={C.green} />
+                        {sessionXpEarned > 0 && (
+                            <StatPill icon={Zap} label="XP שנצבר" value={`+${sessionXpEarned}`} color={C.orange} />
+                        )}
                     </div>
 
                     {/* Grade distribution */}
@@ -583,9 +617,10 @@ const SpacedRepSection = () => {
                                 }}
                                 style={{
                                     flex: 1, padding: 14, borderRadius: RADIUS.md, border: 'none',
-                                    background: 'linear-gradient(135deg, #8B5CF6, #EC4899)',
+                                    background: C.purple,
                                     color: '#fff', fontSize: 15, fontWeight: 700, cursor: 'pointer',
                                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
+                                    boxShadow: '0 4px 16px rgba(139,92,246,0.25)',
                                 }}
                             >
                                 <RotateCcw size={18} /> עוד סבב ({Math.min(newDueCount, 20)})

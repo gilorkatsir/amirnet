@@ -3,15 +3,14 @@ import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import {
     ArrowRight, Flame, Zap, Target, BookOpen, Brain,
-    Trophy, Award, CheckCircle, TrendingUp, RotateCcw,
-    GraduationCap, HelpCircle, Trash2, Star, Clock
+    Trophy, Award, HelpCircle, Trash2, Star
 } from 'lucide-react';
-import { C, GLASS, RADIUS, SURFACE, HEADING, SPACING } from '../styles/theme';
+import { C, GLASS, RADIUS } from '../styles/theme';
 import { getDailyStats, getTodayKey, getLastNDaysAccuracy } from '../utils/dailyStats';
 import { useStatsContext } from '../contexts/StatsContext';
 import { useGamification } from '../contexts/GamificationContext';
 import useDerivedStats from '../hooks/useStats';
-import { ENGLISH_QUESTIONS, getQuestionsByType } from '../data/englishQuestions';
+import { getQuestionsByType } from '../data/englishQuestions';
 import { loadSRData, getRetentionStats } from '../services/spacedRepetition';
 
 /* ---- SVG Progress Ring ---- */
@@ -172,19 +171,19 @@ const Stats = () => {
             vocabAnswers: d.vocab?.total || 0,
             englishAnswers: d.english?.total || 0,
         };
-    }, []);
+    }, [stats, englishStats]);
 
     // 7-day chart data
     const weekData = useMemo(() => {
         const days = getLastNDaysAccuracy(7);
         return days.map(d => ({ value: d.accuracy || 0, label: d.dayName }));
-    }, []);
+    }, [stats, englishStats]);
 
     // Spaced repetition stats
     const srStats = useMemo(() => {
         const srData = loadSRData();
         return getRetentionStats(srData);
-    }, []);
+    }, [stats]);
 
     // Overall accuracy (combined)
     const overallAccuracy = useMemo(() => {

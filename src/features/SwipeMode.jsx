@@ -1,8 +1,8 @@
-import React, { useState, useMemo, useCallback, useReducer } from 'react';
+import React, { useState, useMemo, useCallback, useReducer, useEffect, useRef } from 'react';
 import { useLocation } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-    ArrowRight, RotateCcw, Home, Check, X, Trophy, Target, Flame
+    ArrowRight, RotateCcw, Home, Check, X, Trophy, Target, Flame, Keyboard
 } from 'lucide-react';
 import { C, GLASS, RADIUS, HEADING, MOTION } from '../styles/theme';
 import { VOCABULARY } from '../data/vocabulary';
@@ -10,6 +10,7 @@ import { useStatsContext } from '../contexts/StatsContext';
 import { useTier } from '../contexts/TierContext';
 import { selectWithVariety } from '../utils/smartSelection';
 import { playCorrect, playIncorrect } from '../utils/sounds';
+import { recordDailyAccuracy } from '../utils/dailyStats';
 import SwipeCard from '../components/SwipeCard';
 
 const SWIPE_SESSION_SIZE = 20;
@@ -75,6 +76,22 @@ const SwipeMode = () => {
         // we just restart. The missed words are already tracked in stats.
         navigate('/');
     }, [navigate]);
+
+    // Record daily accuracy stats when session completes
+    const statsRecordedRef = useRef(false);
+    useEffect(() => {
+        if (isComplete && !statsRecordedRef.current) {
+            statsRecordedRef.current = true;
+            const knewCount = results.knew.length;
+            const total = knewCount + results.didntKnow.length;
+            if (total > 0) {
+                recordDailyAccuracy(knewCount, total, 'vocab');
+            }
+        }
+        if (!isComplete) {
+            statsRecordedRef.current = false;
+        }
+    }, [isComplete, results]);
 
     // Summary screen
     if (isComplete) {
@@ -233,12 +250,12 @@ const SwipeMode = () => {
                             style={{
                                 width: '100%', padding: 16, borderRadius: RADIUS.md,
                                 border: 'none',
-                                background: 'linear-gradient(135deg, #8B5CF6, #EC4899)',
-                                color: C.text, fontSize: 16, fontWeight: 700,
+                                background: C.purple,
+                                color: '#fff', fontSize: 16, fontWeight: 700,
                                 cursor: 'pointer',
                                 display: 'flex', alignItems: 'center',
                                 justifyContent: 'center', gap: 8,
-                                boxShadow: '0 8px 24px rgba(236,72,153,0.2)',
+                                boxShadow: '0 4px 16px rgba(139,92,246,0.25)',
                             }}
                         >
                             <RotateCcw size={18} /> סבב נוסף
@@ -352,10 +369,17 @@ const SwipeMode = () => {
                     marginTop: 40, display: 'flex', gap: 48,
                     alignItems: 'center', justifyContent: 'center',
                 }}>
-                    <div style={{
-                        display: 'flex', flexDirection: 'column',
-                        alignItems: 'center', gap: 6,
-                    }}>
+                    <div
+                        role="button"
+                        aria-label="לא ידעתי - החלק שמאלה או לחץ חץ שמאלה"
+                        tabIndex={0}
+                        onClick={handleSwipeLeft}
+                        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleSwipeLeft(); } }}
+                        style={{
+                            display: 'flex', flexDirection: 'column',
+                            alignItems: 'center', gap: 6, cursor: 'pointer',
+                        }}
+                    >
                         <div style={{
                             width: 48, height: 48, borderRadius: '50%',
                             background: 'rgba(239,68,68,0.1)',
@@ -366,10 +390,17 @@ const SwipeMode = () => {
                         </div>
                         <span style={{ fontSize: 11, color: C.dim }}>לא ידעתי</span>
                     </div>
-                    <div style={{
-                        display: 'flex', flexDirection: 'column',
-                        alignItems: 'center', gap: 6,
-                    }}>
+                    <div
+                        role="button"
+                        aria-label="ידעתי - החלק ימינה או לחץ חץ ימינה"
+                        tabIndex={0}
+                        onClick={handleSwipeRight}
+                        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleSwipeRight(); } }}
+                        style={{
+                            display: 'flex', flexDirection: 'column',
+                            alignItems: 'center', gap: 6, cursor: 'pointer',
+                        }}
+                    >
                         <div style={{
                             width: 48, height: 48, borderRadius: '50%',
                             background: 'rgba(34,197,94,0.1)',
@@ -380,6 +411,17 @@ const SwipeMode = () => {
                         </div>
                         <span style={{ fontSize: 11, color: C.dim }}>ידעתי</span>
                     </div>
+                </div>
+
+                {/* Keyboard hint for desktop users */}
+                <div style={{
+                    marginTop: 16, display: 'flex', alignItems: 'center',
+                    justifyContent: 'center', gap: 6, opacity: 0.5,
+                }}>
+                    <Keyboard size={14} color={C.dim} />
+                    <span style={{ fontSize: 11, color: C.dim }}>
+                        Space = היפוך | {'\u2190'}/{'\u2192'} מקשים לניווט
+                    </span>
                 </div>
             </main>
         </div>
