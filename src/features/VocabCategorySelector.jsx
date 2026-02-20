@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'wouter';
-import { ArrowRight, Sparkles, LayoutGrid, Sparkle, TrendingUp, CheckCircle, Scale, Brain, FlaskConical, GraduationCap, MessageSquare, Briefcase, DollarSign, Link, Tag, ChevronLeft, Lock } from 'lucide-react';
+import { ArrowRight, MagicStar, Category, TrendUp, TickCircle, Judge, Activity, StatusUp, Teacher, MessageSquare, Briefcase, DollarCircle, Link, Tag, ArrowLeft2, Lock } from 'iconsax-react';
 import { C, GLASS, SURFACE, HEADING } from '../styles/theme';
 import { VOCABULARY } from '../data/vocabulary';
 import { useStatsContext } from '../contexts/StatsContext';
@@ -10,15 +10,15 @@ import UpgradePrompt from '../components/UpgradePrompt';
 import { selectWithVariety } from '../utils/smartSelection';
 
 const CATEGORY_ICONS = {
-    'Crime & Justice': Scale,
-    'Emotions & Character': Brain,
-    'Science & Nature': FlaskConical,
-    'Education & Law': GraduationCap,
+    'Crime & Justice': Judge,
+    'Emotions & Character': Activity,
+    'Science & Nature': StatusUp,
+    'Education & Law': Teacher,
     'Discussion & Persuasion': MessageSquare,
     'Work & Society': Briefcase,
-    'Wealth & Status': DollarSign,
+    'Wealth & Status': DollarCircle,
     'Connectors & Transitions': Link,
-    'Legal & Judicial': Scale,
+    'Legal & Judicial': Judge,
     'General Words': Tag
 };
 
@@ -109,10 +109,10 @@ const VocabCategorySelector = ({ onStart }) => {
     };
 
     const filterOptions = [
-        { key: 'all', label: 'הכל', Icon: LayoutGrid },
-        { key: 'new', label: 'חדשות', Icon: Sparkle },
-        { key: 'learning', label: 'בלמידה', Icon: TrendingUp },
-        { key: 'mastered', label: 'נשלטו', Icon: CheckCircle }
+        { key: 'all', label: 'הכל', Icon: Category },
+        { key: 'new', label: 'חדשות', Icon: MagicStar },
+        { key: 'learning', label: 'בלמידה', Icon: TrendUp },
+        { key: 'mastered', label: 'נשלטו', Icon: TickCircle }
     ];
 
     return (
@@ -145,7 +145,7 @@ const VocabCategorySelector = ({ onStart }) => {
                         boxShadow: '0 8px 24px rgba(124,58,237,0.3)'
                     }}
                 >
-                    <Sparkles size={20} />
+                    <MagicStar size={20} />
                     חזרה חכמה (20 מילים)
                 </button>
 
@@ -212,7 +212,7 @@ const VocabCategorySelector = ({ onStart }) => {
                                 {isLocked ? (
                                     <Lock size={16} color={C.dim} />
                                 ) : (
-                                    <ChevronLeft size={20} color={C.muted} />
+                                    <ArrowLeft2 size={20} color={C.muted} />
                                 )}
                             </button>
                         );

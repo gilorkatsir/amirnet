@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'wouter';
-import { ArrowRight, BookOpen, X, Check } from 'lucide-react';
+import { ArrowRight, Book1, CloseCircle, TickCircle } from 'iconsax-react';
 import { C, GLASS, HEADING } from '../../styles/theme';
 import rcDatabase from '../../data/reading_comprehension_database.json';
 import { playCorrect, playIncorrect, playClick } from '../../utils/sounds';
@@ -144,7 +144,7 @@ const ReadingComprehensionPractice = ({ onComplete }) => {
                                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                                             color: accuracy !== null ? C.purple : C.muted
                                         }}>
-                                            <BookOpen size={18} />
+                                            <Book1 size={18} />
                                         </div>
                                         <div>
                                             <h3 style={{ margin: 0, fontSize: 14, fontWeight: 600, color: C.text }}>
@@ -193,7 +193,7 @@ const ReadingComprehensionPractice = ({ onComplete }) => {
                     width: 36, height: 36, borderRadius: '50%', background: 'transparent',
                     border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center'
                 }}>
-                    <X size={22} color={C.muted} />
+                    <CloseCircle size={22} color={C.muted} />
                 </button>
                 <div style={{ textAlign: 'center' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
@@ -223,7 +223,7 @@ const ReadingComprehensionPractice = ({ onComplete }) => {
                     maxHeight: '40vh', overflowY: 'auto'
                 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10 }}>
-                        <BookOpen size={14} color={C.purple} />
+                        <Book1 size={14} color={C.purple} />
                         <span style={{ fontSize: 11, fontWeight: 700, color: C.purple, textTransform: 'uppercase', letterSpacing: 1 }}>
                             Passage (tap a word to save)
                         </span>
@@ -287,7 +287,7 @@ const ReadingComprehensionPractice = ({ onComplete }) => {
                                 }}>
                                     {isSelected && (
                                         answered ? (
-                                            isCorrect ? <Check size={14} color="white" /> : <X size={14} color="white" />
+                                            isCorrect ? <TickCircle size={14} color="white" /> : <CloseCircle size={14} color="white" />
                                         ) : (
                                             <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'white' }} />
                                         )
@@ -318,7 +318,7 @@ const ReadingComprehensionPractice = ({ onComplete }) => {
                     {answered ? (
                         questionIndex < selectedPassage.questions.length - 1
                             ? <>שאלה הבאה <ArrowRight size={20} /></>
-                            : <>סיום <Check size={20} /></>
+                            : <>סיום <TickCircle size={20} /></>
                     ) : 'בחר תשובה'}
                 </button>
             </div>

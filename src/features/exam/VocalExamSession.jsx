@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { useLocation } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-    X, Play, Pause, Loader, RotateCcw, Check, ArrowLeft,
-    Timer, Flag, Headphones, Mic, Eye, EyeOff, SkipForward,
-    AudioLines, ChevronLeft
-} from 'lucide-react';
+    CloseCircle, Play, Pause, Refresh, RotateLeft, TickCircle, ArrowLeft,
+    Timer, Flag, Headphone, Microphone2, Eye, EyeSlash, Next,
+    VoiceSquare, ArrowLeft2
+} from 'iconsax-react';
 import { C, GLASS, RADIUS } from '../../styles/theme';
 import { playCorrect, playIncorrect, playTimerComplete, playClick } from '../../utils/sounds';
 import { textToSpeech, VOICES } from '../../services/elevenLabsService';
@@ -229,11 +229,11 @@ const VocalExamSession = ({ section, onComplete }) => {
       <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: C.bg }}>
         <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 20px', ...GLASS.header }}>
           <button onClick={() => navigate('/')} style={{ ...circleBtn(C.muted), width: 38, height: 38 }}>
-            <X size={18} color={C.muted} />
+            <CloseCircle size={18} color={C.muted} />
           </button>
           <div style={{ textAlign: 'center' }}>
             <div style={{ fontSize: 11, fontWeight: 700, color: accentColor, letterSpacing: 1.5, display: 'flex', alignItems: 'center', gap: 6, justifyContent: 'center' }}>
-              {isLecture ? <Headphones size={13} /> : <Mic size={13} />}
+              {isLecture ? <Headphone size={13} /> : <Microphone2 size={13} />}
               {isLecture ? 'שלב האזנה' : 'השלמת טקסט'}
             </div>
             <div style={{ fontSize: 12, color: C.muted, marginTop: 3 }}>
@@ -241,7 +241,7 @@ const VocalExamSession = ({ section, onComplete }) => {
             </div>
           </div>
           <button onClick={goToQuestions} style={{ ...circleBtn(C.muted), width: 38, height: 38 }} title="דלג לשאלות">
-            <SkipForward size={16} color={C.muted} />
+            <Next size={16} color={C.muted} />
           </button>
         </header>
 
@@ -270,8 +270,8 @@ const VocalExamSession = ({ section, onComplete }) => {
                 boxShadow: audioState === 'done' ? C.shadowGlow(C.green) : 'none',
               }}
             >
-              {audioState === 'loading' ? <Loader size={36} color={C.muted} /> :
-               audioState === 'done' ? <Check size={36} color={C.green} /> :
+              {audioState === 'loading' ? <Refresh size={36} color={C.muted} /> :
+               audioState === 'done' ? <TickCircle size={36} color={C.green} /> :
                <Play size={36} color={C.muted} />}
             </motion.div>
           )}
@@ -282,9 +282,9 @@ const VocalExamSession = ({ section, onComplete }) => {
 
           <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
             {audioState === 'idle' && hasTts && <button onClick={replayCurrentClip} style={circleBtn(C.purple)}><Play size={22} color={C.purple} /></button>}
-            {audioState === 'loading' && <div style={{ ...circleBtn(C.muted), opacity: 0.5, cursor: 'default' }}><Loader size={22} color={C.muted} style={{ animation: 'spin 1s linear infinite' }} /></div>}
+            {audioState === 'loading' && <div style={{ ...circleBtn(C.muted), opacity: 0.5, cursor: 'default' }}><Refresh size={22} color={C.muted} style={{ animation: 'spin 1s linear infinite' }} /></div>}
             {(audioState === 'playing' || audioState === 'paused') && <button onClick={togglePlayPause} style={circleBtn(C.purple)}>{audioState === 'playing' ? <Pause size={22} color={C.purple} /> : <Play size={22} color={C.purple} />}</button>}
-            {audioState === 'done' && hasTts && <button onClick={replayCurrentClip} style={circleBtn(C.muted)}><RotateCcw size={20} color={C.muted} /></button>}
+            {audioState === 'done' && hasTts && <button onClick={replayCurrentClip} style={circleBtn(C.muted)}><RotateLeft size={20} color={C.muted} /></button>}
 
             {(audioState === 'done' || !hasTts) && (
               <button onClick={handleNextClip} style={{
@@ -294,13 +294,13 @@ const VocalExamSession = ({ section, onComplete }) => {
                 boxShadow: '0 8px 24px rgba(124,58,237,0.25)'
               }}>
                 {!isLecture ? 'בחר המשך' : currentClipIndex < section.clips.length - 1 ? 'קליפ הבא' : 'עבור לשאלות'}
-                <ChevronLeft size={18} />
+                <ArrowLeft2 size={18} />
               </button>
             )}
 
             {hasTts && (
               <button onClick={() => setShowText(!showText)} style={{ ...circleBtn(showText ? C.purple : C.muted), width: 40, height: 40 }} title="הצג/הסתר טקסט">
-                {showText ? <Eye size={17} color={C.purple} /> : <EyeOff size={17} color={C.muted} />}
+                {showText ? <Eye size={17} color={C.purple} /> : <EyeSlash size={17} color={C.muted} />}
               </button>
             )}
           </div>
@@ -338,7 +338,7 @@ const VocalExamSession = ({ section, onComplete }) => {
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: C.bg }}>
       <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 20px', ...GLASS.header }}>
         <button onClick={() => navigate('/')} style={{ ...circleBtn(C.muted), width: 38, height: 38 }}>
-          <X size={18} color={C.muted} />
+          <CloseCircle size={18} color={C.muted} />
         </button>
         <div style={{ textAlign: 'center' }}>
           <div style={{ fontSize: 20, fontWeight: 700, color: timeLeft !== null && timeLeft < 60 ? C.red : C.text, fontVariantNumeric: 'tabular-nums', display: 'flex', alignItems: 'center', gap: 6 }}>
@@ -348,7 +348,7 @@ const VocalExamSession = ({ section, onComplete }) => {
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <button onClick={toggleMarkForReview} style={{ ...circleBtn(isMarked ? C.orange : C.muted), width: 34, height: 34 }} title="סמן לבדיקה">
-            <Flag size={15} color={isMarked ? C.orange : C.muted} fill={isMarked ? C.orange : 'none'} />
+            <Flag size={15} color={isMarked ? C.orange : C.muted} />
           </button>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '5px 10px', borderRadius: RADIUS.full, background: C.glass }}>
             <span style={{ fontSize: 13, fontWeight: 600, color: C.green }}>{answers.filter(a => a.isCorrect).length}</span>
@@ -385,7 +385,7 @@ const VocalExamSession = ({ section, onComplete }) => {
         <div style={{ flex: 1 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '6px 12px', ...GLASS.button, borderRadius: RADIUS.sm }}>
-              {isLecture ? <Headphones size={14} color={accentColor} /> : <Mic size={14} color={accentColor} />}
+              {isLecture ? <Headphone size={14} color={accentColor} /> : <Microphone2 size={14} color={accentColor} />}
               <span style={{ fontSize: 12, fontWeight: 600, color: accentColor }}>
                 {isLecture ? 'Lecture Questions' : 'Text Continuation'}
               </span>
@@ -435,7 +435,7 @@ const VocalExamSession = ({ section, onComplete }) => {
                     background: isSelected ? C.gradient : 'transparent',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 2
                   }}>
-                    {isSelected && (answered ? (isCorrect ? <Check size={14} color="white" /> : <X size={14} color="white" />) : <div style={{ width: 8, height: 8, borderRadius: RADIUS.full, background: 'white' }} />)}
+                    {isSelected && (answered ? (isCorrect ? <TickCircle size={14} color="white" /> : <CloseCircle size={14} color="white" />) : <div style={{ width: 8, height: 8, borderRadius: RADIUS.full, background: 'white' }} />)}
                   </div>
                   <div style={{ flex: 1 }}>
                     <span style={{ fontSize: 11, fontWeight: 700, color: isSelected ? C.purple : C.dim, marginRight: 8 }}>{letter}</span>

@@ -2,9 +2,9 @@ import React, { useState, useMemo } from 'react';
 import { useLocation } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-    ArrowRight, Sparkles, Trash2, Play, Plus, CheckCircle, Clock,
-    ChevronDown, ChevronUp
-} from 'lucide-react';
+    ArrowRight, MagicStar, Trash, Play, Add, TickCircle, Clock,
+    ArrowDown2, ArrowUp2
+} from 'iconsax-react';
 import { C, GLASS, SURFACE, MOTION, HEADING } from '../styles/theme';
 import { useStatsContext } from '../contexts/StatsContext';
 import { useTier } from '../contexts/TierContext';
@@ -133,7 +133,7 @@ const AIPracticeHub = ({ onStartSavedSession }) => {
                 >
                     <ArrowRight size={20} />
                 </motion.button>
-                <Sparkles size={20} color={C.purple} />
+                <MagicStar size={20} color={C.muted} />
                 <h1 style={{ ...HEADING.section, margin: 0, color: C.text }}>
                     תרגול AI
                 </h1>
@@ -158,7 +158,7 @@ const AIPracticeHub = ({ onStartSavedSession }) => {
                         }}
                         disabled={!aiAvailable}
                     >
-                        <Plus size={18} />
+                        <Add size={18} />
                         {aiAvailable ? 'יצירת שאלות חדשות' : `ניצלת את הניסיון היומי (${aiUsageToday}/${FREE_LIMITS.aiPracticePerDay})`}
                     </motion.button>
                 )}
@@ -307,7 +307,7 @@ const AIPracticeHub = ({ onStartSavedSession }) => {
                                             </>
                                         ) : (
                                             <>
-                                                <Sparkles size={16} />
+                                                <MagicStar size={16} />
                                                 ייצר {selectedWordIds.size > 0 ? Math.min(selectedWordIds.size, count) : count} שאלות
                                             </>
                                         )}
@@ -335,7 +335,7 @@ const AIPracticeHub = ({ onStartSavedSession }) => {
                             display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center'
                         }}
                     >
-                        <Sparkles size={32} color={C.dim} style={{ marginBottom: 12 }} />
+                        <MagicStar size={32} color={C.dim} style={{ marginBottom: 12 }} />
                         <p style={{ color: C.muted, fontSize: 14, margin: '0 0 4px', fontWeight: 600 }}>
                             אין שאלות שמורות
                         </p>
@@ -382,7 +382,7 @@ const AIPracticeHub = ({ onStartSavedSession }) => {
                                             flexShrink: 0
                                         }}>
                                             {hasResults ? (
-                                                <CheckCircle size={18} color={score >= 70 ? C.green : C.orange} />
+                                                <TickCircle size={18} color={score >= 70 ? C.green : C.orange} />
                                             ) : (
                                                 <Clock size={18} color={C.muted} />
                                             )}
@@ -414,7 +414,7 @@ const AIPracticeHub = ({ onStartSavedSession }) => {
                                                 )}
                                             </div>
                                         </div>
-                                        {isExpanded ? <ChevronUp size={16} color={C.dim} /> : <ChevronDown size={16} color={C.dim} />}
+                                        {isExpanded ? <ArrowUp2 size={16} color={C.dim} /> : <ArrowDown2 size={16} color={C.dim} />}
                                     </button>
 
                                     {/* Expanded details */}
@@ -475,7 +475,7 @@ const AIPracticeHub = ({ onStartSavedSession }) => {
                                                                 display: 'flex', alignItems: 'center', justifyContent: 'center'
                                                             }}
                                                         >
-                                                            <Trash2 size={14} />
+                                                            <Trash size={14} />
                                                         </button>
                                                     </div>
                                                 </div>

@@ -2,9 +2,9 @@ import React from 'react';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import {
-    ArrowRight, Headphones, Mic, Info, ChevronLeft,
-    HelpCircle, Clock, AudioLines, Lock
-} from 'lucide-react';
+    ArrowRight, Headphone, Microphone2, InfoCircle, ArrowLeft2,
+    MessageQuestion, Clock, VoiceSquare, Lock
+} from 'iconsax-react';
 import { C, GLASS, RADIUS, SURFACE } from '../styles/theme';
 import { VOCAL_SECTIONS } from '../data/vocalQuestions';
 import { VOICES } from '../services/elevenLabsService';
@@ -62,19 +62,19 @@ const VocalSectionSelector = ({ onSelect }) => {
           </div>
           <div style={{ display: 'flex', gap: 12, marginTop: 6 }}>
             <span style={{ fontSize: 12, color: C.muted, display: 'flex', alignItems: 'center', gap: 3 }}>
-              <HelpCircle size={11} /> {totalQs} שאלות
+              <MessageQuestion size={11} /> {totalQs} שאלות
             </span>
             <span style={{ fontSize: 12, color: C.muted, display: 'flex', alignItems: 'center', gap: 3 }}>
               <Clock size={11} /> {timeMin} דקות
             </span>
             {section.type === 'lecture' && (
               <span style={{ fontSize: 12, color: C.muted, display: 'flex', alignItems: 'center', gap: 3 }}>
-                <AudioLines size={11} /> {section.clips.length} קליפים
+                <VoiceSquare size={11} /> {section.clips.length} קליפים
               </span>
             )}
           </div>
         </div>
-        {locked ? <Lock size={16} color={C.dim} /> : <ChevronLeft size={18} color={C.dim} />}
+        {locked ? <Lock size={16} color={C.dim} /> : <ArrowLeft2 size={18} color={C.dim} />}
       </motion.button>
     );
   };
@@ -102,7 +102,7 @@ const VocalSectionSelector = ({ onSelect }) => {
             marginBottom: 20
           }} dir="rtl">
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
-              <Info size={16} color={C.orange} />
+              <InfoCircle size={16} color={C.orange} />
               <span style={{ fontWeight: 700, color: C.orange, fontSize: 13 }}>מצב טקסט</span>
             </div>
             <p style={{ margin: 0, fontSize: 12, color: C.muted, lineHeight: 1.6 }}>
@@ -127,27 +127,27 @@ const VocalSectionSelector = ({ onSelect }) => {
 
         <section style={{ marginBottom: 28 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12, paddingRight: 4 }}>
-            <Headphones size={16} color={C.orange} />
+            <Headphone size={16} color={C.orange} />
             <h3 style={{ fontSize: 15, fontWeight: 700, color: C.text, margin: 0 }}>הרצאה + שאלות</h3>
           </div>
           <p style={{ fontSize: 12, color: C.muted, marginBottom: 10, paddingRight: 4, lineHeight: 1.5 }} dir="rtl">
             האזן ל-3 קליפים וענה על 5 שאלות. זמן: 7 דקות.
           </p>
           {lectures.map((section, i) => (
-            <SectionCard key={section.id} section={section} color={C.orange} icon={Headphones} delay={i} locked={!canAccessVocalSection(i)} />
+            <SectionCard key={section.id} section={section} color={C.orange} icon={Headphone} delay={i} locked={!canAccessVocalSection(i)} />
           ))}
         </section>
 
         <section style={{ marginBottom: 28 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12, paddingRight: 4 }}>
-            <Mic size={16} color={C.blue} />
+            <Microphone2 size={16} color={C.blue} />
             <h3 style={{ fontSize: 15, fontWeight: 700, color: C.text, margin: 0 }}>השלמת טקסט</h3>
           </div>
           <p style={{ fontSize: 12, color: C.muted, marginBottom: 10, paddingRight: 4, lineHeight: 1.5 }} dir="rtl">
             האזן לקליפ שנקטע באמצע ובחר את ההמשך הנכון. זמן: 4 דקות.
           </p>
           {continuations.map((section, i) => (
-            <SectionCard key={section.id} section={section} color={C.blue} icon={Mic} delay={lectures.length + i} locked={!canAccessVocalSection(lectures.length + i)} />
+            <SectionCard key={section.id} section={section} color={C.blue} icon={Microphone2} delay={lectures.length + i} locked={!canAccessVocalSection(lectures.length + i)} />
           ))}
         </section>
       </main>

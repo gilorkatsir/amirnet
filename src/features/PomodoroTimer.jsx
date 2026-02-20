@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'wouter';
-import { Settings, X, Play, Pause, RotateCcw } from 'lucide-react';
+import { Setting2, CloseCircle, Play, Pause, RotateLeft } from 'iconsax-react';
 import { C } from '../styles/theme';
 import { playTimerComplete, playBreak, playStart, playClick } from '../utils/sounds';
 
@@ -173,7 +173,7 @@ const PomodoroTimer = () => {
                         display: 'flex', alignItems: 'center', justifyContent: 'center'
                     }}
                 >
-                    <Settings size={20} />
+                    <Setting2 size={20} />
                 </button>
                 <button
                     onClick={() => navigate('/')}
@@ -183,7 +183,7 @@ const PomodoroTimer = () => {
                         display: 'flex', alignItems: 'center', justifyContent: 'center'
                     }}
                 >
-                    <X size={24} />
+                    <CloseCircle size={24} />
                 </button>
             </div>
 
@@ -272,7 +272,7 @@ const PomodoroTimer = () => {
                         display: 'flex', alignItems: 'center', justifyContent: 'center'
                     }}
                 >
-                    <RotateCcw size={32} />
+                    <RotateLeft size={32} />
                 </button>
             </div>
 

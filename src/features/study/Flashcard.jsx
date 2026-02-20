@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
-import { Volume2, Hand, ArrowLeftRight, X, Check, CheckCircle } from 'lucide-react';
+import { VolumeHigh, FingerCricle, ArrowSwapHorizontal, CloseCircle, TickCircle } from 'iconsax-react';
 import { C, GLASS, RADIUS } from '../../styles/theme';
 import { playCorrect, playIncorrect, playClick, playFlip } from '../../utils/sounds';
 
@@ -148,7 +148,7 @@ const Flashcard = ({ word, onResult, onNext }) => {
                             pointerEvents: 'none', opacity: dragOpacityRight, zIndex: 10,
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                         }}>
-                            <Check size={48} style={{ color: C.green, opacity: 0.7 }} />
+                            <TickCircle size={48} style={{ color: C.green, opacity: 0.7 }} />
                         </motion.div>
                         <motion.div style={{
                             position: 'absolute', inset: 0, borderRadius: GLASS.card.borderRadius,
@@ -156,7 +156,7 @@ const Flashcard = ({ word, onResult, onNext }) => {
                             pointerEvents: 'none', opacity: dragOpacityLeft, zIndex: 10,
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                         }}>
-                            <X size={48} style={{ color: C.red, opacity: 0.7 }} />
+                            <CloseCircle size={48} style={{ color: C.red, opacity: 0.7 }} />
                         </motion.div>
                     </>
                 )}
@@ -178,7 +178,7 @@ const Flashcard = ({ word, onResult, onNext }) => {
                         onClick={(e) => { e.stopPropagation(); if (window.speechSynthesis) { const u = new SpeechSynthesisUtterance(word.english); u.lang = 'en-US'; window.speechSynthesis.speak(u); } }}
                         style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
                     >
-                        <Volume2 size={20} color={C.dim} />
+                        <VolumeHigh size={20} color={C.dim} />
                     </motion.button>
                 </div>
 
@@ -248,7 +248,7 @@ const Flashcard = ({ word, onResult, onNext }) => {
                         fontSize: 12, color: C.dim, margin: 0,
                         display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, opacity: 0.6,
                     }}>
-                        <Hand size={14} /> {!flipped ? 'הקש להיפוך' : 'החלק ימינה = ידעתי, שמאלה = לא'}
+                        <FingerCricle size={14} /> {!flipped ? 'הקש להיפוך' : 'החלק ימינה = ידעתי, שמאלה = לא'}
                     </p>
                 </div>
             </motion.div>
@@ -276,7 +276,7 @@ const Flashcard = ({ word, onResult, onNext }) => {
                                     boxShadow: '0 8px 24px rgba(236,72,153,0.2)',
                                 }}
                             >
-                                <ArrowLeftRight size={20} /> הצג הגדרה
+                                <ArrowSwapHorizontal size={20} /> הצג הגדרה
                             </motion.button>
 
                             <motion.button
@@ -289,7 +289,7 @@ const Flashcard = ({ word, onResult, onNext }) => {
                                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
                                 }}
                             >
-                                <CheckCircle size={18} style={{ color: C.purple, opacity: 0 }} /> אני מכיר
+                                <TickCircleCircle size={18} style={{ color: C.purple, opacity: 0 }} /> אני מכיר
                             </motion.button>
                         </motion.div>
                     ) : (
@@ -315,7 +315,7 @@ const Flashcard = ({ word, onResult, onNext }) => {
                                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
                                 }}
                             >
-                                <X size={18} /> לא ידעתי
+                                <CloseCircle size={18} /> לא ידעתי
                             </motion.button>
                             <motion.button
                                 custom={1}
@@ -332,7 +332,7 @@ const Flashcard = ({ word, onResult, onNext }) => {
                                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
                                 }}
                             >
-                                <Check size={18} /> ידעתי
+                                <TickCircle size={18} /> ידעתי
                             </motion.button>
                         </motion.div>
                     )}

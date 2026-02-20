@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, ArrowLeft } from 'lucide-react';
+import { MagicStar, ArrowLeft } from 'iconsax-react';
 import { useAuth } from '../contexts/AuthContext';
 import { C, RADIUS } from '../styles/theme';
 
@@ -64,7 +64,7 @@ const TrialWelcomeModal = () => {
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}
             >
-              <Sparkles size={32} color={C.purple} />
+              <MagicStar size={32} color={C.purple} />
             </motion.div>
 
             <h2 style={{

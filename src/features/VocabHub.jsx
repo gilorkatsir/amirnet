@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import {
-    ArrowRight, Layers, RotateCcw, Sparkles, Bookmark, Brain, ArrowLeftRight
-} from 'lucide-react';
+    ArrowRight, Layer, RotateLeft, MagicStar, Bookmark, Activity, ArrowSwapHorizontal
+} from 'iconsax-react';
 import { C, GLASS, MOTION, HEADING } from '../styles/theme';
 import { useStatsContext } from '../contexts/StatsContext';
 import { useUserWords } from '../contexts/UserWordsContext';
@@ -30,34 +30,34 @@ const VocabHub = ({ onStartFailedVocab }) => {
 
     const items = [
         {
-            icon: Brain, title: 'חזרה מרווחת',
+            icon: Activity, title: 'חזרה מרווחת',
             desc: srDueCount > 0 ? `${srDueCount} מילים ממתינות לחזרה` : 'אין מילים לחזרה כרגע',
-            color: C.cyan, onClick: () => navigate('/spaced-rep'),
+            color: C.muted, onClick: () => navigate('/spaced-rep'),
             badge: srDueCount > 0 ? srDueCount : null,
         },
         {
-            icon: Layers, title: 'לפי קטגוריה', desc: '10 קטגוריות + חזרה חכמה',
-            color: C.blue, onClick: () => navigate('/vocab-categories')
+            icon: Layer, title: 'לפי קטגוריה', desc: '10 קטגוריות + חזרה חכמה',
+            color: C.muted, onClick: () => navigate('/vocab-categories')
         },
         {
-            icon: ArrowLeftRight, title: 'תרגול החלקה', desc: 'החלק ימינה = ידעתי, שמאלה = לא',
-            color: C.pink, onClick: () => navigate('/swipe')
+            icon: ArrowSwapHorizontal, title: 'תרגול החלקה', desc: 'החלק ימינה = ידעתי, שמאלה = לא',
+            color: C.muted, onClick: () => navigate('/swipe')
         },
         {
-            icon: RotateCcw, title: 'חזרה על טעויות', desc: `${failedCount} מילים לחזרה`,
-            color: C.orange, onClick: onStartFailedVocab
+            icon: RotateLeft, title: 'חזרה על טעויות', desc: `${failedCount} מילים לחזרה`,
+            color: C.muted, onClick: onStartFailedVocab
         },
         {
-            icon: Sparkles, title: 'תרגול AI חכם',
+            icon: MagicStar, title: 'תרגול AI חכם',
             desc: !aiAvailable && !isPremium
                 ? `ניצלת את הניסיון היומי (${aiUsageToday}/${FREE_LIMITS.aiPracticePerDay})`
                 : 'שאלות מותאמות, שמירה ותרגול חוזר',
-            color: C.purple,
+            color: C.muted,
             onClick: () => navigate('/ai-practice')
         },
         {
             icon: Bookmark, title: 'המילים שלי', desc: `${userWords?.length || 0} מילים ששמרת`,
-            color: C.pink, onClick: () => navigate('/my-words')
+            color: C.muted, onClick: () => navigate('/my-words')
         },
     ];
 

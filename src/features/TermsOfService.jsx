@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'wouter';
-import { ArrowRight, FileText } from 'lucide-react';
+import { ArrowRight, DocumentText } from 'iconsax-react';
 import { C, GLASS } from '../styles/theme';
 
 /**
@@ -43,7 +43,7 @@ const TermsOfService = () => {
                     <ArrowRight size={24} color={C.muted} />
                 </button>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                    <FileText size={20} color={C.purple} />
+                    <DocumentText size={20} color={C.purple} />
                     <h1 style={{ fontSize: 18, fontWeight: 700, margin: 0, color: C.text }}>
                         תנאי שימוש
                     </h1>

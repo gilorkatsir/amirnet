@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useLocation } from 'wouter';
-import { ArrowRight, X, Check, ListChecks, Layers, Clock, ArrowDownAZ, Languages, Trash2, SearchX, Bookmark } from 'lucide-react';
+import { ArrowRight, CloseCircle, TickCircle, TaskSquare, Layer, Clock, Sort, LanguageCircle, Trash, SearchNormal1, Bookmark } from 'iconsax-react';
 import { C, GLASS, HEADING } from '../styles/theme';
 import { playCorrect, playIncorrect } from '../utils/sounds';
 import { useUserWords } from '../contexts/UserWordsContext';
@@ -70,7 +70,7 @@ const UserWordsList = () => {
             const pct = total > 0 ? Math.round((studyResults.correct / total) * 100) : 0;
             return (
                 <div style={{ minHeight: '100vh', background: C.bg, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 24, textAlign: 'center' }}>
-                    <Check size={48} color={C.green} style={{ marginBottom: 16 }} />
+                    <TickCircle size={48} color={C.green} style={{ marginBottom: 16 }} />
                     <h2 style={{ fontSize: 24, fontWeight: 700, margin: '0 0 8px', color: C.text }}>סיימת!</h2>
                     <p style={{ fontSize: 16, color: C.muted, marginBottom: 24 }}>
                         {studyResults.correct} מתוך {total} ({pct}%)
@@ -110,7 +110,7 @@ const UserWordsList = () => {
                     background: C.surface, border: `1px solid ${C.border}`, color: C.muted, cursor: 'pointer',
                     display: 'flex', alignItems: 'center', justifyContent: 'center'
                 }}>
-                    <X size={24} />
+                    <CloseCircle size={24} />
                 </button>
 
                 <p style={{ color: C.muted, fontSize: 13, marginBottom: 20 }}>
@@ -149,13 +149,13 @@ const UserWordsList = () => {
                         onClick={() => advanceStudy(false)}
                         style={{ flex: 1, padding: 14, borderRadius: 12, background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', color: C.red, fontSize: 15, fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}
                     >
-                        <X size={18} /> לא ידעתי
+                        <CloseCircle size={18} /> לא ידעתי
                     </button>
                     <button
                         onClick={() => advanceStudy(true)}
                         style={{ flex: 1, padding: 14, borderRadius: 12, background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.3)', color: C.green, fontSize: 15, fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}
                     >
-                        <Check size={18} /> ידעתי
+                        <TickCircle size={18} /> ידעתי
                     </button>
                 </div>
             </div>
@@ -190,14 +190,14 @@ const UserWordsList = () => {
                             border: `1px solid ${C.border}`, color: bulkSelect ? 'white' : C.muted,
                             cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center'
                         }}>
-                            <ListChecks size={18} />
+                            <TaskSquare size={18} />
                         </button>
                         <button onClick={() => { setStudyMode(true); setStudyIndex(0); setStudyFlipped(false); }} style={{
                             width: 36, height: 36, borderRadius: 8, background: C.surface,
                             border: `1px solid ${C.border}`, color: C.muted,
                             cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center'
                         }}>
-                            <Layers size={18} />
+                            <Layer size={18} />
                         </button>
                     </div>
                 )}
@@ -226,8 +226,8 @@ const UserWordsList = () => {
                         <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
                             {[
                                 { key: 'date', label: 'תאריך', Icon: Clock },
-                                { key: 'alpha', label: 'א-ב', Icon: ArrowDownAZ },
-                                { key: 'studied', label: 'תורגם', Icon: Languages }
+                                { key: 'alpha', label: 'א-ב', Icon: Sort },
+                                { key: 'studied', label: 'תורגם', Icon: LanguageCircle }
                             ].map(opt => (
                                 <button
                                     key={opt.key}
@@ -258,7 +258,7 @@ const UserWordsList = () => {
                                     cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8
                                 }}
                             >
-                                <Trash2 size={18} />
+                                <Trash size={18} />
                                 מחק {selectedIds.size} מילים
                             </button>
                         )}
@@ -267,7 +267,7 @@ const UserWordsList = () => {
 
                 {displayWords.length === 0 && words.length > 0 ? (
                     <div style={{ textAlign: 'center', marginTop: 40, color: C.muted }}>
-                        <SearchX size={48} style={{ opacity: 0.5 }} />
+                        <SearchNormal1 size={48} style={{ opacity: 0.5 }} />
                         <p style={{ marginTop: 12 }}>לא נמצאו מילים</p>
                     </div>
                 ) : words.length === 0 ? (
@@ -314,7 +314,7 @@ const UserWordsList = () => {
                                                     cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center'
                                                 }}
                                             >
-                                                {selectedIds.has(item.id) && <Check size={14} color={C.text} />}
+                                                {selectedIds.has(item.id) && <TickCircle size={14} color={C.text} />}
                                             </button>
                                         )}
                                         <div>
@@ -338,7 +338,7 @@ const UserWordsList = () => {
                                                 display: 'flex', alignItems: 'center', justifyContent: 'center'
                                             }}
                                         >
-                                            <Trash2 size={18} />
+                                            <Trash size={18} />
                                         </button>
                                     )}
                                 </div>
@@ -387,7 +387,7 @@ const UserWordsList = () => {
                                             }}
                                             dir="rtl"
                                         >
-                                            <Languages size={14} color={C.muted} />
+                                            <LanguageCircle size={14} color={C.muted} />
                                             {item.translation || 'הוסף תרגום לעברית...'}
                                         </button>
                                     )}

@@ -1,10 +1,10 @@
 import React, { useState, useRef } from 'react';
 import { useLocation } from 'wouter';
 import {
-    ArrowRight, Volume2, VolumeX, Trash2, Layers, Brain,
-    Download, Upload, Key, ChevronDown, ChevronUp, ChevronLeft,
-    Shield, Accessibility, GraduationCap, LogIn, LogOut, Crown, User
-} from 'lucide-react';
+    ArrowRight, VolumeHigh, VolumeCross, Trash, Layer, Activity,
+    Import, Export, Key, ArrowDown2, ArrowUp2, ArrowLeft2,
+    Shield, Global, Teacher, Login, Logout, Crown, User
+} from 'iconsax-react';
 import { C, GLASS, RADIUS, SURFACE } from '../styles/theme';
 import { isSoundEnabled, setSoundEnabled } from '../utils/sounds';
 import { validateStatsStructure, safeLocalStorageGet } from '../utils/security';
@@ -44,7 +44,7 @@ const Settings = () => {
                 <h3 style={{ margin: 0, fontWeight: 600, fontSize: 15, color: danger ? C.red : C.text }}>{title}</h3>
                 {desc && <p style={{ margin: '3px 0 0', fontSize: 13, color: C.muted }}>{desc}</p>}
             </div>
-            {rightElement || <ChevronLeft size={18} color={C.dim} />}
+            {rightElement || <ArrowLeft2 size={18} color={C.dim} />}
         </button>
     );
 
@@ -123,7 +123,7 @@ const Settings = () => {
                                     color: C.red, fontSize: 14, fontWeight: 600, cursor: 'pointer',
                                 }}
                             >
-                                <LogOut size={16} />
+                                <Logout size={16} />
                                 התנתק
                             </button>
                         </div>
@@ -137,12 +137,12 @@ const Settings = () => {
                                 borderRadius: 14, color: C.text, cursor: 'pointer', textAlign: 'right',
                             }}
                         >
-                            <LogIn size={18} color={C.purple} style={{ flexShrink: 0 }} />
+                            <Login size={18} color={C.purple} style={{ flexShrink: 0 }} />
                             <div style={{ flex: 1 }}>
                                 <h3 style={{ margin: 0, fontWeight: 600, fontSize: 15, color: C.text }}>צור חשבון</h3>
                                 <p style={{ margin: '3px 0 0', fontSize: 13, color: C.muted }}>שמור התקדמות בכל מכשיר</p>
                             </div>
-                            <ChevronLeft size={18} color={C.dim} />
+                            <ArrowLeft2 size={18} color={C.dim} />
                         </button>
                     )}
                 </section>
@@ -150,7 +150,7 @@ const Settings = () => {
                 <section style={{ marginBottom: 28 }}>
                     <h3 style={{ fontSize: 13, fontWeight: 700, color: C.muted, marginBottom: 10, paddingRight: 4 }}>העדפות</h3>
                     <SettingItem
-                        icon={soundOn ? Volume2 : VolumeX}
+                        icon={soundOn ? VolumeHigh : VolumeCross}
                         title="אפקטי קול"
                         desc={soundOn ? "קולות מופעלים" : "קולות מושתקים"}
                         onClick={() => { const v = !soundOn; setSoundOn(v); setSoundEnabled(v); }}
@@ -172,14 +172,14 @@ const Settings = () => {
 
                 <section style={{ marginBottom: 28 }}>
                     <h3 style={{ fontSize: 13, fontWeight: 700, color: C.muted, marginBottom: 10, paddingRight: 4 }}>נתונים ואיפוס</h3>
-                    <SettingItem icon={Trash2} title={confirmReset === 'all' ? "לחץ שוב לאישור" : "איפוס כל הנתונים"} desc="מחיקת כל ההתקדמות (מילים ושאלות)" danger onClick={() => handleReset('all')} />
-                    <SettingItem icon={Layers} title={confirmReset === 'vocab' ? "לחץ שוב לאישור" : "איפוס אוצר מילים"} desc="מחיקת התקדמות המילים בלבד" danger onClick={() => handleReset('vocab')} />
-                    <SettingItem icon={Brain} title={confirmReset === 'english' ? "לחץ שוב לאישור" : "איפוס שאלות אנגלית"} desc="מחיקת היסטורית המענה על שאלות" danger onClick={() => handleReset('english')} />
+                    <SettingItem icon={Trash} title={confirmReset === 'all' ? "לחץ שוב לאישור" : "איפוס כל הנתונים"} desc="מחיקת כל ההתקדמות (מילים ושאלות)" danger onClick={() => handleReset('all')} />
+                    <SettingItem icon={Layer} title={confirmReset === 'vocab' ? "לחץ שוב לאישור" : "איפוס אוצר מילים"} desc="מחיקת התקדמות המילים בלבד" danger onClick={() => handleReset('vocab')} />
+                    <SettingItem icon={Activity} title={confirmReset === 'english' ? "לחץ שוב לאישור" : "איפוס שאלות אנגלית"} desc="מחיקת היסטורית המענה על שאלות" danger onClick={() => handleReset('english')} />
                 </section>
 
                 <section style={{ marginBottom: 28 }}>
                     <h3 style={{ fontSize: 13, fontWeight: 700, color: C.muted, marginBottom: 10, paddingRight: 4 }}>גיבוי ושחזור</h3>
-                    <SettingItem icon={Download} title="ייצוא נתונים" desc="הורדת כל הנתונים כקובץ JSON" onClick={() => {
+                    <SettingItem icon={Import} title="ייצוא נתונים" desc="הורדת כל הנתונים כקובץ JSON" onClick={() => {
                         const data = {};
                         for (let i = 0; i < localStorage.length; i++) {
                             const key = localStorage.key(i);
@@ -196,7 +196,7 @@ const Settings = () => {
                         a.click();
                         URL.revokeObjectURL(url);
                     }} />
-                    <SettingItem icon={Upload} title="ייבוא נתונים" desc={importStatus === 'success' ? 'הנתונים יובאו בהצלחה!' : importStatus === 'error' ? 'שגיאה בייבוא הקובץ' : 'שחזור נתונים מקובץ גיבוי'} onClick={() => fileInputRef.current?.click()} />
+                    <SettingItem icon={Export} title="ייבוא נתונים" desc={importStatus === 'success' ? 'הנתונים יובאו בהצלחה!' : importStatus === 'error' ? 'שגיאה בייבוא הקובץ' : 'שחזור נתונים מקובץ גיבוי'} onClick={() => fileInputRef.current?.click()} />
                     <input ref={fileInputRef} type="file" accept=".json" style={{ display: 'none' }} onChange={(e) => {
                         const file = e.target.files?.[0];
                         if (!file) return;
@@ -228,7 +228,7 @@ const Settings = () => {
                         title="מפתח ElevenLabs"
                         desc={elevenLabsKey ? 'מפתח מוגדר' : 'הגדר מפתח עבור קול פרימיום (אופציונלי)'}
                         onClick={() => setShowApiKeys(!showApiKeys)}
-                        rightElement={showApiKeys ? <ChevronUp size={18} color={C.muted} /> : <ChevronDown size={18} color={C.muted} />}
+                        rightElement={showApiKeys ? <ArrowUp2 size={18} color={C.muted} /> : <ArrowDown2 size={18} color={C.muted} />}
                     />
                     {showApiKeys && (
                         <div style={{
@@ -277,7 +277,7 @@ const Settings = () => {
                 <section style={{ marginTop: 20 }}>
                     <h3 style={{ fontSize: 13, fontWeight: 700, color: C.muted, marginBottom: 10, paddingRight: 4 }}>משפטי ונגישות</h3>
                     <SettingItem icon={Shield} title="מדיניות פרטיות ותנאי שימוש" desc="קרא את המידע המשפטי" onClick={() => navigate('/legal')} />
-                    <SettingItem icon={Accessibility} title="הצהרת נגישות" desc="מידע על נגישות האפליקציה" onClick={() => navigate('/accessibility')} />
+                    <SettingItem icon={Global} title="הצהרת נגישות" desc="מידע על נגישות האפליקציה" onClick={() => navigate('/accessibility')} />
                 </section>
             </main>
         </div>

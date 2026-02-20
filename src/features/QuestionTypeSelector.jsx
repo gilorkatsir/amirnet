@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Pencil, ArrowLeftRight, BookOpen, Shuffle, Play, ChevronLeft, ClipboardList, Lock } from 'lucide-react';
+import { ArrowRight, Edit, ArrowSwapHorizontal, Book1, Shuffle, Play, ArrowLeft2, ClipboardText, Lock } from 'iconsax-react';
 import { C, GLASS, RADIUS, SURFACE, HEADING } from '../styles/theme';
 import { useTier } from '../contexts/TierContext';
 import UpgradePrompt from '../components/UpgradePrompt';
@@ -14,9 +14,9 @@ import {
 } from '../data/englishQuestions';
 
 const TYPE_ICON_MAP = {
-    'edit_note': Pencil,
-    'swap_horiz': ArrowLeftRight,
-    'menu_book': BookOpen
+    'edit_note': Edit,
+    'swap_horiz': ArrowSwapHorizontal,
+    'menu_book': Book1
 };
 
 /**
@@ -34,23 +34,23 @@ const QuestionTypeSelector = ({ onSelect }) => {
         {
             type: 'Sentence Completion',
             count: ENGLISH_QUESTIONS_METADATA.breakdown.sentenceCompletion.total,
-            color: C.purple,
+            color: C.muted,
             desc: 'השלם את המשפט עם המילה המתאימה',
-            Icon: Pencil
+            Icon: Edit
         },
         {
             type: 'Restatement',
             count: ENGLISH_QUESTIONS_METADATA.breakdown.restatement.total,
-            color: C.orange,
+            color: C.muted,
             desc: 'בחר את הניסוח המחדש הנכון',
-            Icon: ArrowLeftRight
+            Icon: ArrowSwapHorizontal
         },
         {
             type: 'Reading Comprehension',
             count: ENGLISH_QUESTIONS_METADATA.breakdown.readingComprehension.total,
-            color: C.pink,
+            color: C.muted,
             desc: 'ענה על שאלות מבוססות קטע',
-            Icon: BookOpen
+            Icon: Book1
         }
     ];
 
@@ -316,7 +316,7 @@ const QuestionTypeSelector = ({ onSelect }) => {
                                 textAlign: 'right',
                             }}
                         >
-                            <BookOpen size={22} color={C.pink} style={{ flexShrink: 0 }} />
+                            <Book1 size={22} color={C.pink} style={{ flexShrink: 0 }} />
                             <div style={{ flex: 1 }}>
                                 <h3 style={{ margin: 0, fontSize: 15, fontWeight: 600, color: C.text }}>
                                     לימוד קטעי קריאה
@@ -325,7 +325,7 @@ const QuestionTypeSelector = ({ onSelect }) => {
                                     בחר קטע, קרא ותרגל שאלות עם הטקסט לנגד עיניך
                                 </p>
                             </div>
-                            <ChevronLeft size={20} color={C.muted} />
+                            <ArrowLeft2 size={20} color={C.muted} />
                         </motion.button>
                     </section>
                 )}
@@ -365,7 +365,7 @@ const QuestionTypeSelector = ({ onSelect }) => {
                                     {locked ? (
                                         <Lock size={20} color={C.dim} style={{ flexShrink: 0 }} />
                                     ) : (
-                                        <ClipboardList size={20} color={C.orange} style={{ flexShrink: 0 }} />
+                                        <ClipboardText size={20} color={C.orange} style={{ flexShrink: 0 }} />
                                     )}
                                     <div style={{ flex: 1 }}>
                                         <h3 style={{ margin: 0, fontSize: 14, fontWeight: 600, color: locked ? C.muted : C.text }}>
@@ -375,7 +375,7 @@ const QuestionTypeSelector = ({ onSelect }) => {
                                             {examQuestions.length} שאלות • 2 חלקים
                                         </p>
                                     </div>
-                                    {locked ? <Lock size={16} color={C.dim} /> : <ChevronLeft size={20} color={C.muted} />}
+                                    {locked ? <Lock size={16} color={C.dim} /> : <ArrowLeft2 size={20} color={C.muted} />}
                                 </motion.button>
                             );
                         })}

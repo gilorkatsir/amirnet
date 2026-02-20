@@ -2,9 +2,9 @@ import React, { useMemo } from 'react';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import {
-    ArrowRight, Flame, Zap, Target, BookOpen, Brain,
-    Trophy, Award, HelpCircle, Trash2, Star
-} from 'lucide-react';
+    ArrowRight, Flash, Radar, Book1, Activity,
+    Cup, Medal, MessageQuestion, Trash, Star1
+} from 'iconsax-react';
 import { C, GLASS, RADIUS } from '../styles/theme';
 import { getDailyStats, getTodayKey, getLastNDaysAccuracy } from '../utils/dailyStats';
 import { useStatsContext } from '../contexts/StatsContext';
@@ -233,7 +233,7 @@ const Stats = () => {
                     }}
                 >
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 14 }}>
-                        <Zap size={16} color={C.orange} />
+                        <Flash size={16} color={C.orange} />
                         <span style={{ fontSize: 13, fontWeight: 700, color: C.muted }}>פעילות היום</span>
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
@@ -296,7 +296,7 @@ const Stats = () => {
                     {/* Level */}
                     <motion.div variants={fadeUp} style={{ ...GLASS.card, padding: 16 }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10 }}>
-                            <Star size={14} color={C.purple} />
+                            <Star1 size={14} color={C.purple} />
                             <span style={{ fontSize: 11, fontWeight: 600, color: C.muted }}>רמה</span>
                         </div>
                         <div style={{ fontSize: 28, fontWeight: 700, color: C.text, marginBottom: 2 }}>{level}</div>
@@ -317,7 +317,7 @@ const Stats = () => {
                     {/* Streak */}
                     <motion.div variants={fadeUp} style={{ ...GLASS.card, padding: 16 }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10 }}>
-                            <Flame size={14} color={C.orange} />
+                            <Flash size={14} color={C.orange} />
                             <span style={{ fontSize: 11, fontWeight: 600, color: C.muted }}>רצף</span>
                         </div>
                         <div style={{ fontSize: 28, fontWeight: 700, color: C.text, marginBottom: 2 }}>
@@ -332,7 +332,7 @@ const Stats = () => {
                     {/* XP */}
                     <motion.div variants={fadeUp} style={{ ...GLASS.card, padding: 16 }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10 }}>
-                            <Zap size={14} color={C.cyan} />
+                            <Flash size={14} color={C.cyan} />
                             <span style={{ fontSize: 11, fontWeight: 600, color: C.muted }}>ניסיון</span>
                         </div>
                         <div style={{ fontSize: 28, fontWeight: 700, color: C.text }}>{totalXp.toLocaleString()}</div>
@@ -342,7 +342,7 @@ const Stats = () => {
                     {/* Accuracy */}
                     <motion.div variants={fadeUp} style={{ ...GLASS.card, padding: 16 }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10 }}>
-                            <Target size={14} color={C.green} />
+                            <Radar size={14} color={C.green} />
                             <span style={{ fontSize: 11, fontWeight: 600, color: C.muted }}>דיוק כולל</span>
                         </div>
                         <div style={{
@@ -364,7 +364,7 @@ const Stats = () => {
                     transition={{ duration: 0.4, delay: 0.2 }}
                     style={{ ...GLASS.card, padding: 18, marginBottom: 16 }}
                 >
-                    <SectionHeader icon={BookOpen} title="אוצר מילים" color={C.pink} delay={0.2} />
+                    <SectionHeader icon={Book1} title="אוצר מילים" color={C.pink} delay={0.2} />
 
                     <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
                         <ProgressRing
@@ -428,7 +428,7 @@ const Stats = () => {
                     transition={{ duration: 0.4, delay: 0.3 }}
                     style={{ ...GLASS.card, padding: 18, marginBottom: 16 }}
                 >
-                    <SectionHeader icon={HelpCircle} title="שאלות באנגלית" color={C.purple} delay={0.3} />
+                    <SectionHeader icon={MessageQuestion} title="שאלות באנגלית" color={C.purple} delay={0.3} />
 
                     {/* Overview row */}
                     <div style={{ display: 'flex', gap: 16, marginBottom: 16 }}>
@@ -515,7 +515,7 @@ const Stats = () => {
                         transition={{ duration: 0.4, delay: 0.4 }}
                         style={{ ...GLASS.card, padding: 18, marginBottom: 16 }}
                     >
-                        <SectionHeader icon={Brain} title="חזרה מרווחת" color={C.blue} delay={0.4} />
+                        <SectionHeader icon={Activity} title="חזרה מרווחת" color={C.blue} delay={0.4} />
 
                         <div style={{
                             display: 'grid',
@@ -561,13 +561,13 @@ const Stats = () => {
                     transition={{ duration: 0.4, delay: 0.5 }}
                     style={{ ...GLASS.card, padding: 18, marginBottom: 16 }}
                 >
-                    <SectionHeader icon={Award} title="הישגים" color={C.orange} delay={0.5} />
+                    <SectionHeader icon={Medal} title="הישגים" color={C.orange} delay={0.5} />
 
                     <div style={{
                         display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16,
                         fontSize: 13, color: C.muted,
                     }}>
-                        <Trophy size={16} color={C.orange} />
+                        <Cup size={16} color={C.orange} />
                         <span>{badges.length} מתוך {BADGE_DEFINITIONS.length} הישגים הושגו</span>
                     </div>
 
@@ -662,7 +662,7 @@ const Stats = () => {
                             gap: 8,
                         }}
                     >
-                        <Trash2 size={16} />
+                        <Trash size={16} />
                         איפוס כל הנתונים
                     </motion.button>
                 </motion.section>

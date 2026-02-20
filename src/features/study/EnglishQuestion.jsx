@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Pencil, ArrowLeftRight, BookOpen, HelpCircle, Volume2, Square, Check, X, CheckCircle, ArrowLeft, Lightbulb } from 'lucide-react';
+import { Edit, ArrowSwapHorizontal, Book1, MessageQuestion, VolumeHigh, Stop, TickCircle, CloseCircle, ArrowLeft, LampOn } from 'iconsax-react';
 import { DotPulse } from 'ldrs/react';
 import 'ldrs/react/DotPulse.css';
 import { C } from '../../styles/theme';
@@ -107,12 +107,12 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
 
     const renderQuestionHeader = () => {
         const typeLabels = {
-            'Sentence Completion': { he: 'השלמת משפט', Icon: Pencil, color: C.purple },
-            'Restatement': { he: 'ניסוח מחדש', Icon: ArrowLeftRight, color: C.orange },
-            'Reading Comprehension': { he: 'הבנת הנקרא', Icon: BookOpen, color: C.pink }
+            'Sentence Completion': { he: 'השלמת משפט', Icon: Edit, color: C.purple },
+            'Restatement': { he: 'ניסוח מחדש', Icon: ArrowSwapHorizontal, color: C.orange },
+            'Reading Comprehension': { he: 'הבנת הנקרא', Icon: Book1, color: C.pink }
         };
 
-        const typeInfo = typeLabels[question.type] || { he: question.type, Icon: HelpCircle, color: C.muted };
+        const typeInfo = typeLabels[question.type] || { he: question.type, Icon: MessageQuestion, color: C.muted };
 
         return (
             <div style={{
@@ -151,7 +151,7 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                             marginRight: 'auto'
                         }}
                     >
-                        {ttsPlaying ? <Square size={18} /> : <Volume2 size={18} />}
+                        {ttsPlaying ? <Stop size={18} /> : <VolumeHigh size={18} />}
                     </button>
                 )}
                 {ttsError && (
@@ -188,7 +188,7 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                             alignItems: 'center',
                             gap: 6
                         }}>
-                            <BookOpen size={16} />
+                            <Book1 size={16} />
                             {question.passage}
                         </h4>
                         <p style={{
@@ -319,8 +319,8 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                                 {isSelected && (
                                     answered ? (
                                         isCorrect
-                                            ? <Check size={14} color="white" />
-                                            : <X size={14} color="white" />
+                                            ? <TickCircle size={14} color="white" />
+                                            : <CloseCircle size={14} color="white" />
                                     ) : (
                                         <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'white' }} />
                                     )
@@ -413,7 +413,7 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                                 transition: 'background 0.2s',
                             }}
                         >
-                            <Lightbulb size={16} />
+                            <LampOn size={16} />
                             למה? הסבר AI
                         </button>
                     )}
@@ -449,7 +449,7 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                                 fontSize: 12,
                                 fontWeight: 700,
                             }}>
-                                <Lightbulb size={14} />
+                                <LampOn size={14} />
                                 AI Explanation
                             </div>
                             <p style={{
@@ -499,7 +499,7 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                             color: C.green,
                             padding: 8
                         }} dir="rtl">
-                            <CheckCircle size={20} />
+                            <TickCircleCircle size={20} />
                             <span style={{ fontWeight: 600 }}>המילה נשמרה בהצלחה!</span>
                             <button
                                 onClick={() => setWordSaved(false)}

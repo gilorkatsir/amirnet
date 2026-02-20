@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft } from 'iconsax-react';
 import { C, GLASS, RADIUS } from '../../styles/theme';
 import { VOCABULARY } from '../../data/vocabulary';
 

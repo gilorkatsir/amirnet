@@ -2,8 +2,8 @@ import React, { useState, useMemo, useCallback, useReducer, useEffect, useRef } 
 import { useLocation } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-    ArrowRight, RotateCcw, Home, Check, X, Trophy, Target, Flame, Keyboard
-} from 'lucide-react';
+    ArrowRight, RotateLeft, Home2, TickCircle, CloseCircle, Cup, Radar, Flash, Keyboard
+} from 'iconsax-react';
 import { C, GLASS, RADIUS, HEADING, MOTION } from '../styles/theme';
 import { VOCABULARY } from '../data/vocabulary';
 import { useStatsContext } from '../contexts/StatsContext';
@@ -141,7 +141,7 @@ const SwipeMode = () => {
                             alignItems: 'center', justifyContent: 'center',
                         }}
                     >
-                        <Trophy size={28} color={percentage >= 70 ? C.green : C.orange} />
+                        <Cup size={28} color={percentage >= 70 ? C.green : C.orange} />
                         <span style={{
                             fontSize: 36, fontWeight: 800, color: C.text,
                             marginTop: 4,
@@ -166,7 +166,7 @@ const SwipeMode = () => {
                             display: 'flex', flexDirection: 'column',
                             alignItems: 'center', gap: 6,
                         }}>
-                            <Check size={20} color={C.green} />
+                            <TickCircle size={20} color={C.green} />
                             <span style={{ fontSize: 24, fontWeight: 700, color: C.text }}>
                                 {knewCount}
                             </span>
@@ -177,7 +177,7 @@ const SwipeMode = () => {
                             display: 'flex', flexDirection: 'column',
                             alignItems: 'center', gap: 6,
                         }}>
-                            <X size={20} color={C.red} />
+                            <CloseCircle size={20} color={C.red} />
                             <span style={{ fontSize: 24, fontWeight: 700, color: C.text }}>
                                 {didntCount}
                             </span>
@@ -188,7 +188,7 @@ const SwipeMode = () => {
                             display: 'flex', flexDirection: 'column',
                             alignItems: 'center', gap: 6,
                         }}>
-                            <Target size={20} color={C.purple} />
+                            <Radar size={20} color={C.purple} />
                             <span style={{ fontSize: 24, fontWeight: 700, color: C.text }}>
                                 {total}
                             </span>
@@ -209,7 +209,7 @@ const SwipeMode = () => {
                                 ...HEADING.card, color: C.red, margin: '0 0 12px',
                                 display: 'flex', alignItems: 'center', gap: 6,
                             }}>
-                                <Flame size={16} /> מילים לחזרה
+                                <Flash size={16} /> מילים לחזרה
                             </h3>
                             <div style={{
                                 ...GLASS.card, padding: 12,
@@ -258,7 +258,7 @@ const SwipeMode = () => {
                                 boxShadow: '0 4px 16px rgba(139,92,246,0.25)',
                             }}
                         >
-                            <RotateCcw size={18} /> סבב נוסף
+                            <RotateLeft size={18} /> סבב נוסף
                         </motion.button>
                         <motion.button
                             whileTap={{ scale: 0.96 }}
@@ -272,7 +272,7 @@ const SwipeMode = () => {
                                 justifyContent: 'center', gap: 8,
                             }}
                         >
-                            <Home size={18} /> חזרה לדף הבית
+                            <Home2 size={18} /> חזרה לדף הבית
                         </motion.button>
                     </motion.div>
                 </main>
@@ -386,7 +386,7 @@ const SwipeMode = () => {
                             border: '1px solid rgba(239,68,68,0.3)',
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                         }}>
-                            <X size={22} color={C.red} />
+                            <CloseCircle size={22} color={C.red} />
                         </div>
                         <span style={{ fontSize: 11, color: C.dim }}>לא ידעתי</span>
                     </div>
@@ -407,7 +407,7 @@ const SwipeMode = () => {
                             border: '1px solid rgba(34,197,94,0.3)',
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                         }}>
-                            <Check size={22} color={C.green} />
+                            <TickCircle size={22} color={C.green} />
                         </div>
                         <span style={{ fontSize: 11, color: C.dim }}>ידעתי</span>
                     </div>

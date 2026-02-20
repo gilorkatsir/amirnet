@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Timer, TimerOff, Brain } from 'lucide-react';
+import { CloseCircle, Timer, Timer1, Activity } from 'iconsax-react';
 import { C, GLASS, RADIUS } from '../../styles/theme';
 import EnglishQuestion from '../study/EnglishQuestion';
 import { playTimerComplete, playClick } from '../../utils/sounds';
@@ -111,7 +111,7 @@ const EnglishExamSession = ({ mode, questions, title, onComplete }) => {
         <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: C.bg }}>
             <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 20px', ...GLASS.header }}>
                 <button onClick={() => { if (window.confirm('לצאת מהתרגול? ההתקדמות נשמרת.')) navigate('/'); }} style={circleBtn(C.glass, C.glassBorder)}>
-                    <X size={18} color={C.muted} />
+                    <CloseCircle size={18} color={C.muted} />
                 </button>
 
                 <div style={{ textAlign: 'center' }}>
@@ -140,7 +140,7 @@ const EnglishExamSession = ({ mode, questions, title, onComplete }) => {
                                 letterSpacing: 1.5, margin: '0 0 6px',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6
                             }}>
-                                <Brain size={13} /> {getModeLabel()}
+                                <Activity size={13} /> {getModeLabel()}
                             </h2>
                             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                                 <span style={{ fontSize: 13, fontWeight: 700, ...C.gradientText }}>{index + 1}</span>
@@ -159,7 +159,7 @@ const EnglishExamSession = ({ mode, questions, title, onComplete }) => {
                         style={circleBtn(timerEnabled ? C.orange : C.glass, timerEnabled ? undefined : C.glassBorder)}
                         title={timerEnabled ? 'כבה טיימר' : 'הפעל טיימר'}
                     >
-                        {timerEnabled ? <Timer size={16} color="white" /> : <TimerOff size={16} color={C.muted} />}
+                        {timerEnabled ? <Timer size={16} color="white" /> : <Timer1 size={16} color={C.muted} />}
                     </button>
                     <div style={{
                         display: 'flex', alignItems: 'center', gap: 6,

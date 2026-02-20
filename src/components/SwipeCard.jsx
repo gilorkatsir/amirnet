@@ -1,7 +1,7 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion';
-import { Volume2, Hand } from 'lucide-react';
+import { VolumeHigh, FingerCricle } from 'iconsax-react';
 import { C, GLASS, RADIUS } from '../styles/theme';
 import { playFlip } from '../utils/sounds';
 
@@ -280,7 +280,7 @@ const SwipeCard = ({ word, onSwipeRight, onSwipeLeft, stackIndex = 0, onFlip }) 
                     }}
                     style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
                 >
-                    <Volume2 size={20} color={C.dim} />
+                    <VolumeHigh size={20} color={C.dim} />
                 </motion.button>
             </div>
 
@@ -320,7 +320,7 @@ const SwipeCard = ({ word, onSwipeRight, onSwipeLeft, stackIndex = 0, onFlip }) 
                                 fontSize: 13, color: C.dim, marginTop: 16,
                                 display: 'flex', alignItems: 'center', gap: 6,
                             }}>
-                                <Hand size={14} /> הקש לגילוי התרגום
+                                <FingerCricle size={14} /> הקש לגילוי התרגום
                             </p>
                         </motion.div>
                     ) : (

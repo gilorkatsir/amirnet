@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { CloseCircle } from 'iconsax-react';
 import { C, GLASS, RADIUS } from '../../styles/theme';
 import { useStatsContext } from '../../contexts/StatsContext';
 import Flashcard from './Flashcard';
@@ -96,7 +96,7 @@ const StudySession = ({ mode, session, onComplete }) => {
                     onClick={() => { if (window.confirm('לצאת מהתרגול? ההתקדמות נשמרת.')) navigate('/'); }}
                     style={circleBtn}
                 >
-                    <X size={18} color={C.muted} />
+                    <CloseCircle size={18} color={C.muted} />
                 </motion.button>
 
                 <div style={{ textAlign: 'center' }}>

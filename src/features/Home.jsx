@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import {
-    BookOpen, GraduationCap, Headphones, BarChart3, Settings,
-    Play, Zap, Flame, Layers, PenLine, ChevronLeft,
-    Home as HomeIcon, LogIn
-} from 'lucide-react';
+    Book1, Teacher, Headphone, Chart, Setting2,
+    Play, Flash, Layer, Edit2, ArrowLeft2,
+    Home2, Login
+} from 'iconsax-react';
 import { C, GLASS, RADIUS, SURFACE, MOTION, HEADING } from '../styles/theme';
 import { calculateStreak } from '../utils/dailyStats';
 import { useStatsContext } from '../contexts/StatsContext';
@@ -65,7 +65,7 @@ const Home = ({ onStart }) => {
                                     color: C.purple, fontSize: 12, fontWeight: 600, cursor: 'pointer',
                                 }}
                             >
-                                <LogIn size={14} />
+                                <Login size={14} />
                                 התחבר
                             </motion.button>
                         )}
@@ -93,7 +93,7 @@ const Home = ({ onStart }) => {
                                 display: 'flex', alignItems: 'center', justifyContent: 'center'
                             }}
                         >
-                            <Settings size={20} />
+                            <Setting2 size={20} />
                         </motion.button>
                     </div>
                 </div>
@@ -125,7 +125,7 @@ const Home = ({ onStart }) => {
                                 marginTop: 8, padding: '3px 10px', borderRadius: 9999,
                                 background: 'rgba(251,146,60,0.1)', border: '1px solid rgba(251,146,60,0.15)'
                             }}>
-                                <Flame size={13} color={C.orange} />
+                                <Flash size={13} color={C.orange} />
                                 <span style={{ fontSize: 12, fontWeight: 600, color: C.orange }}>
                                     {streak} {streak === 1 ? 'יום' : 'ימים'} ברצף
                                 </span>
@@ -165,7 +165,7 @@ const Home = ({ onStart }) => {
                                 המשך ללמוד
                             </h3>
                             <p style={{ color: C.muted, fontSize: 13, margin: 0, display: 'flex', alignItems: 'center', gap: 6 }}>
-                                <Zap size={13} /> מתמקד ב{smartStart.label}
+                                <Flash size={13} /> מתמקד ב{smartStart.label}
                             </p>
                         </div>
                         <div style={{
@@ -173,7 +173,7 @@ const Home = ({ onStart }) => {
                             background: C.gradient, display: 'flex', alignItems: 'center', justifyContent: 'center',
                             boxShadow: '0 8px 24px rgba(139,92,246,0.3)'
                         }}>
-                            <Play size={22} fill="white" color="white" />
+                            <Play size={22} color="white" />
                         </div>
                     </div>
                 </motion.button>
@@ -187,8 +187,8 @@ const Home = ({ onStart }) => {
                     style={{ display: 'flex', gap: 10 }}
                 >
                     {[
-                        { icon: Layers, label: 'כרטיסיות', color: C.pink, action: () => onStart('flash', 10) },
-                        { icon: PenLine, label: 'בוחן מילים', color: C.purple, action: () => onStart('quiz', 10) },
+                        { icon: Layer, label: 'כרטיסיות', color: C.muted, action: () => onStart('flash', 10) },
+                        { icon: Edit2, label: 'בוחן מילים', color: C.muted, action: () => onStart('quiz', 10) },
                     ].map((q, i) => (
                         <motion.button
                             key={i}
@@ -212,26 +212,26 @@ const Home = ({ onStart }) => {
                 {/* 3 Section Cards */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                     <SectionCard
-                        icon={BookOpen}
+                        icon={Book1}
                         title="אוצר מילים"
                         desc="קטגוריות, טעויות, AI, המילים שלי"
-                        color={C.purple}
+                        color={C.muted}
                         onClick={() => navigate('/vocab-hub')}
                         delay={0.2}
                     />
                     <SectionCard
-                        icon={GraduationCap}
+                        icon={Teacher}
                         title="שאלות אנגלית"
                         desc="השלמת משפטים, ניסוח מחדש, מבחן"
-                        color={C.green}
+                        color={C.muted}
                         onClick={() => navigate('/english-select')}
                         delay={0.25}
                     />
                     <SectionCard
-                        icon={Headphones}
+                        icon={Headphone}
                         title="הקשבה"
                         desc="הרצאות, שאלות הקשבה, השלמת טקסט"
-                        color={C.blue}
+                        color={C.muted}
                         onClick={() => navigate('/vocal-select')}
                         delay={0.3}
                     />
@@ -248,7 +248,7 @@ const Home = ({ onStart }) => {
                         background: 'none', border: 'none', color: C.purple, cursor: 'pointer',
                         display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2
                     }}>
-                        <HomeIcon size={22} />
+                        <Home2 size={22} />
                         <span style={{ fontSize: 10, fontWeight: 700 }}>ראשי</span>
                     </button>
                     <button
@@ -258,7 +258,7 @@ const Home = ({ onStart }) => {
                             display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2
                         }}
                     >
-                        <BarChart3 size={22} />
+                        <Chart size={22} />
                         <span style={{ fontSize: 10 }}>מדדים</span>
                     </button>
                 </div>
@@ -288,7 +288,7 @@ const SectionCard = ({ icon: Icon, title, desc, color, onClick, delay }) => (
             <h3 style={{ margin: 0, fontWeight: 600, fontSize: 15, color: C.text }}>{title}</h3>
             <p style={{ margin: '3px 0 0', fontSize: 13, color: C.muted }}>{desc}</p>
         </div>
-        <ChevronLeft size={18} color={C.dim} />
+        <ArrowLeft2 size={18} color={C.dim} />
     </motion.button>
 );
 

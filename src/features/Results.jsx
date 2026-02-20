@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
-import { Trophy, Star, Dumbbell, BookOpen, Check, X, PenLine, ArrowLeftRight, BookOpenText, Lightbulb, RotateCcw, Home } from 'lucide-react';
+import { Cup, Star1, Weight, Book1, TickCircle, CloseCircle, Edit2, ArrowSwapHorizontal, LampOn, RotateLeft, Home2 } from 'iconsax-react';
 import { C, GLASS, RADIUS, SURFACE } from '../styles/theme';
 import { playComplete } from '../utils/sounds';
 
@@ -23,10 +23,10 @@ const Results = ({ results, sessionType, onRestart, onReview }) => {
     }, []);
 
     const getInfo = () => {
-        if (pct >= 90) return { icon: Trophy, msg: 'מצוין! שליטה מרשימה!', color: '#fbbf24' };
-        if (pct >= 70) return { icon: Star, msg: 'כל הכבוד!', color: C.green };
-        if (pct >= 50) return { icon: Dumbbell, msg: 'לא רע!', color: C.orange };
-        return { icon: BookOpen, msg: 'המשך להתאמן!', color: C.purple };
+        if (pct >= 90) return { icon: Cup, msg: 'מצוין! שליטה מרשימה!', color: '#fbbf24' };
+        if (pct >= 70) return { icon: Star1, msg: 'כל הכבוד!', color: C.green };
+        if (pct >= 50) return { icon: Weight, msg: 'לא רע!', color: C.orange };
+        return { icon: Book1, msg: 'המשך להתאמן!', color: C.purple };
     };
     const info = getInfo();
     const Icon = info.icon;
@@ -44,9 +44,9 @@ const Results = ({ results, sessionType, onRestart, onReview }) => {
     }, [results.answers]);
 
     const typeLabels = {
-        'Sentence Completion': { he: 'השלמת משפטים', icon: PenLine, color: C.purple },
-        'Restatement': { he: 'ניסוח מחדש', icon: ArrowLeftRight, color: C.orange },
-        'Reading Comprehension': { he: 'הבנת הנקרא', icon: BookOpenText, color: C.pink }
+        'Sentence Completion': { he: 'השלמת משפטים', icon: Edit2, color: C.purple },
+        'Restatement': { he: 'ניסוח מחדש', icon: ArrowSwapHorizontal, color: C.orange },
+        'Reading Comprehension': { he: 'הבנת הנקרא', icon: Book1, color: C.pink }
     };
 
     const weakestType = React.useMemo(() => {
@@ -116,12 +116,12 @@ const Results = ({ results, sessionType, onRestart, onReview }) => {
                 style={{ display: 'flex', gap: 40, marginBottom: 28 }}
             >
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <Check size={28} color={C.green} />
+                    <TickCircle size={28} color={C.green} />
                     <p style={{ fontSize: 24, fontWeight: 700, margin: '6px 0 2px' }}>{results.correct}</p>
                     <span style={{ color: C.muted, fontSize: 13 }}>נכונות</span>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <X size={28} color={C.red} />
+                    <CloseCircle size={28} color={C.red} />
                     <p style={{ fontSize: 24, fontWeight: 700, margin: '6px 0 2px' }}>{results.incorrect}</p>
                     <span style={{ color: C.muted, fontSize: 13 }}>שגויות</span>
                 </div>
@@ -140,7 +140,7 @@ const Results = ({ results, sessionType, onRestart, onReview }) => {
                     </h3>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
                         {Object.entries(typeBreakdown).map(([type, data]) => {
-                            const meta = typeLabels[type] || { he: type, icon: BookOpen, color: C.muted };
+                            const meta = typeLabels[type] || { he: type, icon: Book1, color: C.muted };
                             const TypeIcon = meta.icon;
                             const typePct = data.total > 0 ? Math.round((data.correct / data.total) * 100) : 0;
                             return (
@@ -177,7 +177,7 @@ const Results = ({ results, sessionType, onRestart, onReview }) => {
                         display: 'flex', alignItems: 'center', gap: 10, textAlign: 'right'
                     }}
                 >
-                    <Lightbulb size={18} color={C.orange} style={{ flexShrink: 0 }} />
+                    <LampOn size={18} color={C.orange} style={{ flexShrink: 0 }} />
                     <p style={{ margin: 0, fontSize: 13, color: C.orange, lineHeight: 1.4 }}>
                         ציון נמוך ב{typeLabels[weakestType]?.he || weakestType} — מומלץ לתרגל עוד!
                     </p>
@@ -197,7 +197,7 @@ const Results = ({ results, sessionType, onRestart, onReview }) => {
                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
                     boxShadow: '0 8px 24px rgba(139,92,246,0.3)'
                 }}>
-                    <RotateCcw size={18} /> תרגול נוסף
+                    <RotateLeft size={18} /> תרגול נוסף
                 </button>
                 {results.incorrect > 0 && onReview && (
                     <button onClick={onReview} style={{
@@ -213,7 +213,7 @@ const Results = ({ results, sessionType, onRestart, onReview }) => {
                     ...GLASS.button, color: C.text, fontSize: 17, fontWeight: 700, cursor: 'pointer',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8
                 }}>
-                    <Home size={18} /> חזרה לתפריט
+                    <Home2 size={18} /> חזרה לתפריט
                 </button>
             </motion.div>
         </div>

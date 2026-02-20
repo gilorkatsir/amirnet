@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'wouter';
-import { ArrowRight, Mail, Lock, Eye, EyeOff } from 'lucide-react';
+import { ArrowRight, Sms, Lock, Eye, EyeSlash } from 'iconsax-react';
 import { supabase } from '../services/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { C, GLASS, RADIUS } from '../styles/theme';
@@ -130,7 +130,7 @@ const AuthPage = () => {
           <div>
             <label style={{ display: 'block', fontSize: 13, color: C.muted, marginBottom: 6 }}>אימייל</label>
             <div style={{ position: 'relative' }}>
-              <Mail size={16} color={C.dim} style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)' }} />
+              <Sms size={16} color={C.dim} style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)' }} />
               <input
                 type="email"
                 value={email}
@@ -164,7 +164,7 @@ const AuthPage = () => {
                     background: 'none', border: 'none', color: C.dim, cursor: 'pointer', padding: 4,
                   }}
                 >
-                  {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                  {showPassword ? <EyeSlash size={16} /> : <Eye size={16} />}
                 </button>
               </div>
             </div>

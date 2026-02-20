@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Crown, BookOpen } from 'lucide-react';
+import { Crown, Book1 } from 'iconsax-react';
 import { useAuth } from '../contexts/AuthContext';
 import { C, RADIUS } from '../styles/theme';
 import { safeLocalStorageGet } from '../utils/security';
@@ -164,7 +164,7 @@ const TrialExpiredModal = () => {
                   gap: 8,
                 }}
               >
-                <BookOpen size={16} />
+                <Book1 size={16} />
                 המשך בחינם
               </button>
             </div>

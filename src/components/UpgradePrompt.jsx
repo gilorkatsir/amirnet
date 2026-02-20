@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Lock, LogIn, Crown, X } from 'lucide-react';
+import { Lock, Login, Crown, CloseCircle } from 'iconsax-react';
 import { C, RADIUS } from '../styles/theme';
 import { useAuth } from '../contexts/AuthContext';
 
@@ -67,7 +67,7 @@ const UpgradePrompt = ({ isOpen, onClose, limitType = 'vocab' }) => {
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}
             >
-              <X size={16} />
+              <CloseCircle size={16} />
             </button>
 
             <div style={{
@@ -95,7 +95,7 @@ const UpgradePrompt = ({ isOpen, onClose, limitType = 'vocab' }) => {
                     cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
                   }}
                 >
-                  <LogIn size={18} />
+                  <Login size={18} />
                   צור חשבון חינם
                 </button>
               )}

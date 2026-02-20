@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Clock, Zap } from 'lucide-react';
+import { Clock, Flash } from 'iconsax-react';
 import { useAuth } from '../contexts/AuthContext';
 import { C, RADIUS } from '../styles/theme';
 
@@ -64,7 +64,7 @@ const TrialBanner = () => {
       }}
     >
       {isUrgent ? (
-        <Zap size={20} color={iconColor} />
+        <Flash size={20} color={iconColor} />
       ) : (
         <Clock size={20} color={iconColor} />
       )}

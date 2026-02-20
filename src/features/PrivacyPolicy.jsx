@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'wouter';
-import { ArrowRight, Shield } from 'lucide-react';
+import { ArrowRight, Shield } from 'iconsax-react';
 import { C, GLASS } from '../styles/theme';
 
 /**

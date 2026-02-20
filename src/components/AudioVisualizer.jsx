@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { Headphones, Mic, Pause } from 'lucide-react';
+import { Headphone, Microphone2, Pause } from 'iconsax-react';
 import AudioWaveform from './AudioWaveform';
 import { C, GLASS, RADIUS } from '../styles/theme';
 
@@ -101,8 +101,8 @@ const AudioVisualizer = ({
             )}
             {isPlaying && (
               isLecture
-                ? <Headphones size={13} color={accentColor} />
-                : <Mic size={13} color={accentColor} />
+                ? <Headphone size={13} color={accentColor} />
+                : <Microphone2 size={13} color={accentColor} />
             )}
           </div>
 

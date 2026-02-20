@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
-import { Rocket } from 'lucide-react';
+import { Send2 } from 'iconsax-react';
 import { C, MOTION } from '../styles/theme';
 import { useStatsContext } from '../contexts/StatsContext';
 import useDerivedStats from '../hooks/useStats';
@@ -144,7 +144,7 @@ const WelcomeScreen = () => {
                     boxShadow: '0 8px 32px rgba(139,92,246,0.35)',
                 }}
             >
-                <Rocket size={22} />
+                <Send2 size={22} />
                 בוא נתחיל ללמוד!
             </motion.button>
         </motion.div>

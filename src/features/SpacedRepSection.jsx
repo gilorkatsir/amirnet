@@ -2,9 +2,9 @@ import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react'
 import { useLocation } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-    ArrowRight, Brain, Volume2, RotateCcw, Trophy,
-    ChevronLeft, Zap, TrendingUp, Clock
-} from 'lucide-react';
+    ArrowRight, Activity, VolumeHigh, RotateLeft, Cup,
+    ArrowLeft2, Flash, TrendUp, Clock
+} from 'iconsax-react';
 import { C, GLASS, RADIUS, MOTION, HEADING } from '../styles/theme';
 import { VOCABULARY } from '../data/vocabulary';
 import { useTier } from '../contexts/TierContext';
@@ -213,7 +213,7 @@ const SpacedRepSection = () => {
                     >
                         <ArrowRight size={20} />
                     </motion.button>
-                    <Brain size={22} color={C.purple} />
+                    <Activity size={22} color={C.purple} />
                     <h1 style={{ ...HEADING.section, margin: 0, color: C.text }}>חזרה מרווחת</h1>
                 </header>
 
@@ -235,7 +235,7 @@ const SpacedRepSection = () => {
                             width: 56, height: 56, borderRadius: RADIUS.full, margin: '0 auto 16px',
                             background: 'rgba(139,92,246,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center',
                         }}>
-                            <Brain size={28} color={C.purple} />
+                            <Activity size={28} color={C.purple} />
                         </div>
                         <h2 style={{ margin: '0 0 8px', fontSize: 22, fontWeight: 700, color: C.text }}>
                             {dueCount > 0 ? `${dueCount} מילים ממתינות לחזרה` : 'אין מילים לחזרה כרגע'}
@@ -266,7 +266,7 @@ const SpacedRepSection = () => {
                             opacity: dueCount > 0 ? 1 : 0.5,
                         }}
                     >
-                        <Zap size={20} />
+                        <Flash size={20} />
                         {dueCount > 0 ? `התחל חזרה (${Math.min(dueCount, 20)} מילים)` : 'חזור מאוחר יותר'}
                     </motion.button>
 
@@ -280,9 +280,9 @@ const SpacedRepSection = () => {
                             style={{ display: 'flex', flexDirection: 'column', gap: 8 }}
                         >
                             <h3 style={{ ...HEADING.label, margin: '8px 0 4px' }}>סטטיסטיקות</h3>
-                            <StatPill icon={Brain} label="מילים שנלמדו" value={retentionStats.totalReviewed} color={C.purple} />
-                            <StatPill icon={TrendingUp} label="אחוז שימור" value={`${retentionStats.retentionRate}%`} color={C.green} />
-                            <StatPill icon={RotateCcw} label="סה״כ חזרות" value={retentionStats.totalReviews} color={C.blue} />
+                            <StatPill icon={Activity} label="מילים שנלמדו" value={retentionStats.totalReviewed} color={C.purple} />
+                            <StatPill icon={TrendUp} label="אחוז שימור" value={`${retentionStats.retentionRate}%`} color={C.green} />
+                            <StatPill icon={RotateLeft} label="סה״כ חזרות" value={retentionStats.totalReviews} color={C.blue} />
                             <StatPill icon={Clock} label="מקדם קלות ממוצע" value={retentionStats.avgEaseFactor} color={C.orange} />
                         </motion.div>
                     )}
@@ -401,7 +401,7 @@ const SpacedRepSection = () => {
                                         }}
                                         style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
                                     >
-                                        <Volume2 size={18} color={C.dim} />
+                                        <VolumeHigh size={18} color={C.dim} />
                                     </motion.button>
                                 </div>
                             </div>
@@ -555,7 +555,7 @@ const SpacedRepSection = () => {
                             border: '1px solid rgba(139,92,246,0.15)',
                         }}
                     >
-                        <Trophy size={40} color={C.orange} style={{ marginBottom: 12 }} />
+                        <Cup size={40} color={C.orange} style={{ marginBottom: 12 }} />
                         <h2 style={{ margin: '0 0 6px', fontSize: 24, fontWeight: 700, color: C.text }}>
                             {retention >= 80 ? 'מצוין!' : retention >= 50 ? 'עבודה טובה!' : 'המשך לתרגל!'}
                         </h2>
@@ -566,11 +566,11 @@ const SpacedRepSection = () => {
 
                     {/* Stats */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                        <StatPill icon={Brain} label="מילים שנבחנו" value={totalGraded} color={C.purple} />
-                        <StatPill icon={TrendingUp} label="ציון ממוצע" value={avgGrade} color={C.blue} />
-                        <StatPill icon={Zap} label="שימור בחזרה" value={`${retention}%`} color={C.green} />
+                        <StatPill icon={Activity} label="מילים שנבחנו" value={totalGraded} color={C.purple} />
+                        <StatPill icon={TrendUp} label="ציון ממוצע" value={avgGrade} color={C.blue} />
+                        <StatPill icon={Flash} label="שימור בחזרה" value={`${retention}%`} color={C.green} />
                         {sessionXpEarned > 0 && (
-                            <StatPill icon={Zap} label="XP שנצבר" value={`+${sessionXpEarned}`} color={C.orange} />
+                            <StatPill icon={Flash} label="XP שנצבר" value={`+${sessionXpEarned}`} color={C.orange} />
                         )}
                     </div>
 
@@ -623,7 +623,7 @@ const SpacedRepSection = () => {
                                     boxShadow: '0 4px 16px rgba(139,92,246,0.25)',
                                 }}
                             >
-                                <RotateCcw size={18} /> עוד סבב ({Math.min(newDueCount, 20)})
+                                <RotateLeft size={18} /> עוד סבב ({Math.min(newDueCount, 20)})
                             </motion.button>
                         )}
                         <motion.button
@@ -635,7 +635,7 @@ const SpacedRepSection = () => {
                                 cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
                             }}
                         >
-                            <ChevronLeft size={18} /> חזרה לאוצר מילים
+                            <ArrowLeft2 size={18} /> חזרה לאוצר מילים
                         </motion.button>
                     </div>
                 </main>

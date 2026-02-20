@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'wouter';
-import { ArrowRight, Mail, Phone } from 'lucide-react';
+import { ArrowRight, Sms, Call } from 'iconsax-react';
 import { C, GLASS } from '../styles/theme';
 
 /**
@@ -98,11 +98,11 @@ const AccessibilityStatement = () => {
                         marginTop: 12
                     }}>
                         <p style={{ margin: '0 0 8px', display: 'flex', alignItems: 'center', gap: 8 }}>
-                            <Mail size={16} color={C.purple} />
+                            <Sms size={16} color={C.purple} />
                             <strong>אימייל:</strong> accessibility@wordmaster.app
                         </p>
                         <p style={{ margin: 0, display: 'flex', alignItems: 'center', gap: 8 }}>
-                            <Phone size={16} color={C.green} />
+                            <Call size={16} color={C.green} />
                             <strong>טלפון:</strong> 03-1234567
                         </p>
                     </div>

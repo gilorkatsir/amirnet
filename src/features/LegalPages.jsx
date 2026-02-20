@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'wouter';
-import { X, Shield, FileText } from 'lucide-react';
+import { CloseCircle, Shield, DocumentText } from 'iconsax-react';
 import { C, GLASS } from '../styles/theme';
 
 const LegalPages = () => {
@@ -10,7 +10,7 @@ const LegalPages = () => {
 
     const tabs = [
         { id: 'privacy', label: 'מדיניות פרטיות', Icon: Shield },
-        { id: 'terms', label: 'תנאי שימוש', Icon: FileText }
+        { id: 'terms', label: 'תנאי שימוש', Icon: DocumentText }
     ];
 
     return (
@@ -30,7 +30,7 @@ const LegalPages = () => {
                             color: C.muted, cursor: 'pointer', padding: 8
                         }}
                     >
-                        <X size={24} />
+                        <CloseCircle size={24} />
                     </button>
                 </div>
 
