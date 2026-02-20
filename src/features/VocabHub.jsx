@@ -8,6 +8,7 @@ import {
 import { C, GLASS, SURFACE, MOTION, HEADING } from '../styles/theme';
 import { useStatsContext } from '../contexts/StatsContext';
 import { useUserWords } from '../contexts/UserWordsContext';
+import { useTier } from '../contexts/TierContext';
 import { VOCABULARY } from '../data/vocabulary';
 import useDerivedStats from '../hooks/useStats';
 
@@ -15,7 +16,9 @@ const VocabHub = ({ onStartFailedVocab, onStartAiPractice }) => {
     const [, navigate] = useLocation();
     const { stats, totalWords } = useStatsContext();
     const { userWords } = useUserWords();
+    const { isPremium, canUseAiPractice, aiUsageToday, FREE_LIMITS } = useTier();
     const { failedCount } = useDerivedStats(stats, totalWords);
+    const aiAvailable = canUseAiPractice();
 
     const items = [
         {
@@ -28,7 +31,9 @@ const VocabHub = ({ onStartFailedVocab, onStartAiPractice }) => {
         },
         {
             icon: Sparkles, title: 'תרגול AI חכם',
-            desc: failedCount > 0 ? `שאלות מותאמות ל-${failedCount} מילים קשות` : 'תרגל מילים קודם כדי ליצור שאלות AI',
+            desc: !aiAvailable && !isPremium
+                ? `ניצלת את הניסיון היומי (${aiUsageToday}/${FREE_LIMITS.aiPracticePerDay})`
+                : failedCount > 0 ? `שאלות מותאמות ל-${failedCount} מילים קשות` : 'תרגל מילים קודם כדי ליצור שאלות AI',
             color: C.purple,
             onClick: failedCount > 0 ? onStartAiPractice : () => { alert('תרגל מילים קודם! ה-AI יוצר שאלות מהמילים שטעית בהן.'); navigate('/vocab-categories'); }
         },

@@ -1,10 +1,12 @@
 import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'wouter';
-import { ArrowLeft, Sparkles, LayoutGrid, Sparkle, TrendingUp, CheckCircle, Scale, Brain, FlaskConical, GraduationCap, MessageSquare, Briefcase, DollarSign, Link, Tag, ChevronLeft } from 'lucide-react';
+import { ArrowLeft, Sparkles, LayoutGrid, Sparkle, TrendingUp, CheckCircle, Scale, Brain, FlaskConical, GraduationCap, MessageSquare, Briefcase, DollarSign, Link, Tag, ChevronLeft, Lock } from 'lucide-react';
 import { C, SURFACE } from '../styles/theme';
 import { VOCABULARY } from '../data/vocabulary';
 import { useStatsContext } from '../contexts/StatsContext';
+import { useTier } from '../contexts/TierContext';
+import UpgradePrompt from '../components/UpgradePrompt';
 
 const CATEGORY_ICONS = {
     'Crime & Justice': Scale,
@@ -39,7 +41,9 @@ const CATEGORY_COLORS = {
 const VocabCategorySelector = ({ onStart }) => {
     const [, navigate] = useLocation();
     const { stats } = useStatsContext();
+    const { isPremium, canAccessWord } = useTier();
     const [filter, setFilter] = useState('all'); // 'all', 'new', 'learning', 'mastered'
+    const [showUpgrade, setShowUpgrade] = useState(false);
 
     const categories = useMemo(() => {
         const catMap = {};
@@ -72,7 +76,8 @@ const VocabCategorySelector = ({ onStart }) => {
     // Smart Review: prioritize words due for review
     const handleSmartReview = () => {
         const now = Date.now();
-        const scored = VOCABULARY.map(w => {
+        const pool = isPremium ? VOCABULARY : VOCABULARY.filter(w => canAccessWord(w.id));
+        const scored = pool.map(w => {
             const s = stats[w.id];
             if (!s) return { word: w, score: 100 }; // new words get high priority
             const daysSince = s.lastSeen ? (now - new Date(s.lastSeen).getTime()) / (1000 * 60 * 60 * 24) : 30;
@@ -85,7 +90,12 @@ const VocabCategorySelector = ({ onStart }) => {
     };
 
     const handleCategoryStart = (category, mode = 'flash') => {
-        const filtered = getFilteredWords(category.words);
+        const accessible = isPremium ? category.words : category.words.filter(w => canAccessWord(w.id));
+        if (accessible.length === 0) {
+            setShowUpgrade(true);
+            return;
+        }
+        const filtered = getFilteredWords(accessible);
         if (filtered.length === 0) return;
         const shuffled = [...filtered].sort(() => Math.random() - 0.5);
         const selection = shuffled.slice(0, Math.min(20, shuffled.length));
@@ -158,7 +168,9 @@ const VocabCategorySelector = ({ onStart }) => {
                 {/* Category Cards */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                     {categories.map(cat => {
-                        const filtered = getFilteredWords(cat.words);
+                        const accessible = isPremium ? cat.words : cat.words.filter(w => canAccessWord(w.id));
+                        const isLocked = !isPremium && accessible.length === 0;
+                        const filtered = getFilteredWords(accessible);
                         const color = CATEGORY_COLORS[cat.name] || C.muted;
                         const CatIcon = CATEGORY_ICONS[cat.name] || Tag;
                         const masteryPercent = cat.words.length > 0
@@ -168,32 +180,41 @@ const VocabCategorySelector = ({ onStart }) => {
                             <button
                                 key={cat.name}
                                 onClick={() => handleCategoryStart(cat)}
-                                disabled={filtered.length === 0}
+                                disabled={filtered.length === 0 && !isLocked}
                                 style={{
                                     display: 'flex', alignItems: 'center', gap: 14,
                                     padding: 16, ...SURFACE.elevated,
-                                    cursor: filtered.length > 0 ? 'pointer' : 'default',
+                                    cursor: (filtered.length > 0 || isLocked) ? 'pointer' : 'default',
                                     textAlign: 'right', transition: 'all 0.2s',
-                                    opacity: filtered.length === 0 ? 0.5 : 1
+                                    opacity: isLocked ? 0.5 : (filtered.length === 0 ? 0.5 : 1)
                                 }}
                             >
-                                <CatIcon size={20} color={color} style={{ flexShrink: 0 }} />
+                                {isLocked ? (
+                                    <Lock size={20} color={C.dim} style={{ flexShrink: 0 }} />
+                                ) : (
+                                    <CatIcon size={20} color={color} style={{ flexShrink: 0 }} />
+                                )}
                                 <div style={{ flex: 1 }}>
-                                    <h3 style={{ margin: 0, fontSize: 14, fontWeight: 600, color: 'white' }}>{cat.name}</h3>
+                                    <h3 style={{ margin: 0, fontSize: 14, fontWeight: 600, color: isLocked ? C.muted : 'white' }}>{cat.name}</h3>
                                     <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 4 }}>
-                                        <span style={{ fontSize: 12, color: C.muted }}>{filtered.length} מילים</span>
+                                        <span style={{ fontSize: 12, color: C.muted }}>{isLocked ? `${cat.words.length} מילים` : `${filtered.length} מילים`}</span>
                                         <div style={{ flex: 1, maxWidth: 80, height: 4, background: C.border, borderRadius: 2, overflow: 'hidden' }}>
                                             <div style={{ height: '100%', width: `${masteryPercent}%`, background: color, borderRadius: 2 }} />
                                         </div>
                                         <span style={{ fontSize: 11, color, fontWeight: 600 }}>{masteryPercent}%</span>
                                     </div>
                                 </div>
-                                <ChevronLeft size={20} style={{ color: C.muted }} />
+                                {isLocked ? (
+                                    <Lock size={16} color={C.dim} />
+                                ) : (
+                                    <ChevronLeft size={20} style={{ color: C.muted }} />
+                                )}
                             </button>
                         );
                     })}
                 </div>
             </main>
+            <UpgradePrompt isOpen={showUpgrade} onClose={() => setShowUpgrade(false)} limitType="vocab" />
         </div>
     );
 };

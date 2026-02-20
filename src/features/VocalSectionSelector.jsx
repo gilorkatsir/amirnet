@@ -3,21 +3,25 @@ import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import {
     ArrowRight, Headphones, Mic, Info, ChevronLeft,
-    HelpCircle, Clock, AudioLines
+    HelpCircle, Clock, AudioLines, Lock
 } from 'lucide-react';
 import { C, GLASS, RADIUS, SURFACE } from '../styles/theme';
 import { VOCAL_SECTIONS } from '../data/vocalQuestions';
 import { VOICES } from '../services/elevenLabsService';
 import { hasElevenLabsKey } from '../services/apiKeys';
+import { useTier } from '../contexts/TierContext';
+import UpgradePrompt from '../components/UpgradePrompt';
 
 const VocalSectionSelector = ({ onSelect }) => {
   const [, navigate] = useLocation();
   const hasTts = hasElevenLabsKey();
+  const { canAccessVocalSection } = useTier();
+  const [showUpgrade, setShowUpgrade] = React.useState(false);
 
   const lectures = VOCAL_SECTIONS.filter(s => s.type === 'lecture');
   const continuations = VOCAL_SECTIONS.filter(s => s.type === 'continuation');
 
-  const SectionCard = ({ section, color, icon: CardIcon, delay = 0 }) => {
+  const SectionCard = ({ section, color, icon: CardIcon, delay = 0, locked = false }) => {
     const totalQs = section.type === 'lecture' ? section.questions.length : section.clips.length;
     const timeMin = Math.floor(section.timeLimit / 60);
     const voice = section.voiceId && VOICES[section.voiceId];
@@ -27,20 +31,24 @@ const VocalSectionSelector = ({ onSelect }) => {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: delay * 0.05, duration: 0.3 }}
-        whileTap={{ scale: 0.97 }}
-        onClick={() => onSelect(section)}
+        whileTap={{ scale: locked ? 1 : 0.97 }}
+        onClick={() => locked ? setShowUpgrade(true) : onSelect(section)}
         style={{
           display: 'flex', alignItems: 'center', gap: 14, width: '100%',
           padding: '14px 16px', marginBottom: 8,
           background: C.surface, border: `1px solid ${C.border}`,
           borderRadius: 14, color: C.text, cursor: 'pointer', textAlign: 'right',
-          transition: 'background 0.2s'
+          transition: 'background 0.2s', opacity: locked ? 0.5 : 1,
         }}
       >
-        <CardIcon size={20} color={color} style={{ flexShrink: 0 }} />
+        {locked ? (
+          <Lock size={20} color={C.dim} style={{ flexShrink: 0 }} />
+        ) : (
+          <CardIcon size={20} color={color} style={{ flexShrink: 0 }} />
+        )}
         <div style={{ flex: 1 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <h3 style={{ margin: 0, fontWeight: 600, fontSize: 15, color: C.text }}>{section.title}</h3>
+            <h3 style={{ margin: 0, fontWeight: 600, fontSize: 15, color: locked ? C.muted : C.text }}>{section.title}</h3>
             {voice && (
               <span style={{
                 fontSize: 10, fontWeight: 600, color: C.dim,
@@ -66,7 +74,7 @@ const VocalSectionSelector = ({ onSelect }) => {
             )}
           </div>
         </div>
-        <ChevronLeft size={18} color={C.dim} />
+        {locked ? <Lock size={16} color={C.dim} /> : <ChevronLeft size={18} color={C.dim} />}
       </motion.button>
     );
   };
@@ -126,7 +134,7 @@ const VocalSectionSelector = ({ onSelect }) => {
             האזן ל-3 קליפים וענה על 5 שאלות. זמן: 7 דקות.
           </p>
           {lectures.map((section, i) => (
-            <SectionCard key={section.id} section={section} color={C.orange} icon={Headphones} delay={i} />
+            <SectionCard key={section.id} section={section} color={C.orange} icon={Headphones} delay={i} locked={!canAccessVocalSection(i)} />
           ))}
         </section>
 
@@ -139,10 +147,11 @@ const VocalSectionSelector = ({ onSelect }) => {
             האזן לקליפ שנקטע באמצע ובחר את ההמשך הנכון. זמן: 4 דקות.
           </p>
           {continuations.map((section, i) => (
-            <SectionCard key={section.id} section={section} color={C.blue} icon={Mic} delay={lectures.length + i} />
+            <SectionCard key={section.id} section={section} color={C.blue} icon={Mic} delay={lectures.length + i} locked={!canAccessVocalSection(lectures.length + i)} />
           ))}
         </section>
       </main>
+      <UpgradePrompt isOpen={showUpgrade} onClose={() => setShowUpgrade(false)} limitType="vocal" />
     </div>
   );
 };

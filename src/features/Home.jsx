@@ -5,16 +5,18 @@ import { motion } from 'framer-motion';
 import {
     BookOpen, GraduationCap, Headphones, BarChart3, Settings,
     Play, Zap, Flame, Layers, PenLine, ChevronLeft,
-    Home as HomeIcon
+    Home as HomeIcon, LogIn
 } from 'lucide-react';
 import { C, GLASS, RADIUS, SURFACE, MOTION, HEADING } from '../styles/theme';
 import { calculateStreak } from '../utils/dailyStats';
 import { useStatsContext } from '../contexts/StatsContext';
+import { useAuth } from '../contexts/AuthContext';
 import useDerivedStats from '../hooks/useStats';
 
 const Home = ({ onStart }) => {
     const [, navigate] = useLocation();
     const { stats, englishStats, totalWords, totalQuestions } = useStatsContext();
+    const { user, isLoggedIn } = useAuth();
     const streak = useMemo(() => calculateStreak(), []);
     const { learnedCount, accuracy } = useDerivedStats(stats, totalWords);
     const englishAnswered = Object.keys(englishStats).length;
@@ -51,18 +53,49 @@ const Home = ({ onStart }) => {
                             {getGreeting()}!
                         </h1>
                     </div>
-                    <motion.button
-                        whileTap={{ rotate: -10, scale: 0.9 }}
-                        onClick={() => navigate('/settings')}
-                        style={{
-                            width: 40, height: 40, borderRadius: RADIUS.full,
-                            background: 'transparent', border: 'none',
-                            color: C.muted, cursor: 'pointer',
-                            display: 'flex', alignItems: 'center', justifyContent: 'center'
-                        }}
-                    >
-                        <Settings size={20} />
-                    </motion.button>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                        {!isLoggedIn && (
+                            <motion.button
+                                whileTap={{ scale: 0.9 }}
+                                onClick={() => navigate('/login')}
+                                style={{
+                                    display: 'flex', alignItems: 'center', gap: 5,
+                                    padding: '6px 12px', borderRadius: 9999,
+                                    background: 'rgba(139,92,246,0.1)', border: '1px solid rgba(139,92,246,0.2)',
+                                    color: C.purple, fontSize: 12, fontWeight: 600, cursor: 'pointer',
+                                }}
+                            >
+                                <LogIn size={14} />
+                                התחבר
+                            </motion.button>
+                        )}
+                        {isLoggedIn && (
+                            <motion.button
+                                whileTap={{ scale: 0.9 }}
+                                onClick={() => navigate('/settings')}
+                                style={{
+                                    width: 34, height: 34, borderRadius: '50%',
+                                    background: C.gradient, border: 'none',
+                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                    fontSize: 14, fontWeight: 700, color: 'white', cursor: 'pointer',
+                                }}
+                            >
+                                {(user?.email?.[0] || '?').toUpperCase()}
+                            </motion.button>
+                        )}
+                        <motion.button
+                            whileTap={{ rotate: -10, scale: 0.9 }}
+                            onClick={() => navigate('/settings')}
+                            style={{
+                                width: 40, height: 40, borderRadius: RADIUS.full,
+                                background: 'transparent', border: 'none',
+                                color: C.muted, cursor: 'pointer',
+                                display: 'flex', alignItems: 'center', justifyContent: 'center'
+                            }}
+                        >
+                            <Settings size={20} />
+                        </motion.button>
+                    </div>
                 </div>
             </header>
 

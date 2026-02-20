@@ -3,13 +3,14 @@ import { useLocation } from 'wouter';
 import {
     ArrowRight, Volume2, VolumeX, Trash2, Layers, Brain,
     Download, Upload, Key, ChevronDown, ChevronUp, ChevronLeft,
-    Shield, Accessibility, GraduationCap
+    Shield, Accessibility, GraduationCap, LogIn, LogOut, Crown, User
 } from 'lucide-react';
 import { C, GLASS, RADIUS, SURFACE } from '../styles/theme';
 import { isSoundEnabled, setSoundEnabled } from '../utils/sounds';
 import { validateStatsStructure, safeLocalStorageGet } from '../utils/security';
 import { useStatsContext } from '../contexts/StatsContext';
 import { useUserWords } from '../contexts/UserWordsContext';
+import { useAuth } from '../contexts/AuthContext';
 import {
     getElevenLabsKey, setElevenLabsKey
 } from '../services/apiKeys';
@@ -18,6 +19,7 @@ const Settings = () => {
     const [, navigate] = useLocation();
     const { resetStats, setStats, setEnglishStats } = useStatsContext();
     const { setUserWords } = useUserWords();
+    const { user, isLoggedIn, isPremium, signOut } = useAuth();
     const [confirmReset, setConfirmReset] = useState(null);
     const [soundOn, setSoundOn] = useState(isSoundEnabled());
     const [importStatus, setImportStatus] = useState(null);
@@ -74,6 +76,72 @@ const Settings = () => {
             </header>
 
             <main style={{ padding: 20, flex: 1 }}>
+                <section style={{ marginBottom: 28 }}>
+                    <h3 style={{ fontSize: 13, fontWeight: 700, color: C.muted, marginBottom: 10, paddingRight: 4 }}>חשבון</h3>
+                    {isLoggedIn ? (
+                        <div style={{
+                            padding: 16, background: C.surface, border: `1px solid ${C.border}`,
+                            borderRadius: 14, marginBottom: 8,
+                        }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
+                                <div style={{
+                                    width: 40, height: 40, borderRadius: '50%',
+                                    background: C.gradient, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                    fontSize: 16, fontWeight: 700, color: 'white', flexShrink: 0,
+                                }}>
+                                    {(user?.email?.[0] || '?').toUpperCase()}
+                                </div>
+                                <div style={{ flex: 1 }}>
+                                    <p style={{ margin: 0, fontSize: 15, fontWeight: 600, color: C.text }}>{user?.email}</p>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 4 }}>
+                                        {isPremium ? (
+                                            <span style={{
+                                                display: 'inline-flex', alignItems: 'center', gap: 4,
+                                                padding: '2px 8px', borderRadius: 6,
+                                                background: 'rgba(139,92,246,0.15)', border: '1px solid rgba(139,92,246,0.25)',
+                                                fontSize: 11, fontWeight: 600, color: C.purple,
+                                            }}>
+                                                <Crown size={11} /> פרימיום
+                                            </span>
+                                        ) : (
+                                            <span style={{ fontSize: 12, color: C.muted }}>חינמי</span>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                            <button
+                                onClick={signOut}
+                                style={{
+                                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+                                    width: '100%', padding: '10px 16px', borderRadius: 10,
+                                    background: 'rgba(239,68,68,0.08)', border: `1px solid rgba(239,68,68,0.15)`,
+                                    color: C.red, fontSize: 14, fontWeight: 600, cursor: 'pointer',
+                                }}
+                            >
+                                <LogOut size={16} />
+                                התנתק
+                            </button>
+                        </div>
+                    ) : (
+                        <button
+                            onClick={() => navigate('/login')}
+                            style={{
+                                display: 'flex', alignItems: 'center', gap: 14, width: '100%',
+                                padding: '14px 16px', marginBottom: 8,
+                                background: 'rgba(139,92,246,0.06)', border: `1px solid rgba(139,92,246,0.15)`,
+                                borderRadius: 14, color: C.text, cursor: 'pointer', textAlign: 'right',
+                            }}
+                        >
+                            <LogIn size={18} color={C.purple} style={{ flexShrink: 0 }} />
+                            <div style={{ flex: 1 }}>
+                                <h3 style={{ margin: 0, fontWeight: 600, fontSize: 15, color: C.text }}>צור חשבון</h3>
+                                <p style={{ margin: '3px 0 0', fontSize: 13, color: C.muted }}>שמור התקדמות בכל מכשיר</p>
+                            </div>
+                            <ChevronLeft size={18} color={C.dim} />
+                        </button>
+                    )}
+                </section>
+
                 <section style={{ marginBottom: 28 }}>
                     <h3 style={{ fontSize: 13, fontWeight: 700, color: C.muted, marginBottom: 10, paddingRight: 4 }}>העדפות</h3>
                     <SettingItem

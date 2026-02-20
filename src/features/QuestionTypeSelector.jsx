@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Pencil, ArrowLeftRight, BookOpen, Shuffle, Play, ChevronLeft, ClipboardList } from 'lucide-react';
+import { ArrowRight, Pencil, ArrowLeftRight, BookOpen, Shuffle, Play, ChevronLeft, ClipboardList, Lock } from 'lucide-react';
 import { C, GLASS, RADIUS, SURFACE, HEADING } from '../styles/theme';
+import { useTier } from '../contexts/TierContext';
+import UpgradePrompt from '../components/UpgradePrompt';
 import {
     ENGLISH_QUESTIONS_METADATA,
     getQuestionsByType,
@@ -23,8 +25,10 @@ const TYPE_ICON_MAP = {
  */
 const QuestionTypeSelector = ({ onSelect }) => {
     const [, navigate] = useLocation();
+    const { isPremium, FREE_LIMITS } = useTier();
     const [selectedType, setSelectedType] = useState(null);
     const [questionCount, setQuestionCount] = useState(10);
+    const [showUpgrade, setShowUpgrade] = useState(false);
 
     const questionTypes = [
         {
@@ -127,6 +131,7 @@ const QuestionTypeSelector = ({ onSelect }) => {
                     </h1>
                     <p style={{ fontSize: 12, color: C.muted, margin: '4px 0 0' }}>
                         {ENGLISH_QUESTIONS_METADATA.totalQuestions} שאלות מ-{ENGLISH_QUESTIONS_METADATA.exams.length} מבחנים
+                        {!isPremium && <span style={{ color: C.orange }}> · חינמי: עד {FREE_LIMITS.englishQuestions}</span>}
                     </p>
                 </div>
             </header>
@@ -334,14 +339,15 @@ const QuestionTypeSelector = ({ onSelect }) => {
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                         {exams.map((exam, i) => {
                             const examQuestions = getQuestionsByExam(exam);
+                            const locked = !isPremium;
                             return (
                                 <motion.button
                                     key={exam}
                                     initial={{ opacity: 0, y: 16 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: i * 0.06, duration: 0.35, ease: 'easeOut' }}
-                                    whileTap={{ scale: 0.97 }}
-                                    onClick={() => handleExamSelect(exam)}
+                                    whileTap={{ scale: locked ? 1 : 0.97 }}
+                                    onClick={() => locked ? setShowUpgrade(true) : handleExamSelect(exam)}
                                     style={{
                                         display: 'flex',
                                         alignItems: 'center',
@@ -353,24 +359,30 @@ const QuestionTypeSelector = ({ onSelect }) => {
                                         cursor: 'pointer',
                                         textAlign: 'right',
                                         width: '100%',
+                                        opacity: locked ? 0.5 : 1,
                                     }}
                                 >
-                                    <ClipboardList size={20} color={C.orange} style={{ flexShrink: 0 }} />
+                                    {locked ? (
+                                        <Lock size={20} color={C.dim} style={{ flexShrink: 0 }} />
+                                    ) : (
+                                        <ClipboardList size={20} color={C.orange} style={{ flexShrink: 0 }} />
+                                    )}
                                     <div style={{ flex: 1 }}>
-                                        <h3 style={{ margin: 0, fontSize: 14, fontWeight: 600, color: C.text }}>
+                                        <h3 style={{ margin: 0, fontSize: 14, fontWeight: 600, color: locked ? C.muted : C.text }}>
                                             {exam}
                                         </h3>
                                         <p style={{ margin: '2px 0 0', fontSize: 11, color: C.muted }}>
                                             {examQuestions.length} שאלות • 2 חלקים
                                         </p>
                                     </div>
-                                    <ChevronLeft size={20} style={{ color: C.muted }} />
+                                    {locked ? <Lock size={16} color={C.dim} /> : <ChevronLeft size={20} style={{ color: C.muted }} />}
                                 </motion.button>
                             );
                         })}
                     </div>
                 </section>
             </main>
+            <UpgradePrompt isOpen={showUpgrade} onClose={() => setShowUpgrade(false)} limitType="questions" />
         </div>
     );
 };

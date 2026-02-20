@@ -17,6 +17,8 @@ import { useStatsContext } from './contexts/StatsContext';
 import { useUserWords } from './contexts/UserWordsContext';
 import LoadingSpinner from './components/LoadingSpinner';
 import { generateQuestions } from './services/aiQuestionService';
+import { useTier } from './contexts/TierContext';
+import UpgradePrompt from './components/UpgradePrompt';
 import { Analytics } from '@vercel/analytics/react';
 import { Quantum } from 'ldrs/react';
 import 'ldrs/react/Quantum.css';
@@ -36,6 +38,7 @@ const VocabCategorySelector = lazy(() => import('./features/VocabCategorySelecto
 const VocalSectionSelector = lazy(() => import('./features/VocalSectionSelector'));
 const VocalExamSession = lazy(() => import('./features/exam/VocalExamSession'));
 const VocabHub = lazy(() => import('./features/VocabHub'));
+const AuthPage = lazy(() => import('./features/AuthPage'));
 
 // Convert saved session view names to URL paths
 const viewToPath = (view) => {
@@ -56,6 +59,8 @@ const pathToView = (path) => {
 const App = () => {
   const [location, navigate] = useLocation();
   const { stats, englishStats, calculatePriority } = useStatsContext();
+  const { isPremium, canAccessWord, canUseAiPractice, recordAiUsage, FREE_LIMITS } = useTier();
+  const [upgradePrompt, setUpgradePrompt] = useState(null);
 
   // Load saved session synchronously to prevent race conditions
   const getSavedSession = () => {
@@ -138,9 +143,10 @@ const App = () => {
 
     let selection;
     if (customWords) {
-      selection = customWords;
+      selection = isPremium ? customWords : customWords.filter(w => canAccessWord(w.id));
     } else {
-      const sorted = [...VOCABULARY].sort((a, b) => calculatePriority(b.id) - calculatePriority(a.id));
+      const pool = isPremium ? VOCABULARY : VOCABULARY.filter(w => canAccessWord(w.id));
+      const sorted = [...pool].sort((a, b) => calculatePriority(b.id) - calculatePriority(a.id));
       const topSlice = sorted.slice(0, Math.min(sorted.length, count * 3));
       const shuffled = topSlice.sort(() => Math.random() - 0.5);
       selection = shuffled.slice(0, count);
@@ -155,7 +161,8 @@ const App = () => {
     setMode('flash');
     setSessionType('vocabulary');
 
-    const failedWords = VOCABULARY.filter(word => {
+    const pool = isPremium ? VOCABULARY : VOCABULARY.filter(w => canAccessWord(w.id));
+    const failedWords = pool.filter(word => {
       const s = stats[word.id];
       return s && s.incorrect > s.correct;
     });
@@ -174,7 +181,13 @@ const App = () => {
   };
 
   const startAiPractice = async () => {
-    const failedWords = VOCABULARY.filter(word => {
+    if (!canUseAiPractice()) {
+      setUpgradePrompt('ai');
+      return;
+    }
+
+    const pool = isPremium ? VOCABULARY : VOCABULARY.filter(w => canAccessWord(w.id));
+    const failedWords = pool.filter(word => {
       const s = stats[word.id];
       return s && s.incorrect > s.correct;
     });
@@ -187,6 +200,7 @@ const App = () => {
       const selected = shuffled.slice(0, Math.min(10, shuffled.length));
       const aiQuestions = await generateQuestions(selected, selected.length);
 
+      recordAiUsage();
       setMode('english');
       setSessionType('ai-english');
       setEnglishSession(aiQuestions);
@@ -219,6 +233,10 @@ const App = () => {
     } else {
       const typeQuestions = getQuestionsByType(config.type);
       questions = typeQuestions.sort(() => Math.random() - 0.5).slice(0, config.count);
+    }
+
+    if (!isPremium) {
+      questions = questions.slice(0, FREE_LIMITS.englishQuestions);
     }
 
     setEnglishSession(questions);
@@ -414,6 +432,10 @@ const App = () => {
             />
           </Route>
 
+          <Route path="/login">
+            <AuthPage />
+          </Route>
+
           <Route path="/">
             <Home
               onStart={startSession}
@@ -468,6 +490,11 @@ const App = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      <UpgradePrompt
+        isOpen={!!upgradePrompt}
+        onClose={() => setUpgradePrompt(null)}
+        limitType={upgradePrompt || 'vocab'}
+      />
       <Analytics />
     </div>
   );
