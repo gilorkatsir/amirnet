@@ -23,23 +23,25 @@ const getAiUsageToday = () => {
 };
 
 export const TierProvider = ({ children }) => {
-  const { isPremium } = useAuth();
+  const { isPremium, isTrial } = useAuth();
+
+  const hasFullAccess = isPremium || isTrial;
 
   const canAccessWord = useCallback((wordId) => {
-    return isPremium || wordId <= FREE_LIMITS.vocabWords;
-  }, [isPremium]);
+    return hasFullAccess || wordId <= FREE_LIMITS.vocabWords;
+  }, [hasFullAccess]);
 
   const canAccessQuestion = useCallback((index) => {
-    return isPremium || index < FREE_LIMITS.englishQuestions;
-  }, [isPremium]);
+    return hasFullAccess || index < FREE_LIMITS.englishQuestions;
+  }, [hasFullAccess]);
 
   const canAccessVocalSection = useCallback((index) => {
-    return isPremium || index < FREE_LIMITS.vocalSections;
-  }, [isPremium]);
+    return hasFullAccess || index < FREE_LIMITS.vocalSections;
+  }, [hasFullAccess]);
 
   const canUseAiPractice = useCallback(() => {
-    return isPremium || getAiUsageToday() < FREE_LIMITS.aiPracticePerDay;
-  }, [isPremium]);
+    return hasFullAccess || getAiUsageToday() < FREE_LIMITS.aiPracticePerDay;
+  }, [hasFullAccess]);
 
   const recordAiUsage = useCallback(() => {
     const today = new Date().toISOString().split('T')[0];
@@ -51,6 +53,8 @@ export const TierProvider = ({ children }) => {
 
   const value = {
     isPremium,
+    isTrial,
+    hasFullAccess,
     canAccessWord,
     canAccessQuestion,
     canAccessVocalSection,

@@ -12,7 +12,7 @@ import { useTier } from '../contexts/TierContext';
 import { VOCABULARY } from '../data/vocabulary';
 import useDerivedStats from '../hooks/useStats';
 
-const VocabHub = ({ onStartFailedVocab, onStartAiPractice }) => {
+const VocabHub = ({ onStartFailedVocab }) => {
     const [, navigate] = useLocation();
     const { stats, totalWords } = useStatsContext();
     const { userWords } = useUserWords();
@@ -33,9 +33,9 @@ const VocabHub = ({ onStartFailedVocab, onStartAiPractice }) => {
             icon: Sparkles, title: 'תרגול AI חכם',
             desc: !aiAvailable && !isPremium
                 ? `ניצלת את הניסיון היומי (${aiUsageToday}/${FREE_LIMITS.aiPracticePerDay})`
-                : failedCount > 0 ? `שאלות מותאמות ל-${failedCount} מילים קשות` : 'תרגל מילים קודם כדי ליצור שאלות AI',
+                : 'שאלות מותאמות, שמירה ותרגול חוזר',
             color: C.purple,
-            onClick: failedCount > 0 ? onStartAiPractice : () => { alert('תרגל מילים קודם! ה-AI יוצר שאלות מהמילים שטעית בהן.'); navigate('/vocab-categories'); }
+            onClick: () => navigate('/ai-practice')
         },
         {
             icon: Bookmark, title: 'המילים שלי', desc: `${userWords?.length || 0} מילים ששמרת`,
@@ -101,7 +101,6 @@ const VocabHub = ({ onStartFailedVocab, onStartAiPractice }) => {
 
 VocabHub.propTypes = {
     onStartFailedVocab: PropTypes.func.isRequired,
-    onStartAiPractice: PropTypes.func.isRequired,
 };
 
 export default VocabHub;

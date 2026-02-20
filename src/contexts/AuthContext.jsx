@@ -1,7 +1,9 @@
-import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback, useMemo } from 'react';
 import { supabase } from '../services/supabase';
 
 const AuthContext = createContext(null);
+
+const TRIAL_DURATION_MS = 3 * 24 * 60 * 60 * 1000; // 3 days
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -13,6 +15,30 @@ export const AuthProvider = ({ children }) => {
     } catch { return false; }
   });
 
+  const [trialStartedAt, setTrialStartedAt] = useState(() => {
+    return localStorage.getItem('wm_trial_started_at') || null;
+  });
+  const [trialUsed, setTrialUsed] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem('wm_trial_used')) || false;
+    } catch { return false; }
+  });
+
+  const trialEndsAt = useMemo(() => {
+    if (!trialStartedAt) return null;
+    return new Date(new Date(trialStartedAt).getTime() + TRIAL_DURATION_MS);
+  }, [trialStartedAt]);
+
+  const isTrial = useMemo(() => {
+    if (isPremium || !trialStartedAt || trialUsed) return false;
+    return trialEndsAt && new Date() < trialEndsAt;
+  }, [isPremium, trialStartedAt, trialUsed, trialEndsAt]);
+
+  const isTrialExpired = useMemo(() => {
+    if (isPremium || !trialStartedAt) return false;
+    return trialEndsAt && new Date() >= trialEndsAt;
+  }, [isPremium, trialStartedAt, trialEndsAt]);
+
   const ensureProfile = useCallback(async (u) => {
     if (!supabase || !u) return;
     try {
@@ -23,10 +49,16 @@ export const AuthProvider = ({ children }) => {
         .single();
 
       if (!data) {
+        const now = new Date().toISOString();
         await supabase.from('profiles').insert({
           id: u.id,
           email: u.email,
+          trial_started_at: now,
         });
+        setTrialStartedAt(now);
+        setTrialUsed(false);
+        localStorage.setItem('wm_trial_started_at', now);
+        localStorage.setItem('wm_trial_used', JSON.stringify(false));
       }
     } catch {
       // Profile might already exist — ignore
@@ -38,7 +70,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const { data } = await supabase
         .from('profiles')
-        .select('is_premium, premium_until')
+        .select('is_premium, premium_until, trial_started_at, trial_used')
         .eq('id', userId)
         .single();
 
@@ -46,6 +78,16 @@ export const AuthProvider = ({ children }) => {
       const premium = data.is_premium && (!data.premium_until || new Date(data.premium_until) > new Date());
       setIsPremium(premium);
       localStorage.setItem('wm_premium_cache', JSON.stringify(premium));
+
+      if (data.trial_started_at) {
+        setTrialStartedAt(data.trial_started_at);
+        localStorage.setItem('wm_trial_started_at', data.trial_started_at);
+      }
+      if (data.trial_used !== undefined) {
+        setTrialUsed(!!data.trial_used);
+        localStorage.setItem('wm_trial_used', JSON.stringify(!!data.trial_used));
+      }
+
       return premium;
     } catch {
       return false;
@@ -58,7 +100,6 @@ export const AuthProvider = ({ children }) => {
       return;
     }
 
-    // getSession detects tokens in URL hash (implicit flow) and hydrates session
     supabase.auth.getSession().then(({ data: { session: s } }) => {
       setSession(s);
       setUser(s?.user ?? null);
@@ -78,6 +119,10 @@ export const AuthProvider = ({ children }) => {
       } else {
         setIsPremium(false);
         localStorage.removeItem('wm_premium_cache');
+        setTrialStartedAt(null);
+        setTrialUsed(false);
+        localStorage.removeItem('wm_trial_started_at');
+        localStorage.removeItem('wm_trial_used');
       }
     });
 
@@ -109,6 +154,10 @@ export const AuthProvider = ({ children }) => {
     setSession(null);
     setIsPremium(false);
     localStorage.removeItem('wm_premium_cache');
+    setTrialStartedAt(null);
+    setTrialUsed(false);
+    localStorage.removeItem('wm_trial_started_at');
+    localStorage.removeItem('wm_trial_used');
   }, []);
 
   const value = {
@@ -116,6 +165,11 @@ export const AuthProvider = ({ children }) => {
     session,
     loading,
     isPremium,
+    isTrial,
+    isTrialExpired,
+    trialEndsAt,
+    trialStartedAt,
+    trialUsed,
     isLoggedIn: !!user,
     signInWithGoogle,
     signInWithEmail,

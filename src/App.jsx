@@ -17,6 +17,7 @@ import { useStatsContext } from './contexts/StatsContext';
 import { useUserWords } from './contexts/UserWordsContext';
 import LoadingSpinner from './components/LoadingSpinner';
 import { generateQuestions } from './services/aiQuestionService';
+import { updateQuestionSetResults } from './services/aiQuestionStorage';
 import { useTier } from './contexts/TierContext';
 import UpgradePrompt from './components/UpgradePrompt';
 import { Analytics } from '@vercel/analytics/react';
@@ -39,6 +40,9 @@ const VocalSectionSelector = lazy(() => import('./features/VocalSectionSelector'
 const VocalExamSession = lazy(() => import('./features/exam/VocalExamSession'));
 const VocabHub = lazy(() => import('./features/VocabHub'));
 const AuthPage = lazy(() => import('./features/AuthPage'));
+const AIPracticeHub = lazy(() => import('./features/AIPracticeHub'));
+const PrivacyPolicy = lazy(() => import('./features/PrivacyPolicy'));
+const TermsOfService = lazy(() => import('./features/TermsOfService'));
 
 // Convert saved session view names to URL paths
 const viewToPath = (view) => {
@@ -93,6 +97,7 @@ const App = () => {
   const [aiLoading, setAiLoading] = useState(false);
   const [aiError, setAiError] = useState(null);
   const [vocalSection, setVocalSection] = useState(null);
+  const [activeAiSetId, setActiveAiSetId] = useState(null);
 
   // Handle initial redirect on fresh app open
   useEffect(() => {
@@ -203,6 +208,7 @@ const App = () => {
       recordAiUsage();
       setMode('english');
       setSessionType('ai-english');
+      setActiveAiSetId(null);
       setEnglishSession(aiQuestions);
       setSessionResults({ correct: 0, incorrect: 0 });
       navigate('/english');
@@ -211,6 +217,16 @@ const App = () => {
     } finally {
       setAiLoading(false);
     }
+  };
+
+  // Start a session from a saved AI question set
+  const startSavedAiSession = (setId, questions) => {
+    setMode('english');
+    setSessionType('ai-english');
+    setActiveAiSetId(setId);
+    setEnglishSession(questions);
+    setSessionResults({ correct: 0, incorrect: 0 });
+    navigate('/english');
   };
 
   const startVocalSession = (section) => {
@@ -275,6 +291,16 @@ const App = () => {
       recordDailyAccuracy(results.correct, total, type);
     }
 
+    // If this was a saved AI set, persist the results
+    if (sessionType === 'ai-english' && activeAiSetId) {
+      updateQuestionSetResults(activeAiSetId, {
+        correct: results.correct,
+        incorrect: results.incorrect,
+        total: results.correct + results.incorrect,
+      });
+      setActiveAiSetId(null);
+    }
+
     navigate('/results');
   };
 
@@ -285,7 +311,7 @@ const App = () => {
     if (sessionType === 'vocabulary') {
       startSession(mode, session.length || 10);
     } else if (sessionType === 'ai-english') {
-      navigate('/');
+      navigate('/ai-practice');
     } else if (sessionType === 'vocal') {
       navigate('/vocal-select');
     } else if (sessionType === 'english') {
@@ -386,6 +412,14 @@ const App = () => {
             <LegalPages />
           </Route>
 
+          <Route path="/privacy">
+            <PrivacyPolicy />
+          </Route>
+
+          <Route path="/terms">
+            <TermsOfService />
+          </Route>
+
           <Route path="/accessibility">
             <AccessibilityStatement />
           </Route>
@@ -428,7 +462,12 @@ const App = () => {
           <Route path="/vocab-hub">
             <VocabHub
               onStartFailedVocab={startFailedVocabReview}
-              onStartAiPractice={startAiPractice}
+            />
+          </Route>
+
+          <Route path="/ai-practice">
+            <AIPracticeHub
+              onStartSavedSession={startSavedAiSession}
             />
           </Route>
 

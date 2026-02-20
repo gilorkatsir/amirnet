@@ -8,9 +8,10 @@ import { VOCABULARY } from '../data/vocabulary';
  * Generate AI-powered practice questions from a word list
  * @param {Array<{english: string, hebrew: string}>} words - Target vocabulary words to test
  * @param {number} count - Number of questions to generate
+ * @param {string} difficulty - Difficulty level: 'easy', 'medium', or 'hard'
  * @returns {Promise<Array>} Generated questions in app format
  */
-export async function generateQuestions(words, count = 10) {
+export async function generateQuestions(words, count = 10, difficulty = 'medium') {
   const targetWords = words.slice(0, count).map(w => w.english);
 
   // Build distractor pool from full vocabulary, excluding target words
@@ -30,6 +31,7 @@ export async function generateQuestions(words, count = 10) {
       targetWords,
       distractorPool,
       count: Math.min(count, words.length),
+      difficulty,
     }),
   });
 

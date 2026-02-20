@@ -8,6 +8,7 @@ import { AuthProvider } from './contexts/AuthContext'
 import { TierProvider } from './contexts/TierContext'
 import { StatsProvider } from './contexts/StatsContext'
 import { UserWordsProvider } from './contexts/UserWordsContext'
+import { GamificationProvider } from './contexts/GamificationContext'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -16,7 +17,9 @@ createRoot(document.getElementById('root')).render(
         <TierProvider>
           <StatsProvider>
             <UserWordsProvider>
-              <App />
+              <GamificationProvider>
+                <App />
+              </GamificationProvider>
             </UserWordsProvider>
           </StatsProvider>
         </TierProvider>
