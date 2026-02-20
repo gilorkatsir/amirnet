@@ -148,7 +148,7 @@ const Flashcard = ({ word, onResult, onNext }) => {
                             pointerEvents: 'none', opacity: dragOpacityRight, zIndex: 10,
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                         }}>
-                            <TickCircle size={48} style={{ color: C.green, opacity: 0.7 }} />
+                            <TickCircle size={48} color={C.green} style={{ opacity: 0.7 }} />
                         </motion.div>
                         <motion.div style={{
                             position: 'absolute', inset: 0, borderRadius: GLASS.card.borderRadius,
@@ -156,7 +156,7 @@ const Flashcard = ({ word, onResult, onNext }) => {
                             pointerEvents: 'none', opacity: dragOpacityLeft, zIndex: 10,
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                         }}>
-                            <CloseCircle size={48} style={{ color: C.red, opacity: 0.7 }} />
+                            <CloseCircle size={48} color={C.red} style={{ opacity: 0.7 }} />
                         </motion.div>
                     </>
                 )}
@@ -248,7 +248,7 @@ const Flashcard = ({ word, onResult, onNext }) => {
                         fontSize: 12, color: C.dim, margin: 0,
                         display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, opacity: 0.6,
                     }}>
-                        <FingerCricle size={14} /> {!flipped ? 'הקש להיפוך' : 'החלק ימינה = ידעתי, שמאלה = לא'}
+                        <FingerCricle size={14} color={C.dim} /> {!flipped ? 'הקש להיפוך' : 'החלק ימינה = ידעתי, שמאלה = לא'}
                     </p>
                 </div>
             </motion.div>
@@ -276,7 +276,7 @@ const Flashcard = ({ word, onResult, onNext }) => {
                                     boxShadow: '0 8px 24px rgba(236,72,153,0.2)',
                                 }}
                             >
-                                <ArrowSwapHorizontal size={20} /> הצג הגדרה
+                                <ArrowSwapHorizontal size={20} color={C.text} /> הצג הגדרה
                             </motion.button>
 
                             <motion.button
@@ -289,7 +289,7 @@ const Flashcard = ({ word, onResult, onNext }) => {
                                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
                                 }}
                             >
-                                <TickCircleCircle size={18} style={{ color: C.purple, opacity: 0 }} /> אני מכיר
+                                <TickCircleCircle size={18} color={C.purple} style={{ opacity: 0 }} /> אני מכיר
                             </motion.button>
                         </motion.div>
                     ) : (
@@ -315,7 +315,7 @@ const Flashcard = ({ word, onResult, onNext }) => {
                                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
                                 }}
                             >
-                                <CloseCircle size={18} /> לא ידעתי
+                                <CloseCircle size={18} color={C.red} /> לא ידעתי
                             </motion.button>
                             <motion.button
                                 custom={1}
@@ -332,7 +332,7 @@ const Flashcard = ({ word, onResult, onNext }) => {
                                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
                                 }}
                             >
-                                <TickCircle size={18} /> ידעתי
+                                <TickCircle size={18} color={C.green} /> ידעתי
                             </motion.button>
                         </motion.div>
                     )}

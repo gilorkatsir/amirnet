@@ -173,7 +173,7 @@ const PomodoroTimer = () => {
                         display: 'flex', alignItems: 'center', justifyContent: 'center'
                     }}
                 >
-                    <Setting2 size={20} />
+                    <Setting2 size={20} color={C.muted} />
                 </button>
                 <button
                     onClick={() => navigate('/')}
@@ -183,7 +183,7 @@ const PomodoroTimer = () => {
                         display: 'flex', alignItems: 'center', justifyContent: 'center'
                     }}
                 >
-                    <CloseCircle size={24} />
+                    <CloseCircle size={24} color={C.muted} />
                 </button>
             </div>
 
@@ -258,7 +258,7 @@ const PomodoroTimer = () => {
                         boxShadow: isActive ? 'none' : `0 0 20px -5px ${MODES[mode].color}`
                     }}
                 >
-                    {isActive ? <Pause size={32} /> : <Play size={32} />}
+                    {isActive ? <Pause size={32} color={C.text} /> : <Play size={32} color="white" />}
                 </button>
 
                 <button
@@ -272,7 +272,7 @@ const PomodoroTimer = () => {
                         display: 'flex', alignItems: 'center', justifyContent: 'center'
                     }}
                 >
-                    <RotateLeft size={32} />
+                    <RotateLeft size={32} color={C.muted} />
                 </button>
             </div>
 

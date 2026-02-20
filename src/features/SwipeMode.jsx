@@ -117,7 +117,7 @@ const SwipeMode = () => {
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                         }}
                     >
-                        <ArrowRight size={20} />
+                        <ArrowRight size={20} color={C.muted} />
                     </motion.button>
                     <h1 style={{ ...HEADING.section, margin: 0, color: C.text }}>סיכום</h1>
                 </header>
@@ -209,7 +209,7 @@ const SwipeMode = () => {
                                 ...HEADING.card, color: C.red, margin: '0 0 12px',
                                 display: 'flex', alignItems: 'center', gap: 6,
                             }}>
-                                <Flash size={16} /> מילים לחזרה
+                                <Flash size={16} color={C.red} /> מילים לחזרה
                             </h3>
                             <div style={{
                                 ...GLASS.card, padding: 12,
@@ -258,7 +258,7 @@ const SwipeMode = () => {
                                 boxShadow: '0 4px 16px rgba(139,92,246,0.25)',
                             }}
                         >
-                            <RotateLeft size={18} /> סבב נוסף
+                            <RotateLeft size={18} color="white" /> סבב נוסף
                         </motion.button>
                         <motion.button
                             whileTap={{ scale: 0.96 }}
@@ -272,7 +272,7 @@ const SwipeMode = () => {
                                 justifyContent: 'center', gap: 8,
                             }}
                         >
-                            <Home2 size={18} /> חזרה לדף הבית
+                            <Home2 size={18} color={C.text} /> חזרה לדף הבית
                         </motion.button>
                     </motion.div>
                 </main>
@@ -299,7 +299,7 @@ const SwipeMode = () => {
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                         }}
                     >
-                        <ArrowRight size={20} />
+                        <ArrowRight size={20} color={C.muted} />
                     </motion.button>
                     <h1 style={{ ...HEADING.section, margin: 0, color: C.text, flex: 1 }}>
                         תרגול החלקה

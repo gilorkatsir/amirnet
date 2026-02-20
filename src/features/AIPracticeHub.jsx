@@ -131,7 +131,7 @@ const AIPracticeHub = ({ onStartSavedSession }) => {
                         display: 'flex', alignItems: 'center', justifyContent: 'center'
                     }}
                 >
-                    <ArrowRight size={20} />
+                    <ArrowRight size={20} color={C.muted} />
                 </motion.button>
                 <MagicStar size={20} color={C.muted} />
                 <h1 style={{ ...HEADING.section, margin: 0, color: C.text }}>
@@ -158,7 +158,7 @@ const AIPracticeHub = ({ onStartSavedSession }) => {
                         }}
                         disabled={!aiAvailable}
                     >
-                        <Add size={18} />
+                        <Add size={18} color={C.purple} />
                         {aiAvailable ? 'יצירת שאלות חדשות' : `ניצלת את הניסיון היומי (${aiUsageToday}/${FREE_LIMITS.aiPracticePerDay})`}
                     </motion.button>
                 )}
@@ -307,7 +307,7 @@ const AIPracticeHub = ({ onStartSavedSession }) => {
                                             </>
                                         ) : (
                                             <>
-                                                <MagicStar size={16} />
+                                                <MagicStar size={16} color="white" />
                                                 ייצר {selectedWordIds.size > 0 ? Math.min(selectedWordIds.size, count) : count} שאלות
                                             </>
                                         )}
@@ -463,7 +463,7 @@ const AIPracticeHub = ({ onStartSavedSession }) => {
                                                                 alignItems: 'center', justifyContent: 'center', gap: 6
                                                             }}
                                                         >
-                                                            <Play size={14} />
+                                                            <Play size={14} color="white" />
                                                             {hasResults ? 'תרגול חוזר' : 'התחל'}
                                                         </button>
                                                         <button
@@ -475,7 +475,7 @@ const AIPracticeHub = ({ onStartSavedSession }) => {
                                                                 display: 'flex', alignItems: 'center', justifyContent: 'center'
                                                             }}
                                                         >
-                                                            <Trash size={14} />
+                                                            <Trash size={14} color={C.red} />
                                                         </button>
                                                     </div>
                                                 </div>

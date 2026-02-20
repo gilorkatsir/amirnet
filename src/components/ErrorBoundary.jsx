@@ -77,7 +77,7 @@ class ErrorBoundary extends React.Component {
                                 gap: 8
                             }}
                         >
-                            <RotateLeft size={18} />
+                            <RotateLeft size={18} color="white" />
                             רענן דף
                         </button>
 

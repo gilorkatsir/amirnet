@@ -106,7 +106,7 @@ const Settings = () => {
                                                 background: 'rgba(139,92,246,0.15)', border: '1px solid rgba(139,92,246,0.25)',
                                                 fontSize: 11, fontWeight: 600, color: C.purple,
                                             }}>
-                                                <Crown size={11} /> פרימיום
+                                                <Crown size={11} color={C.purple} /> פרימיום
                                             </span>
                                         ) : (
                                             <span style={{ fontSize: 12, color: C.muted }}>חינמי</span>
@@ -123,7 +123,7 @@ const Settings = () => {
                                     color: C.red, fontSize: 14, fontWeight: 600, cursor: 'pointer',
                                 }}
                             >
-                                <Logout size={16} />
+                                <Logout size={16} color={C.red} />
                                 התנתק
                             </button>
                         </div>

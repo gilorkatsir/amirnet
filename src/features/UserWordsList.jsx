@@ -110,7 +110,7 @@ const UserWordsList = () => {
                     background: C.surface, border: `1px solid ${C.border}`, color: C.muted, cursor: 'pointer',
                     display: 'flex', alignItems: 'center', justifyContent: 'center'
                 }}>
-                    <CloseCircle size={24} />
+                    <CloseCircle size={24} color={C.muted} />
                 </button>
 
                 <p style={{ color: C.muted, fontSize: 13, marginBottom: 20 }}>
@@ -149,13 +149,13 @@ const UserWordsList = () => {
                         onClick={() => advanceStudy(false)}
                         style={{ flex: 1, padding: 14, borderRadius: 12, background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', color: C.red, fontSize: 15, fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}
                     >
-                        <CloseCircle size={18} /> לא ידעתי
+                        <CloseCircle size={18} color={C.red} /> לא ידעתי
                     </button>
                     <button
                         onClick={() => advanceStudy(true)}
                         style={{ flex: 1, padding: 14, borderRadius: 12, background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.3)', color: C.green, fontSize: 15, fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}
                     >
-                        <TickCircle size={18} /> ידעתי
+                        <TickCircle size={18} color={C.green} /> ידעתי
                     </button>
                 </div>
             </div>
@@ -190,14 +190,14 @@ const UserWordsList = () => {
                             border: `1px solid ${C.border}`, color: bulkSelect ? 'white' : C.muted,
                             cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center'
                         }}>
-                            <TaskSquare size={18} />
+                            <TaskSquare size={18} color={bulkSelect ? 'white' : C.muted} />
                         </button>
                         <button onClick={() => { setStudyMode(true); setStudyIndex(0); setStudyFlipped(false); }} style={{
                             width: 36, height: 36, borderRadius: 8, background: C.surface,
                             border: `1px solid ${C.border}`, color: C.muted,
                             cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center'
                         }}>
-                            <Layer size={18} />
+                            <Layer size={18} color={C.muted} />
                         </button>
                     </div>
                 )}
@@ -241,7 +241,7 @@ const UserWordsList = () => {
                                         display: 'flex', alignItems: 'center', gap: 4
                                     }}
                                 >
-                                    <opt.Icon size={14} />
+                                    <opt.Icon size={14} color={sortBy === opt.key ? 'white' : C.muted} />
                                     {opt.label}
                                 </button>
                             ))}
@@ -258,7 +258,7 @@ const UserWordsList = () => {
                                     cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8
                                 }}
                             >
-                                <Trash size={18} />
+                                <Trash size={18} color={C.red} />
                                 מחק {selectedIds.size} מילים
                             </button>
                         )}
@@ -267,7 +267,7 @@ const UserWordsList = () => {
 
                 {displayWords.length === 0 && words.length > 0 ? (
                     <div style={{ textAlign: 'center', marginTop: 40, color: C.muted }}>
-                        <SearchNormal1 size={48} style={{ opacity: 0.5 }} />
+                        <SearchNormal1 size={48} color={C.muted} style={{ opacity: 0.5 }} />
                         <p style={{ marginTop: 12 }}>לא נמצאו מילים</p>
                     </div>
                 ) : words.length === 0 ? (
@@ -338,7 +338,7 @@ const UserWordsList = () => {
                                                 display: 'flex', alignItems: 'center', justifyContent: 'center'
                                             }}
                                         >
-                                            <Trash size={18} />
+                                            <Trash size={18} color={C.red} />
                                         </button>
                                     )}
                                 </div>

@@ -320,7 +320,7 @@ const SwipeCard = ({ word, onSwipeRight, onSwipeLeft, stackIndex = 0, onFlip }) 
                                 fontSize: 13, color: C.dim, marginTop: 16,
                                 display: 'flex', alignItems: 'center', gap: 6,
                             }}>
-                                <FingerCricle size={14} /> הקש לגילוי התרגום
+                                <FingerCricle size={14} color={C.dim} /> הקש לגילוי התרגום
                             </p>
                         </motion.div>
                     ) : (

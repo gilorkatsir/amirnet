@@ -62,14 +62,14 @@ const VocalSectionSelector = ({ onSelect }) => {
           </div>
           <div style={{ display: 'flex', gap: 12, marginTop: 6 }}>
             <span style={{ fontSize: 12, color: C.muted, display: 'flex', alignItems: 'center', gap: 3 }}>
-              <MessageQuestion size={11} /> {totalQs} שאלות
+              <MessageQuestion size={11} color={C.muted} /> {totalQs} שאלות
             </span>
             <span style={{ fontSize: 12, color: C.muted, display: 'flex', alignItems: 'center', gap: 3 }}>
-              <Clock size={11} /> {timeMin} דקות
+              <Clock size={11} color={C.muted} /> {timeMin} דקות
             </span>
             {section.type === 'lecture' && (
               <span style={{ fontSize: 12, color: C.muted, display: 'flex', alignItems: 'center', gap: 3 }}>
-                <VoiceSquare size={11} /> {section.clips.length} קליפים
+                <VoiceSquare size={11} color={C.muted} /> {section.clips.length} קליפים
               </span>
             )}
           </div>

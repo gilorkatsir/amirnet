@@ -142,7 +142,7 @@ const TrialExpiredModal = () => {
                   gap: 8,
                 }}
               >
-                <Crown size={18} />
+                <Crown size={18} color="white" />
                 שדרג לפרימיום
               </button>
 
@@ -164,7 +164,7 @@ const TrialExpiredModal = () => {
                   gap: 8,
                 }}
               >
-                <Book1 size={16} />
+                <Book1 size={16} color={C.muted} />
                 המשך בחינם
               </button>
             </div>

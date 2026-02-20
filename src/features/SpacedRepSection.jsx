@@ -211,7 +211,7 @@ const SpacedRepSection = () => {
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                         }}
                     >
-                        <ArrowRight size={20} />
+                        <ArrowRight size={20} color={C.muted} />
                     </motion.button>
                     <Activity size={22} color={C.purple} />
                     <h1 style={{ ...HEADING.section, margin: 0, color: C.text }}>חזרה מרווחת</h1>
@@ -266,7 +266,7 @@ const SpacedRepSection = () => {
                             opacity: dueCount > 0 ? 1 : 0.5,
                         }}
                     >
-                        <Flash size={20} />
+                        <Flash size={20} color={dueCount > 0 ? 'white' : C.dim} />
                         {dueCount > 0 ? `התחל חזרה (${Math.min(dueCount, 20)} מילים)` : 'חזור מאוחר יותר'}
                     </motion.button>
 
@@ -332,7 +332,7 @@ const SpacedRepSection = () => {
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                         }}
                     >
-                        <ArrowRight size={20} />
+                        <ArrowRight size={20} color={C.muted} />
                     </motion.button>
                     <div style={{ flex: 1 }}>
                         <ProgressBar current={currentIndex + 1} total={sessionItems.length} />
@@ -538,7 +538,7 @@ const SpacedRepSection = () => {
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                         }}
                     >
-                        <ArrowRight size={20} />
+                        <ArrowRight size={20} color={C.muted} />
                     </motion.button>
                     <h1 style={{ ...HEADING.section, margin: 0, color: C.text }}>סיכום חזרה</h1>
                 </header>
@@ -623,7 +623,7 @@ const SpacedRepSection = () => {
                                     boxShadow: '0 4px 16px rgba(139,92,246,0.25)',
                                 }}
                             >
-                                <RotateLeft size={18} /> עוד סבב ({Math.min(newDueCount, 20)})
+                                <RotateLeft size={18} color="white" /> עוד סבב ({Math.min(newDueCount, 20)})
                             </motion.button>
                         )}
                         <motion.button
@@ -635,7 +635,7 @@ const SpacedRepSection = () => {
                                 cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
                             }}
                         >
-                            <ArrowLeft2 size={18} /> חזרה לאוצר מילים
+                            <ArrowLeft2 size={18} color={C.text} /> חזרה לאוצר מילים
                         </motion.button>
                     </div>
                 </main>

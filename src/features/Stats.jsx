@@ -662,7 +662,7 @@ const Stats = () => {
                             gap: 8,
                         }}
                     >
-                        <Trash size={16} />
+                        <Trash size={16} color={C.red} />
                         איפוס כל הנתונים
                     </motion.button>
                 </motion.section>

@@ -106,7 +106,7 @@ const TrialWelcomeModal = () => {
                 gap: 8,
               }}
             >
-              <ArrowLeft size={18} />
+              <ArrowLeft size={18} color="white" />
               בואו נתחיל!
             </button>
           </motion.div>

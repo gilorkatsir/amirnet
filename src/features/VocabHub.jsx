@@ -77,7 +77,7 @@ const VocabHub = ({ onStartFailedVocab }) => {
                         display: 'flex', alignItems: 'center', justifyContent: 'center'
                     }}
                 >
-                    <ArrowRight size={20} />
+                    <ArrowRight size={20} color={C.muted} />
                 </motion.button>
                 <h1 style={{ ...HEADING.section, margin: 0, color: C.text }}>אוצר מילים</h1>
             </header>

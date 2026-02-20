@@ -197,7 +197,7 @@ const Results = ({ results, sessionType, onRestart, onReview }) => {
                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
                     boxShadow: '0 8px 24px rgba(139,92,246,0.3)'
                 }}>
-                    <RotateLeft size={18} /> תרגול נוסף
+                    <RotateLeft size={18} color="white" /> תרגול נוסף
                 </button>
                 {results.incorrect > 0 && onReview && (
                     <button onClick={onReview} style={{
@@ -213,7 +213,7 @@ const Results = ({ results, sessionType, onRestart, onReview }) => {
                     ...GLASS.button, color: C.text, fontSize: 17, fontWeight: 700, cursor: 'pointer',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8
                 }}>
-                    <Home2 size={18} /> חזרה לתפריט
+                    <Home2 size={18} color={C.text} /> חזרה לתפריט
                 </button>
             </motion.div>
         </div>

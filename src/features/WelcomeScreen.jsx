@@ -144,7 +144,7 @@ const WelcomeScreen = () => {
                     boxShadow: '0 8px 32px rgba(139,92,246,0.35)',
                 }}
             >
-                <Send2 size={22} />
+                <Send2 size={22} color="white" />
                 בוא נתחיל ללמוד!
             </motion.button>
         </motion.div>

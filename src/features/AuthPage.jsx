@@ -164,7 +164,7 @@ const AuthPage = () => {
                     background: 'none', border: 'none', color: C.dim, cursor: 'pointer', padding: 4,
                   }}
                 >
-                  {showPassword ? <EyeSlash size={16} /> : <Eye size={16} />}
+                  {showPassword ? <EyeSlash size={16} color={C.dim} /> : <Eye size={16} color={C.dim} />}
                 </button>
               </div>
             </div>

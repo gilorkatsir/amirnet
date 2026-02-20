@@ -144,7 +144,7 @@ const ReadingComprehensionPractice = ({ onComplete }) => {
                                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                                             color: accuracy !== null ? C.purple : C.muted
                                         }}>
-                                            <Book1 size={18} />
+                                            <Book1 size={18} color={accuracy !== null ? C.purple : C.muted} />
                                         </div>
                                         <div>
                                             <h3 style={{ margin: 0, fontSize: 14, fontWeight: 600, color: C.text }}>
@@ -317,8 +317,8 @@ const ReadingComprehensionPractice = ({ onComplete }) => {
                 >
                     {answered ? (
                         questionIndex < selectedPassage.questions.length - 1
-                            ? <>שאלה הבאה <ArrowRight size={20} /></>
-                            : <>סיום <TickCircle size={20} /></>
+                            ? <>שאלה הבאה <ArrowRight size={20} color="white" /></>
+                            : <>סיום <TickCircle size={20} color="white" /></>
                     ) : 'בחר תשובה'}
                 </button>
             </div>

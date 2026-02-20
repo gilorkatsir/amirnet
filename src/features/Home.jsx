@@ -65,7 +65,7 @@ const Home = ({ onStart }) => {
                                     color: C.purple, fontSize: 12, fontWeight: 600, cursor: 'pointer',
                                 }}
                             >
-                                <Login size={14} />
+                                <Login size={14} color={C.purple} />
                                 התחבר
                             </motion.button>
                         )}
@@ -93,7 +93,7 @@ const Home = ({ onStart }) => {
                                 display: 'flex', alignItems: 'center', justifyContent: 'center'
                             }}
                         >
-                            <Setting2 size={20} />
+                            <Setting2 size={20} color={C.muted} />
                         </motion.button>
                     </div>
                 </div>
@@ -165,7 +165,7 @@ const Home = ({ onStart }) => {
                                 המשך ללמוד
                             </h3>
                             <p style={{ color: C.muted, fontSize: 13, margin: 0, display: 'flex', alignItems: 'center', gap: 6 }}>
-                                <Flash size={13} /> מתמקד ב{smartStart.label}
+                                <Flash size={13} color={C.muted} /> מתמקד ב{smartStart.label}
                             </p>
                         </div>
                         <div style={{
@@ -203,7 +203,7 @@ const Home = ({ onStart }) => {
                                 transition: 'background 0.2s'
                             }}
                         >
-                            <q.icon size={18} />
+                            <q.icon size={18} color={q.color} />
                             {q.label}
                         </motion.button>
                     ))}
@@ -248,7 +248,7 @@ const Home = ({ onStart }) => {
                         background: 'none', border: 'none', color: C.purple, cursor: 'pointer',
                         display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2
                     }}>
-                        <Home2 size={22} />
+                        <Home2 size={22} color={C.purple} />
                         <span style={{ fontSize: 10, fontWeight: 700 }}>ראשי</span>
                     </button>
                     <button
@@ -258,7 +258,7 @@ const Home = ({ onStart }) => {
                             display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2
                         }}
                     >
-                        <Chart size={22} />
+                        <Chart size={22} color={C.muted} />
                         <span style={{ fontSize: 10 }}>מדדים</span>
                     </button>
                 </div>

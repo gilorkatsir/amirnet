@@ -30,7 +30,7 @@ const LegalPages = () => {
                             color: C.muted, cursor: 'pointer', padding: 8
                         }}
                     >
-                        <CloseCircle size={24} />
+                        <CloseCircle size={24} color={C.muted} />
                     </button>
                 </div>
 
@@ -50,7 +50,7 @@ const LegalPages = () => {
                                 transition: 'background 0.2s, color 0.2s'
                             }}
                         >
-                            <tab.Icon size={16} />
+                            <tab.Icon size={16} color={activeTab === tab.id ? C.text : C.muted} />
                             {tab.label}
                         </button>
                     ))}

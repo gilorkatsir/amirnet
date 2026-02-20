@@ -127,7 +127,7 @@ const EnglishExamSession = ({ mode, questions, title, onComplete }) => {
                                     display: 'flex', alignItems: 'center', gap: 6
                                 }}
                             >
-                                <Timer size={18} /> {formatTime(timeLeft)}
+                                <Timer size={18} color={timeLeft < 60 ? C.red : C.text} /> {formatTime(timeLeft)}
                             </motion.div>
                             <div style={{ fontSize: 11, color: C.muted, marginTop: 2 }}>
                                 שאלה {index + 1} מתוך {questions.length}
@@ -140,7 +140,7 @@ const EnglishExamSession = ({ mode, questions, title, onComplete }) => {
                                 letterSpacing: 1.5, margin: '0 0 6px',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6
                             }}>
-                                <Activity size={13} /> {getModeLabel()}
+                                <Activity size={13} color={C.purple} /> {getModeLabel()}
                             </h2>
                             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                                 <span style={{ fontSize: 13, fontWeight: 700, ...C.gradientText }}>{index + 1}</span>

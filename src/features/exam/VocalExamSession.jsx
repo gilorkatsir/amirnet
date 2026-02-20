@@ -233,7 +233,7 @@ const VocalExamSession = ({ section, onComplete }) => {
           </button>
           <div style={{ textAlign: 'center' }}>
             <div style={{ fontSize: 11, fontWeight: 700, color: accentColor, letterSpacing: 1.5, display: 'flex', alignItems: 'center', gap: 6, justifyContent: 'center' }}>
-              {isLecture ? <Headphone size={13} /> : <Microphone2 size={13} />}
+              {isLecture ? <Headphone size={13} color={accentColor} /> : <Microphone2 size={13} color={accentColor} />}
               {isLecture ? 'שלב האזנה' : 'השלמת טקסט'}
             </div>
             <div style={{ fontSize: 12, color: C.muted, marginTop: 3 }}>
@@ -294,7 +294,7 @@ const VocalExamSession = ({ section, onComplete }) => {
                 boxShadow: '0 8px 24px rgba(124,58,237,0.25)'
               }}>
                 {!isLecture ? 'בחר המשך' : currentClipIndex < section.clips.length - 1 ? 'קליפ הבא' : 'עבור לשאלות'}
-                <ArrowLeft2 size={18} />
+                <ArrowLeft2 size={18} color="white" />
               </button>
             )}
 
@@ -342,7 +342,7 @@ const VocalExamSession = ({ section, onComplete }) => {
         </button>
         <div style={{ textAlign: 'center' }}>
           <div style={{ fontSize: 20, fontWeight: 700, color: timeLeft !== null && timeLeft < 60 ? C.red : C.text, fontVariantNumeric: 'tabular-nums', display: 'flex', alignItems: 'center', gap: 6 }}>
-            <Timer size={18} /> {formatTime(timeLeft)}
+            <Timer size={18} color={timeLeft !== null && timeLeft < 60 ? C.red : C.text} /> {formatTime(timeLeft)}
           </div>
           <div style={{ fontSize: 11, color: C.muted, marginTop: 2 }}>שאלה {currentIdx + 1} מתוך {totalQs}</div>
         </div>
@@ -374,7 +374,7 @@ const VocalExamSession = ({ section, onComplete }) => {
                 fontSize: 12, fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center',
                 flexShrink: 0, opacity: i <= answers.length ? 1 : 0.4
               }}>
-                {isReview ? <Flag size={11} /> : i + 1}
+                {isReview ? <Flag size={11} color={C.orange} /> : i + 1}
               </button>
             );
           })}
@@ -457,7 +457,7 @@ const VocalExamSession = ({ section, onComplete }) => {
             {answered ? (
               <>
                 {(isLecture && currentQuestionIndex >= section.questions.length - 1) || (!isLecture && currentClipIndex >= section.clips.length - 1) ? 'סיום' : 'Continue'}
-                <ArrowLeft size={18} />
+                <ArrowLeft size={18} color="white" />
               </>
             ) : 'Select an answer'}
           </button>

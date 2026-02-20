@@ -288,7 +288,7 @@ const QuestionTypeSelector = ({ onSelect }) => {
                             }}
                         >
                             התחל תרגול
-                            <Play size={20} />
+                            <Play size={20} color={C.text} />
                         </motion.button>
                     )}
                 </AnimatePresence>

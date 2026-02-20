@@ -189,7 +189,7 @@ const Quiz = ({ word, onResult, onNext }) => {
                         boxShadow: '0 8px 24px rgba(124,58,237,0.25)'
                     }}
                 >
-                    {answered ? 'הבא' : 'Check Answer'} <ArrowLeft size={20} />
+                    {answered ? 'הבא' : 'Check Answer'} <ArrowLeft size={20} color="white" />
                 </motion.button>
             </footer>
         </div>

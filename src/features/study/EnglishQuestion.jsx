@@ -151,7 +151,7 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                             marginRight: 'auto'
                         }}
                     >
-                        {ttsPlaying ? <Stop size={18} /> : <VolumeHigh size={18} />}
+                        {ttsPlaying ? <Stop size={18} color={C.purple} /> : <VolumeHigh size={18} color={C.muted} />}
                     </button>
                 )}
                 {ttsError && (
@@ -188,7 +188,7 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                             alignItems: 'center',
                             gap: 6
                         }}>
-                            <Book1 size={16} />
+                            <Book1 size={16} color={C.purple} />
                             {question.passage}
                         </h4>
                         <p style={{
@@ -413,7 +413,7 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                                 transition: 'background 0.2s',
                             }}
                         >
-                            <LampOn size={16} />
+                            <LampOn size={16} color="#fbbf24" />
                             למה? הסבר AI
                         </button>
                     )}
@@ -449,7 +449,7 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                                 fontSize: 12,
                                 fontWeight: 700,
                             }}>
-                                <LampOn size={14} />
+                                <LampOn size={14} color="#fbbf24" />
                                 AI Explanation
                             </div>
                             <p style={{
@@ -499,7 +499,7 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                             color: C.green,
                             padding: 8
                         }} dir="rtl">
-                            <TickCircleCircle size={20} />
+                            <TickCircleCircle size={20} color={C.green} />
                             <span style={{ fontWeight: 600 }}>המילה נשמרה בהצלחה!</span>
                             <button
                                 onClick={() => setWordSaved(false)}
@@ -583,7 +583,7 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                     }}
                 >
                     {answered ? (
-                        <>Continue <ArrowLeft size={20} /></>
+                        <>Continue <ArrowLeft size={20} color="white" /></>
                     ) : (
                         'Select an answer'
                     )}

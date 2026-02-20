@@ -145,7 +145,7 @@ const VocabCategorySelector = ({ onStart }) => {
                         boxShadow: '0 8px 24px rgba(124,58,237,0.3)'
                     }}
                 >
-                    <MagicStar size={20} />
+                    <MagicStar size={20} color="white" />
                     חזרה חכמה (20 מילים)
                 </button>
 
@@ -164,7 +164,7 @@ const VocabCategorySelector = ({ onStart }) => {
                                 display: 'flex', alignItems: 'center', gap: 6, transition: 'background 0.2s, border-color 0.2s, opacity 0.2s'
                             }}
                         >
-                            <opt.Icon size={14} />
+                            <opt.Icon size={14} color={filter === opt.key ? 'white' : C.muted} />
                             {opt.label}
                         </button>
                     ))}

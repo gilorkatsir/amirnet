@@ -67,7 +67,7 @@ const UpgradePrompt = ({ isOpen, onClose, limitType = 'vocab' }) => {
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}
             >
-              <CloseCircle size={16} />
+              <CloseCircle size={16} color={C.muted} />
             </button>
 
             <div style={{
@@ -95,7 +95,7 @@ const UpgradePrompt = ({ isOpen, onClose, limitType = 'vocab' }) => {
                     cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
                   }}
                 >
-                  <Login size={18} />
+                  <Login size={18} color={C.purple} />
                   צור חשבון חינם
                 </button>
               )}
@@ -109,7 +109,7 @@ const UpgradePrompt = ({ isOpen, onClose, limitType = 'vocab' }) => {
                   opacity: 0.5, pointerEvents: 'none',
                 }}
               >
-                <Crown size={18} />
+                <Crown size={18} color="white" />
                 שדרג לפרימיום (בקרוב)
               </button>
             </div>
