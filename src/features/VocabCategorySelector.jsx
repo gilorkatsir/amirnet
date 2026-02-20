@@ -1,12 +1,13 @@
 import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'wouter';
-import { ArrowLeft, Sparkles, LayoutGrid, Sparkle, TrendingUp, CheckCircle, Scale, Brain, FlaskConical, GraduationCap, MessageSquare, Briefcase, DollarSign, Link, Tag, ChevronLeft, Lock } from 'lucide-react';
-import { C, SURFACE } from '../styles/theme';
+import { ArrowRight, Sparkles, LayoutGrid, Sparkle, TrendingUp, CheckCircle, Scale, Brain, FlaskConical, GraduationCap, MessageSquare, Briefcase, DollarSign, Link, Tag, ChevronLeft, Lock } from 'lucide-react';
+import { C, GLASS, SURFACE, HEADING } from '../styles/theme';
 import { VOCABULARY } from '../data/vocabulary';
 import { useStatsContext } from '../contexts/StatsContext';
 import { useTier } from '../contexts/TierContext';
 import UpgradePrompt from '../components/UpgradePrompt';
+import { selectWithVariety } from '../utils/smartSelection';
 
 const CATEGORY_ICONS = {
     'Crime & Justice': Scale,
@@ -73,7 +74,7 @@ const VocabCategorySelector = ({ onStart }) => {
         });
     };
 
-    // Smart Review: prioritize words due for review
+    // Smart Review: prioritize words due for review, with variety filter
     const handleSmartReview = () => {
         const now = Date.now();
         const pool = isPremium ? VOCABULARY : VOCABULARY.filter(w => canAccessWord(w.id));
@@ -85,7 +86,11 @@ const VocabCategorySelector = ({ onStart }) => {
             return { word: w, score: (errorRate * 50) + (daysSince * 2) - (s.level * 10) };
         });
         scored.sort((a, b) => b.score - a.score);
-        const selection = scored.slice(0, 20).map(s => s.word);
+        // Take top candidates, then let smart selection add variety
+        const candidates = scored.slice(0, 40).map(s => s.word);
+        const selection = selectWithVariety(candidates, 20, {
+            type: 'vocab', diversifyBy: 'category', record: true,
+        });
         onStart('flash', selection.length, selection);
     };
 
@@ -97,8 +102,9 @@ const VocabCategorySelector = ({ onStart }) => {
         }
         const filtered = getFilteredWords(accessible);
         if (filtered.length === 0) return;
-        const shuffled = [...filtered].sort(() => Math.random() - 0.5);
-        const selection = shuffled.slice(0, Math.min(20, shuffled.length));
+        const selection = selectWithVariety(filtered, Math.min(20, filtered.length), {
+            type: 'vocab', record: true,
+        });
         onStart(mode, selection.length, selection);
     };
 
@@ -112,19 +118,18 @@ const VocabCategorySelector = ({ onStart }) => {
     return (
         <div style={{ minHeight: '100vh', background: C.bg, color: C.text }}>
             <header style={{
-                display: 'flex', alignItems: 'center', gap: 16, padding: '16px 20px',
-                background: 'rgba(26,26,26,0.95)', backdropFilter: 'blur(8px)',
-                borderBottom: `1px solid ${C.border}`
+                display: 'flex', alignItems: 'center', gap: 14, padding: '16px 20px',
+                position: 'sticky', top: 0, zIndex: 10, ...GLASS.header
             }}>
                 <button onClick={() => navigate('/')} style={{
-                    width: 40, height: 40, borderRadius: '50%', background: 'transparent',
+                    width: 38, height: 38, borderRadius: 9999, background: 'transparent',
                     border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center'
                 }}>
-                    <ArrowLeft size={24} style={{ color: 'white' }} />
+                    <ArrowRight size={20} color={C.muted} />
                 </button>
                 <div>
-                    <h2 style={{ fontSize: 18, fontWeight: 700, margin: 0, color: 'white' }}>קטגוריות מילים</h2>
-                    <p style={{ fontSize: 12, color: C.muted, margin: 0 }}>{VOCABULARY.length} מילים ב-{categories.length} קטגוריות</p>
+                    <h2 style={{ ...HEADING.section, margin: 0, color: C.text }}>קטגוריות מילים</h2>
+                    <p style={{ fontSize: 12, color: C.muted, margin: '2px 0 0' }}>{VOCABULARY.length} מילים ב-{categories.length} קטגוריות</p>
                 </div>
             </header>
 
@@ -156,7 +161,7 @@ const VocabCategorySelector = ({ onStart }) => {
                                 border: filter === opt.key ? 'none' : `1px solid ${C.border}`,
                                 color: filter === opt.key ? 'white' : C.muted,
                                 fontSize: 13, fontWeight: 600, cursor: 'pointer',
-                                display: 'flex', alignItems: 'center', gap: 6, transition: 'all 0.2s'
+                                display: 'flex', alignItems: 'center', gap: 6, transition: 'background 0.2s, border-color 0.2s, opacity 0.2s'
                             }}
                         >
                             <opt.Icon size={14} />
@@ -185,7 +190,7 @@ const VocabCategorySelector = ({ onStart }) => {
                                     display: 'flex', alignItems: 'center', gap: 14,
                                     padding: 16, ...SURFACE.elevated,
                                     cursor: (filtered.length > 0 || isLocked) ? 'pointer' : 'default',
-                                    textAlign: 'right', transition: 'all 0.2s',
+                                    textAlign: 'right', transition: 'background 0.2s, border-color 0.2s, opacity 0.2s',
                                     opacity: isLocked ? 0.5 : (filtered.length === 0 ? 0.5 : 1)
                                 }}
                             >
@@ -195,7 +200,7 @@ const VocabCategorySelector = ({ onStart }) => {
                                     <CatIcon size={20} color={color} style={{ flexShrink: 0 }} />
                                 )}
                                 <div style={{ flex: 1 }}>
-                                    <h3 style={{ margin: 0, fontSize: 14, fontWeight: 600, color: isLocked ? C.muted : 'white' }}>{cat.name}</h3>
+                                    <h3 style={{ margin: 0, fontSize: 14, fontWeight: 600, color: isLocked ? C.muted : C.text }}>{cat.name}</h3>
                                     <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 4 }}>
                                         <span style={{ fontSize: 12, color: C.muted }}>{isLocked ? `${cat.words.length} מילים` : `${filtered.length} מילים`}</span>
                                         <div style={{ flex: 1, maxWidth: 80, height: 4, background: C.border, borderRadius: 2, overflow: 'hidden' }}>
@@ -207,7 +212,7 @@ const VocabCategorySelector = ({ onStart }) => {
                                 {isLocked ? (
                                     <Lock size={16} color={C.dim} />
                                 ) : (
-                                    <ChevronLeft size={20} style={{ color: C.muted }} />
+                                    <ChevronLeft size={20} color={C.muted} />
                                 )}
                             </button>
                         );

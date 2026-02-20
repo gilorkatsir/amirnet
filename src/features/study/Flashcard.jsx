@@ -177,7 +177,7 @@ const Flashcard = ({ word, onResult, onNext }) => {
                         onClick={(e) => { e.stopPropagation(); if (window.speechSynthesis) { const u = new SpeechSynthesisUtterance(word.english); u.lang = 'en-US'; window.speechSynthesis.speak(u); } }}
                         style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
                     >
-                        <Volume2 size={20} style={{ color: C.dim }} />
+                        <Volume2 size={20} color={C.dim} />
                     </motion.button>
                 </div>
 

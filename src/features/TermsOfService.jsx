@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'wouter';
 import { ArrowRight, FileText } from 'lucide-react';
-import { C } from '../styles/theme';
+import { C, GLASS } from '../styles/theme';
 
 /**
  * Terms of Service Page — תנאי שימוש
@@ -12,7 +12,7 @@ const TermsOfService = () => {
 
     const Section = ({ title, children }) => (
         <section style={{ marginBottom: 28 }}>
-            <h2 style={{ fontSize: 16, fontWeight: 700, color: 'white', marginBottom: 12 }}>{title}</h2>
+            <h2 style={{ fontSize: 16, fontWeight: 700, color: C.text, marginBottom: 12 }}>{title}</h2>
             <div style={{ fontSize: 14, lineHeight: 1.8, color: C.muted }}>{children}</div>
         </section>
     );
@@ -21,16 +21,14 @@ const TermsOfService = () => {
         <div style={{ minHeight: '100vh', background: C.bg, color: C.text }}>
             {/* Header */}
             <header style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 16,
+                padding: '16px 20px',
                 position: 'sticky',
                 top: 0,
                 zIndex: 10,
-                background: 'rgba(18,18,18,0.95)',
-                backdropFilter: 'blur(12px)',
-                padding: '16px 20px',
-                borderBottom: `1px solid ${C.border}`,
-                display: 'flex',
-                alignItems: 'center',
-                gap: 16
+                ...GLASS.header
             }}>
                 <button
                     onClick={() => navigate('/')}
@@ -42,11 +40,11 @@ const TermsOfService = () => {
                         padding: 8
                     }}
                 >
-                    <ArrowRight size={24} style={{ color: C.muted }} />
+                    <ArrowRight size={24} color={C.muted} />
                 </button>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                    <FileText size={20} style={{ color: C.purple }} />
-                    <h1 style={{ fontSize: 18, fontWeight: 700, margin: 0, color: 'white' }}>
+                    <FileText size={20} color={C.purple} />
+                    <h1 style={{ fontSize: 18, fontWeight: 700, margin: 0, color: C.text }}>
                         תנאי שימוש
                     </h1>
                 </div>
@@ -60,15 +58,15 @@ const TermsOfService = () => {
                 {/* 1. מבוא והגדרות */}
                 <Section title="1. מבוא והגדרות">
                     <p>
-                        ברוכים הבאים ל-AmirNet (להלן: <strong style={{ color: 'white' }}>"האפליקציה"</strong>, <strong style={{ color: 'white' }}>"השירות"</strong> או <strong style={{ color: 'white' }}>"אנחנו"</strong>).
-                        תנאי שימוש אלה (להלן: <strong style={{ color: 'white' }}>"התנאים"</strong>) מסדירים את היחסים בינך לבין AmirNet בכל הנוגע לשימוש באפליקציה.
+                        ברוכים הבאים ל-AmirNet (להלן: <strong style={{ color: C.text }}>"האפליקציה"</strong>, <strong style={{ color: C.text }}>"השירות"</strong> או <strong style={{ color: C.text }}>"אנחנו"</strong>).
+                        תנאי שימוש אלה (להלן: <strong style={{ color: C.text }}>"התנאים"</strong>) מסדירים את היחסים בינך לבין AmirNet בכל הנוגע לשימוש באפליקציה.
                     </p>
                     <p>הגדרות:</p>
                     <ul style={{ margin: '8px 0', paddingRight: 20 }}>
-                        <li><strong style={{ color: 'white' }}>"משתמש"</strong> — כל אדם הגולש באפליקציה או משתמש בשירותיה</li>
-                        <li><strong style={{ color: 'white' }}>"חשבון"</strong> — חשבון משתמש רשום באפליקציה</li>
-                        <li><strong style={{ color: 'white' }}>"תוכן"</strong> — כל מילה, שאלה, תרגול, הקלטה, טקסט, או חומר אחר המוצג באפליקציה</li>
-                        <li><strong style={{ color: 'white' }}>"מנוי"</strong> — תוכנית שימוש בתשלום המעניקה גישה לתכנים ופיצ'רים נוספים</li>
+                        <li><strong style={{ color: C.text }}>"משתמש"</strong> — כל אדם הגולש באפליקציה או משתמש בשירותיה</li>
+                        <li><strong style={{ color: C.text }}>"חשבון"</strong> — חשבון משתמש רשום באפליקציה</li>
+                        <li><strong style={{ color: C.text }}>"תוכן"</strong> — כל מילה, שאלה, תרגול, הקלטה, טקסט, או חומר אחר המוצג באפליקציה</li>
+                        <li><strong style={{ color: C.text }}>"מנוי"</strong> — תוכנית שימוש בתשלום המעניקה גישה לתכנים ופיצ'רים נוספים</li>
                     </ul>
                     <p>
                         השימוש באפליקציה מהווה הסכמה מלאה לתנאים אלה. אם אינך מסכים לתנאים, אנא
@@ -89,7 +87,7 @@ const TermsOfService = () => {
                         <li>יצירת שאלות מותאמות אישית באמצעות בינה מלאכותית (AI)</li>
                         <li>מעקב התקדמות וסטטיסטיקות</li>
                     </ul>
-                    <p><strong style={{ color: 'white' }}>מגבלות החשבון החינמי:</strong></p>
+                    <p><strong style={{ color: C.text }}>מגבלות החשבון החינמי:</strong></p>
                     <ul style={{ margin: '8px 0', paddingRight: 20 }}>
                         <li>גישה ל-30 מילים מתוך מאגר אוצר המילים</li>
                         <li>גישה ל-10 שאלות תרגול</li>
@@ -110,7 +108,7 @@ const TermsOfService = () => {
                     </ul>
                     <p>בעת ההרשמה, המשתמש מתחייב:</p>
                     <ul style={{ margin: '8px 0', paddingRight: 20 }}>
-                        <li>להיות בן <strong style={{ color: 'white' }}>16 ומעלה</strong></li>
+                        <li>להיות בן <strong style={{ color: C.text }}>16 ומעלה</strong></li>
                         <li>לספק מידע נכון ומדויק</li>
                         <li>לשמור על סודיות פרטי ההתחברות שלו</li>
                         <li>לא ליצור יותר מחשבון אחד</li>
@@ -134,9 +132,9 @@ const TermsOfService = () => {
                         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 14 }}>
                             <thead>
                                 <tr style={{ borderBottom: `1px solid ${C.border}` }}>
-                                    <th style={{ textAlign: 'right', padding: '8px 4px', color: 'white', fontWeight: 600 }}>תוכנית</th>
-                                    <th style={{ textAlign: 'right', padding: '8px 4px', color: 'white', fontWeight: 600 }}>מחיר</th>
-                                    <th style={{ textAlign: 'right', padding: '8px 4px', color: 'white', fontWeight: 600 }}>תקופה</th>
+                                    <th style={{ textAlign: 'right', padding: '8px 4px', color: C.text, fontWeight: 600 }}>תוכנית</th>
+                                    <th style={{ textAlign: 'right', padding: '8px 4px', color: C.text, fontWeight: 600 }}>מחיר</th>
+                                    <th style={{ textAlign: 'right', padding: '8px 4px', color: C.text, fontWeight: 600 }}>תקופה</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -174,7 +172,7 @@ const TermsOfService = () => {
                     <ul style={{ margin: '8px 0', paddingRight: 20 }}>
                         <li>התשלום מבוצע מראש לתקופת המנוי שנבחרה</li>
                         <li>
-                            <strong style={{ color: 'white' }}>חידוש אוטומטי:</strong> המנוי מתחדש אוטומטית בתום כל תקופה,
+                            <strong style={{ color: C.text }}>חידוש אוטומטי:</strong> המנוי מתחדש אוטומטית בתום כל תקופה,
                             בכפוף להסכמה מפורשת של המשתמש בעת הרכישה הראשונה.
                             הודעת תזכורת תישלח 7 ימים לפני החידוש
                         </li>
@@ -190,17 +188,17 @@ const TermsOfService = () => {
                     </p>
                     <ul style={{ margin: '8px 0', paddingRight: 20 }}>
                         <li>
-                            <strong style={{ color: 'white' }}>תקופת צינון:</strong> ניתן לבטל את העסקה תוך <strong style={{ color: 'white' }}>14 ימים</strong> ממועד
+                            <strong style={{ color: C.text }}>תקופת צינון:</strong> ניתן לבטל את העסקה תוך <strong style={{ color: C.text }}>14 ימים</strong> ממועד
                             הרכישה או ממועד קבלת מסמך הגילוי (המאוחר מביניהם), ובתנאי שטרם חלפו
                             מעל שני שלישים מתקופת המנוי
                         </li>
                         <li>
-                            <strong style={{ color: 'white' }}>החזר יחסי (Pro-rata):</strong> בביטול במהלך תקופת הצינון, יינתן החזר יחסי
+                            <strong style={{ color: C.text }}>החזר יחסי (Pro-rata):</strong> בביטול במהלך תקופת הצינון, יינתן החזר יחסי
                             בניכוי התקופה שנוצלה בפועל
                         </li>
                         <li>
-                            <strong style={{ color: 'white' }}>דמי ביטול:</strong> בהתאם לחוק, דמי הביטול לא יעלו על 5% ממחיר העסקה
-                            או <strong style={{ color: 'white' }}>&#8362;100</strong>, הנמוך מביניהם
+                            <strong style={{ color: C.text }}>דמי ביטול:</strong> בהתאם לחוק, דמי הביטול לא יעלו על 5% ממחיר העסקה
+                            או <strong style={{ color: C.text }}>&#8362;100</strong>, הנמוך מביניהם
                         </li>
                         <li>ההחזר יבוצע באמצעי התשלום המקורי תוך 14 ימי עסקים</li>
                     </ul>
@@ -235,7 +233,7 @@ const TermsOfService = () => {
                 <Section title="8. שימוש מקובל">
                     <p>המשתמש מתחייב:</p>
                     <ul style={{ margin: '8px 0', paddingRight: 20 }}>
-                        <li>להשתמש באפליקציה <strong style={{ color: 'white' }}>למטרות אישיות ולימודיות בלבד</strong></li>
+                        <li>להשתמש באפליקציה <strong style={{ color: C.text }}>למטרות אישיות ולימודיות בלבד</strong></li>
                         <li>לא להעתיק, להפיץ, לשכפל או למכור תוכן מהאפליקציה</li>
                         <li>לא לבצע הנדסה לאחור (reverse engineering) של האפליקציה</li>
                         <li>לא לנסות לעקוף מגבלות החשבון החינמי או מערכות האבטחה</li>
@@ -256,20 +254,20 @@ const TermsOfService = () => {
                     </p>
                     <ul style={{ margin: '8px 0', paddingRight: 20 }}>
                         <li>
-                            <strong style={{ color: 'white' }}>אי-דיוקים:</strong> תוכן שנוצר על ידי AI עלול להכיל שגיאות,
+                            <strong style={{ color: C.text }}>אי-דיוקים:</strong> תוכן שנוצר על ידי AI עלול להכיל שגיאות,
                             אי-דיוקים, או ניסוחים לא מושלמים. התוכן נועד לתרגול בלבד ואינו מהווה
                             תחליף לחומרי הכנה רשמיים
                         </li>
                         <li>
-                            <strong style={{ color: 'white' }}>אין ערבות לתוצאות:</strong> שאלות AI הן כלי עזר ללמידה.
+                            <strong style={{ color: C.text }}>אין ערבות לתוצאות:</strong> שאלות AI הן כלי עזר ללמידה.
                             איננו מתחייבים שהתרגול ישקף במדויק את מבנה או רמת הקושי של הבחינה הפסיכומטרית
                         </li>
                         <li>
-                            <strong style={{ color: 'white' }}>ספק חיצוני:</strong> שאלות AI נוצרות באמצעות שירות OpenRouter.
+                            <strong style={{ color: C.text }}>ספק חיצוני:</strong> שאלות AI נוצרות באמצעות שירות OpenRouter.
                             אין מידע אישי מזהה מועבר לספק זה — רק רשימת מילים לתרגול
                         </li>
                         <li>
-                            <strong style={{ color: 'white' }}>מגבלת שימוש:</strong> שימוש בתכונת ה-AI כפוף למכסה יומית
+                            <strong style={{ color: C.text }}>מגבלת שימוש:</strong> שימוש בתכונת ה-AI כפוף למכסה יומית
                             בהתאם לרמת המנוי
                         </li>
                     </ul>
@@ -278,7 +276,7 @@ const TermsOfService = () => {
                 {/* 10. הגבלת אחריות */}
                 <Section title="10. הגבלת אחריות">
                     <p>
-                        האפליקציה מסופקת <strong style={{ color: 'white' }}>"כמות שהיא" (AS IS)</strong> וללא כל מצג
+                        האפליקציה מסופקת <strong style={{ color: C.text }}>"כמות שהיא" (AS IS)</strong> וללא כל מצג
                         או התחייבות מכל סוג שהוא, במפורש או מכללא.
                     </p>
                     <p>AmirNet אינה אחראית ל:</p>
@@ -294,7 +292,7 @@ const TermsOfService = () => {
                         ב-12 החודשים שקדמו לאירוע.
                     </p>
                     <p>
-                        <strong style={{ color: 'white' }}>חשוב:</strong> האפליקציה מהווה כלי עזר ללמידה בלבד ואינה
+                        <strong style={{ color: C.text }}>חשוב:</strong> האפליקציה מהווה כלי עזר ללמידה בלבד ואינה
                         מהווה תחליף להכנה מקצועית ומקיפה לבחינה הפסיכומטרית.
                     </p>
                 </Section>
@@ -321,12 +319,12 @@ const TermsOfService = () => {
 
                 {/* 12. סיום והשעיה */}
                 <Section title="12. סיום והשעיה">
-                    <p><strong style={{ color: 'white' }}>סיום על ידי המשתמש:</strong></p>
+                    <p><strong style={{ color: C.text }}>סיום על ידי המשתמש:</strong></p>
                     <ul style={{ margin: '8px 0', paddingRight: 20 }}>
                         <li>באפשרותך למחוק את חשבונך בכל עת דרך הגדרות החשבון או פנייה אלינו</li>
                         <li>עם מחיקת החשבון, כל הנתונים האישיים יימחקו תוך 30 יום</li>
                     </ul>
-                    <p><strong style={{ color: 'white' }}>סיום או השעיה על ידי AmirNet:</strong></p>
+                    <p><strong style={{ color: C.text }}>סיום או השעיה על ידי AmirNet:</strong></p>
                     <ul style={{ margin: '8px 0', paddingRight: 20 }}>
                         <li>AmirNet רשאית להשעות או לסגור חשבון במקרה של הפרת תנאי שימוש אלה</li>
                         <li>במקרה של השעיה בשל הפרה, לא יינתן החזר כספי על תקופת מנוי ששולמה</li>
@@ -337,7 +335,7 @@ const TermsOfService = () => {
                 {/* 13. דין חל וסמכות שיפוט */}
                 <Section title="13. דין חל וסמכות שיפוט">
                     <p>
-                        על תנאי שימוש אלה יחולו <strong style={{ color: 'white' }}>דיני מדינת ישראל</strong> בלבד.
+                        על תנאי שימוש אלה יחולו <strong style={{ color: C.text }}>דיני מדינת ישראל</strong> בלבד.
                     </p>
                     <p>
                         כל סכסוך הנובע מתנאים אלה או הקשור אליהם יידון אך ורק בבתי המשפט המוסמכים
@@ -362,7 +360,7 @@ const TermsOfService = () => {
                         marginTop: 12
                     }}>
                         <p style={{ margin: '0 0 8px', fontSize: 14 }}>
-                            <strong style={{ color: 'white' }}>דוא"ל:</strong>{' '}
+                            <strong style={{ color: C.text }}>דוא"ל:</strong>{' '}
                             <a href="mailto:support@amirnet.app" style={{ color: C.purple, textDecoration: 'none' }}>
                                 support@amirnet.app
                             </a>

@@ -4,6 +4,7 @@
 import questionsDb1 from './english_questions_database.json';
 import questionsDb2 from './english_questions_part2.json';
 import questionsDb3 from './english_questions_part3.json';
+import { selectWithVariety, getItemFreshness } from '../utils/smartSelection';
 
 // Combine all questions from all files
 export const ENGLISH_QUESTIONS = [
@@ -56,11 +57,11 @@ export const getQuestionsBySection = (exam, section) => {
 };
 
 /**
- * Get random questions with optional type filter
- * For Reading Comprehension: keeps passage questions together and in original order
+ * Get random questions with optional type filter, using smart variety selection.
+ * For Reading Comprehension: keeps passage questions together and in original order.
  * @param {number} count - Number of questions to return
  * @param {string|null} type - Optional type filter
- * @returns {Array} Random selection of questions
+ * @returns {Array} Variety-aware selection of questions
  */
 export const getRandomQuestions = (count, type = null) => {
     let pool = type ? getQuestionsByType(type) : [...ENGLISH_QUESTIONS];
@@ -68,6 +69,11 @@ export const getRandomQuestions = (count, type = null) => {
     // Separate by type
     const nonRC = pool.filter(q => q.type !== 'Reading Comprehension');
     const rc = pool.filter(q => q.type === 'Reading Comprehension');
+
+    // Smart select non-RC questions with variety
+    const selectedNonRC = selectWithVariety(nonRC, Math.min(count, nonRC.length), {
+        type: 'english', diversifyBy: 'type', record: false,
+    });
 
     // Group RC by passage
     const rcByPassage = {};
@@ -77,15 +83,17 @@ export const getRandomQuestions = (count, type = null) => {
         rcByPassage[key].push(q);
     });
 
-    // Shuffle non-RC questions normally
-    const shuffledNonRC = nonRC.sort(() => Math.random() - 0.5);
-
-    // Shuffle passage groups (but keep questions within each passage in order)
-    const passageKeys = Object.keys(rcByPassage).sort(() => Math.random() - 0.5);
+    // Sort passage groups by freshness (fresher passages first)
+    const passageKeys = Object.keys(rcByPassage).sort((a, b) => {
+        const aFresh = rcByPassage[a].reduce((sum, q) => sum + getItemFreshness(q.id, 'english'), 0) / rcByPassage[a].length;
+        const bFresh = rcByPassage[b].reduce((sum, q) => sum + getItemFreshness(q.id, 'english'), 0) / rcByPassage[b].length;
+        // Add randomness to prevent strict ordering
+        return (bFresh + Math.random() * 0.3) - (aFresh + Math.random() * 0.3);
+    });
     const shuffledRC = passageKeys.flatMap(key => rcByPassage[key]);
 
     // Combine: non-RC first, then RC groups
-    const combined = [...shuffledNonRC, ...shuffledRC];
+    const combined = [...selectedNonRC, ...shuffledRC];
 
     return combined.slice(0, Math.min(count, combined.length));
 };
@@ -93,17 +101,25 @@ export const getRandomQuestions = (count, type = null) => {
 /**
  * Generate a full exam section (22 questions)
  * Structure: 8 SC + 4 Restatement + 10 RC
- * Reading comprehension passages stay grouped and in order
+ * Reading comprehension passages stay grouped and in order.
+ * Uses smart variety selection to avoid repeating the same questions.
  * @param {string|null} exam - Optional: use questions from specific exam, or mix from all
  * @returns {Array} 22 questions in exam order
  */
 export const generateExamSection = (exam = null) => {
     let pool = exam ? getQuestionsByExam(exam) : [...ENGLISH_QUESTIONS];
 
-    // Get questions by type
-    const sc = pool.filter(q => q.type === 'Sentence Completion').sort(() => Math.random() - 0.5);
-    const rst = pool.filter(q => q.type === 'Restatement').sort(() => Math.random() - 0.5);
+    // Get questions by type — use smart selection for SC and Restatement
+    const scPool = pool.filter(q => q.type === 'Sentence Completion');
+    const rstPool = pool.filter(q => q.type === 'Restatement');
     const rc = pool.filter(q => q.type === 'Reading Comprehension');
+
+    const sc = selectWithVariety(scPool, Math.min(8, scPool.length), {
+        type: 'english', record: false,
+    });
+    const rst = selectWithVariety(rstPool, Math.min(4, rstPool.length), {
+        type: 'english', record: false,
+    });
 
     // Group RC by passage - keep questions within each passage in original order
     const rcByPassage = {};
@@ -113,10 +129,14 @@ export const generateExamSection = (exam = null) => {
         rcByPassage[key].push(q);
     });
 
-    // Shuffle passage groups
-    const passageKeys = Object.keys(rcByPassage).sort(() => Math.random() - 0.5);
+    // Sort passage groups by freshness (prefer passages not seen recently)
+    const passageKeys = Object.keys(rcByPassage).sort((a, b) => {
+        const aFresh = rcByPassage[a].reduce((sum, q) => sum + getItemFreshness(q.id, 'english'), 0) / rcByPassage[a].length;
+        const bFresh = rcByPassage[b].reduce((sum, q) => sum + getItemFreshness(q.id, 'english'), 0) / rcByPassage[b].length;
+        return (bFresh + Math.random() * 0.3) - (aFresh + Math.random() * 0.3);
+    });
 
-    // Take RC questions from shuffled passage groups until we have 10
+    // Take RC questions from freshness-sorted passage groups until we have 10
     let rcQuestions = [];
     for (const key of passageKeys) {
         if (rcQuestions.length >= 10) break;
@@ -126,8 +146,8 @@ export const generateExamSection = (exam = null) => {
 
     // Build exam section: 8 SC + 4 Restatement + 10 RC
     const examSection = [
-        ...sc.slice(0, 8),
-        ...rst.slice(0, 4),
+        ...sc,
+        ...rst,
         ...rcQuestions
     ];
 

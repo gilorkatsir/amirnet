@@ -113,7 +113,7 @@ const Stats = () => {
                         padding: 8
                     }}
                 >
-                    <ArrowRight size={24} style={{ color: C.muted }} />
+                    <ArrowRight size={24} color={C.muted} />
                 </button>
                 <h1 style={{ fontSize: 18, fontWeight: 700, margin: 0, color: C.text }}>
                     סטטיסטיקות
@@ -129,7 +129,7 @@ const Stats = () => {
                         transition={{ duration: 0.4 }}
                         style={{ fontSize: 14, fontWeight: 600, color: C.muted, marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8 }}
                     >
-                        <LineChart size={16} />
+                        <LineChart size={16} color={C.purple} />
                         מעקב התקדמות
                     </motion.h2>
 
@@ -145,7 +145,7 @@ const Stats = () => {
                         transition={{ duration: 0.4, delay: 0.1 }}
                         style={{ fontSize: 14, fontWeight: 600, color: C.muted, marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8 }}
                     >
-                        <Layers size={16} />
+                        <Layers size={16} color={C.pink} />
                         אוצר מילים
                     </motion.h2>
 
@@ -187,7 +187,7 @@ const Stats = () => {
                         transition={{ duration: 0.4, delay: 0.2 }}
                         style={{ fontSize: 14, fontWeight: 600, color: C.muted, marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8 }}
                     >
-                        <HelpCircle size={16} />
+                        <HelpCircle size={16} color={C.purple} />
                         שאלות באנגלית
                     </motion.h2>
 
@@ -220,7 +220,7 @@ const Stats = () => {
                             transition={{ duration: 0.4, delay: 0.3 }}
                             style={{ fontSize: 14, fontWeight: 600, color: C.muted, marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8 }}
                         >
-                            <GraduationCap size={16} />
+                            <GraduationCap size={16} color={C.green} />
                             מוכנות למבחן
                         </motion.h2>
                         {sectionReadiness.map((sec, i) => {

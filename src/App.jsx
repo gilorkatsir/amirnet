@@ -13,6 +13,7 @@ import Home from './features/Home';
 import WelcomeScreen from './features/WelcomeScreen';
 import Results from './features/Results';
 import { recordDailyAccuracy, cleanOldStats } from './utils/dailyStats';
+import { selectWithVariety } from './utils/smartSelection';
 import { useStatsContext } from './contexts/StatsContext';
 import { useUserWords } from './contexts/UserWordsContext';
 import LoadingSpinner from './components/LoadingSpinner';
@@ -41,6 +42,7 @@ const VocalExamSession = lazy(() => import('./features/exam/VocalExamSession'));
 const VocabHub = lazy(() => import('./features/VocabHub'));
 const AuthPage = lazy(() => import('./features/AuthPage'));
 const AIPracticeHub = lazy(() => import('./features/AIPracticeHub'));
+const SpacedRepSection = lazy(() => import('./features/SpacedRepSection'));
 const PrivacyPolicy = lazy(() => import('./features/PrivacyPolicy'));
 const TermsOfService = lazy(() => import('./features/TermsOfService'));
 
@@ -148,13 +150,18 @@ const App = () => {
 
     let selection;
     if (customWords) {
-      selection = isPremium ? customWords : customWords.filter(w => canAccessWord(w.id));
+      const accessible = isPremium ? customWords : customWords.filter(w => canAccessWord(w.id));
+      selection = selectWithVariety(accessible, accessible.length, {
+        type: 'vocab', diversifyBy: 'category', record: true,
+      });
     } else {
       const pool = isPremium ? VOCABULARY : VOCABULARY.filter(w => canAccessWord(w.id));
+      // Pre-filter to top priority candidates, then let smartSelection add variety
       const sorted = [...pool].sort((a, b) => calculatePriority(b.id) - calculatePriority(a.id));
       const topSlice = sorted.slice(0, Math.min(sorted.length, count * 3));
-      const shuffled = topSlice.sort(() => Math.random() - 0.5);
-      selection = shuffled.slice(0, count);
+      selection = selectWithVariety(topSlice, count, {
+        type: 'vocab', diversifyBy: 'category', record: true,
+      });
     }
 
     setSession(selection);
@@ -177,8 +184,9 @@ const App = () => {
       return;
     }
 
-    const shuffled = [...failedWords].sort(() => Math.random() - 0.5);
-    const selection = shuffled.slice(0, Math.min(20, shuffled.length));
+    const selection = selectWithVariety(failedWords, Math.min(20, failedWords.length), {
+      type: 'vocab', diversifyBy: 'category', record: true,
+    });
 
     setSession(selection);
     setSessionResults({ correct: 0, incorrect: 0 });
@@ -201,8 +209,9 @@ const App = () => {
 
     setAiLoading(true);
     try {
-      const shuffled = [...failedWords].sort(() => Math.random() - 0.5);
-      const selected = shuffled.slice(0, Math.min(10, shuffled.length));
+      const selected = selectWithVariety(failedWords, Math.min(10, failedWords.length), {
+        type: 'vocab', diversifyBy: 'category', record: true,
+      });
       const aiQuestions = await generateQuestions(selected, selected.length);
 
       recordAiUsage();
@@ -245,10 +254,15 @@ const App = () => {
     if (config.mode === 'exam') {
       questions = config.questions;
     } else if (config.type === 'mixed') {
-      questions = getRandomQuestions(config.count);
+      // Smart selection across all question types with variety
+      questions = selectWithVariety(ENGLISH_QUESTIONS, config.count, {
+        type: 'english', diversifyBy: 'type', record: true,
+      });
     } else {
       const typeQuestions = getQuestionsByType(config.type);
-      questions = typeQuestions.sort(() => Math.random() - 0.5).slice(0, config.count);
+      questions = selectWithVariety(typeQuestions, config.count, {
+        type: 'english', record: true,
+      });
     }
 
     if (!isPremium) {
@@ -274,8 +288,9 @@ const App = () => {
       return;
     }
 
-    const shuffled = [...failedQuestions].sort(() => Math.random() - 0.5);
-    const selection = shuffled.slice(0, Math.min(15, shuffled.length));
+    const selection = selectWithVariety(failedQuestions, Math.min(15, failedQuestions.length), {
+      type: 'english', diversifyBy: 'type', record: true,
+    });
 
     setEnglishSession(selection);
     setSessionResults({ correct: 0, incorrect: 0 });
@@ -465,6 +480,10 @@ const App = () => {
             />
           </Route>
 
+          <Route path="/spaced-rep">
+            <SpacedRepSection />
+          </Route>
+
           <Route path="/ai-practice">
             <AIPracticeHub
               onStartSavedSession={startSavedAiSession}
@@ -501,8 +520,8 @@ const App = () => {
                 animate={{ scale: 1, opacity: 1 }}
                 style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
               >
-                <p style={{ color: '#ef4444', fontSize: 18, fontWeight: 600, marginBottom: 8 }}>שגיאה ביצירת שאלות</p>
-                <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 13, marginBottom: 20, maxWidth: 280, textAlign: 'center' }}>{aiError}</p>
+                <p style={{ color: C.red, fontSize: 18, fontWeight: 600, marginBottom: 8 }}>שגיאה ביצירת שאלות</p>
+                <p style={{ color: C.muted, fontSize: 13, marginBottom: 20, maxWidth: 280, textAlign: 'center' }}>{aiError}</p>
                 <button onClick={() => setAiError(null)} style={{
                   padding: '10px 28px', borderRadius: 999, border: 'none',
                   background: 'rgba(255,255,255,0.1)', color: 'white', fontSize: 15, fontWeight: 600, cursor: 'pointer'

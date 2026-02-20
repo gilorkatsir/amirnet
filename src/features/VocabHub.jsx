@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import {
-    ArrowRight, Layers, RotateCcw, Sparkles, Bookmark
+    ArrowRight, Layers, RotateCcw, Sparkles, Bookmark, Brain
 } from 'lucide-react';
 import { C, GLASS, SURFACE, MOTION, HEADING } from '../styles/theme';
 import { useStatsContext } from '../contexts/StatsContext';
@@ -11,16 +11,30 @@ import { useUserWords } from '../contexts/UserWordsContext';
 import { useTier } from '../contexts/TierContext';
 import { VOCABULARY } from '../data/vocabulary';
 import useDerivedStats from '../hooks/useStats';
+import { loadSRData, getDueCount } from '../services/spacedRepetition';
 
 const VocabHub = ({ onStartFailedVocab }) => {
     const [, navigate] = useLocation();
     const { stats, totalWords } = useStatsContext();
     const { userWords } = useUserWords();
-    const { isPremium, canUseAiPractice, aiUsageToday, FREE_LIMITS } = useTier();
+    const { isPremium, canAccessWord, canUseAiPractice, aiUsageToday, FREE_LIMITS } = useTier();
     const { failedCount } = useDerivedStats(stats, totalWords);
     const aiAvailable = canUseAiPractice();
 
+    // Spaced repetition due count
+    const srDueCount = useMemo(() => {
+        const availableVocab = isPremium ? VOCABULARY : VOCABULARY.filter(w => canAccessWord(w.id));
+        const srData = loadSRData();
+        return getDueCount(availableVocab, srData);
+    }, [isPremium, canAccessWord]);
+
     const items = [
+        {
+            icon: Brain, title: 'חזרה מרווחת',
+            desc: srDueCount > 0 ? `${srDueCount} מילים ממתינות לחזרה` : 'אין מילים לחזרה כרגע',
+            color: C.cyan, onClick: () => navigate('/spaced-rep'),
+            badge: srDueCount > 0 ? srDueCount : null,
+        },
         {
             icon: Layers, title: 'לפי קטגוריה', desc: '10 קטגוריות + חזרה חכמה',
             color: C.blue, onClick: () => navigate('/vocab-categories')
@@ -83,11 +97,24 @@ const VocabHub = ({ onStartFailedVocab }) => {
                             transition: 'background 0.2s'
                         }}
                     >
-                        <item.icon
-                            size={20}
-                            color={item.color}
-                            style={{ flexShrink: 0 }}
-                        />
+                        <div style={{ position: 'relative', flexShrink: 0 }}>
+                            <item.icon
+                                size={20}
+                                color={item.color}
+                            />
+                            {item.badge && (
+                                <span style={{
+                                    position: 'absolute', top: -6, right: -8,
+                                    minWidth: 16, height: 16, borderRadius: 9999,
+                                    background: C.pink, color: '#fff',
+                                    fontSize: 9, fontWeight: 700,
+                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                    padding: '0 4px', lineHeight: 1,
+                                }}>
+                                    {item.badge > 99 ? '99+' : item.badge}
+                                </span>
+                            )}
+                        </div>
                         <div style={{ flex: 1 }}>
                             <h3 style={{ margin: 0, fontWeight: 600, fontSize: 15, color: C.text }}>{item.title}</h3>
                             <p style={{ margin: '3px 0 0', fontSize: 13, color: C.muted }}>{item.desc}</p>

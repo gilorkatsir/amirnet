@@ -258,7 +258,7 @@ const AIPracticeHub = ({ onStartSavedSession }) => {
                                                         background: selected ? `${C.purple}20` : C.surface,
                                                         color: selected ? C.purple : C.text,
                                                         fontSize: 12, fontWeight: 500, cursor: 'pointer',
-                                                        transition: 'all 0.15s',
+                                                        transition: 'background 0.15s, border-color 0.15s, color 0.15s',
                                                     }}
                                                 >
                                                     {w.english}

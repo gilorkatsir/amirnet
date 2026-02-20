@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { useLocation } from 'wouter';
-import { ArrowLeft, X, Check, ListChecks, Layers, Clock, ArrowDownAZ, Languages, Trash2, SearchX, Bookmark } from 'lucide-react';
-import { C } from '../styles/theme';
+import { ArrowRight, X, Check, ListChecks, Layers, Clock, ArrowDownAZ, Languages, Trash2, SearchX, Bookmark } from 'lucide-react';
+import { C, GLASS, HEADING } from '../styles/theme';
 import { playCorrect, playIncorrect } from '../utils/sounds';
 import { useUserWords } from '../contexts/UserWordsContext';
 
@@ -71,7 +71,7 @@ const UserWordsList = () => {
             return (
                 <div style={{ minHeight: '100vh', background: C.bg, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 24, textAlign: 'center' }}>
                     <Check size={48} color={C.green} style={{ marginBottom: 16 }} />
-                    <h2 style={{ fontSize: 24, fontWeight: 700, margin: '0 0 8px', color: 'white' }}>סיימת!</h2>
+                    <h2 style={{ fontSize: 24, fontWeight: 700, margin: '0 0 8px', color: C.text }}>סיימת!</h2>
                     <p style={{ fontSize: 16, color: C.muted, marginBottom: 24 }}>
                         {studyResults.correct} מתוך {total} ({pct}%)
                     </p>
@@ -121,7 +121,7 @@ const UserWordsList = () => {
                     onClick={() => setStudyFlipped(!studyFlipped)}
                     style={{
                         width: '100%', maxWidth: 320, aspectRatio: '3/4',
-                        background: '#282828', borderRadius: 16, border: '1px solid rgba(255,255,255,0.1)',
+                        background: C.glass, borderRadius: 16, border: `1px solid ${C.glassBorder}`,
                         boxShadow: '0 4px 20px rgba(0,0,0,0.2)', display: 'flex', flexDirection: 'column',
                         alignItems: 'center', justifyContent: 'center', padding: 32,
                         cursor: 'pointer', textAlign: 'center'
@@ -129,18 +129,18 @@ const UserWordsList = () => {
                     dir="ltr"
                 >
                     {!studyFlipped ? (
-                        <h1 style={{ fontSize: 36, fontWeight: 500, margin: 0, color: 'white' }}>{word.text}</h1>
+                        <h1 style={{ fontSize: 36, fontWeight: 500, margin: 0, color: C.text }}>{word.text}</h1>
                     ) : (
                         <>
                             <h1 style={{ fontSize: 28, fontWeight: 700, margin: '0 0 12px' }} dir="rtl">
                                 {word.translation || 'לא הוגדר תרגום'}
                             </h1>
-                            <p style={{ fontSize: 18, color: '#9ca3af' }}>{word.text}</p>
+                            <p style={{ fontSize: 18, color: C.muted }}>{word.text}</p>
                         </>
                     )}
                 </div>
 
-                <p style={{ fontSize: 12, color: '#4b5563', marginTop: 16 }}>
+                <p style={{ fontSize: 12, color: C.dim, marginTop: 16 }}>
                     הקש להיפוך
                 </p>
 
@@ -167,18 +167,18 @@ const UserWordsList = () => {
             {/* Header */}
             <header style={{
                 position: 'sticky', top: 0, zIndex: 10,
-                background: 'rgba(18,18,18,0.95)', backdropFilter: 'blur(12px)',
-                padding: '16px 20px', borderBottom: `1px solid ${C.border}`,
-                display: 'flex', alignItems: 'center', gap: 16
+                ...GLASS.header,
+                padding: '16px 20px',
+                display: 'flex', alignItems: 'center', gap: 14
             }}>
                 <button onClick={() => navigate('/')} style={{
-                    width: 40, height: 40, borderRadius: '50%', background: 'transparent', border: 'none',
+                    width: 38, height: 38, borderRadius: 9999, background: 'transparent', border: 'none',
                     cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center'
                 }}>
-                    <ArrowLeft size={24} style={{ color: 'white' }} />
+                    <ArrowRight size={20} color={C.muted} />
                 </button>
                 <div style={{ flex: 1 }}>
-                    <h1 style={{ fontSize: 18, fontWeight: 700, margin: 0, color: 'white' }}>המילים שלי</h1>
+                    <h1 style={{ ...HEADING.section, margin: 0, color: C.text }}>המילים שלי</h1>
                     <p style={{ margin: '2px 0 0', fontSize: 12, color: C.muted }}>
                         {words.length} מילים שמורות
                     </p>
@@ -216,7 +216,7 @@ const UserWordsList = () => {
                                 style={{
                                     width: '100%', padding: '10px 14px', borderRadius: 10,
                                     background: C.surface, border: `1px solid ${C.border}`,
-                                    color: 'white', fontSize: 14, outline: 'none',
+                                    color: C.text, fontSize: 14, outline: 'none',
                                     direction: 'ltr', textAlign: 'right'
                                 }}
                             />
@@ -282,9 +282,9 @@ const UserWordsList = () => {
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                             margin: '0 auto 16px'
                         }}>
-                            <Bookmark size={32} style={{ color: C.pink }} />
+                            <Bookmark size={32} color={C.pink} />
                         </div>
-                        <h3 style={{ margin: '0 0 8px', color: 'white' }}>עדיין אין מילים שמורות</h3>
+                        <h3 style={{ margin: '0 0 8px', color: C.text }}>עדיין אין מילים שמורות</h3>
                         <p style={{ margin: 0, color: C.muted, lineHeight: 1.5, fontSize: 14 }}>
                             כשתתקל במילים לא מוכרות במהלך התרגול,
                             <br />
@@ -314,11 +314,11 @@ const UserWordsList = () => {
                                                     cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center'
                                                 }}
                                             >
-                                                {selectedIds.has(item.id) && <Check size={14} style={{ color: 'white' }} />}
+                                                {selectedIds.has(item.id) && <Check size={14} color={C.text} />}
                                             </button>
                                         )}
                                         <div>
-                                            <h3 style={{ margin: '0 0 2px', fontSize: 18, fontWeight: 600, color: 'white', letterSpacing: 0.5 }} dir="ltr">
+                                            <h3 style={{ margin: '0 0 2px', fontSize: 18, fontWeight: 600, color: C.text, letterSpacing: 0.5 }} dir="ltr">
                                                 {item.text}
                                             </h3>
                                             <p style={{ margin: 0, fontSize: 12, color: C.muted }}>
@@ -356,7 +356,7 @@ const UserWordsList = () => {
                                                 style={{
                                                     flex: 1, padding: '8px 12px', borderRadius: 8,
                                                     background: C.bg, border: `1px solid ${C.border}`,
-                                                    color: 'white', fontSize: 14, outline: 'none'
+                                                    color: C.text, fontSize: 14, outline: 'none'
                                                 }}
                                                 onKeyDown={(e) => {
                                                     if (e.key === 'Enter') handleSaveTranslation(item.id);
@@ -368,7 +368,7 @@ const UserWordsList = () => {
                                                 style={{
                                                     padding: '0 14px', borderRadius: 8,
                                                     background: C.purple, border: 'none',
-                                                    color: 'white', fontSize: 13, fontWeight: 600, cursor: 'pointer'
+                                                    color: C.text, fontSize: 13, fontWeight: 600, cursor: 'pointer'
                                                 }}
                                             >
                                                 שמור
@@ -387,7 +387,7 @@ const UserWordsList = () => {
                                             }}
                                             dir="rtl"
                                         >
-                                            <Languages size={14} style={{ color: C.muted }} />
+                                            <Languages size={14} color={C.muted} />
                                             {item.translation || 'הוסף תרגום לעברית...'}
                                         </button>
                                     )}

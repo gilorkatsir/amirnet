@@ -1,8 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'wouter';
-import { ArrowLeft, BookOpen, X, Check, ArrowRight } from 'lucide-react';
-import { C } from '../../styles/theme';
+import { ArrowRight, BookOpen, X, Check } from 'lucide-react';
+import { C, GLASS, HEADING } from '../../styles/theme';
 import rcDatabase from '../../data/reading_comprehension_database.json';
 import { playCorrect, playIncorrect, playClick } from '../../utils/sounds';
 import { useStatsContext } from '../../contexts/StatsContext';
@@ -102,19 +102,18 @@ const ReadingComprehensionPractice = ({ onComplete }) => {
         return (
             <div style={{ minHeight: '100vh', background: C.bg, color: C.text }}>
                 <header style={{
-                    display: 'flex', alignItems: 'center', gap: 16, padding: '16px 20px',
-                    background: 'rgba(26,26,26,0.95)', backdropFilter: 'blur(8px)',
-                    borderBottom: `1px solid ${C.border}`
+                    display: 'flex', alignItems: 'center', gap: 14, padding: '16px 20px',
+                    position: 'sticky', top: 0, zIndex: 10, ...GLASS.header
                 }}>
                     <button onClick={() => navigate('/')} style={{
-                        width: 40, height: 40, borderRadius: '50%', background: 'transparent',
+                        width: 38, height: 38, borderRadius: 9999, background: 'transparent',
                         border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center'
                     }}>
-                        <ArrowLeft size={24} style={{ color: 'white' }} />
+                        <ArrowRight size={20} color={C.muted} />
                     </button>
                     <div>
-                        <h2 style={{ fontSize: 18, fontWeight: 700, margin: 0, color: 'white' }}>הבנת הנקרא</h2>
-                        <p style={{ fontSize: 12, color: C.muted, margin: 0 }}>{passages.length} קטעים לתרגול</p>
+                        <h2 style={{ ...HEADING.section, margin: 0, color: C.text }}>הבנת הנקרא</h2>
+                        <p style={{ fontSize: 12, color: C.muted, margin: '2px 0 0' }}>{passages.length} קטעים לתרגול</p>
                     </div>
                 </header>
 
@@ -134,7 +133,7 @@ const ReadingComprehensionPractice = ({ onComplete }) => {
                                     display: 'flex', flexDirection: 'column', gap: 8,
                                     padding: 16, background: C.surface,
                                     border: `1px solid ${C.border}`, borderRadius: 12,
-                                    cursor: 'pointer', textAlign: 'left', transition: 'all 0.2s'
+                                    cursor: 'pointer', textAlign: 'left', transition: 'background 0.2s, border-color 0.2s'
                                 }}
                             >
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
@@ -148,7 +147,7 @@ const ReadingComprehensionPractice = ({ onComplete }) => {
                                             <BookOpen size={18} />
                                         </div>
                                         <div>
-                                            <h3 style={{ margin: 0, fontSize: 14, fontWeight: 600, color: 'white' }}>
+                                            <h3 style={{ margin: 0, fontSize: 14, fontWeight: 600, color: C.text }}>
                                                 קטע {i + 1} - מבחן {passage.exam}
                                             </h3>
                                             <p style={{ margin: '2px 0 0', fontSize: 12, color: C.muted }}>
@@ -187,14 +186,14 @@ const ReadingComprehensionPractice = ({ onComplete }) => {
             {/* Header */}
             <header style={{
                 display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                padding: '12px 20px', background: 'rgba(26,26,26,0.95)',
-                backdropFilter: 'blur(8px)', borderBottom: `1px solid ${C.border}`
+                padding: '12px 20px',
+                ...GLASS.header
             }}>
                 <button onClick={() => setView('list')} style={{
                     width: 36, height: 36, borderRadius: '50%', background: 'transparent',
                     border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center'
                 }}>
-                    <X size={22} style={{ color: '#d1d5db' }} />
+                    <X size={22} color={C.muted} />
                 </button>
                 <div style={{ textAlign: 'center' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
@@ -224,7 +223,7 @@ const ReadingComprehensionPractice = ({ onComplete }) => {
                     maxHeight: '40vh', overflowY: 'auto'
                 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10 }}>
-                        <BookOpen size={14} style={{ color: C.purple }} />
+                        <BookOpen size={14} color={C.purple} />
                         <span style={{ fontSize: 11, fontWeight: 700, color: C.purple, textTransform: 'uppercase', letterSpacing: 1 }}>
                             Passage (tap a word to save)
                         </span>
@@ -276,7 +275,7 @@ const ReadingComprehensionPractice = ({ onComplete }) => {
                                     display: 'flex', alignItems: 'flex-start', padding: '14px 16px',
                                     borderRadius: 12, background: bg, border: `1px solid ${brd}`,
                                     cursor: answered ? 'default' : 'pointer', textAlign: 'left',
-                                    transition: 'all 0.2s', gap: 12
+                                    transition: 'background 0.2s, border-color 0.2s', gap: 12
                                 }}
                             >
                                 <div style={{
@@ -288,7 +287,7 @@ const ReadingComprehensionPractice = ({ onComplete }) => {
                                 }}>
                                     {isSelected && (
                                         answered ? (
-                                            isCorrect ? <Check size={14} style={{ color: 'white' }} /> : <X size={14} style={{ color: 'white' }} />
+                                            isCorrect ? <Check size={14} color="white" /> : <X size={14} color="white" />
                                         ) : (
                                             <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'white' }} />
                                         )
@@ -309,11 +308,11 @@ const ReadingComprehensionPractice = ({ onComplete }) => {
                     disabled={!answered}
                     style={{
                         width: '100%', height: 52, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-                        borderRadius: 12, background: answered ? C.gradient : '#333',
+                        borderRadius: 12, background: answered ? C.gradient : C.glass,
                         border: 'none', color: 'white', fontSize: 16, fontWeight: 700,
                         cursor: answered ? 'pointer' : 'default', opacity: answered ? 1 : 0.5,
                         boxShadow: answered ? '0 8px 24px rgba(124,58,237,0.25)' : 'none',
-                        transition: 'all 0.2s'
+                        transition: 'background 0.2s, border-color 0.2s'
                     }}
                 >
                     {answered ? (

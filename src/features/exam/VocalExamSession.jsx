@@ -11,6 +11,7 @@ import { C, GLASS, RADIUS } from '../../styles/theme';
 import { playCorrect, playIncorrect, playTimerComplete, playClick } from '../../utils/sounds';
 import { textToSpeech, VOICES } from '../../services/elevenLabsService';
 import { hasElevenLabsKey } from '../../services/apiKeys';
+import AudioVisualizer from '../../components/AudioVisualizer';
 
 const VocalExamSession = ({ section, onComplete }) => {
   const [, navigate] = useLocation();
@@ -247,22 +248,33 @@ const VocalExamSession = ({ section, onComplete }) => {
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '24px 20px', gap: 24 }}>
           <h2 style={{ fontSize: 19, fontWeight: 700, color: C.text, textAlign: 'center', margin: 0 }}>{section.title}</h2>
 
-          <motion.div
-            animate={audioState === 'playing' ? { scale: [1, 1.06, 1] } : { scale: 1 }}
-            transition={audioState === 'playing' ? { repeat: Infinity, duration: 1.5, ease: 'easeInOut' } : { duration: 0.3 }}
-            style={{
-            width: 96, height: 96, borderRadius: RADIUS.full,
-            background: audioState === 'playing' ? `${accentColor}15` : C.glass,
-            border: `2px solid ${audioState === 'playing' ? accentColor : C.glassBorder}`,
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            transition: 'background 0.3s, border 0.3s, box-shadow 0.3s', boxShadow: audioState === 'playing' ? C.shadowGlow(accentColor) : 'none'
-          }}>
-            {audioState === 'loading' ? <Loader size={36} color={C.muted} style={{ animation: 'spin 1s linear infinite' }} /> :
-             audioState === 'playing' ? <AudioLines size={36} color={accentColor} /> :
-             audioState === 'paused' ? <Pause size={36} color={C.muted} /> :
-             audioState === 'done' ? <Check size={36} color={C.green} /> :
-             <Play size={36} color={C.muted} />}
-          </motion.div>
+          {/* Visualizer shown during playback/pause — icon circle for other states */}
+          {(audioState === 'playing' || audioState === 'paused') ? (
+            <AudioVisualizer
+              audioState={audioState}
+              clipIndex={currentClipIndex}
+              totalClips={section.clips.length}
+              isLecture={isLecture}
+              accentColor={accentColor}
+            />
+          ) : (
+            <motion.div
+              animate={audioState === 'loading' ? { rotate: 360 } : { scale: 1 }}
+              transition={audioState === 'loading' ? { repeat: Infinity, duration: 1, ease: 'linear' } : { duration: 0.3 }}
+              style={{
+                width: 96, height: 96, borderRadius: RADIUS.full,
+                background: audioState === 'done' ? `${C.green}15` : C.glass,
+                border: `2px solid ${audioState === 'done' ? `${C.green}40` : C.glassBorder}`,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                transition: 'background 0.3s, border 0.3s, box-shadow 0.3s',
+                boxShadow: audioState === 'done' ? C.shadowGlow(C.green) : 'none',
+              }}
+            >
+              {audioState === 'loading' ? <Loader size={36} color={C.muted} /> :
+               audioState === 'done' ? <Check size={36} color={C.green} /> :
+               <Play size={36} color={C.muted} />}
+            </motion.div>
+          )}
 
           <p style={{ fontSize: 13, color: C.muted, textAlign: 'center', margin: 0 }} dir="rtl">
             {audioState === 'loading' ? 'טוען אודיו...' : audioState === 'playing' ? 'מאזינים...' : audioState === 'paused' ? 'מושהה — לחץ להמשך' : audioState === 'done' ? 'הקליפ הסתיים' : hasTts ? 'לחץ Play להשמעה' : 'קרא את הטקסט'}
@@ -415,7 +427,7 @@ const VocalExamSession = ({ section, onComplete }) => {
                   onClick={() => handleSelect(i)} disabled={answered} style={{
                   display: 'flex', alignItems: 'flex-start', padding: '14px 16px',
                   borderRadius: RADIUS.md, background: bg, border: `1px solid ${brd}`,
-                  cursor: answered ? 'default' : 'pointer', textAlign: 'left', transition: 'all 0.2s', gap: 12
+                  cursor: answered ? 'default' : 'pointer', textAlign: 'left', transition: 'background 0.2s, border-color 0.2s', gap: 12
                 }}>
                   <div style={{
                     width: 24, height: 24, borderRadius: RADIUS.full,
@@ -440,7 +452,7 @@ const VocalExamSession = ({ section, onComplete }) => {
             width: '100%', height: 52, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
             borderRadius: RADIUS.md, background: answered ? C.gradient : C.glass, border: answered ? 'none' : `1px solid ${C.glassBorder}`,
             color: 'white', fontSize: 16, fontWeight: 700, cursor: answered ? 'pointer' : 'default',
-            opacity: answered ? 1 : 0.4, boxShadow: answered ? '0 8px 24px rgba(124,58,237,0.25)' : 'none', transition: 'all 0.2s'
+            opacity: answered ? 1 : 0.4, boxShadow: answered ? '0 8px 24px rgba(124,58,237,0.25)' : 'none', transition: 'background 0.2s, opacity 0.2s, box-shadow 0.2s'
           }}>
             {answered ? (
               <>

@@ -8,6 +8,7 @@ import {
 import { C, GLASS, RADIUS, SURFACE } from '../styles/theme';
 import { isSoundEnabled, setSoundEnabled } from '../utils/sounds';
 import { validateStatsStructure, safeLocalStorageGet } from '../utils/security';
+import { clearSelectionHistory } from '../utils/smartSelection';
 import { useStatsContext } from '../contexts/StatsContext';
 import { useUserWords } from '../contexts/UserWordsContext';
 import { useAuth } from '../contexts/AuthContext';
@@ -50,6 +51,10 @@ const Settings = () => {
     const handleReset = (type) => {
         if (confirmReset === type) {
             resetStats(type);
+            // Also clear the variety/selection history for the reset type
+            if (type === 'all') clearSelectionHistory();
+            else if (type === 'vocab') clearSelectionHistory('vocab');
+            else if (type === 'english') clearSelectionHistory('english');
             setConfirmReset(null);
         } else {
             setConfirmReset(type);

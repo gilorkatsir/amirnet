@@ -123,7 +123,7 @@ const QuestionTypeSelector = ({ onSelect }) => {
                         padding: 8
                     }}
                 >
-                    <ArrowRight size={24} style={{ color: C.muted }} />
+                    <ArrowRight size={24} color={C.muted} />
                 </button>
                 <div>
                     <h1 style={{ fontSize: 18, fontWeight: 700, margin: 0, color: C.text }}>
@@ -325,7 +325,7 @@ const QuestionTypeSelector = ({ onSelect }) => {
                                     בחר קטע, קרא ותרגל שאלות עם הטקסט לנגד עיניך
                                 </p>
                             </div>
-                            <ChevronLeft size={20} style={{ color: C.muted }} />
+                            <ChevronLeft size={20} color={C.muted} />
                         </motion.button>
                     </section>
                 )}
@@ -375,7 +375,7 @@ const QuestionTypeSelector = ({ onSelect }) => {
                                             {examQuestions.length} שאלות • 2 חלקים
                                         </p>
                                     </div>
-                                    {locked ? <Lock size={16} color={C.dim} /> : <ChevronLeft size={20} style={{ color: C.muted }} />}
+                                    {locked ? <Lock size={16} color={C.dim} /> : <ChevronLeft size={20} color={C.muted} />}
                                 </motion.button>
                             );
                         })}

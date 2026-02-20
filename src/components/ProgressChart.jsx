@@ -65,7 +65,7 @@ const ProgressChart = ({ data, type = 'daily', height = 180 }) => {
         }}>
             {/* Header */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
-                <h3 style={{ margin: 0, fontSize: 14, fontWeight: 600, color: 'white' }}>
+                <h3 style={{ margin: 0, fontSize: 14, fontWeight: 600, color: C.text }}>
                     {type === 'daily' ? 'דיוק - 7 ימים אחרונים' : 'דיוק - 4 שבועות אחרונים'}
                 </h3>
                 {trend !== null && (

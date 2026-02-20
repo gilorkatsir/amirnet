@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'wouter';
 import { ArrowRight, Mail, Phone } from 'lucide-react';
-import { C } from '../styles/theme';
+import { C, GLASS } from '../styles/theme';
 
 /**
  * Accessibility Statement Page - הצהרת נגישות
@@ -11,7 +11,7 @@ const AccessibilityStatement = () => {
     const [, navigate] = useLocation();
     const Section = ({ title, children }) => (
         <section style={{ marginBottom: 24 }}>
-            <h2 style={{ fontSize: 16, fontWeight: 700, color: 'white', marginBottom: 12 }}>{title}</h2>
+            <h2 style={{ fontSize: 16, fontWeight: 700, color: C.text, marginBottom: 12 }}>{title}</h2>
             <div style={{ fontSize: 14, lineHeight: 1.7, color: C.muted }}>{children}</div>
         </section>
     );
@@ -20,16 +20,14 @@ const AccessibilityStatement = () => {
         <div style={{ minHeight: '100vh', background: C.bg, color: C.text }}>
             {/* Header */}
             <header style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 16,
+                padding: '16px 20px',
                 position: 'sticky',
                 top: 0,
                 zIndex: 10,
-                background: 'rgba(18,18,18,0.95)',
-                backdropFilter: 'blur(12px)',
-                padding: '16px 20px',
-                borderBottom: `1px solid ${C.border}`,
-                display: 'flex',
-                alignItems: 'center',
-                gap: 16
+                ...GLASS.header
             }}>
                 <button
                     onClick={() => navigate('/settings')}
@@ -41,9 +39,9 @@ const AccessibilityStatement = () => {
                         padding: 8
                     }}
                 >
-                    <ArrowRight size={24} style={{ color: C.muted }} />
+                    <ArrowRight size={24} color={C.muted} />
                 </button>
-                <h1 style={{ fontSize: 18, fontWeight: 700, margin: 0, color: 'white' }}>
+                <h1 style={{ fontSize: 18, fontWeight: 700, margin: 0, color: C.text }}>
                     הצהרת נגישות
                 </h1>
             </header>
@@ -100,11 +98,11 @@ const AccessibilityStatement = () => {
                         marginTop: 12
                     }}>
                         <p style={{ margin: '0 0 8px', display: 'flex', alignItems: 'center', gap: 8 }}>
-                            <Mail size={16} style={{ color: C.purple }} />
+                            <Mail size={16} color={C.purple} />
                             <strong>אימייל:</strong> accessibility@wordmaster.app
                         </p>
                         <p style={{ margin: 0, display: 'flex', alignItems: 'center', gap: 8 }}>
-                            <Phone size={16} style={{ color: C.green }} />
+                            <Phone size={16} color={C.green} />
                             <strong>טלפון:</strong> 03-1234567
                         </p>
                     </div>

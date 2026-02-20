@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'wouter';
 import { X, Shield, FileText } from 'lucide-react';
-import { C } from '../styles/theme';
+import { C, GLASS } from '../styles/theme';
 
 const LegalPages = () => {
     const [, navigate] = useLocation();
@@ -18,8 +18,8 @@ const LegalPages = () => {
             {/* Header */}
             <header style={{
                 position: 'sticky', top: 0, zIndex: 50,
-                background: 'rgba(18,18,18,0.9)', backdropFilter: 'blur(12px)',
-                borderBottom: `1px solid ${C.border}`, padding: '12px 16px'
+                padding: '12px 16px',
+                ...GLASS.header
             }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                     <h1 style={{ fontSize: 18, fontWeight: 700, margin: 0 }}>מידע משפטי</h1>
@@ -44,10 +44,10 @@ const LegalPages = () => {
                                 flex: 1, padding: '10px 16px', borderRadius: 8,
                                 border: 'none', cursor: 'pointer',
                                 background: activeTab === tab.id ? C.surface : 'transparent',
-                                color: activeTab === tab.id ? 'white' : C.muted,
+                                color: activeTab === tab.id ? C.text : C.muted,
                                 fontSize: 13, fontWeight: 600,
                                 display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
-                                transition: 'all 0.2s'
+                                transition: 'background 0.2s, color 0.2s'
                             }}
                         >
                             <tab.Icon size={16} />
@@ -68,7 +68,7 @@ const LegalPages = () => {
 
 const PrivacyPolicy = () => (
     <div style={{ color: C.text, lineHeight: 1.8 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, marginBottom: 16, color: 'white' }}>
+        <h2 style={{ fontSize: 20, fontWeight: 700, marginBottom: 16, color: C.text }}>
             מדיניות פרטיות
         </h2>
         <p style={{ color: C.muted, fontSize: 12, marginBottom: 24 }}>
@@ -134,7 +134,7 @@ const PrivacyPolicy = () => (
 
 const TermsOfService = () => (
     <div style={{ color: C.text, lineHeight: 1.8 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, marginBottom: 16, color: 'white' }}>
+        <h2 style={{ fontSize: 20, fontWeight: 700, marginBottom: 16, color: C.text }}>
             תנאי שימוש
         </h2>
         <p style={{ color: C.muted, fontSize: 12, marginBottom: 24 }}>
@@ -194,7 +194,7 @@ const TermsOfService = () => (
 
 const Section = ({ title, children }) => (
     <div style={{ marginBottom: 24 }}>
-        <h3 style={{ fontSize: 16, fontWeight: 600, marginBottom: 12, color: 'white' }}>
+        <h3 style={{ fontSize: 16, fontWeight: 600, marginBottom: 12, color: C.text }}>
             {title}
         </h3>
         <div style={{ color: C.muted, fontSize: 14 }}>
@@ -203,7 +203,7 @@ const Section = ({ title, children }) => (
         <style>{`
             ul { margin: 8px 0; padding-right: 20px; }
             li { margin-bottom: 4px; }
-            strong { color: white; }
+            strong { color: #f0f0f5; }
         `}</style>
     </div>
 );

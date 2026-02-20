@@ -129,7 +129,7 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                     background: 'rgba(255,255,255,0.05)',
                     borderRadius: 8,
                 }}>
-                    <typeInfo.Icon size={16} style={{ color: typeInfo.color }} />
+                    <typeInfo.Icon size={16} color={typeInfo.color} />
                     <span style={{ fontSize: 12, fontWeight: 600, color: typeInfo.color }}>{typeInfo.he}</span>
                 </div>
                 {showTts && (
@@ -147,7 +147,7 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                             alignItems: 'center',
                             justifyContent: 'center',
                             color: ttsPlaying ? C.purple : C.muted,
-                            transition: 'all 0.2s',
+                            transition: 'background 0.2s, border-color 0.2s, opacity 0.2s',
                             marginRight: 'auto'
                         }}
                     >
@@ -268,22 +268,22 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                     const isSelected = selected === i;
                     const isCorrect = i === (question.correctIndex - 1);
 
-                    let bg = '#232323';
-                    let brd = '#2f2f2f';
-                    let textColor = '#e5e5e5';
+                    let bg = C.glass;
+                    let brd = C.glassBorder;
+                    let textColor = C.text;
 
                     if (answered) {
                         if (isCorrect) {
-                            bg = 'rgba(34,197,94,0.15)';
-                            brd = C.green;
-                            textColor = 'white';
+                            bg = 'rgba(34,197,94,0.12)';
+                            brd = `${C.green}50`;
+                            textColor = C.text;
                         } else if (isSelected) {
-                            bg = 'rgba(239,68,68,0.15)';
-                            brd = C.red;
+                            bg = 'rgba(239,68,68,0.12)';
+                            brd = `${C.red}50`;
                         }
                     } else if (isSelected) {
-                        bg = '#2a2a2a';
-                        brd = C.purple;
+                        bg = `${C.purple}10`;
+                        brd = `${C.purple}40`;
                     }
 
                     return (
@@ -300,7 +300,7 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                                 border: `1px solid ${brd}`,
                                 cursor: answered ? 'default' : 'pointer',
                                 textAlign: 'left',
-                                transition: 'all 0.2s',
+                                transition: 'background 0.2s, border-color 0.2s, opacity 0.2s',
                                 gap: 12
                             }}
                         >
@@ -308,7 +308,7 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                                 width: 24,
                                 height: 24,
                                 borderRadius: '50%',
-                                border: isSelected ? 'none' : '1.5px solid #6b728080',
+                                border: isSelected ? 'none' : `1.5px solid ${C.dim}40`,
                                 background: isSelected ? C.gradient : 'transparent',
                                 display: 'flex',
                                 alignItems: 'center',
@@ -319,8 +319,8 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                                 {isSelected && (
                                     answered ? (
                                         isCorrect
-                                            ? <Check size={14} style={{ color: 'white' }} />
-                                            : <X size={14} style={{ color: 'white' }} />
+                                            ? <Check size={14} color="white" />
+                                            : <X size={14} color="white" />
                                     ) : (
                                         <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'white' }} />
                                     )
@@ -330,7 +330,7 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                                 <span style={{
                                     fontSize: 11,
                                     fontWeight: 700,
-                                    color: isSelected ? C.purple : '#6b728080',
+                                    color: isSelected ? C.purple : C.dim,
                                     marginRight: 8
                                 }}>
                                     {letter}
@@ -524,7 +524,7 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                                 style={{
                                     padding: '0 16px',
                                     borderRadius: 8,
-                                    background: unknownWord.trim() ? C.purple : '#333',
+                                    background: unknownWord.trim() ? C.purple : C.glass,
                                     border: 'none',
                                     color: 'white',
                                     fontWeight: 600,
@@ -571,7 +571,7 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                         justifyContent: 'center',
                         gap: 8,
                         borderRadius: 12,
-                        background: answered ? C.gradient : '#333',
+                        background: answered ? C.gradient : C.glass,
                         border: 'none',
                         color: 'white',
                         fontSize: 16,
@@ -579,7 +579,7 @@ const EnglishQuestion = ({ question, onResult, onSaveWord, onNext }) => {
                         cursor: answered ? 'pointer' : 'default',
                         opacity: answered ? 1 : 0.5,
                         boxShadow: answered ? '0 8px 24px rgba(124,58,237,0.25)' : 'none',
-                        transition: 'all 0.2s'
+                        transition: 'background 0.2s, border-color 0.2s, opacity 0.2s'
                     }}
                 >
                     {answered ? (

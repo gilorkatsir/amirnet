@@ -202,7 +202,7 @@ const PomodoroTimer = () => {
                             cursor: 'pointer',
                             fontSize: 14,
                             fontWeight: 600,
-                            transition: 'all 0.3s'
+                            transition: 'background 0.3s, color 0.3s'
                         }}
                     >
                         {MODES[m].label}

@@ -49,10 +49,10 @@ class ErrorBoundary extends React.Component {
                         justifyContent: 'center',
                         marginBottom: 24
                     }}>
-                        <AlertCircle size={40} style={{ color: '#ef4444' }} />
+                        <AlertCircle size={40} color={C.red} />
                     </div>
 
-                    <h1 style={{ fontSize: 24, fontWeight: 700, color: 'white', margin: '0 0 12px' }}>
+                    <h1 style={{ fontSize: 24, fontWeight: 700, color: C.text, margin: '0 0 12px' }}>
                         משהו השתבש 😕
                     </h1>
 
@@ -104,7 +104,7 @@ class ErrorBoundary extends React.Component {
                             padding: 16,
                             background: C.surface,
                             borderRadius: 8,
-                            color: '#ef4444',
+                            color: C.red,
                             fontSize: 12,
                             textAlign: 'left',
                             direction: 'ltr',
