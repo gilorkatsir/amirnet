@@ -41,6 +41,7 @@ const SwipeCard = ({ word, onSwipeRight, onSwipeLeft, stackIndex = 0 }) => {
 
     const handlePointerDown = useCallback((e) => {
         if (stackIndex !== 0) return;
+        e.currentTarget.setPointerCapture(e.pointerId);
         pointerStartRef.current = { x: e.clientX, y: e.clientY };
         setIsDragging(true);
     }, [stackIndex]);
@@ -52,8 +53,9 @@ const SwipeCard = ({ word, onSwipeRight, onSwipeLeft, stackIndex = 0 }) => {
         dragX.set(dx);
     }, [dragX, stackIndex]);
 
-    const handlePointerUp = useCallback(() => {
+    const handlePointerUp = useCallback((e) => {
         if (!pointerStartRef.current || stackIndex !== 0) return;
+        try { e.currentTarget.releasePointerCapture(e.pointerId); } catch {}
         const dx = currentXRef.current;
 
         if (dx > SWIPE_THRESHOLD) {

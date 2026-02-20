@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback, useReducer } from 'react';
 import { useLocation } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -18,8 +18,9 @@ const SwipeMode = () => {
     const [, navigate] = useLocation();
     const { stats, calculatePriority, updateWordProgress } = useStatsContext();
     const { isPremium, canAccessWord } = useTier();
+    const [sessionKey, refreshSession] = useReducer(x => x + 1, 0);
 
-    // Build session words
+    // Build session words — refreshes on restart
     const sessionWords = useMemo(() => {
         const pool = isPremium
             ? VOCABULARY
@@ -29,7 +30,7 @@ const SwipeMode = () => {
         return selectWithVariety(topSlice, Math.min(SWIPE_SESSION_SIZE, pool.length), {
             type: 'vocab', diversifyBy: 'category', record: true,
         });
-    }, [isPremium, canAccessWord, calculatePriority]);
+    }, [isPremium, canAccessWord, calculatePriority, sessionKey]);
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [results, setResults] = useState({ knew: [], didntKnow: [] });
@@ -66,6 +67,7 @@ const SwipeMode = () => {
         setCurrentIndex(0);
         setResults({ knew: [], didntKnow: [] });
         setIsComplete(false);
+        refreshSession();
     }, []);
 
     const handleReviewMistakes = useCallback(() => {

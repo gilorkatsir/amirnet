@@ -102,7 +102,7 @@ const Flashcard = ({ word, onResult, onNext }) => {
         };
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [flipped, revealed]);
+    }, [flipped, revealed, handleResult]);
 
     return (
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 24, position: 'relative' }}>

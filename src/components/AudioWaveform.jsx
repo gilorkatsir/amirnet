@@ -15,8 +15,9 @@ const barConfigs = Array.from({ length: BAR_COUNT }, (_, i) => {
   };
 });
 
+let waveGradCounter = 0;
 const AudioWaveform = ({ isPlaying = false, isPaused = false, barColor }) => {
-  const gradientId = 'waveGrad';
+  const gradientId = React.useMemo(() => `waveGrad-${++waveGradCounter}`, []);
 
   return (
     <div

@@ -94,7 +94,7 @@ const AudioVisualizer = ({
                 letterSpacing: 0.5,
               }}
             >
-              {isPlaying ? (isLecture ? 'מאזינים...' : 'מאזינים...') : 'מושהה'}
+              {isPlaying ? (isLecture ? 'מאזינים להרצאה...' : 'מאזינים...') : 'מושהה'}
             </span>
 
             {isPaused && (
